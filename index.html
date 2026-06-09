@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mikaël Andraos | Portfolio Créatif & UX</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#2563eb', // Bleu Royal Officiel
+                            600: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 3px; }
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #475569; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold tracking-wider text-brand-500 hover:text-brand-600 transition" id="nav-brand-name">
+                MIKAEL_ANDRAOS.
+            </a>
+
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#propos" class="hover:text-brand-500 transition">À propos</a>
+                <a href="#projets" class="hover:text-brand-500 transition">Projets</a>
+                <a href="#competences" class="hover:text-brand-500 transition">Compétences</a>
+                <a href="#contact" class="hover:text-brand-500 transition">Contact</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-900 transition" aria-label="Toggle Theme">
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-slate-500 dark:text-slate-400" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                </button>
+                <a href="#contact" class="hidden sm:inline-flex items-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition">
+                    Me Recruter
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 px-4 py-4 space-y-3">
+            <a href="#propos" class="block text-base font-medium hover:text-brand-500 transition mobile-link">À propos</a>
+            <a href="#projets" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Projets</a>
+            <a href="#competences" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Compétences</a>
+            <a href="#contact" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow pt-16">
+        <!-- HERO SECTION -->
+        <section class="relative py-20 lg:py-32 overflow-hidden flex items-center justify-center">
+            <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.brand.100),transparent)] dark:bg-[radial-gradient(45rem_50rem_at_top,theme(colors.slate.900),transparent)] opacity-40"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 mb-6 border border-brand-100 dark:border-brand-900/50">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Freelance Disponible (Monaco & Grand Sud / Remote)
+                </span>
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6">
+                    Donner de la voix & du sens <br class="hidden sm:inline">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-indigo-500">
+                        à vos plus beaux projets
+                    </span>
+                </h1>
+                <p class="max-w-2xl mx-auto text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
+                    Je m'appelle <strong>Mikaël Andraos</strong>. J'accompagne les marques engagées, les festivals et les fondations de premier plan dans leur communication globale : de l'UX Design au print haut de gamme, en passant par le storytelling d'impact.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#projets" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold text-white bg-brand-500 rounded-xl hover:bg-brand-600 shadow-lg shadow-brand-500/20 hover:-translate-y-0.5 transition duration-200">
+                        Consulter mon travail
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </a>
+                    <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition duration-200">
+                        Me contacter
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- A PROPOS -->
+        <section id="propos" class="py-16 sm:py-24 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950/40 transition-colors">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="w-full max-w-sm rounded-3xl bg-slate-900 text-slate-100 p-6 border border-slate-800 shadow-2xl relative overflow-hidden group">
+                            <div class="absolute -right-16 -top-16 w-32 h-32 bg-brand-500/10 rounded-full blur-2xl group-hover:bg-brand-500/20 transition duration-500"></div>
+                            <div class="flex items-center justify-between mb-6 border-b border-slate-800 pb-4">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                    <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                </div>
+                                <span class="text-[10px] font-mono tracking-widest text-slate-500 uppercase">Process.config</span>
+                            </div>
+                            <div class="space-y-4 font-mono text-xs">
+                                <div class="p-3 rounded-xl bg-slate-950/50 border border-slate-800/60">
+                                    <span class="text-brand-400">01_STRATÉGIE & COPY</span>
+                                    <p class="text-[10px] text-slate-400 mt-1 font-sans">Storytelling culturel, lignes éditoriales ciblées, écriture AIDA.</p>
+                                </div>
+                                <div class="p-3 rounded-xl bg-slate-950/50 border border-slate-800/60">
+                                    <span class="text-emerald-400">02_UX DESIGN & ARCHITECTURE</span>
+                                    <p class="text-[10px] text-slate-400 mt-1 font-sans">Parcours utilisateurs optimisés, wireframing interactif, clarté.</p>
+                                </div>
+                                <div class="p-3 rounded-xl bg-slate-950/50 border border-slate-800/60">
+                                    <span class="text-indigo-400">03_SUPPORT PHYSIQUE</span>
+                                    <p class="text-[10px] text-slate-400 mt-1 font-sans">Rapports annuels géométriques, harmonie typo, rigueur CMJN.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7">
+                        <h2 class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2">À PROPOS DE MOI</h2>
+                        <h3 class="text-3xl font-extrabold mb-6">Mikaël Andraos</h3>
+                        <div class="space-y-4 text-slate-600 dark:text-slate-400 leading-relaxed text-base">
+                            <p>Passionné par l’interaction entre le fond et la forme, je construis des ponts solides entre la <strong>création éditoriale</strong> et le <strong>design d'interface (UX/UI)</strong>. Fort d’une expertise ciblée sur les besoins des fondations et des institutions de premier plan, j’interviens tant sur l’écriture persuasive que sur l’organisation visuelle et ergonomique de l’information.</p>
+                            <p>J’ai récemment collaboré avec la <strong>Fondation Princesse Charlène de Monaco</strong>, concevant pour eux des supports imprimés haut de gamme à forte identité et travaillant sur l'optimisation fonctionnelle de leur tunnel de don digital. Parallèlement, j'accompagne le festival du <strong>Printemps des Arts de Monte-Carlo</strong> sur sa stratégie éditoriale digitale globale, orchestrant des réseaux sociaux engageants et des newsletters immersives.</p>
+                            <p>Cette sensibilité créative s'accompagne d'un bagage technique agile : la maîtrise du <strong>prompt engineering</strong> pour affiner et accélérer la production de contenus qualitatifs, ainsi que des compétences d'intégration <strong>HTML/CSS</strong> me permettant de dialoguer naturellement avec les équipes de développement.</p>
+                        </div>
+                        <div class="grid grid-cols-3 gap-6 mt-8 pt-8 border-t border-slate-100 dark:border-slate-900">
+                            <div><span class="block text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">100%</span><span class="text-xs text-slate-500">Sur-mesure & Qualité</span></div>
+                            <div><span class="block text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">05</span><span class="text-xs text-slate-500">Expertises Clés</span></div>
+                            <div><span class="block text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">02</span><span class="text-xs text-slate-500">Références Majeures</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO / PROJETS -->
+        <section id="projets" class="py-16 sm:py-24 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/20 transition-colors">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2">PORTFOLIO</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Mes Réalisations</h3>
+                    <p class="mt-4 text-slate-600 dark:text-slate-400">Découvrez comment je valorise l'image de marque et l'expérience utilisateur à travers mes projets pour le <strong>Printemps des Arts</strong> et la <strong>Fondation Princesse Charlène</strong>.</p>
+                </div>
+
+                <div class="flex flex-wrap items-center justify-center gap-2 mb-12" id="project-filters">
+                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 bg-brand-500 text-white shadow-md shadow-brand-500/10" data-filter="all">Tous</button>
+                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-900" data-filter="digital">Digital & Copy</button>
+                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-900" data-filter="print">Supports Print</button>
+                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-900" data-filter="ux">UX & Web Design</button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8" id="projects-grid">
+                    <!-- Généré dynamiquement en JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPETENCES -->
+        <section id="competences" class="py-16 sm:py-24 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 transition-colors">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2">COMPÉTENCES</h2>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Mon Équipement & Méthodologie</h3>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                    <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-950/50 text-brand-500 flex items-center justify-center mb-5">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                        </div>
+                        <h4 class="text-base font-bold mb-2">Content & Copywriting</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Formulation de chartes éditoriales complexes, storytelling engageant, écriture de newsletters de conversion et techniques de persuasion AIDA.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-950/50 text-brand-500 flex items-center justify-center mb-5">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <h4 class="text-base font-bold mb-2">Graphisme & Print</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Création de chartes graphiques de premier plan, mise en page de magazines et de plaquettes institutionnelles prêtes pour impression haute définition.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-950/50 text-brand-500 flex items-center justify-center mb-5">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                        </div>
+                        <h4 class="text-base font-bold mb-2">UX & Wireframes</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Conception de l’architecture de l'information (IA) et maquettage fil de fer (Figma). Focus sur l'ergonomie globale et l'optimisation des tunnels de conversion.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-950/50 text-brand-500 flex items-center justify-center mb-5">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <h4 class="text-base font-bold mb-2">Projets Transversaux</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Coordination globale de campagnes multicanales (print, digital, social), synchronisation des équipes créatives et respect strict des plannings éditoriaux.</p>
+                    </div>
+                    <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-950/50 text-brand-500 flex items-center justify-center mb-5">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                        </div>
+                        <h4 class="text-base font-bold mb-2">IA & Intégration Code</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Sensibilité technique et logique d'intégration (HTML/CSS, Tailwind). Optimisation de workflows d'idéation et de rédaction via le Prompt Engineering.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="py-16 sm:py-24 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/20 transition-colors">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <div class="lg:col-span-5 space-y-8">
+                        <div>
+                            <h2 class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2">CONTACT DIRECT</h2>
+                            <h3 class="text-3xl font-extrabold mb-4">Créons quelque chose ensemble</h3>
+                            <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">Prêt à collaborer sur une mission de stratégie de contenu ou une refonte d'interface UX ? Envoyez-moi un message.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                                <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-500 flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Mon E-mail</span>
+                                    <a href="mailto:mikael.andraos@gmail.com" class="text-sm font-semibold hover:text-brand-500 transition">mikael.andraos@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+                                <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-500 flex items-center justify-center shrink-0">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Mon Téléphone</span>
+                                    <a href="tel:0608002312" class="text-sm font-semibold hover:text-brand-500 transition">06 08 00 23 12</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7">
+                        <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
+                            <form id="contact-form" class="space-y-4">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Votre Nom</label>
+                                        <input type="text" required class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs focus:ring-2 focus:ring-brand-500 outline-none">
+                                    </div>
+                                    <div>
+                                        <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Votre E-mail</label>
+                                        <input type="email" required class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs focus:ring-2 focus:ring-brand-500 outline-none">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Message</label>
+                                    <textarea rows="5" required class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs focus:ring-2 focus:ring-brand-500 outline-none"></textarea>
+                                </div>
+                                <button type="submit" class="w-full py-4 px-6 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-xl hover:bg-brand-600 transition">Envoyer mon message</button>
+                                <div id="form-feedback" class="hidden text-xs font-semibold text-center p-3 rounded-xl mt-3"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-8 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 text-center text-sm text-slate-500">
+            <p>&copy; 2026 Mikaël Andraos. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL DE DÉTAIL -->
+    <div id="project-modal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+        <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity bg-slate-900/85 backdrop-blur-sm" id="modal-overlay"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+            <div class="inline-block align-bottom bg-white dark:bg-slate-900 rounded-3xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full">
+
+                <div class="h-64 sm:h-96 bg-slate-100 dark:bg-slate-950 relative overflow-hidden flex items-center justify-center border-b border-slate-200 dark:border-slate-800">
+                    <img id="modal-image" src="" alt="" class="w-full h-full object-contain transition-all duration-300">
+                    <span id="modal-badge" class="absolute top-4 left-4 z-20 px-3 py-1 bg-brand-500 text-white text-xs font-semibold rounded-full shadow-lg">Catégorie</span>
+
+                    <div id="modal-gallery-container" class="absolute bottom-4 left-4 right-4 z-20 flex justify-center gap-2 bg-slate-900/60 backdrop-blur-md p-2 rounded-xl border border-white/10 hidden">
+                        <!-- Miniatures de la galerie insérées ici -->
+                    </div>
+                </div>
+
+                <button id="modal-close-btn" class="absolute top-4 right-4 z-30 p-2.5 bg-slate-950/60 hover:bg-slate-950/80 text-white rounded-full transition shadow-lg border border-white/10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+
+                <div class="p-6 sm:p-8">
+                    <span id="modal-client" class="text-xs font-bold tracking-widest text-brand-500 uppercase">CLIENT</span>
+                    <h3 class="text-2xl font-extrabold mt-1 mb-4" id="modal-title">Titre du Projet</h3>
+                    <p id="modal-description" class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed"></p>
+
+                    <div class="mt-6 pt-6 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Outils & Médias</h4>
+                            <p id="modal-tools" class="text-sm font-semibold mt-1"></p>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Livrables & Missions</h4>
+                            <p id="modal-deliverables" class="text-sm font-semibold mt-1"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIQUE JAVASCRIPT -->
+    <script>
+        // BASE DE DONNÉES DES PROJETS
+        const projectsData = [
+            {
+                id: 1,
+                title: "Réseaux Sociaux & Engagement Événementiel",
+                client: "Printemps des Arts de Monte-Carlo",
+                category: "digital",
+                categoryLabel: "Digital & Copy",
+                shortDescription: "Direction de la création de contenu, storytelling rythmé et animation éditoriale globale pour promouvoir la programmation artistique du festival.",
+                longDescription: "Développement d’une ligne éditoriale immersive pour ce festival artistique d’envergure. J’ai élaboré des contenus engageants (interviews de compositeurs, coulisses créatives, décryptage d’œuvres contemporaines et classiques) pour toucher un public mélomane et attirer de nouvelles audiences. Intégration des mécaniques de rédaction AIDA pour stimuler les abonnements et la billetterie.",
+                tools: "Instagram, Canva, Meta suite, Copywriting",
+                deliverable: "Calendrier éditorial & Visuels de Campagne",
+                imageUrl: "Landing page Printemps des Arts.png",
+                fallbackUrl: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&q=80&w=800",
+                gallery: ["Landing page Printemps des Arts.png"]
+            },
+            {
+                id: 2,
+                title: "Newsletters & Storytelling Culturel",
+                client: "Printemps des Arts de Monte-Carlo",
+                category: "digital",
+                categoryLabel: "Digital & Copy",
+                shortDescription: "Conception, rédaction et envoi de newsletters d'immersion thématiques à destination des festivaliers et abonnés fidèles.",
+                longDescription: "Mise en récit de la programmation musicale du festival à travers des newsletters thématiques soignées. L'objectif était de décoder les pièces complexes et de raconter l'histoire des artistes pour créer un lien fort avant l'événement. Conception d'une mise en page lisible, intégrant des appels à l'action précis pour maximiser l'engagement des abonnés et sécuriser les ventes de billets.",
+                tools: "Mailchimp, Figma, Storytelling, HTML/CSS",
+                deliverable: "Gabarits de Newsletters (Modèles 1, 2 et 3)",
+                imageUrl: "Newsletter Printemps des Arts 1.png",
+                fallbackUrl: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&q=80&w=800",
+                gallery: ["Newsletter Printemps des Arts 1.png", "Newsletter Printemps des Arts 2.png", "Newsletter Printemps des Arts 3.png"]
+            },
+            {
+                id: 3,
+                title: "Supports Éditoriaux & Print",
+                client: "Fondation Princesse Charlène de Monaco",
+                category: "print",
+                categoryLabel: "Supports Print",
+                shortDescription: "Mise en page graphique de brochures institutionnelles et livrets d'activité annuels prêts pour impression haute définition.",
+                longDescription: "Mise en page graphique rigoureuse du rapport annuel d'activité d'une fondation d'envergure. Utilisation d'une structure de grille claire pour valoriser les statistiques clés ('2020 en chiffres') et les projets menés à l'international. Préparation de haute qualité des fichiers pour l'impression (profils de couleurs CMJN, marges de sécurité, fonds perdus).",
+                tools: "Adobe InDesign, Illustrator, Typographie, Grille",
+                deliverable: "Plaquettes Prêtes pour Imprimeur (PDF)",
+                imageUrl: "Rapport d'activités FPCM.png",
+                fallbackUrl: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=800",
+                gallery: ["Rapport d'activités FPCM.png"]
+            },
+            {
+                id: 4,
+                title: "UX Design et Architecture de Contenus",
+                client: "Fondation Princesse Charlène de Monaco",
+                category: "ux",
+                categoryLabel: "UX & Web Design",
+                shortDescription: "Refonte complète du tunnel de don interactif structuré en étapes et restructuration visuelle de l'accueil de ses programmes phares.",
+                longDescription: "Ce projet transversal unifie deux piliers de l'écosystème digital de la Fondation. D'une part, la refonte fonctionnelle complète de l'expérience donateur sous la forme d'un tunnel fluide en 3 étapes claires ('Mon don', 'Mes coordonnées', 'Mon règlement') minimisant les points de friction de paiement. D'autre part, la restructuration visuelle et l'optimisation de l'arborescence globale pour l'accueil de ses programmes phares d'apprentissage.",
+                tools: "Figma, Architecture d'Information, Wireframing, Ergonomie",
+                deliverable: "Maquettes UX Figma Interactives & Gabarits Web",
+                imageUrl: "Page de dons en ligne FPCM.png",
+                fallbackUrl: "https://images.unsplash.com/photo-1581291518655-9523c932dedf?auto=format&fit=crop&q=80&w=800",
+                gallery: ["Page de dons en ligne FPCM.png", "Arborescence et architecture site web FPCM.png"]
+            }
+        ];
+
+        // THEMES
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            darkIcon.classList.remove('hidden');
+        }
+        themeToggleBtn.addEventListener('click', () => {
+            lightIcon.classList.toggle('hidden');
+            darkIcon.classList.toggle('hidden');
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // MENU MOBILE
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+        // AFFICHAGE DES PROJETS
+        const grid = document.getElementById('projects-grid');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        function renderProjects(categoryFilter = 'all') {
+            grid.innerHTML = '';
+            const filtered = categoryFilter === 'all' ? projectsData : projectsData.filter(p => p.category === categoryFilter);
+            filtered.forEach(project => {
+                const card = document.createElement('div');
+                card.className = "group relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 flex flex-col cursor-pointer";
+                card.onclick = () => openModal(project.id);
+                card.innerHTML = `
+                    <div class="h-48 overflow-hidden bg-slate-100 dark:bg-slate-800 relative border-b border-slate-100 dark:border-slate-800">
+                        <img src="${project.imageUrl}" alt="${project.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.onerror=null; this.src='${project.fallbackUrl}';">
+                        <span class="absolute top-3 left-3 bg-brand-500 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full z-10 shadow">${project.categoryLabel}</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-brand-500 tracking-wider uppercase block mb-1">${project.client}</span>
+                            <h4 class="text-base font-bold leading-tight mb-2 group-hover:text-brand-500 transition line-clamp-2 h-10">${project.title}</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-3 mb-4">${project.shortDescription}</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">${project.tools.split(',')[0]}...</span>
+                            <span class="text-xs font-bold text-brand-500 group-hover:text-brand-600 inline-flex items-center gap-1">Détails <svg class="w-3 h-3 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                filterBtns.forEach(b => b.className = "filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-900");
+                e.target.className = "filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 bg-brand-500 text-white shadow-md";
+                renderProjects(e.target.getAttribute('data-filter'));
+            });
+        });
+
+        // MODALE & GALERIE
+        const modal = document.getElementById('project-modal');
+        function openModal(id) {
+            const p = projectsData.find(proj => proj.id === id);
+            const modalImg = document.getElementById('modal-image');
+
+            modalImg.src = p.imageUrl;
+            modalImg.onerror = function() { this.onerror=null; this.src = p.fallbackUrl; };
+
+            document.getElementById('modal-badge').innerText = p.categoryLabel;
+            document.getElementById('modal-client').innerText = p.client;
+            document.getElementById('modal-title').innerText = p.title;
+            document.getElementById('modal-description').innerText = p.longDescription;
+            document.getElementById('modal-tools').innerText = p.tools;
+            document.getElementById('modal-deliverables').innerText = p.deliverable;
+
+            const galleryContainer = document.getElementById('modal-gallery-container');
+            galleryContainer.innerHTML = '';
+            if (p.gallery && p.gallery.length > 1) {
+                galleryContainer.classList.remove('hidden');
+                p.gallery.forEach((imgName, index) => {
+                    const thumb = document.createElement('button');
+                    thumb.className = "w-14 h-14 rounded-lg overflow-hidden border-2 transition " + (index === 0 ? "border-brand-500" : "border-transparent opacity-70 hover:opacity-100");
+                    thumb.innerHTML = `<img src="${imgName}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='${p.fallbackUrl}';">`;
+                    thumb.onclick = () => {
+                        modalImg.src = imgName;
+                        modalImg.onerror = function() { this.onerror=null; this.src = p.fallbackUrl; };
+                        Array.from(galleryContainer.children).forEach(c => c.classList.replace('border-brand-500', 'border-transparent'));
+                        thumb.classList.replace('border-transparent', 'border-brand-500');
+                    };
+                    galleryContainer.appendChild(thumb);
+                });
+            } else {
+                galleryContainer.classList.add('hidden');
+            }
+            modal.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeModal() { modal.classList.add('hidden'); document.body.classList.remove('overflow-hidden'); }
+        document.getElementById('modal-close-btn').addEventListener('click', closeModal);
+        document.getElementById('modal-overlay').addEventListener('click', closeModal);
+
+        // FORMULAIRE
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const feedback = document.getElementById('form-feedback');
+            feedback.classList.remove('hidden');
+            feedback.classList.add('bg-emerald-100', 'text-emerald-800');
+            feedback.innerText = "✓ Message envoyé avec succès ! Mikaël vous recontactera sous 24h.";
+            this.reset();
+        });
+
+        window.onload = () => renderProjects();
+    </script>
+</body>
+</html>
