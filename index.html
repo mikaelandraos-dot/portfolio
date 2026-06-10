@@ -305,6 +305,17 @@
                     <img id="modal-image" src="" alt="" class="w-full h-full object-contain transition-all duration-300">
                     <span id="modal-badge" class="absolute top-4 left-4 z-20 px-3 py-1 bg-brand-500 text-white text-xs font-semibold rounded-full shadow-lg">Catégorie</span>
 
+                    <!-- Flèches de navigation (visibles pour les galeries multi-images) -->
+                    <button id="modal-prev-btn" type="button" aria-label="Image précédente" class="hidden absolute left-3 top-1/2 -translate-y-1/2 z-20 p-2.5 bg-slate-950/50 hover:bg-slate-950/80 text-white rounded-full transition shadow-lg border border-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <button id="modal-next-btn" type="button" aria-label="Image suivante" class="hidden absolute right-3 top-1/2 -translate-y-1/2 z-20 p-2.5 bg-slate-950/50 hover:bg-slate-950/80 text-white rounded-full transition shadow-lg border border-white/10 focus:outline-none focus:ring-2 focus:ring-brand-500">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+
+                    <!-- Compteur d'images -->
+                    <span id="modal-counter" class="hidden absolute top-4 right-16 z-20 px-2.5 py-1 bg-slate-950/60 text-white text-xs font-semibold rounded-full shadow-lg border border-white/10"></span>
+
                     <div id="modal-gallery-container" class="absolute bottom-4 left-4 right-4 z-20 flex justify-center gap-2 bg-slate-900/60 backdrop-blur-md p-2 rounded-xl border border-white/10 hidden">
                         <!-- Miniatures de la galerie insérées ici -->
                     </div>
@@ -461,12 +472,42 @@
 
         // MODALE & GALERIE
         const modal = document.getElementById('project-modal');
+        const modalImg = document.getElementById('modal-image');
+        const galleryContainer = document.getElementById('modal-gallery-container');
+        const prevBtn = document.getElementById('modal-prev-btn');
+        const nextBtn = document.getElementById('modal-next-btn');
+        const counter = document.getElementById('modal-counter');
+
+        // État de la galerie courante
+        let currentGallery = [];
+        let currentIndex = 0;
+        let currentFallback = '';
+
+        // Affiche l'image d'index donné et met à jour miniatures, compteur et flèches
+        function showImage(index) {
+            if (!currentGallery.length) return;
+            currentIndex = (index + currentGallery.length) % currentGallery.length; // navigation cyclique
+            modalImg.src = currentGallery[currentIndex];
+            modalImg.onerror = function() { this.onerror = null; this.src = currentFallback; };
+
+            Array.from(galleryContainer.children).forEach((thumb, i) => {
+                thumb.classList.toggle('border-brand-500', i === currentIndex);
+                thumb.classList.toggle('border-transparent', i !== currentIndex);
+                thumb.classList.toggle('opacity-70', i !== currentIndex);
+            });
+
+            counter.innerText = `${currentIndex + 1} / ${currentGallery.length}`;
+        }
+
+        function nextImage() { showImage(currentIndex + 1); }
+        function prevImage() { showImage(currentIndex - 1); }
+
         function openModal(id) {
             const p = projectsData.find(proj => proj.id === id);
-            const modalImg = document.getElementById('modal-image');
 
-            modalImg.src = p.imageUrl;
-            modalImg.onerror = function() { this.onerror=null; this.src = p.fallbackUrl; };
+            currentGallery = (p.gallery && p.gallery.length) ? p.gallery : [p.imageUrl];
+            currentFallback = p.fallbackUrl;
+            currentIndex = 0;
 
             document.getElementById('modal-badge').innerText = p.categoryLabel;
             document.getElementById('modal-client').innerText = p.client;
@@ -475,25 +516,26 @@
             document.getElementById('modal-tools').innerText = p.tools;
             document.getElementById('modal-deliverables').innerText = p.deliverable;
 
-            const galleryContainer = document.getElementById('modal-gallery-container');
+            // Construction des miniatures + affichage des contrôles selon le nombre d'images
             galleryContainer.innerHTML = '';
-            if (p.gallery && p.gallery.length > 1) {
-                galleryContainer.classList.remove('hidden');
-                p.gallery.forEach((imgName, index) => {
+            const hasMultiple = currentGallery.length > 1;
+            galleryContainer.classList.toggle('hidden', !hasMultiple);
+            prevBtn.classList.toggle('hidden', !hasMultiple);
+            nextBtn.classList.toggle('hidden', !hasMultiple);
+            counter.classList.toggle('hidden', !hasMultiple);
+
+            if (hasMultiple) {
+                currentGallery.forEach((imgName, index) => {
                     const thumb = document.createElement('button');
-                    thumb.className = "w-14 h-14 rounded-lg overflow-hidden border-2 transition " + (index === 0 ? "border-brand-500" : "border-transparent opacity-70 hover:opacity-100");
+                    thumb.type = 'button';
+                    thumb.className = "w-14 h-14 rounded-lg overflow-hidden border-2 transition border-transparent opacity-70 hover:opacity-100";
                     thumb.innerHTML = `<img src="${imgName}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='${p.fallbackUrl}';">`;
-                    thumb.onclick = () => {
-                        modalImg.src = imgName;
-                        modalImg.onerror = function() { this.onerror=null; this.src = p.fallbackUrl; };
-                        Array.from(galleryContainer.children).forEach(c => c.classList.replace('border-brand-500', 'border-transparent'));
-                        thumb.classList.replace('border-transparent', 'border-brand-500');
-                    };
+                    thumb.onclick = () => showImage(index);
                     galleryContainer.appendChild(thumb);
                 });
-            } else {
-                galleryContainer.classList.add('hidden');
             }
+
+            showImage(0);
             modal.classList.remove('hidden');
             document.body.classList.add('overflow-hidden');
         }
@@ -501,6 +543,16 @@
         function closeModal() { modal.classList.add('hidden'); document.body.classList.remove('overflow-hidden'); }
         document.getElementById('modal-close-btn').addEventListener('click', closeModal);
         document.getElementById('modal-overlay').addEventListener('click', closeModal);
+        prevBtn.addEventListener('click', prevImage);
+        nextBtn.addEventListener('click', nextImage);
+
+        // NAVIGATION AU CLAVIER (active uniquement quand la modale est ouverte)
+        document.addEventListener('keydown', (e) => {
+            if (modal.classList.contains('hidden')) return;
+            if (e.key === 'Escape') { closeModal(); }
+            else if (e.key === 'ArrowRight' && currentGallery.length > 1) { e.preventDefault(); nextImage(); }
+            else if (e.key === 'ArrowLeft' && currentGallery.length > 1) { e.preventDefault(); prevImage(); }
+        });
 
         // FORMULAIRE — envoi réel via FormSubmit (aucun backend requis)
         const contactForm = document.getElementById('contact-form');
