@@ -260,21 +260,25 @@
                     <div class="lg:col-span-7">
                         <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
                             <form id="contact-form" class="space-y-4">
+                                <!-- Champs de configuration FormSubmit -->
+                                <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio">
+                                <input type="hidden" name="_template" value="table">
+                                <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
                                         <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Votre Nom</label>
-                                        <input type="text" required class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs focus:ring-2 focus:ring-brand-500 outline-none">
+                                        <input type="text" name="name" required class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs focus:ring-2 focus:ring-brand-500 outline-none">
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Votre E-mail</label>
-                                        <input type="email" required class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs focus:ring-2 focus:ring-brand-500 outline-none">
+                                        <input type="email" name="email" required class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs focus:ring-2 focus:ring-brand-500 outline-none">
                                     </div>
                                 </div>
                                 <div>
                                     <label class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Message</label>
-                                    <textarea rows="5" required class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs focus:ring-2 focus:ring-brand-500 outline-none"></textarea>
+                                    <textarea name="message" rows="5" required class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs focus:ring-2 focus:ring-brand-500 outline-none"></textarea>
                                 </div>
-                                <button type="submit" class="w-full py-4 px-6 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-xl hover:bg-brand-600 transition">Envoyer mon message</button>
+                                <button type="submit" class="w-full py-4 px-6 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-xl hover:bg-brand-600 transition disabled:opacity-60 disabled:cursor-not-allowed">Envoyer mon message</button>
                                 <div id="form-feedback" class="hidden text-xs font-semibold text-center p-3 rounded-xl mt-3"></div>
                             </form>
                         </div>
@@ -344,9 +348,9 @@
                 longDescription: "Développement d’une ligne éditoriale immersive pour ce festival artistique d’envergure. J’ai élaboré des contenus engageants (interviews de compositeurs, coulisses créatives, décryptage d’œuvres contemporaines et classiques) pour toucher un public mélomane et attirer de nouvelles audiences. Intégration des mécaniques de rédaction AIDA pour stimuler les abonnements et la billetterie.",
                 tools: "Instagram, Canva, Meta suite, Copywriting",
                 deliverable: "Calendrier éditorial & Visuels de Campagne",
-                imageUrl: "Landing page Printemps des Arts.png",
+                imageUrl: "images/landing-printemps-des-arts.png",
                 fallbackUrl: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&q=80&w=800",
-                gallery: ["Landing page Printemps des Arts.png"]
+                gallery: ["images/landing-printemps-des-arts.png"]
             },
             {
                 id: 2,
@@ -358,9 +362,9 @@
                 longDescription: "Mise en récit de la programmation musicale du festival à travers des newsletters thématiques soignées. L'objectif était de décoder les pièces complexes et de raconter l'histoire des artistes pour créer un lien fort avant l'événement. Conception d'une mise en page lisible, intégrant des appels à l'action précis pour maximiser l'engagement des abonnés et sécuriser les ventes de billets.",
                 tools: "Mailchimp, Figma, Storytelling, HTML/CSS",
                 deliverable: "Gabarits de Newsletters (Modèles 1, 2 et 3)",
-                imageUrl: "Newsletter Printemps des Arts 1.png",
+                imageUrl: "images/newsletter-printemps-des-arts-1.png",
                 fallbackUrl: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&q=80&w=800",
-                gallery: ["Newsletter Printemps des Arts 1.png", "Newsletter Printemps des Arts 2.png", "Newsletter Printemps des Arts 3.png"]
+                gallery: ["images/newsletter-printemps-des-arts-1.png", "images/newsletter-printemps-des-arts-2.png", "images/newsletter-printemps-des-arts-3.png"]
             },
             {
                 id: 3,
@@ -372,9 +376,9 @@
                 longDescription: "Mise en page graphique rigoureuse du rapport annuel d'activité d'une fondation d'envergure. Utilisation d'une structure de grille claire pour valoriser les statistiques clés ('2020 en chiffres') et les projets menés à l'international. Préparation de haute qualité des fichiers pour l'impression (profils de couleurs CMJN, marges de sécurité, fonds perdus).",
                 tools: "Adobe InDesign, Illustrator, Typographie, Grille",
                 deliverable: "Plaquettes Prêtes pour Imprimeur (PDF)",
-                imageUrl: "Rapport d_activités FPCM.png",
+                imageUrl: "images/rapport-activites-fpcm.png",
                 fallbackUrl: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=800",
-                gallery: ["Rapport d_activités FPCM.png", "Sommaire Rapport FPCM.png"]
+                gallery: ["images/rapport-activites-fpcm.png", "images/sommaire-rapport-fpcm.png"]
             },
             {
                 id: 4,
@@ -386,9 +390,9 @@
                 longDescription: "Ce projet transversal unifie deux piliers de l'écosystème digital de la Fondation. D'une part, la refonte fonctionnelle complète de l'expérience donateur sous la forme d'un tunnel fluide en 3 étapes claires ('Mon don', 'Mes coordonnées', 'Mon règlement') minimisant les points de friction de paiement. D'autre part, la restructuration visuelle et l'optimisation de l'arborescence globale pour l'accueil de ses programmes phares d'apprentissage.",
                 tools: "Figma, Architecture d'Information, Wireframing, Ergonomie",
                 deliverable: "Maquettes UX Figma Interactives & Gabarits Web",
-                imageUrl: "Page de dons en ligne FPCM.png",
+                imageUrl: "images/page-dons-fpcm.png",
                 fallbackUrl: "https://images.unsplash.com/photo-1581291518655-9523c932dedf?auto=format&fit=crop&q=80&w=800",
-                gallery: ["Page de dons en ligne FPCM.png", "Arborescence et architecture site web FPCM.png"]
+                gallery: ["images/page-dons-fpcm.png", "images/arborescence-site-fpcm.png"]
             }
         ];
 
@@ -498,14 +502,38 @@
         document.getElementById('modal-close-btn').addEventListener('click', closeModal);
         document.getElementById('modal-overlay').addEventListener('click', closeModal);
 
-        // FORMULAIRE
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
+        // FORMULAIRE — envoi réel via FormSubmit (aucun backend requis)
+        const contactForm = document.getElementById('contact-form');
+        const FORM_ENDPOINT = "https://formsubmit.co/ajax/mikael.andraos@gmail.com";
+
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             const feedback = document.getElementById('form-feedback');
-            feedback.classList.remove('hidden');
-            feedback.classList.add('bg-emerald-100', 'text-emerald-800');
-            feedback.innerText = "✓ Message envoyé avec succès ! Mikaël vous recontactera sous 24h.";
-            this.reset();
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalLabel = submitBtn.innerText;
+
+            feedback.className = "text-xs font-semibold text-center p-3 rounded-xl mt-3 bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300";
+            feedback.innerText = "Envoi en cours…";
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Envoi…";
+
+            try {
+                const response = await fetch(FORM_ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(Object.fromEntries(new FormData(contactForm)))
+                });
+                if (!response.ok) throw new Error('Réponse réseau invalide');
+                feedback.className = "text-xs font-semibold text-center p-3 rounded-xl mt-3 bg-emerald-100 text-emerald-800";
+                feedback.innerText = "✓ Message envoyé avec succès ! Mikaël vous recontactera sous 24h.";
+                contactForm.reset();
+            } catch (err) {
+                feedback.className = "text-xs font-semibold text-center p-3 rounded-xl mt-3 bg-red-100 text-red-800";
+                feedback.innerHTML = "Une erreur est survenue. Écrivez-moi directement à <a href='mailto:mikael.andraos@gmail.com' class='underline font-bold'>mikael.andraos@gmail.com</a>.";
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerText = originalLabel;
+            }
         });
 
         window.onload = () => renderProjects();
