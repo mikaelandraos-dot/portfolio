@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mikaelandraos-dot.github.io/portfolio/sitemap.xml
