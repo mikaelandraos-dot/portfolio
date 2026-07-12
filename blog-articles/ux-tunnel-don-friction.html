@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UX et tunnels de don : réduire la friction | Blog Mikaël Andraos</title>
+
+    <meta name="description" content="Entre 60 et 83 % des formulaires de don sont abandonnés en cours de route. Ce que disent les études sur le mobile, les étapes et la confiance — et comment en tirer des décisions de design.">
+    <meta name="author" content="Mikaël Andraos">
+    <link rel="canonical" href="https://mikaelandraos-dot.github.io/portfolio/blog-articles/ux-tunnel-don-friction.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="UX et tunnels de don : réduire la friction sans perdre l'émotion">
+    <meta property="og:description" content="Entre 60 et 83 % des formulaires de don sont abandonnés en cours de route. Ce que disent les études, et comment en tirer des décisions de design.">
+    <meta property="og:image" content="https://mikaelandraos-dot.github.io/portfolio/images/mikael-andraos.png">
+    <meta property="og:url" content="https://mikaelandraos-dot.github.io/portfolio/blog-articles/ux-tunnel-don-friction.html">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="UX et tunnels de don : réduire la friction">
+    <meta name="twitter:image" content="https://mikaelandraos-dot.github.io/portfolio/images/mikael-andraos.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "UX et tunnels de don : réduire la friction sans perdre l'émotion",
+      "image": "https://mikaelandraos-dot.github.io/portfolio/images/mikael-andraos.png",
+      "datePublished": "2026-06-28T09:00:00+02:00",
+      "dateModified": "2026-06-28T09:00:00+02:00",
+      "author": { "@type": "Person", "name": "Mikaël Andraos", "url": "https://mikaelandraos-dot.github.io/portfolio/" },
+      "publisher": { "@type": "Person", "name": "Mikaël Andraos" },
+      "description": "Entre 60 et 83 % des formulaires de don sont abandonnés en cours de route. Ce que disent les études sur le mobile, les étapes et la confiance.",
+      "mainEntityOfPage": "https://mikaelandraos-dot.github.io/portfolio/blog-articles/ux-tunnel-don-friction.html"
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef1f8', 100:'#e0e6f3', 400:'#41538f', 500:'#1e3a8a', 600:'#15295f', 900:'#0f1f49' },
+                        indigo: { 500:'#1e3a8a' },
+                        slate: { 50:'#faf7f1', 100:'#f1ead9', 200:'#e6dfce', 300:'#d3c9b2', 400:'#9b9486', 500:'#7c7567', 600:'#574f40', 700:'#3e3729', 800:'#2a2820', 900:'#1c2b3a', 950:'#141b24' }
+                    },
+                    fontFamily: {
+                        display: ['Gloock', 'serif'],
+                        sans: ['Instrument Sans', 'sans-serif'],
+                        mono: ['Geist Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Instrument Sans', sans-serif; background:#faf7f1; }
+        h1, h2, h3 { font-family: 'Gloock', serif; font-weight: 400 !important; letter-spacing: .2px; }
+        h1 { letter-spacing: -.5px; line-height: 1.08; }
+        .tracking-widest, .tracking-wider { font-family: 'Geist Mono', monospace; }
+        .font-mono { font-family: 'Geist Mono', monospace; }
+        .bg-white { background-color:#fffdf8 !important; }
+
+        .nav-link { position: relative; padding-bottom: 2px; }
+        .nav-link::after { content:''; position:absolute; left:0; bottom:-2px; width:0; height:1px; background-color:#1e3a8a; transition:width .3s ease; }
+        .dark .nav-link::after { background-color:#41538f; }
+        .nav-link:hover::after { width:100%; }
+
+        #reading-progress { position: fixed; top: 64px; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg,#1e3a8a,#41538f); z-index: 40; transition: width .1s linear; }
+
+        .article-prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .article-prose h2 { font-size: 1.75rem; margin-top: 3rem; margin-bottom: 1rem; scroll-margin-top: 6rem; }
+        .article-prose h3 { font-size: 1.25rem; margin-top: 2rem; margin-bottom: .75rem; scroll-margin-top: 6rem; }
+        .article-prose a { color: #1e3a8a; text-decoration: underline; text-underline-offset: 2px; }
+        .dark .article-prose a { color: #41538f; }
+        .article-prose strong { font-weight: 600; }
+        .article-prose ul, .article-prose ol { margin: 1rem 0 1.5rem 1.25rem; }
+        .article-prose li { margin-bottom: .5rem; line-height: 1.7; }
+        .article-prose ul { list-style-type: disc; }
+        .article-prose ol { list-style-type: decimal; }
+
+        .toc-link.active { color: #1e3a8a; font-weight: 600; }
+        .dark .toc-link.active { color: #41538f; }
+
+        .chart-bar { transition: filter .25s ease, transform .25s ease; transform-origin: bottom; }
+        .chart-bar:hover, .chart-bar:focus-visible { filter: brightness(1.12); transform: scaleY(1.02); }
+
+        .stat-tile { transition: transform .3s ease, border-color .3s ease; }
+        .stat-tile:hover { transform: translateY(-3px); }
+
+        @keyframes heroFadeUp { from { opacity:0; transform: translateY(14px); } to { opacity:1; transform: translateY(0); } }
+        .hero-anim { opacity:0; animation: heroFadeUp .7s cubic-bezier(.16,1,.3,1) forwards; }
+        .hero-anim-1{animation-delay:.05s} .hero-anim-2{animation-delay:.15s} .hero-anim-3{animation-delay:.25s} .hero-anim-4{animation-delay:.35s}
+
+        @media (prefers-reduced-motion: reduce) { .hero-anim { animation:none; opacity:1; } }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <div id="reading-progress"></div>
+
+    <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="../index.html" class="text-xl font-bold tracking-wider text-brand-500 hover:text-brand-600 transition" style="font-family:'Gloock',serif;letter-spacing:0">Mikaël Andraos</a>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="../index.html#propos" class="nav-link hover:text-brand-500 transition">À propos</a>
+                <a href="../index.html#projets" class="nav-link hover:text-brand-500 transition">Projets</a>
+                <a href="../index.html#competences" class="nav-link hover:text-brand-500 transition">Compétences</a>
+                <a href="../blog.html" class="nav-link text-brand-500 transition">Blog</a>
+                <a href="../index.html#contact" class="nav-link hover:text-brand-500 transition">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-900 transition" aria-label="Basculer le thème clair/sombre">
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-slate-500 dark:text-slate-400" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                </button>
+                <a href="../index.html#contact" class="hidden sm:inline-flex items-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition">Démarrer un projet</a>
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 transition" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 px-4 py-4 space-y-3">
+            <a href="../index.html#propos" class="block text-base font-medium hover:text-brand-500 transition mobile-link">À propos</a>
+            <a href="../index.html#projets" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Projets</a>
+            <a href="../index.html#competences" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Compétences</a>
+            <a href="../blog.html" class="block text-base font-medium text-brand-500 transition mobile-link">Blog</a>
+            <a href="../index.html#contact" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Contact</a>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-16">
+        <section class="relative py-16 sm:py-20 overflow-hidden border-b border-slate-200 dark:border-slate-800">
+            <div class="absolute inset-0 -z-10 bg-[radial-gradient(50rem_40rem_at_top,theme(colors.brand.100),transparent)] dark:bg-[radial-gradient(50rem_40rem_at_top,theme(colors.slate.900),transparent)] opacity-50"></div>
+            <div aria-hidden="true" class="absolute -right-16 top-10 -z-10 opacity-[0.06] dark:opacity-[0.08] hidden lg:block">
+                <svg width="400" height="400" viewBox="0 0 400 400" fill="none">
+                    <path d="M200 300 C 120 240, 80 190, 80 140 C 80 100, 115 75, 150 90 C 170 98, 190 118, 200 140 C 210 118, 230 98, 250 90 C 285 75, 320 100, 320 140 C 320 190, 280 240, 200 300 Z" stroke="#1e3a8a" stroke-width="1.5"/>
+                </svg>
+            </div>
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <a href="../blog.html" class="hero-anim hero-anim-1 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-brand-500 transition mb-6">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    Tous les articles
+                </a>
+                <span class="hero-anim hero-anim-2 inline-block bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full mb-5">UX &amp; Design</span>
+                <h1 class="hero-anim hero-anim-3 text-3xl sm:text-5xl tracking-tight mb-6">UX et tunnels de don : réduire la friction sans perdre l'émotion</h1>
+                <p class="hero-anim hero-anim-4 text-sm text-slate-500 dark:text-slate-400 font-mono">
+                    <time datetime="2026-06-28">28 juin 2026</time> · 7 min de lecture · Par Mikaël Andraos
+                </p>
+            </div>
+        </section>
+
+        <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+            <nav class="not-prose bg-white dark:bg-slate-900 p-6 rounded-2xl mb-12 border border-slate-200 dark:border-slate-800" aria-label="Sommaire de l'article">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">Sommaire</p>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="#ampleur" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">1. L'ampleur du problème</a></li>
+                    <li><a href="#mobile" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">2. Le mobile, maillon faible</a></li>
+                    <li><a href="#etapes" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">3. Étapes ou formulaire unique ?</a></li>
+                    <li><a href="#application" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">4. Ce que ça donne, concrètement</a></li>
+                    <li><a href="#glossaire" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">Petit glossaire</a></li>
+                    <li><a href="#sources" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">Sources</a></li>
+                </ul>
+            </nav>
+
+            <div class="article-prose text-base text-slate-700 dark:text-slate-300">
+                <p>Un donateur qui abandonne un formulaire de don n'a presque jamais changé d'avis sur la cause. Il a buté sur un champ obligatoire de trop, une création de compte imposée, ou un écran qui rame sur son téléphone. La générosité ne suffit pas à compenser une mauvaise expérience — et les chiffres du secteur associatif le confirment sans ambiguïté.</p>
+
+                <h2 id="ampleur">1. L'ampleur du problème</h2>
+                <p>Les études convergent sur une fourchette large mais sans appel : entre <strong>60 % et 83 %</strong> des formulaires de don commencés sont abandonnés avant la validation. Les causes les plus citées sont un formulaire trop long, une création de compte obligatoire, et un défaut d'optimisation mobile. Autre chiffre marquant : <strong>47 % des abandons</strong> sont directement attribués à une mauvaise utilisabilité — pas à un renoncement à la cause elle-même.</p>
+
+                <div class="not-prose my-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="stat-tile rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 text-center">
+                        <span class="block font-display text-4xl text-brand-500 dark:text-brand-400 mb-1">60–83 %</span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400">de formulaires de don abandonnés en cours de route</span>
+                    </div>
+                    <div class="stat-tile rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 text-center">
+                        <span class="block font-display text-4xl text-brand-500 dark:text-brand-400 mb-1">47 %</span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400">des abandons causés par une mauvaise utilisabilité</span>
+                    </div>
+                    <div class="stat-tile rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 text-center">
+                        <span class="block font-display text-4xl text-brand-500 dark:text-brand-400 mb-1">+400 %</span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400">de hausse de conversion possible en améliorant l'expérience</span>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 -mt-6 mb-8">Sources : <a href="https://www.idonate.com/blog/nonprofit-donation-page-basics-how-to-optimize-for-more-donations" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">iDonate</a>, <a href="https://www.funraise.org/tools/donation-form-conversion-rate-calculator" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">Funraise</a></p>
+
+                <h2 id="mobile">2. Le mobile, maillon faible</h2>
+                <p>Le rapport <strong>M+R Benchmarks 2025</strong>, référence annuelle du secteur associatif, chiffre précisément l'écart entre desktop et mobile. Le taux de conversion moyen d'une page de don est de <strong>11 % sur ordinateur contre 8 % sur mobile</strong> — un écart de performance d'environ 27 %. Le panier moyen suit la même tendance : <strong>168 $ sur desktop contre 88 $ sur mobile</strong>, soit presque deux fois moins.</p>
+
+                <div class="not-prose my-10 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-brand-500 dark:text-brand-400 mb-1">M+R Benchmarks 2025</p>
+                    <h4 class="text-lg mb-6">Taux de conversion moyen d'une page de don</h4>
+                    <div class="flex items-end gap-6 sm:gap-10 h-48" role="img" aria-label="Graphique en barres : taux de conversion moyen de 11% sur ordinateur contre 8% sur mobile pour les pages de don.">
+                        <div class="flex-1 flex flex-col items-center justify-end h-full max-w-[8rem]">
+                            <span class="text-sm font-bold mb-2 text-brand-500 dark:text-brand-400">11 %</span>
+                            <div class="chart-bar w-full rounded-t-lg bg-brand-500" style="height:100%" tabindex="0"></div>
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-3 text-center">Ordinateur</span>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center justify-end h-full max-w-[8rem]">
+                            <span class="text-sm font-bold mb-2 text-slate-500 dark:text-slate-400">8 %</span>
+                            <div class="chart-bar w-full rounded-t-lg bg-slate-300 dark:bg-slate-700" style="height:73%" tabindex="0"></div>
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-3 text-center">Mobile</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-6">Source : <a href="https://www.idonate.com/blog/2025-mr-benchmarks-what-nonprofits-must-know-about-online-giving-and-donation-pages" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">M+R Benchmarks 2025, via iDonate</a></p>
+                </div>
+
+                <p>Or le mobile est précisément le canal qui capte le plus de trafic pour la plupart des institutions culturelles — un lien partagé sur les réseaux sociaux ou dans une newsletter s'ouvre d'abord sur un téléphone. Négliger cette expérience revient à optimiser pour un public qui représente une minorité des visites.</p>
+
+                <h2 id="etapes">3. Étapes ou formulaire unique ?</h2>
+                <p>Ici, la littérature est plus nuancée qu'il n'y paraît. Certaines études pointent qu'un formulaire découpé en plusieurs écrans (avec un bouton « suivant ») peut faire chuter les dons de <strong>52 %</strong> par rapport à un formulaire tenant sur un seul écran. D'autres constatent l'inverse : découper un parcours long en étapes claires — plutôt que d'afficher un mur de champs — améliore la conversion en réduisant la sensation d'effort.</p>
+                <p>La résolution de cette apparente contradiction est en réalité simple : ce qui compte n'est pas le nombre d'étapes en soi, mais la <strong>charge perçue</strong> à chaque instant. Un formulaire court peut rester en un seul écran. Un parcours plus complexe (identification, montant, moyen de paiement, confirmation) gagne à être séquencé — à condition que chaque étape soit visiblement courte, avec une barre de progression qui rassure plutôt qu'elle ne décourage.</p>
+
+                <h2 id="application">4. Ce que ça donne, concrètement</h2>
+                <p>C'est le principe que j'ai suivi en repensant le tunnel de don de la <a href="../index.html#projets">Fondation Princesse Charlène de Monaco</a> : un parcours en trois étapes courtes et nommées sans ambiguïté (« Mon don », « Mes coordonnées », « Mon règlement »), plutôt qu'un long formulaire unique ou une succession d'écrans anonymes. Chaque étape ne demande que ce qui est strictement nécessaire à ce moment précis — l'objectif étant de retirer de la friction sans jamais retirer l'émotion qui a amené la personne jusque-là.</p>
+
+                <div id="glossaire" class="not-prose my-12 rounded-2xl bg-brand-50 dark:bg-brand-950/30 border border-brand-100 dark:border-brand-900/50 p-6 sm:p-8">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-brand-500 dark:text-brand-400 mb-5">Petit glossaire</p>
+                    <dl class="space-y-4">
+                        <div>
+                            <dt class="font-bold text-sm">UX — User Experience</dt>
+                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">L'expérience vécue par une personne qui utilise un site ou un service — sa facilité d'usage, sa clarté, son confort.</dd>
+                        </div>
+                        <div>
+                            <dt class="font-bold text-sm">Tunnel de conversion</dt>
+                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">Le parcours complet qu'un visiteur suit jusqu'à réaliser une action précise (ici, un don) — souvent découpé en étapes successives.</dd>
+                        </div>
+                        <div>
+                            <dt class="font-bold text-sm">Taux d'abandon</dt>
+                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">La proportion de personnes qui commencent un formulaire ou un parcours sans le terminer.</dd>
+                        </div>
+                        <div>
+                            <dt class="font-bold text-sm">Friction</dt>
+                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">Tout ce qui, dans un parcours, ralentit ou décourage l'utilisateur : un champ inutile, un temps de chargement, une étape mal expliquée.</dd>
+                        </div>
+                        <div>
+                            <dt class="font-bold text-sm">Test A/B</dt>
+                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">Une méthode qui compare deux versions d'une même page auprès de deux groupes d'utilisateurs, pour mesurer laquelle convertit le mieux.</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <div class="not-prose my-12 bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800">
+                    <h3 class="text-xl mb-3 mt-0">Un tunnel de don ou d'inscription à repenser ?</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Architecture de l'information, wireframes, réduction de la friction — discutons de votre parcours actuel.</p>
+                    <a href="../index.html#contact" class="inline-flex items-center px-5 py-3 text-sm font-semibold text-white bg-brand-500 rounded-xl hover:bg-brand-600 transition">
+                        Démarrer un projet
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
+                    </a>
+                </div>
+
+                <div id="sources" class="not-prose mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
+                    <h3 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-4 mt-0">Sources</h3>
+                    <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                        <li>iDonate — <a href="https://www.idonate.com/blog/nonprofit-donation-page-basics-how-to-optimize-for-more-donations" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">« Nonprofit Donation Page Basics »</a>.</li>
+                        <li>iDonate — <a href="https://www.idonate.com/blog/2025-mr-benchmarks-what-nonprofits-must-know-about-online-giving-and-donation-pages" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">« 2025 M+R Benchmarks: What Nonprofits Must Know »</a>.</li>
+                        <li>Funraise — <a href="https://www.funraise.org/tools/donation-form-conversion-rate-calculator" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">« Donation Form Conversion Rate Calculator + Benchmarks »</a>.</li>
+                    </ul>
+                </div>
+
+                <div class="not-prose mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
+                    <h3 class="text-xl mb-6 mt-0">À lire aussi</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <a href="seo-geo-institutions-culturelles.html" class="group block bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 hover:border-brand-500/40 hover:-translate-y-0.5 transition">
+                            <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider block mb-2">SEO &amp; GEO</span>
+                            <h4 class="text-base font-semibold group-hover:text-brand-500 transition">SEO &amp; GEO : comment être trouvé par Google ET par l'IA</h4>
+                        </a>
+                        <a href="newsletters-methode-aida.html" class="group block bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 hover:border-brand-500/40 hover:-translate-y-0.5 transition">
+                            <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider block mb-2">Contenu &amp; Copy</span>
+                            <h4 class="text-base font-semibold group-hover:text-brand-500 transition">Newsletters qui convertissent : la méthode AIDA appliquée à la culture</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-10 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <p class="font-display text-xl text-slate-900 dark:text-slate-100">Mikaël Andraos</p>
+            <nav aria-label="Navigation du pied de page" class="flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+                <a href="../index.html#propos" class="text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">À propos</a>
+                <a href="../index.html#projets" class="text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">Projets</a>
+                <a href="../blog.html" class="text-xs font-semibold uppercase tracking-widest text-brand-500 transition">Blog</a>
+                <a href="https://linkedin.com/in/mikael-andraos" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">
+                    LinkedIn
+                    <svg class="w-3 h-3 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
+                </a>
+            </nav>
+            <p class="text-sm text-slate-500">&copy; 2026 Mikaël Andraos. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        if (localStorage.getItem('color-theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            darkIcon.classList.remove('hidden');
+        }
+        themeToggleBtn.addEventListener('click', () => {
+            lightIcon.classList.toggle('hidden');
+            darkIcon.classList.toggle('hidden');
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('hidden') === false;
+            mobileBtn.setAttribute('aria-expanded', String(isOpen));
+        });
+        document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+        }));
+
+        const progressBar = document.getElementById('reading-progress');
+        function updateProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0;
+            progressBar.style.width = pct + '%';
+        }
+        document.addEventListener('scroll', updateProgress, { passive: true });
+        updateProgress();
+
+        const tocLinks = document.querySelectorAll('.toc-link');
+        const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute('href')));
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = '#' + entry.target.id;
+                const link = document.querySelector(`.toc-link[href="${id}"]`);
+                if (!link) return;
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(section => { if (section) observer.observe(section); });
+    </script>
+</body>
+</html>

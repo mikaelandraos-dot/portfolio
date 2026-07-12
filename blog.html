@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Mikaël Andraos — SEO/GEO, Contenu, UX</title>
+
+    <meta name="description" content="Réflexions et méthodes sur le SEO/GEO, la stratégie de contenu et l'UX, à destination des institutions culturelles et des marques exigeantes.">
+    <meta name="author" content="Mikaël Andraos">
+    <link rel="canonical" href="https://mikaelandraos-dot.github.io/portfolio/blog.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog | Mikaël Andraos — SEO/GEO, Contenu, UX">
+    <meta property="og:description" content="Réflexions et méthodes sur le SEO/GEO, la stratégie de contenu et l'UX, à destination des institutions culturelles et des marques exigeantes.">
+    <meta property="og:image" content="https://mikaelandraos-dot.github.io/portfolio/images/mikael-andraos.png">
+    <meta property="og:url" content="https://mikaelandraos-dot.github.io/portfolio/blog.html">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog | Mikaël Andraos — SEO/GEO, Contenu, UX">
+    <meta name="twitter:image" content="https://mikaelandraos-dot.github.io/portfolio/images/mikael-andraos.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Blog de Mikaël Andraos",
+      "url": "https://mikaelandraos-dot.github.io/portfolio/blog.html",
+      "description": "Réflexions et méthodes sur le SEO/GEO, la stratégie de contenu et l'UX.",
+      "author": { "@type": "Person", "name": "Mikaël Andraos" }
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef1f8', 100:'#e0e6f3', 400:'#41538f', 500:'#1e3a8a', 600:'#15295f', 900:'#0f1f49' },
+                        indigo: { 500:'#1e3a8a' },
+                        slate: { 50:'#faf7f1', 100:'#f1ead9', 200:'#e6dfce', 300:'#d3c9b2', 400:'#9b9486', 500:'#7c7567', 600:'#574f40', 700:'#3e3729', 800:'#2a2820', 900:'#1c2b3a', 950:'#141b24' }
+                    },
+                    fontFamily: {
+                        display: ['Gloock', 'serif'],
+                        sans: ['Instrument Sans', 'sans-serif'],
+                        mono: ['Geist Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Instrument Sans', sans-serif; background:#faf7f1; }
+        h1, h2, h3 { font-family: 'Gloock', serif; font-weight: 400 !important; letter-spacing: .2px; }
+        h1 { letter-spacing: -.5px; line-height: 1.08; }
+        .tracking-widest, .tracking-wider { font-family: 'Geist Mono', monospace; }
+        .font-mono { font-family: 'Geist Mono', monospace; }
+        .bg-white { background-color:#fffdf8 !important; }
+
+        .nav-link { position: relative; padding-bottom: 2px; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 1px;
+            background-color: #1e3a8a;
+            transition: width .3s ease;
+        }
+        .dark .nav-link::after { background-color: #41538f; }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link.active::after { width: 100%; }
+
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-anim { opacity: 0; animation: heroFadeUp .8s cubic-bezier(.16,1,.3,1) forwards; }
+        .hero-anim-1 { animation-delay: .05s; }
+        .hero-anim-2 { animation-delay: .15s; }
+        .hero-anim-3 { animation-delay: .25s; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-anim { animation: none; opacity: 1; }
+        }
+
+        .article-card { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease, box-shadow .3s ease, border-color .3s ease; }
+        .article-card.is-visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="index.html" class="text-xl font-bold tracking-wider text-brand-500 hover:text-brand-600 transition" style="font-family:'Gloock',serif;letter-spacing:0">
+                Mikaël Andraos
+            </a>
+
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="index.html#propos" class="nav-link hover:text-brand-500 transition">À propos</a>
+                <a href="index.html#projets" class="nav-link hover:text-brand-500 transition">Projets</a>
+                <a href="index.html#competences" class="nav-link hover:text-brand-500 transition">Compétences</a>
+                <a href="blog.html" class="nav-link active text-brand-500 transition">Blog</a>
+                <a href="index.html#contact" class="nav-link hover:text-brand-500 transition">Contact</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-900 transition" aria-label="Basculer le thème clair/sombre">
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-slate-500 dark:text-slate-400" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                </button>
+                <a href="index.html#contact" class="hidden sm:inline-flex items-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition">
+                    Démarrer un projet
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 transition" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 px-4 py-4 space-y-3">
+            <a href="index.html#propos" class="block text-base font-medium hover:text-brand-500 transition mobile-link">À propos</a>
+            <a href="index.html#projets" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Projets</a>
+            <a href="index.html#competences" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Compétences</a>
+            <a href="blog.html" class="block text-base font-medium text-brand-500 transition mobile-link">Blog</a>
+            <a href="index.html#contact" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow pt-16">
+        <!-- HERO -->
+        <section class="relative py-20 lg:py-24 overflow-hidden border-b border-slate-200 dark:border-slate-800">
+            <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.brand.100),transparent)] dark:bg-[radial-gradient(45rem_50rem_at_top,theme(colors.slate.900),transparent)] opacity-40"></div>
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <p class="hero-anim hero-anim-1 text-xs font-bold uppercase tracking-widest text-brand-500 dark:text-brand-400 mb-5">Le blog</p>
+                <h1 class="hero-anim hero-anim-2 text-4xl sm:text-6xl tracking-tight mb-6">Idées, méthodes &amp; coulisses</h1>
+                <p class="hero-anim hero-anim-3 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Des réflexions sourcées sur le SEO/GEO, la stratégie de contenu et l'UX — pour être <strong>trouvé</strong>, <strong>lu</strong> et <strong>choisi</strong>.
+                </p>
+            </div>
+        </section>
+
+        <!-- FILTRES + LISTE -->
+        <section class="py-16 sm:py-20">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-wrap items-center justify-center gap-2 mb-14" id="blog-filters">
+                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 bg-brand-500 text-white shadow-md shadow-brand-500/10" data-filter="all">Tous</button>
+                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-900" data-filter="seo-geo">SEO &amp; GEO</button>
+                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-900" data-filter="contenu">Contenu &amp; Copy</button>
+                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-900" data-filter="ux">UX &amp; Design</button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="articles-grid">
+                    <!-- Généré dynamiquement en JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-16 sm:py-20 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950/40">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-2xl sm:text-3xl mb-4">Une idée d'article que vous aimeriez lire ?</h2>
+                <p class="text-slate-600 dark:text-slate-400 mb-8">Ou un projet à discuter — SEO/GEO, contenu, UX ? Écrivez-moi.</p>
+                <a href="index.html#contact" class="inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold text-white bg-brand-500 rounded-xl hover:bg-brand-600 shadow-lg shadow-brand-500/20 hover:-translate-y-0.5 transition duration-200">
+                    Me contacter
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-10 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <p class="font-display text-xl text-slate-900 dark:text-slate-100">Mikaël Andraos</p>
+            <nav aria-label="Navigation du pied de page" class="flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+                <a href="index.html#propos" class="text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">À propos</a>
+                <a href="index.html#projets" class="text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">Projets</a>
+                <a href="blog.html" class="text-xs font-semibold uppercase tracking-widest text-brand-500 transition">Blog</a>
+                <a href="https://linkedin.com/in/mikael-andraos" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">
+                    LinkedIn
+                    <svg class="w-3 h-3 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
+                </a>
+                <a href="https://www.behance.net/mikaelandraos" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">
+                    Behance
+                    <svg class="w-3 h-3 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
+                </a>
+            </nav>
+            <p class="text-sm text-slate-500">&copy; 2026 Mikaël Andraos. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        const articlesData = [
+            {
+                id: 1,
+                slug: "blog-articles/seo-geo-institutions-culturelles.html",
+                category: "seo-geo",
+                categoryLabel: "SEO & GEO",
+                title: "SEO & GEO : comment être trouvé par Google ET par l'intelligence artificielle",
+                excerpt: "Les moteurs de recherche ne sont plus la seule porte d'entrée. ChatGPT, Perplexity et les AI Overviews en sont une autre — avec des taux de conversion qui donnent le vertige. Comment s'y positionner concrètement.",
+                date: "2026-07-12",
+                dateLabel: "12 juillet 2026",
+                readingTime: "8 min"
+            },
+            {
+                id: 2,
+                slug: "blog-articles/newsletters-methode-aida.html",
+                category: "contenu",
+                categoryLabel: "Contenu & Copy",
+                title: "Newsletters qui convertissent : la méthode AIDA appliquée à la culture",
+                excerpt: "Un modèle vieux de plus d'un siècle, toujours redoutablement efficace. Comment structurer une newsletter culturelle pour qu'elle soit ouverte, lue, et qu'elle transforme un abonné en spectateur.",
+                date: "2026-07-05",
+                dateLabel: "5 juillet 2026",
+                readingTime: "7 min"
+            },
+            {
+                id: 3,
+                slug: "blog-articles/ux-tunnel-don-friction.html",
+                category: "ux",
+                categoryLabel: "UX & Design",
+                title: "UX et tunnels de don : réduire la friction sans perdre l'émotion",
+                excerpt: "Entre 60 et 83 % des formulaires de don sont abandonnés en cours de route. Ce que disent les études sur le mobile, les étapes et la confiance — et comment en tirer des décisions de design.",
+                date: "2026-06-28",
+                dateLabel: "28 juin 2026",
+                readingTime: "7 min"
+            }
+        ];
+
+        function renderArticles(categoryFilter = 'all') {
+            const grid = document.getElementById('articles-grid');
+            grid.innerHTML = '';
+            const filtered = categoryFilter === 'all' ? articlesData : articlesData.filter(a => a.category === categoryFilter);
+            filtered.forEach((article, index) => {
+                const card = document.createElement('a');
+                card.href = article.slug;
+                card.className = "article-card group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-brand-500/40 transition duration-300 flex flex-col";
+                card.style.transitionDelay = (index * 60) + 'ms';
+                card.innerHTML = `
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">${article.categoryLabel}</span>
+                            <span class="text-[11px] text-slate-400 font-mono">${article.readingTime} de lecture</span>
+                        </div>
+                        <h3 class="text-xl leading-snug mb-3 group-hover:text-brand-500 transition">${article.title}</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6">${article.excerpt}</p>
+                        <div class="mt-auto pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                            <time class="text-[11px] text-slate-400 font-mono">${article.dateLabel}</time>
+                            <span class="text-xs font-bold text-brand-500 group-hover:text-brand-600 inline-flex items-center gap-1">Lire <svg class="w-3 h-3 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            requestAnimationFrame(() => {
+                document.querySelectorAll('.article-card').forEach(el => el.classList.add('is-visible'));
+            });
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.className = "filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-900");
+                e.target.className = "filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 bg-brand-500 text-white shadow-md";
+                renderArticles(e.target.getAttribute('data-filter'));
+            });
+        });
+
+        // THEMES
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        if (localStorage.getItem('color-theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            darkIcon.classList.remove('hidden');
+        }
+        themeToggleBtn.addEventListener('click', () => {
+            lightIcon.classList.toggle('hidden');
+            darkIcon.classList.toggle('hidden');
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // MENU MOBILE
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('hidden') === false;
+            mobileBtn.setAttribute('aria-expanded', String(isOpen));
+        });
+        document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+        }));
+
+        window.onload = () => renderArticles();
+    </script>
+</body>
+</html>
