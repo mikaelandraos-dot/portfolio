@@ -78,6 +78,59 @@
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 3px; }
         .dark .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #475569; }
+
+        /* Contour animé au survol des ancres du menu */
+        .nav-link { position: relative; padding-bottom: 2px; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 0;
+            height: 1px;
+            background-color: #1e3a8a;
+            transition: width .3s ease;
+        }
+        .dark .nav-link::after { background-color: #41538f; }
+        .nav-link:hover::after { width: 100%; }
+
+        /* Entrée animée du hero au chargement */
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-anim { opacity: 0; animation: heroFadeUp .8s cubic-bezier(.16,1,.3,1) forwards; }
+        .hero-anim-1 { animation-delay: .05s; }
+        .hero-anim-2 { animation-delay: .15s; }
+        .hero-anim-3 { animation-delay: .25s; }
+        .hero-anim-4 { animation-delay: .35s; }
+        .hero-anim-5 { animation-delay: .45s; }
+        .hero-anim-6 { animation-delay: .55s; }
+        .hero-anim-7 { animation-delay: .65s; }
+
+        /* Dégradé du titre : léger déplacement au survol du hero */
+        .hero-gradient-text {
+            background-size: 200% auto;
+            background-position: 0% center;
+            transition: background-position .8s ease;
+        }
+        #hero-section:hover .hero-gradient-text { background-position: 100% center; }
+
+        /* Halo lumineux qui suit le curseur dans le hero */
+        #hero-glow {
+            background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(30,58,138,0.14), transparent 45%);
+            opacity: 0;
+            transition: opacity .4s ease;
+        }
+        .dark #hero-glow {
+            background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(65,83,143,0.22), transparent 45%);
+        }
+        #hero-section:hover #hero-glow { opacity: 1; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-anim { animation: none; opacity: 1; }
+            .hero-gradient-text, #hero-glow { transition: none; }
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
@@ -90,10 +143,10 @@
             </a>
 
             <nav class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#propos" class="hover:text-brand-500 transition">À propos</a>
-                <a href="#projets" class="hover:text-brand-500 transition">Projets</a>
-                <a href="#competences" class="hover:text-brand-500 transition">Compétences</a>
-                <a href="#contact" class="hover:text-brand-500 transition">Contact</a>
+                <a href="#propos" class="nav-link hover:text-brand-500 transition">À propos</a>
+                <a href="#projets" class="nav-link hover:text-brand-500 transition">Projets</a>
+                <a href="#competences" class="nav-link hover:text-brand-500 transition">Compétences</a>
+                <a href="#contact" class="nav-link hover:text-brand-500 transition">Contact</a>
             </nav>
 
             <div class="flex items-center space-x-4">
@@ -120,30 +173,31 @@
     <!-- MAIN CONTENT -->
     <main class="flex-grow pt-16">
         <!-- HERO SECTION -->
-        <section class="relative py-20 lg:py-28 overflow-hidden">
+        <section id="hero-section" class="relative py-20 lg:py-28 overflow-hidden">
             <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.brand.100),transparent)] dark:bg-[radial-gradient(45rem_50rem_at_top,theme(colors.slate.900),transparent)] opacity-40"></div>
             <div aria-hidden="true" class="absolute -top-20 right-[4%] -z-10 font-display text-[22rem] leading-none text-brand-500 opacity-[0.05] select-none pointer-events-none hidden lg:block">&amp;</div>
+            <div id="hero-glow" aria-hidden="true" class="absolute inset-0 -z-10 pointer-events-none"></div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 mb-8 border border-brand-100 dark:border-brand-900/50">
+                <span class="hero-anim hero-anim-1 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 mb-8 border border-brand-100 dark:border-brand-900/50">
                     <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                     Freelance disponible — Monaco &amp; Grand Sud / Remote
                 </span>
-                <p class="text-xs font-bold uppercase tracking-widest text-brand-500 dark:text-brand-400 mb-5">Mikaël Andraos — Stratège créatif</p>
-                <h1 class="text-5xl sm:text-7xl tracking-tight mb-7">
-                    Stratégie <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-brand-400">créative</span><br class="hidden sm:inline">
+                <p class="hero-anim hero-anim-2 text-xs font-bold uppercase tracking-widest text-brand-500 dark:text-brand-400 mb-5">Mikaël Andraos — Stratège créatif</p>
+                <h1 class="hero-anim hero-anim-3 text-5xl sm:text-7xl tracking-tight mb-7">
+                    Stratégie <span class="hero-gradient-text bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-brand-400">créative</span><br class="hidden sm:inline">
                     &amp; content marketing
                 </h1>
-                <div class="flex items-center justify-center gap-4 mb-8">
+                <div class="hero-anim hero-anim-4 flex items-center justify-center gap-4 mb-8">
                     <span aria-hidden="true" class="hidden sm:block h-px w-16 bg-slate-300 dark:bg-slate-700"></span>
                     <p class="text-sm sm:text-base font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-300">
                         SEO / GEO <span class="text-brand-500 mx-1" aria-hidden="true">·</span> Contenu <span class="text-brand-500 mx-1" aria-hidden="true">·</span> UX
                     </p>
                     <span aria-hidden="true" class="hidden sm:block h-px w-16 bg-slate-300 dark:bg-slate-700"></span>
                 </div>
-                <p class="max-w-2xl mx-auto text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
-                    J'aide les <strong>institutions culturelles</strong> et les <strong>marques de prestige</strong> à être <strong>trouvées</strong>, <strong>lues</strong> et <strong>choisies</strong> — du référencement sur les moteurs de recherche et d'IA jusqu'au dernier pixel de l'expérience.
+                <p class="hero-anim hero-anim-5 max-w-2xl mx-auto text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
+                    Je vous aide à être <strong>trouvé</strong>, <strong>lu</strong> et <strong>choisi</strong> — de la visibilité en ligne jusqu'au dernier détail de l'expérience.
                 </p>
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                <div class="hero-anim hero-anim-6 flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
                     <a href="#projets" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold text-white bg-brand-500 rounded-xl hover:bg-brand-600 shadow-lg shadow-brand-500/20 hover:-translate-y-0.5 transition duration-200">
                         Consulter mon travail
                         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -153,7 +207,7 @@
                     </a>
                 </div>
                 <!-- Références -->
-                <div class="border-t border-slate-200 dark:border-slate-800 pt-8">
+                <div class="hero-anim hero-anim-7 border-t border-slate-200 dark:border-slate-800 pt-8">
                     <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-4">Ils m'ont fait confiance</p>
                     <ul class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-8 font-display text-lg sm:text-xl text-slate-700 dark:text-slate-300">
                         <li>Printemps des Arts de Monte-Carlo</li>
@@ -193,7 +247,7 @@
                                     <span class="font-display text-4xl leading-none text-brand-500 dark:text-brand-400">03</span>
                                     <div>
                                         <h4 class="text-sm font-bold uppercase tracking-wider mb-1">Être choisi — UX &amp; design</h4>
-                                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Parcours fluides, design éditorial, print soigné, finitions CMJN.</p>
+                                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Parcours sans friction, design qui séduit, impression de prestige.</p>
                                     </div>
                                 </div>
                             </div>
@@ -203,9 +257,9 @@
                         <h2 class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2">À PROPOS DE MOI</h2>
                         <h3 class="text-3xl mb-6">Mikaël Andraos</h3>
                         <div class="space-y-4 text-slate-600 dark:text-slate-400 leading-relaxed text-base">
-                            <p>Je construis des ponts entre la <strong>visibilité</strong> (SEO/GEO), l'écriture qui <strong>persuade</strong> et le <strong>design d'interface (UX/UI)</strong> qui clarifie. Mon terrain de jeu — les fondations, les institutions culturelles et les marques exigeantes.</p>
-                            <p>Pour la <strong>Fondation Princesse Charlène de Monaco</strong>, j'ai conçu des supports imprimés haut de gamme et repensé le tunnel de don. Pour le <strong>Printemps des Arts de Monte-Carlo</strong>, je pilote la stratégie éditoriale digitale — réseaux sociaux et newsletters immersives. Pour le festival <strong>L'Èze Harmonies</strong>, je repense l'expérience du site et son référencement.</p>
-                            <p>Le tout porté par un socle technique : le <strong>prompt engineering</strong> pour produire vite et juste, et l'intégration <strong>HTML/CSS</strong> pour parler le même langage que les équipes de développement.</p>
+                            <p>Je construis des ponts entre la <strong>visibilité</strong> (SEO/GEO), l'écriture qui <strong>persuade</strong> et le <strong>design d'interface (UX/UI)</strong> qui clarifie. Mon terrain de jeu — les fondations, les institutions culturelles et les marques exigeantes qui veulent être vues, lues et choisies.</p>
+                            <p>J'ai conçu des supports imprimés haut de gamme et repensé des parcours de don pour les rendre plus simples. J'ai piloté des stratégies éditoriales digitales — réseaux sociaux et newsletters immersives — pour faire vivre des programmations culturelles. Et j'ai repensé des sites d'événements pour qu'ils soient à la fois agréables à visiter et faciles à trouver en ligne.</p>
+                            <p>Le tout porté par un socle technique : le <strong>context engineering</strong> pour produire vite et juste, et une bonne compréhension du <strong>HTML/CSS, JSON et JS</strong> pour parler le même langage que les équipes de développement.</p>
                         </div>
                         <div class="grid grid-cols-3 gap-6 mt-8 pt-8 border-t border-slate-100 dark:border-slate-900">
                             <div><span class="block font-display text-2xl sm:text-3xl text-brand-500 dark:text-brand-400">100%</span><span class="text-xs text-slate-500">Sur-mesure &amp; Qualité</span></div>
@@ -222,7 +276,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
                     <h2 class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2">PORTFOLIO</h2>
-                    <h3 class="text-3xl sm:text-4xl tracking-tight">Mes réalisations</h3>
+                    <h3 class="text-3xl sm:text-4xl tracking-tight">Projets réalisés</h3>
                     <p class="mt-4 text-slate-600 dark:text-slate-400">Une sélection de projets pour le <strong>Printemps des Arts</strong>, la <strong>Fondation Princesse Charlène</strong> et le festival <strong>L'Èze Harmonies</strong> — où l'image de marque, la visibilité et l'expérience utilisateur avancent ensemble.</p>
                 </div>
 
@@ -244,7 +298,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <h2 class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2">COMPÉTENCES</h2>
-                    <h3 class="text-3xl sm:text-4xl tracking-tight">Mon équipement &amp; méthodologie</h3>
+                    <h3 class="text-3xl sm:text-4xl tracking-tight">Ma méthodologie</h3>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
@@ -253,7 +307,7 @@
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
                         </div>
                         <h4 class="text-base font-bold mb-2">Content &amp; Copywriting</h4>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Formulation de chartes éditoriales complexes, storytelling engageant, écriture de newsletters de conversion et techniques de persuasion AIDA.</p>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Création de lignes éditoriales claires, storytelling engageant, écriture de newsletters qui donnent envie de cliquer, techniques de persuasion AIDA.</p>
                     </div>
                     <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition duration-300">
                         <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-950/50 text-brand-500 flex items-center justify-center mb-5">
@@ -267,21 +321,21 @@
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                         </div>
                         <h4 class="text-base font-bold mb-2">Graphisme &amp; Print</h4>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Création de chartes graphiques de premier plan, mise en page de magazines et de plaquettes institutionnelles prêtes pour impression haute définition.</p>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Identités visuelles cohérentes, mise en page de magazines et de plaquettes institutionnelles, fichiers prêts pour l'imprimeur.</p>
                     </div>
                     <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition duration-300">
                         <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-950/50 text-brand-500 flex items-center justify-center mb-5">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
                         </div>
                         <h4 class="text-base font-bold mb-2">UX &amp; Wireframes</h4>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Conception de l’architecture de l'information (IA) et maquettage fil de fer (Figma). Focus sur l'ergonomie globale et l'optimisation des tunnels de conversion.</p>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Conception du parcours utilisateur, architecture de l'information et maquettage. Focus sur l'ergonomie et l'optimisation des tunnels de conversion.</p>
                     </div>
                     <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition duration-300">
                         <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-950/50 text-brand-500 flex items-center justify-center mb-5">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
                         </div>
                         <h4 class="text-base font-bold mb-2">IA &amp; Intégration Code</h4>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Sensibilité technique et logique d'intégration (HTML/CSS, Tailwind). Optimisation de workflows d'idéation et de rédaction via le Prompt Engineering.</p>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Sensibilité technique et logique d'intégration HTML/CSS, JSON et JS. Optimisation des workflows créatifs grâce au context engineering.</p>
                     </div>
                 </div>
             </div>
@@ -295,7 +349,7 @@
                         <div>
                             <h2 class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2">CONTACT DIRECT</h2>
                             <h3 class="text-3xl mb-4">Créons quelque chose ensemble</h3>
-                            <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">Prêt à collaborer sur une mission de stratégie de contenu, de SEO/GEO ou une refonte d'interface UX ? Envoyez-moi un message.</p>
+                            <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">Un projet de contenu ? De visibilité en ligne ? De design d'interface ? Contactez-moi — j'aime les défis créatifs.</p>
                         </div>
                         <div class="space-y-4">
                             <div class="flex items-center space-x-4 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
@@ -404,15 +458,9 @@
                     <h3 class="text-2xl mt-1 mb-4" id="modal-title">Titre du projet</h3>
                     <p id="modal-description" class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed"></p>
 
-                    <div class="mt-6 pt-6 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 gap-4">
-                        <div>
-                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Outils &amp; Médias</h4>
-                            <p id="modal-tools" class="text-sm font-semibold mt-1"></p>
-                        </div>
-                        <div>
-                            <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Livrables &amp; Missions</h4>
-                            <p id="modal-deliverables" class="text-sm font-semibold mt-1"></p>
-                        </div>
+                    <div class="mt-6 pt-6 border-t border-slate-100 dark:border-slate-800">
+                        <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Livrables &amp; Missions</h4>
+                        <p id="modal-deliverables" class="text-sm font-semibold mt-1"></p>
                     </div>
                 </div>
             </div>
@@ -429,9 +477,8 @@
                 client: "Printemps des Arts de Monte-Carlo",
                 category: "digital",
                 categoryLabel: "Digital & Copy",
-                shortDescription: "Direction de la création de contenu, storytelling rythmé et animation éditoriale globale pour promouvoir la programmation artistique du festival.",
-                longDescription: "Développement d’une ligne éditoriale immersive pour ce festival artistique d’envergure. J’ai élaboré des contenus engageants (interviews de compositeurs, coulisses créatives, décryptage d’œuvres contemporaines et classiques) pour toucher un public mélomane et attirer de nouvelles audiences. Intégration des mécaniques de rédaction AIDA pour stimuler les abonnements et la billetterie.",
-                tools: "Instagram, Canva, Meta suite, Copywriting",
+                shortDescription: "Création de contenus et animation éditoriale pour faire vivre la programmation du festival auprès de son public.",
+                longDescription: "Une ligne éditoriale pensée pour faire vivre la programmation du festival : interviews d'artistes, coulisses et décryptages d'œuvres, pour toucher les mélomanes et attirer de nouveaux publics. L'écriture est pensée pour donner envie de s'abonner et de réserver sa place.",
                 deliverable: "Calendrier éditorial & Visuels de Campagne",
                 imageUrl: "images/landing-printemps-des-arts.png",
                 fallbackUrl: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&q=80&w=800",
@@ -443,9 +490,8 @@
                 client: "Printemps des Arts de Monte-Carlo",
                 category: "digital",
                 categoryLabel: "Digital & Copy",
-                shortDescription: "Conception, rédaction et envoi de newsletters d'immersion thématiques à destination des festivaliers et abonnés fidèles.",
-                longDescription: "Mise en récit de la programmation musicale du festival à travers des newsletters thématiques soignées. L'objectif était de décoder les pièces complexes et de raconter l'histoire des artistes pour créer un lien fort avant l'événement. Conception d'une mise en page lisible, intégrant des appels à l'action précis pour maximiser l'engagement des abonnés et sécuriser les ventes de billets.",
-                tools: "Mailchimp, Figma, Storytelling, HTML/CSS",
+                shortDescription: "Conception et rédaction de newsletters thématiques pour les festivaliers et les abonnés fidèles.",
+                longDescription: "Des newsletters pensées pour raconter la programmation musicale du festival : décoder les œuvres, raconter l'histoire des artistes et créer un lien avant l'événement. Une mise en page claire, avec des appels à l'action qui donnent envie de réserver sa place.",
                 deliverable: "Gabarits de Newsletters (Modèles 1, 2 et 3)",
                 imageUrl: "images/newsletter-printemps-1.png",
                 fallbackUrl: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&q=80&w=800",
@@ -457,9 +503,8 @@
                 client: "Fondation Princesse Charlène de Monaco",
                 category: "print",
                 categoryLabel: "Supports Print",
-                shortDescription: "Mise en page graphique de brochures institutionnelles et livrets d'activité annuels prêts pour impression haute définition.",
-                longDescription: "Mise en page graphique rigoureuse du rapport annuel d'activité d'une fondation d'envergure. Utilisation d'une structure de grille claire pour valoriser les statistiques clés ('2020 en chiffres') et les projets menés à l'international. Préparation de haute qualité des fichiers pour l'impression (profils de couleurs CMJN, marges de sécurité, fonds perdus).",
-                tools: "Adobe InDesign, Illustrator, Typographie, Grille",
+                shortDescription: "Mise en page de brochures institutionnelles et de rapports annuels, prêts à imprimer.",
+                longDescription: "Une mise en page claire et rigoureuse pour valoriser les chiffres clés et les projets menés à l'international. Les fichiers sont préparés avec tout le soin nécessaire pour une impression sans mauvaise surprise.",
                 deliverable: "Plaquettes Prêtes pour Imprimeur (PDF)",
                 imageUrl: "images/rapport-activites-fpcm.png",
                 fallbackUrl: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=800",
@@ -471,10 +516,9 @@
                 client: "Fondation Princesse Charlène de Monaco",
                 category: "ux",
                 categoryLabel: "UX & Web Design",
-                shortDescription: "Refonte complète du tunnel de don interactif structuré en étapes et restructuration visuelle de l'accueil de ses programmes phares.",
-                longDescription: "Ce projet transversal unifie deux piliers de l'écosystème digital de la Fondation. D'une part, la refonte fonctionnelle complète de l'expérience donateur sous la forme d'un tunnel fluide en 3 étapes claires ('Mon don', 'Mes coordonnées', 'Mon règlement') minimisant les points de friction de paiement. D'autre part, la restructuration visuelle et l'optimisation de l'arborescence globale pour l'accueil de ses programmes phares d'apprentissage.",
-                tools: "Figma, Architecture d'Information, Wireframing, Ergonomie",
-                deliverable: "Maquettes UX Figma Interactives & Gabarits Web",
+                shortDescription: "Refonte du parcours de don en étapes claires, et restructuration de l'accueil des programmes phares.",
+                longDescription: "Deux volets pour fluidifier l'expérience digitale : d'abord, un parcours de don repensé en trois étapes claires pour réduire les points de friction au moment de payer. Ensuite, une refonte visuelle de l'accueil pour mettre en avant les programmes phares plus simplement.",
+                deliverable: "Maquettes UX Interactives & Gabarits Web",
                 imageUrl: "images/page-dons-fpcm.png",
                 fallbackUrl: "https://images.unsplash.com/photo-1581291518655-9523c932dedf?auto=format&fit=crop&q=80&w=800",
                 gallery: ["images/page-dons-fpcm.png", "images/arborescence-site-fpcm.png"]
@@ -486,8 +530,7 @@
                 category: "ux",
                 categoryLabel: "UX & SEO",
                 shortDescription: "Refonte de l'expérience du site du festival et optimisation de son référencement naturel.",
-                longDescription: "Repenser le site du festival pour servir deux publics à la fois : les festivaliers qui découvrent et réservent, et les moteurs qui indexent. Clarification de l'architecture de l'information, fluidification des parcours, et optimisations SEO — structure, sémantique et contenus alignés sur les recherches locales et culturelles.",
-                tools: "SEO, Figma, Architecture d'Information, Wireframing",
+                longDescription: "Repenser le site pour deux publics à la fois : les festivaliers qui découvrent et réservent, et les moteurs de recherche qui doivent bien le comprendre. Une navigation plus claire, des parcours plus fluides, et des contenus pensés pour bien se positionner sur les recherches locales et culturelles.",
                 deliverable: "Recommandations SEO & Maquettes de Refonte",
                 imageUrl: "images/placeholder-leze-harmonies.svg",
                 fallbackUrl: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&q=80&w=800",
@@ -511,6 +554,19 @@
             document.documentElement.classList.toggle('dark');
             localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
         });
+
+        // HALO INTERACTIF DU HERO — suit le curseur au survol
+        const heroSection = document.getElementById('hero-section');
+        const heroGlow = document.getElementById('hero-glow');
+        if (heroSection && heroGlow) {
+            heroSection.addEventListener('mousemove', (e) => {
+                const rect = heroSection.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                heroGlow.style.setProperty('--x', x + '%');
+                heroGlow.style.setProperty('--y', y + '%');
+            });
+        }
 
         // MENU MOBILE
         const mobileBtn = document.getElementById('mobile-menu-btn');
@@ -546,8 +602,7 @@
                             <h4 class="text-base font-bold leading-tight mb-2 group-hover:text-brand-500 transition line-clamp-2 h-10">${project.title}</h4>
                             <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-3 mb-4">${project.shortDescription}</p>
                         </div>
-                        <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">${project.tools.split(',')[0]}...</span>
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-end">
                             <span class="text-xs font-bold text-brand-500 group-hover:text-brand-600 inline-flex items-center gap-1">Détails <svg class="w-3 h-3 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
                         </div>
                     </div>
@@ -578,7 +633,6 @@
             document.getElementById('modal-client').innerText = p.client;
             document.getElementById('modal-title').innerText = p.title;
             document.getElementById('modal-description').innerText = p.longDescription;
-            document.getElementById('modal-tools').innerText = p.tools;
             document.getElementById('modal-deliverables').innerText = p.deliverable;
 
             const galleryContainer = document.getElementById('modal-gallery-container');
@@ -633,7 +687,7 @@
                 });
                 if (!response.ok) throw new Error('Réponse réseau invalide');
                 feedback.className = "text-xs font-semibold text-center p-3 rounded-xl mt-3 bg-emerald-100 text-emerald-800";
-                feedback.innerText = "✓ Message envoyé avec succès ! Mikaël vous recontactera sous 24h.";
+                feedback.innerText = "✓ Message bien reçu ! Je vous réponds sous 24h.";
                 contactForm.reset();
             } catch (err) {
                 feedback.className = "text-xs font-semibold text-center p-3 rounded-xl mt-3 bg-red-100 text-red-800";
