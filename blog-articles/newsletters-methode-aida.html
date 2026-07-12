@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletters qui convertissent : la méthode AIDA | Blog Mikaël Andraos</title>
+
+    <meta name="description" content="Un modèle vieux de plus d'un siècle, toujours redoutablement efficace. Comment structurer une newsletter culturelle avec la méthode AIDA pour qu'elle soit ouverte, lue, et qu'elle convertisse.">
+    <meta name="author" content="Mikaël Andraos">
+    <link rel="canonical" href="https://mikaelandraos-dot.github.io/portfolio/blog-articles/newsletters-methode-aida.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Newsletters qui convertissent : la méthode AIDA appliquée à la culture">
+    <meta property="og:description" content="Un modèle vieux de plus d'un siècle, toujours redoutablement efficace, pour structurer une newsletter culturelle qui convertit.">
+    <meta property="og:image" content="https://mikaelandraos-dot.github.io/portfolio/images/mikael-andraos.png">
+    <meta property="og:url" content="https://mikaelandraos-dot.github.io/portfolio/blog-articles/newsletters-methode-aida.html">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Newsletters qui convertissent : la méthode AIDA">
+    <meta name="twitter:image" content="https://mikaelandraos-dot.github.io/portfolio/images/mikael-andraos.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Newsletters qui convertissent : la méthode AIDA appliquée à la culture",
+      "image": "https://mikaelandraos-dot.github.io/portfolio/images/mikael-andraos.png",
+      "datePublished": "2026-07-05T09:00:00+02:00",
+      "dateModified": "2026-07-05T09:00:00+02:00",
+      "author": { "@type": "Person", "name": "Mikaël Andraos", "url": "https://mikaelandraos-dot.github.io/portfolio/" },
+      "publisher": { "@type": "Person", "name": "Mikaël Andraos" },
+      "description": "Un modèle vieux de plus d'un siècle, toujours redoutablement efficace. Comment structurer une newsletter culturelle avec la méthode AIDA.",
+      "mainEntityOfPage": "https://mikaelandraos-dot.github.io/portfolio/blog-articles/newsletters-methode-aida.html"
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef1f8', 100:'#e0e6f3', 400:'#41538f', 500:'#1e3a8a', 600:'#15295f', 900:'#0f1f49' },
+                        indigo: { 500:'#1e3a8a' },
+                        slate: { 50:'#faf7f1', 100:'#f1ead9', 200:'#e6dfce', 300:'#d3c9b2', 400:'#9b9486', 500:'#7c7567', 600:'#574f40', 700:'#3e3729', 800:'#2a2820', 900:'#1c2b3a', 950:'#141b24' }
+                    },
+                    fontFamily: {
+                        display: ['Gloock', 'serif'],
+                        sans: ['Instrument Sans', 'sans-serif'],
+                        mono: ['Geist Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Instrument Sans', sans-serif; background:#faf7f1; }
+        h1, h2, h3 { font-family: 'Gloock', serif; font-weight: 400 !important; letter-spacing: .2px; }
+        h1 { letter-spacing: -.5px; line-height: 1.08; }
+        .tracking-widest, .tracking-wider { font-family: 'Geist Mono', monospace; }
+        .font-mono { font-family: 'Geist Mono', monospace; }
+        .bg-white { background-color:#fffdf8 !important; }
+
+        .nav-link { position: relative; padding-bottom: 2px; }
+        .nav-link::after { content:''; position:absolute; left:0; bottom:-2px; width:0; height:1px; background-color:#1e3a8a; transition:width .3s ease; }
+        .dark .nav-link::after { background-color:#41538f; }
+        .nav-link:hover::after { width:100%; }
+
+        #reading-progress { position: fixed; top: 64px; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg,#1e3a8a,#41538f); z-index: 40; transition: width .1s linear; }
+
+        .article-prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .article-prose h2 { font-size: 1.75rem; margin-top: 3rem; margin-bottom: 1rem; scroll-margin-top: 6rem; }
+        .article-prose h3 { font-size: 1.25rem; margin-top: 2rem; margin-bottom: .75rem; scroll-margin-top: 6rem; }
+        .article-prose a { color: #1e3a8a; text-decoration: underline; text-underline-offset: 2px; }
+        .dark .article-prose a { color: #41538f; }
+        .article-prose strong { font-weight: 600; }
+        .article-prose ul, .article-prose ol { margin: 1rem 0 1.5rem 1.25rem; }
+        .article-prose li { margin-bottom: .5rem; line-height: 1.7; }
+        .article-prose ul { list-style-type: disc; }
+        .article-prose ol { list-style-type: decimal; }
+
+        .toc-link.active { color: #1e3a8a; font-weight: 600; }
+        .dark .toc-link.active { color: #41538f; }
+
+        .stat-tile { transition: transform .3s ease, border-color .3s ease; }
+        .stat-tile:hover { transform: translateY(-3px); }
+
+        .funnel-step { transition: filter .25s ease, transform .25s ease; }
+        .funnel-step:hover { filter: brightness(1.1); }
+
+        @keyframes heroFadeUp { from { opacity:0; transform: translateY(14px); } to { opacity:1; transform: translateY(0); } }
+        .hero-anim { opacity:0; animation: heroFadeUp .7s cubic-bezier(.16,1,.3,1) forwards; }
+        .hero-anim-1{animation-delay:.05s} .hero-anim-2{animation-delay:.15s} .hero-anim-3{animation-delay:.25s} .hero-anim-4{animation-delay:.35s}
+
+        @media (prefers-reduced-motion: reduce) { .hero-anim { animation:none; opacity:1; } }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <div id="reading-progress"></div>
+
+    <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="../index.html" class="text-xl font-bold tracking-wider text-brand-500 hover:text-brand-600 transition" style="font-family:'Gloock',serif;letter-spacing:0">Mikaël Andraos</a>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="../index.html#propos" class="nav-link hover:text-brand-500 transition">À propos</a>
+                <a href="../index.html#projets" class="nav-link hover:text-brand-500 transition">Projets</a>
+                <a href="../index.html#competences" class="nav-link hover:text-brand-500 transition">Compétences</a>
+                <a href="../blog.html" class="nav-link text-brand-500 transition">Blog</a>
+                <a href="../index.html#contact" class="nav-link hover:text-brand-500 transition">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-900 transition" aria-label="Basculer le thème clair/sombre">
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-slate-500 dark:text-slate-400" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                </button>
+                <a href="../index.html#contact" class="hidden sm:inline-flex items-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition">Démarrer un projet</a>
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 transition" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 px-4 py-4 space-y-3">
+            <a href="../index.html#propos" class="block text-base font-medium hover:text-brand-500 transition mobile-link">À propos</a>
+            <a href="../index.html#projets" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Projets</a>
+            <a href="../index.html#competences" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Compétences</a>
+            <a href="../blog.html" class="block text-base font-medium text-brand-500 transition mobile-link">Blog</a>
+            <a href="../index.html#contact" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Contact</a>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-16">
+        <section class="relative py-16 sm:py-20 overflow-hidden border-b border-slate-200 dark:border-slate-800">
+            <div class="absolute inset-0 -z-10 bg-[radial-gradient(50rem_40rem_at_top,theme(colors.brand.100),transparent)] dark:bg-[radial-gradient(50rem_40rem_at_top,theme(colors.slate.900),transparent)] opacity-50"></div>
+            <div aria-hidden="true" class="absolute -right-16 top-10 -z-10 opacity-[0.06] dark:opacity-[0.08] hidden lg:block">
+                <svg width="400" height="400" viewBox="0 0 400 400" fill="none">
+                    <rect x="70" y="120" width="260" height="180" rx="14" stroke="#1e3a8a" stroke-width="1.5"/>
+                    <path d="M70 130 L200 240 L330 130" stroke="#1e3a8a" stroke-width="1.5"/>
+                </svg>
+            </div>
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <a href="../blog.html" class="hero-anim hero-anim-1 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-brand-500 transition mb-6">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    Tous les articles
+                </a>
+                <span class="hero-anim hero-anim-2 inline-block bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full mb-5">Contenu &amp; Copy</span>
+                <h1 class="hero-anim hero-anim-3 text-3xl sm:text-5xl tracking-tight mb-6">Newsletters qui convertissent : la méthode AIDA appliquée à la culture</h1>
+                <p class="hero-anim hero-anim-4 text-sm text-slate-500 dark:text-slate-400 font-mono">
+                    <time datetime="2026-07-05">5 juillet 2026</time> · 7 min de lecture · Par Mikaël Andraos
+                </p>
+            </div>
+        </section>
+
+        <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+            <nav class="not-prose bg-white dark:bg-slate-900 p-6 rounded-2xl mb-12 border border-slate-200 dark:border-slate-800" aria-label="Sommaire de l'article">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">Sommaire</p>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="#modele" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">1. Un modèle vieux de plus d'un siècle</a></li>
+                    <li><a href="#attention" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">2. Attention : l'objet qui arrête le pouce</a></li>
+                    <li><a href="#interet-desir" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">3. Intérêt et désir : raconter plutôt qu'annoncer</a></li>
+                    <li><a href="#action" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">4. Action : un seul bouton, pas dix</a></li>
+                    <li><a href="#glossaire" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">Petit glossaire</a></li>
+                    <li><a href="#sources" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">Sources</a></li>
+                </ul>
+            </nav>
+
+            <div class="article-prose text-base text-slate-700 dark:text-slate-300">
+                <p>Une newsletter culturelle ressemble trop souvent à un communiqué : « voici notre prochain concert, voici nos dates, voici le lien de billetterie ». Elle informe, elle n'embarque pas. Pourtant, le problème n'est presque jamais le sujet — parler d'un compositeur ou d'un festival est rarement ennuyeux en soi — mais la structure. C'est là qu'un modèle publicitaire vieux de <strong>plus d'un siècle</strong> reste étonnamment pertinent.</p>
+
+                <h2 id="modele">1. Un modèle vieux de plus d'un siècle</h2>
+                <p>Le modèle <strong>AIDA</strong> (Attention, Intérêt, Désir, Action) a été formulé par le publicitaire américain Elmo Lewis en <strong>1898</strong>. Il découpe le parcours d'un lecteur en quatre étapes successives : capter son attention, susciter son intérêt, faire naître un désir, puis provoquer une action. Ce qui rend le modèle toujours efficace, plus d'un siècle après, c'est qu'il décrit une mécanique psychologique — pas une mode. Une newsletter qui saute une étape (qui va directement de l'attention à l'action, par exemple) perd son lecteur en cours de route.</p>
+
+                <div class="not-prose my-10 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-brand-500 dark:text-brand-400 mb-1">Le modèle</p>
+                    <h4 class="text-lg mb-6">Les quatre étapes AIDA, appliquées à une newsletter</h4>
+                    <div class="flex flex-col gap-2" role="img" aria-label="Schéma en entonnoir des quatre étapes AIDA : Attention avec l'objet du mail, Intérêt avec l'accroche et le contexte, Désir avec le récit et la projection, Action avec un unique bouton d'appel à l'action.">
+                        <div class="funnel-step rounded-xl bg-brand-500 text-white px-6 py-4 mx-auto w-full" tabindex="0">
+                            <span class="block text-[10px] font-bold uppercase tracking-widest opacity-80">A — Attention</span>
+                            <span class="text-sm">L'objet du mail. Il a une fraction de seconde pour arrêter le pouce.</span>
+                        </div>
+                        <div class="funnel-step rounded-xl bg-brand-500/85 text-white px-6 py-4 mx-auto w-[92%]" tabindex="0">
+                            <span class="block text-[10px] font-bold uppercase tracking-widest opacity-80">I — Intérêt</span>
+                            <span class="text-sm">La première phrase. Pourquoi ce sujet me concerne, moi, maintenant.</span>
+                        </div>
+                        <div class="funnel-step rounded-xl bg-brand-500/70 text-white px-6 py-4 mx-auto w-[84%]" tabindex="0">
+                            <span class="block text-[10px] font-bold uppercase tracking-widest opacity-80">D — Désir</span>
+                            <span class="text-sm">Le récit. Ce que je vais ressentir, vivre, découvrir si j'y vais.</span>
+                        </div>
+                        <div class="funnel-step rounded-xl bg-brand-500/55 text-white px-6 py-4 mx-auto w-[76%]" tabindex="0">
+                            <span class="block text-[10px] font-bold uppercase tracking-widest opacity-80">A — Action</span>
+                            <span class="text-sm">Un seul bouton clair. « Réserver ma place », pas trois options.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 id="attention">2. Attention : l'objet qui arrête le pouce</h2>
+                <p>Tout se joue avant même l'ouverture. Un objet générique (« Newsletter de mars ») se noie dans une boîte de réception ; un objet spécifique et incarné (« Ce que Chostakovitch a écrit sous la peur ») donne une raison d'ouvrir. La segmentation de la liste — envoyer un contenu différent selon que le destinataire est déjà venu, ou qu'il découvre — joue aussi un rôle mesurable : selon une analyse de Mailchimp portant sur plus de <strong>11 000 campagnes segmentées</strong> envoyées à près de <strong>9 millions de destinataires</strong>, les campagnes segmentées génèrent <strong>14,31 % de taux d'ouverture en plus</strong> et <strong>100,95 % de clics en plus</strong> que les envois non segmentés.</p>
+
+                <div class="not-prose my-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="stat-tile rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 text-center hover:border-brand-500/50">
+                        <span class="block font-display text-4xl text-brand-500 dark:text-brand-400 mb-1">+14,3 %</span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400">de taux d'ouverture pour les campagnes segmentées</span>
+                    </div>
+                    <div class="stat-tile rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 text-center hover:border-brand-500/50">
+                        <span class="block font-display text-4xl text-brand-500 dark:text-brand-400 mb-1">+101 %</span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400">de clics pour les campagnes segmentées</span>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 -mt-6 mb-8">Source : <a href="https://mailchimp.com/resources/effects-of-list-segmentation-on-email-marketing-stats/" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">Mailchimp, « Effects of List Segmentation on Email Marketing Stats »</a></p>
+
+                <h2 id="interet-desir">3. Intérêt et désir : raconter plutôt qu'annoncer</h2>
+                <p>Une fois l'objet ouvert, les deux étapes suivantes se jouent ensemble. L'intérêt, c'est la première phrase qui explique en quoi le sujet concerne le lecteur — pas l'institution. Le désir, c'est le récit qui suit : une interview de compositeur, les coulisses d'une répétition, l'histoire derrière une œuvre. C'est exactement la logique que j'ai appliquée aux newsletters du <a href="../index.html#projets">Printemps des Arts de Monte-Carlo</a> : décoder une programmation exigeante plutôt que se contenter de l'annoncer, pour donner au lecteur une raison d'y être, pas seulement une information sur la date.</p>
+
+                <h2 id="action">4. Action : un seul bouton, pas dix</h2>
+                <p>C'est la partie la plus contre-intuitive : donner moins d'options augmente les clics. Une étude largement citée dans le secteur de l'email marketing montre que les e-mails avec un <strong>unique</strong> appel à l'action génèrent <strong>371 % de clics en plus</strong> que ceux qui en proposent plusieurs. Le principe est simple : chaque bouton supplémentaire est une décision de plus à prendre, et une décision de plus, c'est une occasion de plus de ne rien décider du tout.</p>
+
+                <div class="not-prose my-10 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8 text-center">
+                    <span class="block font-display text-5xl text-brand-500 dark:text-brand-400 mb-2">+371 %</span>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 max-w-md mx-auto">de clics pour un e-mail avec un seul call-to-action, comparé à un e-mail qui en propose plusieurs.</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-4">Source : <a href="https://www.business2marketing.com/post/the-power-of-a-strong-cta-how-one-line-can-boost-email-click-through-rates-by-371" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">Business2Marketing, étude citée sur les CTA uniques</a></p>
+                </div>
+
+                <p>Appliqué à une newsletter culturelle, cela veut dire résister à la tentation de mettre « Réserver », « En savoir plus » et « Suivez-nous » dans le même e-mail. Un objectif par envoi. Un bouton par objectif.</p>
+
+                <div id="glossaire" class="not-prose my-12 rounded-2xl bg-brand-50 dark:bg-brand-950/30 border border-brand-100 dark:border-brand-900/50 p-6 sm:p-8">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-brand-500 dark:text-brand-400 mb-5">Petit glossaire</p>
+                    <dl class="space-y-4">
+                        <div>
+                            <dt class="font-bold text-sm">AIDA</dt>
+                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">Modèle de rédaction publicitaire en 4 étapes : Attention, Intérêt, Désir, Action — formulé par Elmo Lewis en 1898.</dd>
+                        </div>
+                        <div>
+                            <dt class="font-bold text-sm">CTA — Call-to-Action</dt>
+                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">Le bouton ou lien qui invite le lecteur à agir (« Réserver », « Faire un don », « Découvrir »).</dd>
+                        </div>
+                        <div>
+                            <dt class="font-bold text-sm">Taux d'ouverture</dt>
+                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">Le pourcentage de destinataires qui ouvrent réellement un e-mail envoyé.</dd>
+                        </div>
+                        <div>
+                            <dt class="font-bold text-sm">Segmentation</dt>
+                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">Le fait de diviser une liste de contacts en groupes plus précis (nouveaux abonnés, fidèles, donateurs...) pour leur envoyer un contenu adapté.</dd>
+                        </div>
+                        <div>
+                            <dt class="font-bold text-sm">Objet (subject line)</dt>
+                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">La ligne de texte visible dans la boîte de réception avant l'ouverture — le premier (et parfois seul) élément qui décide si un e-mail sera lu.</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <div class="not-prose my-12 bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800">
+                    <h3 class="text-xl mb-3 mt-0">Besoin de structurer vos newsletters ?</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Ligne éditoriale, gabarits, écriture — je peux vous aider à transformer vos envois en vrais outils de conversion.</p>
+                    <a href="../index.html#contact" class="inline-flex items-center px-5 py-3 text-sm font-semibold text-white bg-brand-500 rounded-xl hover:bg-brand-600 transition">
+                        Démarrer un projet
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
+                    </a>
+                </div>
+
+                <div id="sources" class="not-prose mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
+                    <h3 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-4 mt-0">Sources</h3>
+                    <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                        <li>Siege Media — <a href="https://www.siegemedia.com/creation/aida-model" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">« What Is the AIDA Model? »</a>.</li>
+                        <li>Mailchimp — <a href="https://mailchimp.com/resources/effects-of-list-segmentation-on-email-marketing-stats/" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">« Effects of List Segmentation on Email Marketing Stats »</a>.</li>
+                        <li>Business2Marketing — <a href="https://www.business2marketing.com/post/the-power-of-a-strong-cta-how-one-line-can-boost-email-click-through-rates-by-371" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">« The Power of a Strong CTA »</a>.</li>
+                    </ul>
+                </div>
+
+                <div class="not-prose mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
+                    <h3 class="text-xl mb-6 mt-0">À lire aussi</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <a href="seo-geo-institutions-culturelles.html" class="group block bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 hover:border-brand-500/40 hover:-translate-y-0.5 transition">
+                            <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider block mb-2">SEO &amp; GEO</span>
+                            <h4 class="text-base font-semibold group-hover:text-brand-500 transition">SEO &amp; GEO : comment être trouvé par Google ET par l'IA</h4>
+                        </a>
+                        <a href="ux-tunnel-don-friction.html" class="group block bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 hover:border-brand-500/40 hover:-translate-y-0.5 transition">
+                            <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider block mb-2">UX &amp; Design</span>
+                            <h4 class="text-base font-semibold group-hover:text-brand-500 transition">UX et tunnels de don : réduire la friction sans perdre l'émotion</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-10 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <p class="font-display text-xl text-slate-900 dark:text-slate-100">Mikaël Andraos</p>
+            <nav aria-label="Navigation du pied de page" class="flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+                <a href="../index.html#propos" class="text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">À propos</a>
+                <a href="../index.html#projets" class="text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">Projets</a>
+                <a href="../blog.html" class="text-xs font-semibold uppercase tracking-widest text-brand-500 transition">Blog</a>
+                <a href="https://linkedin.com/in/mikael-andraos" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">
+                    LinkedIn
+                    <svg class="w-3 h-3 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
+                </a>
+            </nav>
+            <p class="text-sm text-slate-500">&copy; 2026 Mikaël Andraos. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        if (localStorage.getItem('color-theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            darkIcon.classList.remove('hidden');
+        }
+        themeToggleBtn.addEventListener('click', () => {
+            lightIcon.classList.toggle('hidden');
+            darkIcon.classList.toggle('hidden');
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('hidden') === false;
+            mobileBtn.setAttribute('aria-expanded', String(isOpen));
+        });
+        document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+        }));
+
+        const progressBar = document.getElementById('reading-progress');
+        function updateProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0;
+            progressBar.style.width = pct + '%';
+        }
+        document.addEventListener('scroll', updateProgress, { passive: true });
+        updateProgress();
+
+        const tocLinks = document.querySelectorAll('.toc-link');
+        const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute('href')));
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = '#' + entry.target.id;
+                const link = document.querySelector(`.toc-link[href="${id}"]`);
+                if (!link) return;
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(section => { if (section) observer.observe(section); });
+    </script>
+</body>
+</html>
