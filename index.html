@@ -6,7 +6,7 @@
     <title>Mikaël Andraos | Stratégie créative & content marketing — SEO/GEO, Contenu, UX</title>
 
     <!-- SEO / GEO -->
-    <meta name="description" content="Mikaël Andraos — stratégie créative & content marketing : SEO/GEO, stratégie de contenu et UX pour institutions culturelles et marques de prestige (Printemps des Arts, Fondation Princesse Charlène, L'Èze Harmonies).">
+    <meta name="description" content="Mikaël Andraos — stratégie créative & content marketing : SEO/GEO, stratégie de contenu et UX pour institutions culturelles et marques de prestige.">
     <meta name="author" content="Mikaël Andraos">
     <link rel="canonical" href="https://mikaelandraos-dot.github.io/portfolio/">
     <!-- Open Graph -->
@@ -31,8 +31,8 @@
       "jobTitle": "Stratégie créative & content marketing — SEO/GEO, Contenu, UX",
       "email": "mailto:mikael.andraos@gmail.com",
       "url": "https://mikaelandraos-dot.github.io/portfolio/",
-      "sameAs": ["https://linkedin.com/in/mikael-andraos", "https://www.behance.net/mikaelandraos"],
-      "knowsAbout": ["Stratégie de contenu", "SEO", "GEO", "Rédaction éditoriale", "UX/UI Design", "Communication culturelle"],
+      "sameAs": ["https://linkedin.com/in/mikael-andraos"],
+      "knowsAbout": ["Stratégie de contenu", "SEO", "GEO", "Rédaction éditoriale", "UX/UI Design", "Communication culturelle", "Web Design"],
       "description": "Stratégie créative & content marketing pour institutions culturelles et marques de prestige."
     }
     </script>
@@ -131,6 +131,29 @@
             .hero-anim { animation: none; opacity: 1; }
             .hero-gradient-text, #hero-glow { transition: none; }
         }
+
+        /* Révélation douce des sections au scroll */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+        }
+        .reveal-up.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* Cartes projets : entrée douce et échelonnée après filtrage */
+        .project-card-reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity .5s ease, transform .5s ease;
+        }
+        .project-card-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* Bouton copier l'e-mail */
+        #copy-email-btn svg { transition: opacity .2s ease; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-up, .project-card-reveal { opacity: 1; transform: none; transition: none; }
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
@@ -226,47 +249,47 @@
         <section id="propos" class="py-16 sm:py-24 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950/40 transition-colors">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    <div class="lg:col-span-5 flex justify-center">
+                    <div class="lg:col-span-5 flex justify-center reveal-up">
                         <div class="w-full max-w-sm rounded-3xl bg-white dark:bg-slate-900 p-8 border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-900/5 relative overflow-hidden">
                             <div class="absolute -right-16 -top-16 w-40 h-40 bg-brand-500/10 rounded-full blur-2xl"></div>
                             <p class="text-[10px] font-bold uppercase tracking-widest text-brand-500 dark:text-brand-400 border-b border-slate-200 dark:border-slate-800 pb-4 mb-6">Méthode — de la visibilité à la conversion</p>
                             <div class="space-y-6">
                                 <div class="flex gap-5 items-start">
-                                    <span class="font-display text-4xl leading-none text-brand-500 dark:text-brand-400">01</span>
+                                    <span class="font-display text-4xl leading-none tabular-nums text-brand-500 dark:text-brand-400 w-11 shrink-0">01</span>
                                     <div>
                                         <h4 class="text-sm font-bold uppercase tracking-wider mb-1">Être trouvé — SEO / GEO</h4>
                                         <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Visibilité sur les moteurs de recherche et les moteurs génératifs (IA).</p>
                                     </div>
                                 </div>
                                 <div class="flex gap-5 items-start">
-                                    <span class="font-display text-4xl leading-none text-brand-500 dark:text-brand-400">02</span>
+                                    <span class="font-display text-4xl leading-none tabular-nums text-brand-500 dark:text-brand-400 w-11 shrink-0">02</span>
                                     <div>
                                         <h4 class="text-sm font-bold uppercase tracking-wider mb-1">Être lu — Contenu &amp; copy</h4>
-                                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Storytelling culturel, lignes éditoriales, newsletters, écriture AIDA.</p>
+                                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Storytelling, lignes éditoriales, newsletters, écriture AIDA.</p>
                                     </div>
                                 </div>
                                 <div class="flex gap-5 items-start">
-                                    <span class="font-display text-4xl leading-none text-brand-500 dark:text-brand-400">03</span>
+                                    <span class="font-display text-4xl leading-none tabular-nums text-brand-500 dark:text-brand-400 w-11 shrink-0">03</span>
                                     <div>
                                         <h4 class="text-sm font-bold uppercase tracking-wider mb-1">Être choisi — UX &amp; design</h4>
-                                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Parcours sans friction, design qui séduit, impression de prestige.</p>
+                                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Parcours utilisateur, expérience fluide, design et refonte web.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="lg:col-span-7">
+                    <div class="lg:col-span-7 reveal-up">
                         <h2 class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2">À PROPOS DE MOI</h2>
                         <h3 class="text-3xl mb-6">Mikaël Andraos</h3>
                         <div class="space-y-4 text-slate-600 dark:text-slate-400 leading-relaxed text-base">
-                            <p>Je construis des ponts entre la <strong>visibilité</strong> (SEO/GEO), l'écriture qui <strong>persuade</strong> et le <strong>design d'interface (UX/UI)</strong> qui clarifie. Mon terrain de jeu — les fondations, les institutions culturelles et les marques exigeantes qui veulent être vues, lues et choisies.</p>
-                            <p>J'ai conçu des supports imprimés haut de gamme et repensé des parcours de don pour les rendre plus simples. J'ai piloté des stratégies éditoriales digitales — réseaux sociaux et newsletters immersives — pour faire vivre des programmations culturelles. Et j'ai repensé des sites d'événements pour qu'ils soient à la fois agréables à visiter et faciles à trouver en ligne.</p>
-                            <p>Le tout porté par un socle technique : le <strong>context engineering</strong> pour produire vite et juste, et une bonne compréhension du <strong>HTML/CSS, JSON et JS</strong> pour parler le même langage que les équipes de développement.</p>
+                            <p>Je construis des ponts entre la <strong>visibilité</strong> (SEO/GEO), l'écriture qui <strong>persuade</strong> et le <strong>design d'interface (UX/UI)</strong> qui clarifie.</p>
+                            <p>J'ai piloté des projets de refonte et repensé des parcours de don pour les rendre plus simples. J'ai piloté des stratégies éditoriales digitales — réseaux sociaux et newsletters immersives — pour faire vivre des programmations culturelles. Et j'ai optimisé des sites d'événements pour qu'ils soient agréables à visiter et faciles à trouver en ligne.</p>
+                            <p>Le tout porté par un socle technique agile : le <strong>context engineering</strong> pour produire vite et juste, et une bonne compréhension du <strong>HTML/CSS, JSON et JS</strong> pour parler le même langage que les équipes de développement.</p>
                         </div>
                         <div class="grid grid-cols-3 gap-6 mt-8 pt-8 border-t border-slate-100 dark:border-slate-900">
-                            <div><span class="block font-display text-2xl sm:text-3xl text-brand-500 dark:text-brand-400">100%</span><span class="text-xs text-slate-500">Sur-mesure &amp; Qualité</span></div>
-                            <div><span class="block font-display text-2xl sm:text-3xl text-brand-500 dark:text-brand-400">05</span><span class="text-xs text-slate-500">Expertises clés</span></div>
-                            <div><span class="block font-display text-2xl sm:text-3xl text-brand-500 dark:text-brand-400">03</span><span class="text-xs text-slate-500">Références majeures</span></div>
+                            <div><span class="stat-count block font-display text-2xl sm:text-3xl text-brand-500 dark:text-brand-400" data-count-to="100" data-count-suffix="%">0%</span><span class="text-xs text-slate-500">Sur-mesure &amp; Qualité</span></div>
+                            <div><span class="stat-count block font-display text-2xl sm:text-3xl text-brand-500 dark:text-brand-400" data-count-to="5">0</span><span class="text-xs text-slate-500">Expertises clés</span></div>
+                            <div><span class="stat-count block font-display text-2xl sm:text-3xl text-brand-500 dark:text-brand-400" data-count-to="3">0</span><span class="text-xs text-slate-500">Références majeures</span></div>
                         </div>
                     </div>
                 </div>
@@ -276,7 +299,7 @@
         <!-- PORTFOLIO / PROJETS -->
         <section id="projets" class="py-16 sm:py-24 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/20 transition-colors">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-12">
+                <div class="text-center max-w-3xl mx-auto mb-12 reveal-up">
                     <h2 class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2">PORTFOLIO</h2>
                     <h3 class="text-3xl sm:text-4xl tracking-tight">Projets réalisés</h3>
                     <p class="mt-4 text-slate-600 dark:text-slate-400">Une sélection de projets pour le <strong>Printemps des Arts</strong>, la <strong>Fondation Princesse Charlène</strong> et le festival <strong>L'Èze Harmonies</strong> — où l'image de marque, la visibilité et l'expérience utilisateur avancent ensemble.</p>
@@ -298,7 +321,7 @@
         <!-- COMPETENCES -->
         <section id="competences" class="py-16 sm:py-24 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 transition-colors">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="text-center max-w-3xl mx-auto mb-16 reveal-up">
                     <h2 class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2">COMPÉTENCES</h2>
                     <h3 class="text-3xl sm:text-4xl tracking-tight">Ma méthodologie</h3>
                 </div>
@@ -309,21 +332,21 @@
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
                         </div>
                         <h4 class="text-base font-bold mb-2">Content &amp; Copywriting</h4>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Création de lignes éditoriales claires, storytelling engageant, écriture de newsletters qui donnent envie de cliquer, techniques de persuasion AIDA.</p>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Création de lignes éditoriales claires, storytelling engageant, écriture de newsletters, techniques de persuasion AIDA.</p>
                     </div>
                     <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition duration-300">
                         <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-950/50 text-brand-500 flex items-center justify-center mb-5">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                         </div>
                         <h4 class="text-base font-bold mb-2">SEO &amp; GEO</h4>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Référencement naturel et optimisation pour les moteurs génératifs (GEO) : contenus structurés, données structurées et visibilité dans les réponses IA. Mon angle différenciant.</p>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Référencement naturel et optimisation pour les moteurs génératifs (GEO) : analyse du positionnement et de l'intention de recherche, contenus structurés, optimisés et rédigés par un humain avec un langage clair et propre, données structurées et visibilité dans les moteurs de recherche et les réponses IA.</p>
                     </div>
                     <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition duration-300">
                         <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-950/50 text-brand-500 flex items-center justify-center mb-5">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                         </div>
                         <h4 class="text-base font-bold mb-2">Graphisme &amp; Print</h4>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Identités visuelles cohérentes, mise en page de magazines et de plaquettes institutionnelles, fichiers prêts pour l'imprimeur.</p>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Identités visuelles cohérentes, mise en page, fichiers prêts pour l'imprimeur.</p>
                     </div>
                     <div class="p-6 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition duration-300">
                         <div class="w-12 h-12 rounded-xl bg-brand-50 dark:bg-brand-950/50 text-brand-500 flex items-center justify-center mb-5">
@@ -337,7 +360,7 @@
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
                         </div>
                         <h4 class="text-base font-bold mb-2">IA &amp; Intégration Code</h4>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Sensibilité technique et logique d'intégration HTML/CSS, JSON et JS. Optimisation des workflows créatifs grâce au context engineering.</p>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">Sensibilité technique et logique d'intégration HTML/CSS, JSON, JS. Optimisation des workflows créatifs et logistiques grâce au context engineering.</p>
                     </div>
                 </div>
             </div>
@@ -347,21 +370,25 @@
         <section id="contact" class="py-16 sm:py-24 border-t border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/20 transition-colors">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                    <div class="lg:col-span-5 space-y-8">
+                    <div class="lg:col-span-5 space-y-8 reveal-up">
                         <div>
                             <h2 class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2">CONTACT DIRECT</h2>
                             <h3 class="text-3xl mb-4">Créons quelque chose ensemble</h3>
-                            <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">Un projet de contenu ? De visibilité en ligne ? De design d'interface ? Contactez-moi — j'aime les défis créatifs.</p>
+                            <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">Un projet de contenu ? De visibilité en ligne ? De design d'interface ? Contactez-moi et parlons-en !</p>
                         </div>
                         <div class="space-y-4">
                             <div class="flex items-center space-x-4 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
                                 <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-500 flex items-center justify-center shrink-0">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                                 </div>
-                                <div class="overflow-hidden">
+                                <div class="overflow-hidden flex-1">
                                     <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Mon e-mail</span>
                                     <a href="mailto:mikael.andraos@gmail.com" class="text-sm font-semibold hover:text-brand-500 transition">mikael.andraos@gmail.com</a>
                                 </div>
+                                <button id="copy-email-btn" type="button" class="shrink-0 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition" aria-label="Copier l'adresse e-mail">
+                                    <svg id="copy-icon" class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                    <svg id="copy-check-icon" class="hidden w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                </button>
                             </div>
                             <div class="flex items-center space-x-4 p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
                                 <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-500 flex items-center justify-center shrink-0">
@@ -381,13 +408,14 @@
                                     <span class="text-sm font-semibold">
                                         <a href="https://linkedin.com/in/mikael-andraos" target="_blank" rel="noopener" class="hover:text-brand-500 transition">LinkedIn</a>
                                         <span class="text-slate-400 mx-1.5" aria-hidden="true">·</span>
-                                        <a href="https://www.behance.net/mikaelandraos" target="_blank" rel="noopener" class="hover:text-brand-500 transition">Behance</a>
+                                        <!-- TODO : remplacer "#" par l'URL du profil Malt dès qu'elle est disponible -->
+                                        <a href="#" target="_blank" rel="noopener" class="hover:text-brand-500 transition">Malt</a>
                                     </span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="lg:col-span-7">
+                    <div class="lg:col-span-7 reveal-up">
                         <div class="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm">
                             <!-- Formulaire branché sur FormSubmit (AJAX, sans backend, aucune clé requise). -->
                             <form id="contact-form" class="space-y-4">
@@ -427,8 +455,9 @@
                     LinkedIn
                     <svg class="w-3 h-3 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
                 </a>
-                <a href="https://www.behance.net/mikaelandraos" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">
-                    Behance
+                <!-- TODO : remplacer "#" par l'URL du profil Malt dès qu'elle est disponible -->
+                <a href="#" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">
+                    Malt
                     <svg class="w-3 h-3 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
                 </a>
             </nav>
@@ -481,7 +510,7 @@
                 category: "digital",
                 categoryLabel: "Digital & Copy",
                 shortDescription: "Création de contenus et animation éditoriale pour faire vivre la programmation du festival auprès de son public.",
-                longDescription: "Une ligne éditoriale pensée pour faire vivre la programmation du festival : interviews d'artistes, coulisses et décryptages d'œuvres, pour toucher les mélomanes et attirer de nouveaux publics. L'écriture est pensée pour donner envie de s'abonner et de réserver sa place.",
+                longDescription: "Une ligne éditoriale pensée pour faire vivre la programmation du festival : interviews d'artistes, coulisses et décryptages d'œuvres, pour fidéliser les mélomanes et attirer de nouveaux publics. L'écriture est pensée pour donner envie de s'abonner et de réserver sa place.",
                 deliverable: "Calendrier éditorial & Visuels de Campagne",
                 imageUrl: "images/landing-printemps-des-arts.png",
                 fallbackUrl: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&q=80&w=800",
@@ -494,7 +523,7 @@
                 category: "digital",
                 categoryLabel: "Digital & Copy",
                 shortDescription: "Conception et rédaction de newsletters thématiques pour les festivaliers et les abonnés fidèles.",
-                longDescription: "Des newsletters pensées pour raconter la programmation musicale du festival : décoder les œuvres, raconter l'histoire des artistes et créer un lien avant l'événement. Une mise en page claire, avec des appels à l'action qui donnent envie de réserver sa place.",
+                longDescription: "Des newsletters pensées pour raconter la programmation musicale du festival : décoder les œuvres, raconter l'histoire des artistes et créer un lien avant l'événement. Une mise en page claire, avec des appels à l'action qui inspirent à réserver sa place.",
                 deliverable: "Gabarits de Newsletters (Modèles 1, 2 et 3)",
                 imageUrl: "images/newsletter-printemps-1.png",
                 fallbackUrl: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&q=80&w=800",
@@ -506,8 +535,8 @@
                 client: "Fondation Princesse Charlène de Monaco",
                 category: "print",
                 categoryLabel: "Supports Print",
-                shortDescription: "Mise en page de brochures institutionnelles et de rapports annuels, prêts à imprimer.",
-                longDescription: "Une mise en page claire et rigoureuse pour valoriser les chiffres clés et les projets menés à l'international. Les fichiers sont préparés avec tout le soin nécessaire pour une impression sans mauvaise surprise.",
+                shortDescription: "Mise en page de brochures institutionnelles et de rapports annuels.",
+                longDescription: "Une mise en page claire et rigoureuse pour valoriser les chiffres clés et les projets menés à l'international. Les fichiers sont préparés avec tout le soin nécessaire pour une impression haut de gamme irréprochable.",
                 deliverable: "Plaquettes Prêtes pour Imprimeur (PDF)",
                 imageUrl: "images/rapport-activites-fpcm.png",
                 fallbackUrl: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=800",
@@ -519,8 +548,8 @@
                 client: "Fondation Princesse Charlène de Monaco",
                 category: "ux",
                 categoryLabel: "UX & Web Design",
-                shortDescription: "Refonte du parcours de don en étapes claires, et restructuration de l'accueil des programmes phares.",
-                longDescription: "Deux volets pour fluidifier l'expérience digitale : d'abord, un parcours de don repensé en trois étapes claires pour réduire les points de friction au moment de payer. Ensuite, une refonte visuelle de l'accueil pour mettre en avant les programmes phares plus simplement.",
+                shortDescription: "Restructuration du parcours de don en étapes claires, et refonte du site web.",
+                longDescription: "Deux volets pour fluidifier l'expérience digitale : un parcours de don repensé en trois étapes claires pour réduire les points de friction au moment de payer, et une refonte totale du site web (WordPress) pour mettre en avant les programmes phares, les évènements et les actualités de manière plus moderne.",
                 deliverable: "Maquettes UX Interactives & Gabarits Web",
                 imageUrl: "images/page-dons-fpcm.png",
                 fallbackUrl: "https://images.unsplash.com/photo-1581291518655-9523c932dedf?auto=format&fit=crop&q=80&w=800",
@@ -528,13 +557,13 @@
             },
             {
                 id: 5,
-                title: "Refonte UX & Optimisation SEO",
+                title: "Optimisation SEO/GEO",
                 client: "Festival L'Èze Harmonies",
                 category: "ux",
                 categoryLabel: "UX & SEO",
-                shortDescription: "Refonte de l'expérience du site du festival et optimisation de son référencement naturel.",
-                longDescription: "Repenser le site pour deux publics à la fois : les festivaliers qui découvrent et réservent, et les moteurs de recherche qui doivent bien le comprendre. Une navigation plus claire, des parcours plus fluides, et des contenus pensés pour bien se positionner sur les recherches locales et culturelles.",
-                deliverable: "Recommandations SEO & Maquettes de Refonte",
+                shortDescription: "Optimisation de l'expérience du site du festival et de son référencement naturel (moteurs de recherche et moteurs d'IA générative).",
+                longDescription: "Repenser le site pour deux publics à la fois : les festivaliers qui découvrent et réservent, et les moteurs de recherche qui doivent bien le comprendre. Une navigation plus claire et des contenus pensés pour bien se positionner sur les recherches locales et culturelles.",
+                deliverable: "Recommandations SEO, Optimisations et Création de Contenu",
                 imageUrl: "images/placeholder-leze-harmonies.svg",
                 fallbackUrl: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&q=80&w=800",
                 gallery: ["images/placeholder-leze-harmonies.svg"]
@@ -590,9 +619,10 @@
         function renderProjects(categoryFilter = 'all') {
             grid.innerHTML = '';
             const filtered = categoryFilter === 'all' ? projectsData : projectsData.filter(p => p.category === categoryFilter);
-            filtered.forEach(project => {
+            filtered.forEach((project, index) => {
                 const card = document.createElement('div');
-                card.className = "group relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 flex flex-col cursor-pointer";
+                card.className = "project-card-reveal group relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300 flex flex-col cursor-pointer";
+                card.style.transitionDelay = (index * 60) + 'ms';
                 card.onclick = () => openModal(project.id);
                 card.innerHTML = `
                     <div class="h-48 overflow-hidden bg-slate-100 dark:bg-slate-800 relative border-b border-slate-100 dark:border-slate-800">
@@ -611,6 +641,9 @@
                     </div>
                 `;
                 grid.appendChild(card);
+            });
+            requestAnimationFrame(() => {
+                grid.querySelectorAll('.project-card-reveal').forEach(el => el.classList.add('is-visible'));
             });
         }
 
@@ -700,6 +733,75 @@
                 submitBtn.innerText = originalLabel;
             }
         });
+
+        // RÉVÉLATION DOUCE DES SECTIONS AU SCROLL
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const revealEls = document.querySelectorAll('.reveal-up');
+        if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            revealEls.forEach(el => revealObserver.observe(el));
+        } else {
+            revealEls.forEach(el => el.classList.add('is-visible'));
+        }
+
+        // COMPTEUR ANIMÉ DES STATISTIQUES (À PROPOS)
+        function animateCount(el) {
+            const target = parseFloat(el.getAttribute('data-count-to'));
+            const suffix = el.getAttribute('data-count-suffix') || '';
+            const duration = 1100;
+            const start = performance.now();
+            function step(now) {
+                const progress = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.round(target * eased) + suffix;
+                if (progress < 1) requestAnimationFrame(step);
+                else el.textContent = target + suffix;
+            }
+            requestAnimationFrame(step);
+        }
+        const statCounters = document.querySelectorAll('.stat-count');
+        if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+            const statObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCount(entry.target);
+                        statObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.6 });
+            statCounters.forEach(el => statObserver.observe(el));
+        } else {
+            statCounters.forEach(el => { el.textContent = el.getAttribute('data-count-to') + (el.getAttribute('data-count-suffix') || ''); });
+        }
+
+        // COPIER L'E-MAIL EN UN CLIC
+        const copyEmailBtn = document.getElementById('copy-email-btn');
+        if (copyEmailBtn) {
+            copyEmailBtn.addEventListener('click', async () => {
+                const copyIcon = document.getElementById('copy-icon');
+                const copyCheckIcon = document.getElementById('copy-check-icon');
+                try {
+                    await navigator.clipboard.writeText('mikael.andraos@gmail.com');
+                    copyIcon.classList.add('hidden');
+                    copyCheckIcon.classList.remove('hidden');
+                    copyEmailBtn.setAttribute('aria-label', 'Adresse e-mail copiée');
+                    setTimeout(() => {
+                        copyIcon.classList.remove('hidden');
+                        copyCheckIcon.classList.add('hidden');
+                        copyEmailBtn.setAttribute('aria-label', "Copier l'adresse e-mail");
+                    }, 1800);
+                } catch (err) {
+                    // Presse-papiers indisponible : le lien mailto reste utilisable normalement.
+                }
+            });
+        }
 
         window.onload = () => renderProjects();
     </script>
