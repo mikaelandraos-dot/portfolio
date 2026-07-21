@@ -63,15 +63,19 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Instrument Sans', sans-serif; background:#faf7f1; }
         /* Gloock n'a qu'une seule graisse (400). On neutralise les font-extrabold sur les titres
            pour éviter une fausse graisse et garder un rendu net sur les très gros titres. */
         h1, h2, h3 { font-family: 'Gloock', serif; font-weight: 400 !important; letter-spacing: .2px; }
         h1 { letter-spacing: -.5px; line-height: 1.08; }
-        .tracking-widest, .tracking-wider { font-family: 'Geist Mono', monospace; }
-        .font-mono { font-family: 'Geist Mono', monospace; }
+        /* Micro-labels : Space Grotesk par défaut. Geist Mono reste réservé au pied de page,
+           à l'encart Méthode (.method-card) et aux libellés de contact/formulaire (.label-geist). */
+        .tracking-widest, .tracking-wider, .font-mono { font-family: 'Space Grotesk', sans-serif; }
+        footer .tracking-widest, footer .tracking-wider, footer .font-mono,
+        .method-card .tracking-widest, .method-card .tracking-wider, .method-card .font-mono,
+        .label-geist { font-family: 'Geist Mono', monospace; }
         /* warm white cards instead of pure white */
         .bg-white { background-color:#fffdf8 !important; }
         .custom-scrollbar::-webkit-scrollbar { width: 6px; }
@@ -250,7 +254,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     <div class="lg:col-span-5 flex justify-center reveal-up">
-                        <div class="w-full max-w-sm rounded-3xl bg-white dark:bg-slate-900 p-8 border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-900/5 relative overflow-hidden">
+                        <div class="method-card w-full max-w-sm rounded-3xl bg-white dark:bg-slate-900 p-8 border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-900/5 relative overflow-hidden">
                             <div class="absolute -right-16 -top-16 w-40 h-40 bg-brand-500/10 rounded-full blur-2xl"></div>
                             <p class="text-[10px] font-bold uppercase tracking-widest text-brand-500 dark:text-brand-400 border-b border-slate-200 dark:border-slate-800 pb-4 mb-6">Méthode — de la visibilité à la conversion</p>
                             <div class="space-y-6">
@@ -279,8 +283,7 @@
                         </div>
                     </div>
                     <div class="lg:col-span-7 reveal-up">
-                        <h2 class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2">À PROPOS DE MOI</h2>
-                        <h3 class="text-3xl mb-6">Mikaël Andraos</h3>
+                        <h2 class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-6">À PROPOS DE MOI</h2>
                         <div class="space-y-4 text-slate-600 dark:text-slate-400 leading-relaxed text-base">
                             <p>Je construis des ponts entre la <strong>visibilité</strong> (SEO/GEO), l'écriture qui <strong>persuade</strong> et le <strong>design d'interface (UX/UI)</strong> qui clarifie.</p>
                             <p>J'ai piloté des projets de refonte et repensé des parcours de don pour les rendre plus simples. J'ai piloté des stratégies éditoriales digitales — réseaux sociaux et newsletters immersives — pour faire vivre des programmations culturelles. Et j'ai optimisé des sites d'événements pour qu'ils soient agréables à visiter et faciles à trouver en ligne.</p>
@@ -382,7 +385,7 @@
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                                 </div>
                                 <div class="overflow-hidden flex-1">
-                                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Mon e-mail</span>
+                                    <span class="label-geist block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Mon e-mail</span>
                                     <a href="mailto:mikael.andraos@gmail.com" class="text-sm font-semibold hover:text-brand-500 transition">mikael.andraos@gmail.com</a>
                                 </div>
                                 <button id="copy-email-btn" type="button" class="shrink-0 p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition" aria-label="Copier l'adresse e-mail">
@@ -395,7 +398,7 @@
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                                 </div>
                                 <div class="overflow-hidden">
-                                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Mon téléphone</span>
+                                    <span class="label-geist block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Mon téléphone</span>
                                     <a href="tel:0608002312" class="text-sm font-semibold hover:text-brand-500 transition">06 08 00 23 12</a>
                                 </div>
                             </div>
@@ -404,7 +407,7 @@
                                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                                 </div>
                                 <div class="overflow-hidden">
-                                    <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Mes réseaux</span>
+                                    <span class="label-geist block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Mes réseaux</span>
                                     <span class="text-sm font-semibold">
                                         <a href="https://linkedin.com/in/mikael-andraos" target="_blank" rel="noopener" class="hover:text-brand-500 transition">LinkedIn</a>
                                         <span class="text-slate-400 mx-1.5" aria-hidden="true">·</span>
@@ -423,16 +426,16 @@
                                 <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
-                                        <label for="cf-name" class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Votre nom</label>
+                                        <label for="cf-name" class="label-geist block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Votre nom</label>
                                         <input id="cf-name" name="nom" type="text" autocomplete="name" required class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs focus:ring-2 focus:ring-brand-500 outline-none">
                                     </div>
                                     <div>
-                                        <label for="cf-email" class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Votre e-mail</label>
+                                        <label for="cf-email" class="label-geist block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Votre e-mail</label>
                                         <input id="cf-email" name="email" type="email" autocomplete="email" required class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs focus:ring-2 focus:ring-brand-500 outline-none">
                                     </div>
                                 </div>
                                 <div>
-                                    <label for="cf-msg" class="block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Message</label>
+                                    <label for="cf-msg" class="label-geist block text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">Message</label>
                                     <textarea id="cf-msg" name="message" rows="5" required class="w-full px-4 py-3 bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl text-xs focus:ring-2 focus:ring-brand-500 outline-none"></textarea>
                                 </div>
                                 <button type="submit" class="w-full py-4 px-6 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-xl hover:bg-brand-600 transition disabled:opacity-60 disabled:cursor-not-allowed">Envoyer mon message</button>
@@ -447,7 +450,10 @@
 
     <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-10 transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <p class="font-display text-xl text-slate-900 dark:text-slate-100">Mikaël Andraos</p>
+            <a href="#" class="shrink-0" aria-label="Mikaël Andraos — haut de page">
+                <img src="images/logo-aencre.png" alt="Mikaël Andraos" title="Mikaël Andraos" class="h-8 w-auto dark:hidden">
+                <img src="images/logo-aencre-dark.png" alt="Mikaël Andraos" title="Mikaël Andraos" class="h-8 w-auto hidden dark:block">
+            </a>
             <nav aria-label="Navigation du pied de page" class="flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
                 <a href="blog.html" class="text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">Blog</a>
                 <a href="https://linkedin.com/in/mikael-andraos" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">
@@ -562,9 +568,9 @@
                 shortDescription: "Optimisation de l'expérience du site du festival et de son référencement naturel (moteurs de recherche et moteurs d'IA générative).",
                 longDescription: "Repenser le site pour deux publics à la fois : les festivaliers qui découvrent et réservent, et les moteurs de recherche qui doivent bien le comprendre. Une navigation plus claire et des contenus pensés pour bien se positionner sur les recherches locales et culturelles.",
                 deliverable: "Recommandations SEO, Optimisations et Création de Contenu",
-                imageUrl: "images/placeholder-leze-harmonies.svg",
+                imageUrl: "images/concert-leze-harmonies.jpg",
                 fallbackUrl: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&q=80&w=800",
-                gallery: ["images/placeholder-leze-harmonies.svg"]
+                gallery: ["images/concert-leze-harmonies.jpg"]
             }
         ];
 

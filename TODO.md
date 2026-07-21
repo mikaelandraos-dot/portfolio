@@ -2,8 +2,8 @@
 
 ## 🔴 Priorité haute
 
-- [ ] **Remplacer le placeholder L'Èze Harmonies** : `images/placeholder-leze-harmonies.svg` est un visuel typographique temporaire. Ajouter les vrais livrables (captures des maquettes de refonte, avant/après, extraits des recommandations SEO) puis mettre à jour `imageUrl` et `gallery` du projet id 5 dans `projectsData`.
-- [ ] **Créer le compte Behance** et réserver le pseudo `mikaelandraos` (le footer, la section contact et le JSON-LD pointent déjà vers `behance.net/mikaelandraos`). S'appuyer sur `docs/behance-kit.md`.
+- [x] **Remplacer le placeholder L'Èze Harmonies** : le visuel typographique temporaire a été remplacé par une photo réelle du festival (`images/concert-leze-harmonies.jpg`). Les vraies maquettes de refonte / captures avant-après restent à ajouter si Mikaël souhaite enrichir la galerie du projet id 5.
+- [ ] **Créer le compte Behance** et réserver le pseudo `mikaelandraos` (le footer, la section contact et le JSON-LD pointent pour l'instant vers Malt — `docs/behance-kit.md` reste prêt pour quand le compte Behance existera).
 - [ ] **Vérifier le profil LinkedIn** : le site pointe vers `linkedin.com/in/mikael-andraos` — confirmer que c'est bien le slug public exact.
 
 ## 🟠 Priorité moyenne
@@ -16,7 +16,7 @@
 ## 🟢 Améliorations futures
 
 - [ ] Analytics respectueux de la vie privée (Plausible, GoatCounter ou Umami).
-- [ ] Micro-animations au scroll (IntersectionObserver, apparitions douces) — rester sobre.
+- [x] Micro-animations au scroll (IntersectionObserver, apparitions douces) — implémenté (`.reveal-up`, compteur animé sur les statistiques).
 - [ ] Page 404 personnalisée pour GitHub Pages.
 - [ ] Témoignages clients (citations) si accord des clients.
 - [ ] Passer de Tailwind CDN à un build Tailwind CLI (perfs + purge CSS) — seulement si le site grossit.

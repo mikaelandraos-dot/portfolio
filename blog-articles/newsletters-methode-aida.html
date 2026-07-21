@@ -55,13 +55,14 @@
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Instrument Sans', sans-serif; background:#faf7f1; }
         h1, h2, h3 { font-family: 'Gloock', serif; font-weight: 400 !important; letter-spacing: .2px; }
         h1 { letter-spacing: -.5px; line-height: 1.08; }
-        .tracking-widest, .tracking-wider { font-family: 'Geist Mono', monospace; }
-        .font-mono { font-family: 'Geist Mono', monospace; }
+        /* Micro-labels : Space Grotesk par défaut. Geist Mono reste réservé au pied de page. */
+        .tracking-widest, .tracking-wider, .font-mono { font-family: 'Space Grotesk', sans-serif; }
+        footer .tracking-widest, footer .tracking-wider, footer .font-mono { font-family: 'Geist Mono', monospace; }
         .bg-white { background-color:#fffdf8 !important; }
 
         .nav-link { position: relative; padding-bottom: 2px; }
@@ -104,31 +105,31 @@
 
     <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="../index.html" class="text-xl font-bold tracking-wider text-brand-500 hover:text-brand-600 transition" style="font-family:'Gloock',serif;letter-spacing:0">Mikaël Andraos</a>
+            <a href="../" class="text-xl font-bold tracking-wider text-brand-500 hover:text-brand-600 transition" style="font-family:'Gloock',serif;letter-spacing:0">Mikaël Andraos</a>
             <nav class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="../index.html#propos" class="nav-link hover:text-brand-500 transition">À propos</a>
-                <a href="../index.html#projets" class="nav-link hover:text-brand-500 transition">Projets</a>
-                <a href="../index.html#competences" class="nav-link hover:text-brand-500 transition">Compétences</a>
+                <a href="../#propos" class="nav-link hover:text-brand-500 transition">À propos</a>
+                <a href="../#projets" class="nav-link hover:text-brand-500 transition">Projets</a>
+                <a href="../#competences" class="nav-link hover:text-brand-500 transition">Compétences</a>
                 <a href="../blog.html" class="nav-link text-brand-500 transition">Blog</a>
-                <a href="../index.html#contact" class="nav-link hover:text-brand-500 transition">Contact</a>
+                <a href="../#contact" class="nav-link hover:text-brand-500 transition">Contact</a>
             </nav>
             <div class="flex items-center space-x-4">
                 <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-900 transition" aria-label="Basculer le thème clair/sombre">
                     <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
                     <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-slate-500 dark:text-slate-400" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
                 </button>
-                <a href="../index.html#contact" class="hidden sm:inline-flex items-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition">Démarrer un projet</a>
+                <a href="../#contact" class="hidden sm:inline-flex items-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition">Démarrer un projet</a>
                 <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 transition" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 px-4 py-4 space-y-3">
-            <a href="../index.html#propos" class="block text-base font-medium hover:text-brand-500 transition mobile-link">À propos</a>
-            <a href="../index.html#projets" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Projets</a>
-            <a href="../index.html#competences" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Compétences</a>
+            <a href="../#propos" class="block text-base font-medium hover:text-brand-500 transition mobile-link">À propos</a>
+            <a href="../#projets" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Projets</a>
+            <a href="../#competences" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Compétences</a>
             <a href="../blog.html" class="block text-base font-medium text-brand-500 transition mobile-link">Blog</a>
-            <a href="../index.html#contact" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Contact</a>
+            <a href="../#contact" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Contact</a>
         </div>
     </header>
 
@@ -212,7 +213,7 @@
                 <p class="text-xs text-slate-500 dark:text-slate-400 -mt-6 mb-8">Source : <a href="https://mailchimp.com/resources/effects-of-list-segmentation-on-email-marketing-stats/" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">Mailchimp, « Effects of List Segmentation on Email Marketing Stats »</a></p>
 
                 <h2 id="interet-desir">3. Intérêt et désir : raconter plutôt qu'annoncer</h2>
-                <p>Une fois l'objet ouvert, les deux étapes suivantes se jouent ensemble. L'intérêt, c'est la première phrase qui explique en quoi le sujet concerne le lecteur — pas l'institution. Le désir, c'est le récit qui suit : une interview de compositeur, les coulisses d'une répétition, l'histoire derrière une œuvre. C'est exactement la logique que j'ai appliquée aux newsletters du <a href="../index.html#projets">Printemps des Arts de Monte-Carlo</a> : décoder une programmation exigeante plutôt que se contenter de l'annoncer, pour donner au lecteur une raison d'y être, pas seulement une information sur la date.</p>
+                <p>Une fois l'objet ouvert, les deux étapes suivantes se jouent ensemble. L'intérêt, c'est la première phrase qui explique en quoi le sujet concerne le lecteur — pas l'institution. Le désir, c'est le récit qui suit : une interview de compositeur, les coulisses d'une répétition, l'histoire derrière une œuvre. C'est exactement la logique que j'ai appliquée aux newsletters du <a href="../#projets">Printemps des Arts de Monte-Carlo</a> : décoder une programmation exigeante plutôt que se contenter de l'annoncer, pour donner au lecteur une raison d'y être, pas seulement une information sur la date.</p>
 
                 <h2 id="action">4. Action : un seul bouton, pas dix</h2>
                 <p>C'est la partie la plus contre-intuitive : donner moins d'options augmente les clics. Une étude largement citée dans le secteur de l'email marketing montre que les e-mails avec un <strong>unique</strong> appel à l'action génèrent <strong>371 % de clics en plus</strong> que ceux qui en proposent plusieurs. Le principe est simple : chaque bouton supplémentaire est une décision de plus à prendre, et une décision de plus, c'est une occasion de plus de ne rien décider du tout.</p>
@@ -254,7 +255,7 @@
                 <div class="not-prose my-12 bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800">
                     <h3 class="text-xl mb-3 mt-0">Besoin de structurer vos newsletters ?</h3>
                     <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Ligne éditoriale, gabarits, écriture — je peux vous aider à transformer vos envois en vrais outils de conversion.</p>
-                    <a href="../index.html#contact" class="inline-flex items-center px-5 py-3 text-sm font-semibold text-white bg-brand-500 rounded-xl hover:bg-brand-600 transition">
+                    <a href="../#contact" class="inline-flex items-center px-5 py-3 text-sm font-semibold text-white bg-brand-500 rounded-xl hover:bg-brand-600 transition">
                         Démarrer un projet
                         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
                     </a>
@@ -271,10 +272,14 @@
 
                 <div class="not-prose mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
                     <h3 class="text-xl mb-6 mt-0">À lire aussi</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                         <a href="seo-geo-institutions-culturelles.html" class="group block bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 hover:border-brand-500/40 hover:-translate-y-0.5 transition">
                             <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider block mb-2">SEO &amp; GEO</span>
                             <h4 class="text-base font-semibold group-hover:text-brand-500 transition">SEO &amp; GEO : comment être trouvé par Google ET par l'IA</h4>
+                        </a>
+                        <a href="seo-local-institutions-culturelles.html" class="group block bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 hover:border-brand-500/40 hover:-translate-y-0.5 transition">
+                            <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider block mb-2">SEO &amp; GEO</span>
+                            <h4 class="text-base font-semibold group-hover:text-brand-500 transition">Le SEO local : dominer les recherches près de chez soi</h4>
                         </a>
                         <a href="ux-tunnel-don-friction.html" class="group block bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 hover:border-brand-500/40 hover:-translate-y-0.5 transition">
                             <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider block mb-2">UX &amp; Design</span>
@@ -288,10 +293,13 @@
 
     <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-10 transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <p class="font-display text-xl text-slate-900 dark:text-slate-100">Mikaël Andraos</p>
+            <a href="../" class="shrink-0" aria-label="Mikaël Andraos — accueil">
+                <img src="../images/logo-aencre.png" alt="Mikaël Andraos" title="Mikaël Andraos" class="h-8 w-auto dark:hidden">
+                <img src="../images/logo-aencre-dark.png" alt="Mikaël Andraos" title="Mikaël Andraos" class="h-8 w-auto hidden dark:block">
+            </a>
             <nav aria-label="Navigation du pied de page" class="flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
-                <a href="../index.html#propos" class="text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">À propos</a>
-                <a href="../index.html#projets" class="text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">Projets</a>
+                <a href="../#propos" class="text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">À propos</a>
+                <a href="../#projets" class="text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">Projets</a>
                 <a href="../blog.html" class="text-xs font-semibold uppercase tracking-widest text-brand-500 transition">Blog</a>
                 <a href="https://linkedin.com/in/mikael-andraos" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">
                     LinkedIn

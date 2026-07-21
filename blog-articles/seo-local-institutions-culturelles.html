@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le SEO local : dominer les recherches près de chez soi | Blog Mikaël Andraos</title>
+
+    <meta name="description" content="46 % des recherches Google ont une intention locale. Comment un festival, une fondation ou une institution culturelle peut dominer le Local Pack et les recherches de proximité.">
+    <meta name="author" content="Mikaël Andraos">
+    <link rel="canonical" href="https://mikaelandraos-dot.github.io/portfolio/blog-articles/seo-local-institutions-culturelles.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Le SEO local : dominer les résultats de recherche près de chez soi">
+    <meta property="og:description" content="46 % des recherches Google ont une intention locale. Comment dominer le Local Pack et les recherches de proximité.">
+    <meta property="og:image" content="https://mikaelandraos-dot.github.io/portfolio/images/mikael-andraos.png">
+    <meta property="og:url" content="https://mikaelandraos-dot.github.io/portfolio/blog-articles/seo-local-institutions-culturelles.html">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Le SEO local : dominer les recherches près de chez soi">
+    <meta name="twitter:image" content="https://mikaelandraos-dot.github.io/portfolio/images/mikael-andraos.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Le SEO local : dominer les résultats de recherche près de chez soi",
+      "image": "https://mikaelandraos-dot.github.io/portfolio/images/mikael-andraos.png",
+      "datePublished": "2026-07-21T09:00:00+02:00",
+      "dateModified": "2026-07-21T09:00:00+02:00",
+      "author": { "@type": "Person", "name": "Mikaël Andraos", "url": "https://mikaelandraos-dot.github.io/portfolio/" },
+      "publisher": { "@type": "Person", "name": "Mikaël Andraos" },
+      "description": "46 % des recherches Google ont une intention locale. Comment un festival, une fondation ou une institution culturelle peut dominer le Local Pack et les recherches de proximité.",
+      "mainEntityOfPage": "https://mikaelandraos-dot.github.io/portfolio/blog-articles/seo-local-institutions-culturelles.html"
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef1f8', 100:'#e0e6f3', 400:'#41538f', 500:'#1e3a8a', 600:'#15295f', 900:'#0f1f49' },
+                        indigo: { 500:'#1e3a8a' },
+                        slate: { 50:'#faf7f1', 100:'#f1ead9', 200:'#e6dfce', 300:'#d3c9b2', 400:'#9b9486', 500:'#7c7567', 600:'#574f40', 700:'#3e3729', 800:'#2a2820', 900:'#1c2b3a', 950:'#141b24' }
+                    },
+                    fontFamily: {
+                        display: ['Gloock', 'serif'],
+                        sans: ['Instrument Sans', 'sans-serif'],
+                        mono: ['Geist Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Instrument Sans', sans-serif; background:#faf7f1; }
+        h1, h2, h3 { font-family: 'Gloock', serif; font-weight: 400 !important; letter-spacing: .2px; }
+        h1 { letter-spacing: -.5px; line-height: 1.08; }
+        .tracking-widest, .tracking-wider { font-family: 'Geist Mono', monospace; }
+        .font-mono { font-family: 'Geist Mono', monospace; }
+        .bg-white { background-color:#fffdf8 !important; }
+
+        /* Micro-labels : Space Grotesk par défaut. Geist Mono reste réservé au pied de page. */
+        .tracking-widest, .tracking-wider, .font-mono { font-family: 'Space Grotesk', sans-serif; }
+        footer .tracking-widest, footer .tracking-wider, footer .font-mono { font-family: 'Geist Mono', monospace; }
+
+        .nav-link { position: relative; padding-bottom: 2px; }
+        .nav-link::after { content:''; position:absolute; left:0; bottom:-2px; width:0; height:1px; background-color:#1e3a8a; transition:width .3s ease; }
+        .dark .nav-link::after { background-color:#41538f; }
+        .nav-link:hover::after { width:100%; }
+
+        #reading-progress { position: fixed; top: 64px; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg,#1e3a8a,#41538f); z-index: 40; transition: width .1s linear; }
+
+        .article-prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .article-prose h2 { font-size: 1.75rem; margin-top: 3rem; margin-bottom: 1rem; scroll-margin-top: 6rem; }
+        .article-prose h3 { font-size: 1.25rem; margin-top: 2rem; margin-bottom: .75rem; scroll-margin-top: 6rem; }
+        .article-prose a { color: #1e3a8a; text-decoration: underline; text-underline-offset: 2px; }
+        .dark .article-prose a { color: #41538f; }
+        .article-prose strong { font-weight: 600; }
+        .article-prose ul, .article-prose ol { margin: 1rem 0 1.5rem 1.25rem; }
+        .article-prose li { margin-bottom: .5rem; line-height: 1.7; }
+        .article-prose ul { list-style-type: disc; }
+        .article-prose ol { list-style-type: decimal; }
+
+        .toc-link.active { color: #1e3a8a; font-weight: 600; }
+        .dark .toc-link.active { color: #41538f; }
+
+        .chart-bar { transition: filter .25s ease, transform .25s ease; transform-origin: bottom; }
+        .chart-bar:hover, .chart-bar:focus-visible { filter: brightness(1.12); transform: scaleY(1.02); }
+        .chart-bar-h { transition: filter .25s ease; }
+        .chart-bar-h:hover, .chart-bar-h:focus-visible { filter: brightness(1.12); }
+
+        .stat-tile { transition: transform .3s ease, border-color .3s ease; }
+        .stat-tile:hover { transform: translateY(-3px); }
+
+        /* Mini-audit interactif */
+        .audit-item { transition: border-color .2s ease, background-color .2s ease; }
+        .audit-item:has(input:checked) { border-color: #1e3a8a; background-color: rgba(30,58,138,0.05); }
+        .dark .audit-item:has(input:checked) { border-color: #41538f; background-color: rgba(65,83,143,0.12); }
+        .audit-item input { accent-color: #1e3a8a; }
+
+        /* FAQ accordion */
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary { list-style: none; }
+        .faq-item[open] summary svg { transform: rotate(180deg); }
+        .faq-item summary svg { transition: transform .2s ease; }
+
+        @keyframes heroFadeUp { from { opacity:0; transform: translateY(14px); } to { opacity:1; transform: translateY(0); } }
+        .hero-anim { opacity:0; animation: heroFadeUp .7s cubic-bezier(.16,1,.3,1) forwards; }
+        .hero-anim-1{animation-delay:.05s} .hero-anim-2{animation-delay:.15s} .hero-anim-3{animation-delay:.25s} .hero-anim-4{animation-delay:.35s}
+
+        @media (prefers-reduced-motion: reduce) { .hero-anim { animation:none; opacity:1; } }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <div id="reading-progress"></div>
+
+    <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <a href="../" class="text-xl font-bold tracking-wider text-brand-500 hover:text-brand-600 transition" style="font-family:'Gloock',serif;letter-spacing:0">Mikaël Andraos</a>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="../#propos" class="nav-link hover:text-brand-500 transition">À propos</a>
+                <a href="../#projets" class="nav-link hover:text-brand-500 transition">Projets</a>
+                <a href="../#competences" class="nav-link hover:text-brand-500 transition">Compétences</a>
+                <a href="../blog.html" class="nav-link text-brand-500 transition">Blog</a>
+                <a href="../#contact" class="nav-link hover:text-brand-500 transition">Contact</a>
+            </nav>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-900 transition" aria-label="Basculer le thème clair/sombre">
+                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-slate-500 dark:text-slate-400" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                </button>
+                <a href="../#contact" class="hidden sm:inline-flex items-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition">Démarrer un projet</a>
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 transition" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 px-4 py-4 space-y-3">
+            <a href="../#propos" class="block text-base font-medium hover:text-brand-500 transition mobile-link">À propos</a>
+            <a href="../#projets" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Projets</a>
+            <a href="../#competences" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Compétences</a>
+            <a href="../blog.html" class="block text-base font-medium text-brand-500 transition mobile-link">Blog</a>
+            <a href="../#contact" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Contact</a>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-16">
+        <section class="relative py-16 sm:py-20 overflow-hidden border-b border-slate-200 dark:border-slate-800">
+            <div class="absolute inset-0 -z-10 bg-[radial-gradient(50rem_40rem_at_top,theme(colors.brand.100),transparent)] dark:bg-[radial-gradient(50rem_40rem_at_top,theme(colors.slate.900),transparent)] opacity-50"></div>
+            <div aria-hidden="true" class="absolute -right-16 top-8 -z-10 opacity-[0.06] dark:opacity-[0.08] hidden lg:block">
+                <svg width="400" height="400" viewBox="0 0 400 400" fill="none">
+                    <circle cx="200" cy="178" r="115" stroke="#1e3a8a" stroke-width="1.2" opacity="0.5"/>
+                    <circle cx="200" cy="178" r="155" stroke="#1e3a8a" stroke-width="1.2" opacity="0.3"/>
+                    <path d="M200 118 C170 118 145 143 145 173 C145 213 200 268 200 268 C200 268 255 213 255 173 C255 143 230 118 200 118 Z" stroke="#1e3a8a" stroke-width="1.5"/>
+                    <circle cx="200" cy="170" r="18" stroke="#1e3a8a" stroke-width="1.5"/>
+                </svg>
+            </div>
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <a href="../blog.html" class="hero-anim hero-anim-1 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-brand-500 transition mb-6">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    Tous les articles
+                </a>
+                <span class="hero-anim hero-anim-2 inline-block bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full mb-5">SEO &amp; GEO</span>
+                <h1 class="hero-anim hero-anim-3 text-3xl sm:text-5xl tracking-tight mb-6">Le SEO local : dominer les résultats de recherche près de chez soi</h1>
+                <p class="hero-anim hero-anim-4 text-sm text-slate-500 dark:text-slate-400 font-mono">
+                    <time datetime="2026-07-21">21 juillet 2026</time> · 8 min de lecture · Par Mikaël Andraos
+                </p>
+            </div>
+        </section>
+
+        <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+            <nav class="not-prose bg-white dark:bg-slate-900 p-6 rounded-2xl mb-12 border border-slate-200 dark:border-slate-800" aria-label="Sommaire de l'article">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">Sommaire</p>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="#volume" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">1. Un volume de recherche invisible mais massif</a></li>
+                    <li><a href="#local-pack" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">2. Le Local Pack : la bataille des trois premières places</a></li>
+                    <li><a href="#facteurs" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">3. Ce qui fait vraiment gagner ces trois places</a></li>
+                    <li><a href="#avis" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">4. Les avis, le facteur qui monte</a></li>
+                    <li><a href="#audit" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">5. Mini-audit : où en est votre fiche ?</a></li>
+                    <li><a href="#culture" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">6. Ce que ça change pour un festival ou une fondation</a></li>
+                    <li><a href="#faq" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">Questions fréquentes</a></li>
+                    <li><a href="#glossaire" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">Petit glossaire</a></li>
+                    <li><a href="#sources" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">Sources</a></li>
+                </ul>
+            </nav>
+
+            <div class="article-prose text-base text-slate-700 dark:text-slate-300">
+                <p>Un festival ou une fondation ne se bat pas pour être visible partout dans le monde — il se bat pour être visible à 20, 50 ou 200 kilomètres à la ronde, au bon moment. C'est tout l'enjeu du <strong>SEO local</strong> : une discipline à part, avec ses propres règles et ses propres facteurs de classement, où les marges de progression sont souvent plus rapides à obtenir qu'en SEO classique.</p>
+
+                <h2 id="volume">1. Un volume de recherche invisible mais massif</h2>
+                <p>Près de <strong>46 % des recherches Google ont une intention locale</strong> — soit environ 3,9 milliards de recherches par jour dans le monde. Sur mobile, ces recherches sont particulièrement déterminantes : <strong>76 %</strong> des personnes qui font une recherche « près de moi » visitent l'établissement trouvé dans la journée, et <strong>88 %</strong> des recherches locales sur smartphone se traduisent par une visite ou un appel dans la semaine.</p>
+
+                <div class="not-prose my-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="stat-tile rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 text-center">
+                        <span class="block font-display text-4xl text-brand-500 dark:text-brand-400 mb-1">46 %</span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400">des recherches Google ont une intention locale</span>
+                    </div>
+                    <div class="stat-tile rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 text-center">
+                        <span class="block font-display text-4xl text-brand-500 dark:text-brand-400 mb-1">76 %</span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400">des recherches « près de moi » mènent à une visite le jour même</span>
+                    </div>
+                    <div class="stat-tile rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 text-center">
+                        <span class="block font-display text-4xl text-brand-500 dark:text-brand-400 mb-1">88 %</span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400">des recherches locales mobiles → visite ou appel sous une semaine</span>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 -mt-6 mb-8">Source : <a href="https://seoprofy.com/blog/local-seo-statistics/" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">SeoProfy, « 75 Local SEO Statistics for 2026 »</a></p>
+
+                <h2 id="local-pack">2. Le Local Pack : la bataille des trois premières places</h2>
+                <p>Sur une recherche à intention locale, Google affiche presque toujours un encart avec trois établissements, une carte et leurs avis : le <strong>Local Pack</strong>. Il apparaît sur <strong>93 %</strong> des recherches locales et capte à lui seul 40 à 50 % des clics de la page de résultats. Les établissements qui y figurent reçoivent <strong>126 % de trafic en plus</strong> et <strong>93 % d'actions en plus</strong> (appels, itinéraires, clics vers le site) que ceux classés en 4ᵉ position ou au-delà.</p>
+
+                <div class="not-prose my-10 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-brand-500 dark:text-brand-400 mb-1">Local Pack vs reste de la page</p>
+                    <h4 class="text-lg mb-6">Le trafic généré, en indice (hors pack = 100)</h4>
+                    <div class="flex items-end gap-6 sm:gap-10 h-48" role="img" aria-label="Graphique en barres : indice de trafic 100 pour les établissements hors du Local Pack, 226 pour ceux qui y figurent (soit 126% de plus).">
+                        <div class="flex-1 flex flex-col items-center justify-end h-full max-w-[8rem]">
+                            <span class="text-sm font-bold mb-2 text-slate-500 dark:text-slate-400">100</span>
+                            <div class="chart-bar w-full rounded-t-lg bg-slate-300 dark:bg-slate-700" style="height:44%" tabindex="0"></div>
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-3 text-center">Hors du<br>Local Pack</span>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center justify-end h-full max-w-[8rem]">
+                            <span class="text-sm font-bold mb-2 text-brand-500 dark:text-brand-400">226</span>
+                            <div class="chart-bar w-full rounded-t-lg bg-brand-500" style="height:100%" tabindex="0"></div>
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-3 text-center">Dans le<br>Local Pack</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-6">Source : <a href="https://www.soci.ai/blog/local-seo-statistics/" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">SOCi, « The Top Local SEO Statistics »</a></p>
+                </div>
+
+                <h2 id="facteurs">3. Ce qui fait vraiment gagner ces trois places</h2>
+                <p>Chaque année, l'agence Whitespark interroge des dizaines d'experts en référencement local pour établir un classement des facteurs qui pèsent le plus dans le Local Pack. L'édition 2026 est sans appel : la fiche d'établissement Google et les avis dominent très largement les critères plus classiques du SEO.</p>
+
+                <div class="not-prose my-10 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-brand-500 dark:text-brand-400 mb-1">Whitespark, 2026</p>
+                    <h4 class="text-lg mb-6">Poids des familles de facteurs de classement local</h4>
+                    <div class="space-y-4" role="img" aria-label="Poids des facteurs de classement local en 2026 : fiche Google 32%, avis 20%, contenu de la page 15%, comportement des utilisateurs 9%, liens entrants 8%, citations 6%.">
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1.5"><span>Fiche Google (GBP)</span><span class="text-brand-500 dark:text-brand-400">32 %</span></div>
+                            <div class="w-full h-3 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden"><div class="chart-bar-h h-full rounded-full bg-brand-600" style="width:32%" tabindex="0"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1.5"><span>Avis</span><span class="text-brand-500 dark:text-brand-400">20 %</span></div>
+                            <div class="w-full h-3 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden"><div class="chart-bar-h h-full rounded-full bg-brand-600" style="width:20%" tabindex="0"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1.5"><span>Contenu de la page</span><span class="text-brand-500 dark:text-brand-400">15 %</span></div>
+                            <div class="w-full h-3 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden"><div class="chart-bar-h h-full rounded-full bg-brand-600" style="width:15%" tabindex="0"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1.5"><span>Comportement des utilisateurs</span><span class="text-brand-500 dark:text-brand-400">9 %</span></div>
+                            <div class="w-full h-3 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden"><div class="chart-bar-h h-full rounded-full bg-brand-600" style="width:9%" tabindex="0"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1.5"><span>Liens entrants</span><span class="text-brand-500 dark:text-brand-400">8 %</span></div>
+                            <div class="w-full h-3 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden"><div class="chart-bar-h h-full rounded-full bg-brand-600" style="width:8%" tabindex="0"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1.5"><span>Citations (annuaires)</span><span class="text-brand-500 dark:text-brand-400">6 %</span></div>
+                            <div class="w-full h-3 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden"><div class="chart-bar-h h-full rounded-full bg-brand-600" style="width:6%" tabindex="0"></div></div>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-6">Source : <a href="https://whitespark.ca/local-search-ranking-factors/" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">Whitespark, « 2026 Local Search Ranking Factors »</a> (enquête auprès de 47 experts)</p>
+                </div>
+
+                <p>Autrement dit : avant même de penser liens ou contenu, la fiche Google et les avis représentent déjà plus de la moitié du poids total. Ce sont aussi les deux leviers les plus accessibles pour une petite structure sans budget SEO dédié.</p>
+
+                <h2 id="avis">4. Les avis, le facteur qui monte</h2>
+                <p>Une fiche Google complète génère <strong>70 % de visites en plus</strong> qu'une fiche incomplète (catégories, horaires, photos, description remplis). C'est l'une des statistiques les plus documentées du secteur, popularisée par une étude Google/Ipsos et toujours largement citée aujourd'hui. Côté avis, leur poids dans le classement est passé de 16 % à 20 % en quelques années — et ce n'est pas seulement leur nombre qui compte : <strong>74 %</strong> des internautes recherchent spécifiquement des avis publiés dans les trois derniers mois.</p>
+
+                <div class="not-prose my-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="stat-tile rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 text-center">
+                        <span class="block font-display text-4xl text-brand-500 dark:text-brand-400 mb-1">+70 %</span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400">de visites pour une fiche Google complète vs incomplète</span>
+                    </div>
+                    <div class="stat-tile rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 text-center">
+                        <span class="block font-display text-4xl text-brand-500 dark:text-brand-400 mb-1">20 %</span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400">du classement local pesé par les avis (contre 16 % il y a peu)</span>
+                    </div>
+                    <div class="stat-tile rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 text-center">
+                        <span class="block font-display text-4xl text-brand-500 dark:text-brand-400 mb-1">74 %</span>
+                        <span class="text-xs text-slate-500 dark:text-slate-400">recherchent des avis vieux de moins de 3 mois</span>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-500 dark:text-slate-400 -mt-6 mb-8">Sources : <a href="https://searchendurance.com/google-business-profile-statistics/" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">SearchEndurance</a>, <a href="https://whitespark.ca/local-search-ranking-factors/" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">Whitespark 2026</a></p>
+
+                <h2 id="audit">5. Mini-audit : où en est votre fiche ?</h2>
+                <p>Avant de penser stratégie de contenu ou liens, ces six points couvrent l'essentiel de ce qui pèse dans le classement local. Cochez ce qui est déjà fait — votre progression reste enregistrée dans ce navigateur si vous revenez plus tard.</p>
+
+                <div class="not-prose my-10 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8">
+                    <div class="flex items-center justify-between mb-2">
+                        <p class="text-[10px] font-bold uppercase tracking-widest text-brand-500 dark:text-brand-400 mb-0">Mini-audit interactif</p>
+                        <span id="audit-progress-label" class="text-xs font-bold text-slate-500 dark:text-slate-400">0 / 6</span>
+                    </div>
+                    <h4 class="text-lg mb-4">Où en est votre fiche Google ?</h4>
+                    <div class="w-full h-1.5 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden mb-6">
+                        <div id="audit-progress-bar" class="h-full bg-brand-500 transition-all duration-500" style="width:0%"></div>
+                    </div>
+                    <ul class="space-y-3" id="audit-checklist">
+                        <li><label class="audit-item flex items-start gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 cursor-pointer transition">
+                            <input type="checkbox" data-audit-item="claimed" class="mt-1 w-4 h-4 shrink-0">
+                            <span class="text-sm">Ma fiche Google est <strong>réclamée et vérifiée</strong>.</span>
+                        </label></li>
+                        <li><label class="audit-item flex items-start gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 cursor-pointer transition">
+                            <input type="checkbox" data-audit-item="categories" class="mt-1 w-4 h-4 shrink-0">
+                            <span class="text-sm">Les <strong>catégories</strong> et les <strong>horaires</strong> sont exacts et à jour.</span>
+                        </label></li>
+                        <li><label class="audit-item flex items-start gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 cursor-pointer transition">
+                            <input type="checkbox" data-audit-item="photos" class="mt-1 w-4 h-4 shrink-0">
+                            <span class="text-sm">Des <strong>photos récentes</strong> ont été ajoutées ce trimestre.</span>
+                        </label></li>
+                        <li><label class="audit-item flex items-start gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 cursor-pointer transition">
+                            <input type="checkbox" data-audit-item="reviews-recent" class="mt-1 w-4 h-4 shrink-0">
+                            <span class="text-sm">Des <strong>avis récents</strong> (moins de 3 mois) ont été collectés.</span>
+                        </label></li>
+                        <li><label class="audit-item flex items-start gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 cursor-pointer transition">
+                            <input type="checkbox" data-audit-item="reviews-reply" class="mt-1 w-4 h-4 shrink-0">
+                            <span class="text-sm">Les avis reçoivent une <strong>réponse</strong>, y compris les négatifs.</span>
+                        </label></li>
+                        <li><label class="audit-item flex items-start gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-800 cursor-pointer transition">
+                            <input type="checkbox" data-audit-item="nap" class="mt-1 w-4 h-4 shrink-0">
+                            <span class="text-sm">Nom, adresse et téléphone (<strong>NAP</strong>) sont identiques partout en ligne.</span>
+                        </label></li>
+                    </ul>
+                </div>
+
+                <h2 id="culture">6. Ce que ça change pour un festival ou une fondation</h2>
+                <p>Pour une institution culturelle, le SEO local et le GEO se rejoignent : quand quelqu'un demande à Google — ou à une IA — « quel festival près de Monaco cet été », la réponse s'appuie largement sur les mêmes signaux : fiche à jour, avis récents, cohérence des informations en ligne. C'est cette logique qui a guidé le travail mené sur le site du festival <a href="../#projets">L'Èze Harmonies</a> : structurer le contenu et les données pour être compris à la fois par les moteurs classiques, les moteurs génératifs, et — plus simplement — par quelqu'un qui cherche une sortie ce week-end près de chez lui. Pour aller plus loin sur le volet IA, l'article sur le <a href="seo-geo-institutions-culturelles.html">SEO &amp; GEO</a> détaille cette seconde moitié du sujet.</p>
+
+                <div id="faq" class="not-prose my-12">
+                    <h3 class="text-xl mb-6 mt-0">Questions fréquentes</h3>
+                    <div class="space-y-3">
+                        <details class="faq-item group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden">
+                            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer">
+                                <span class="text-sm font-semibold">Le SEO local, c'est seulement pour les commerces avec une adresse physique ?</span>
+                                <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="px-5 pb-5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Non. Tout ce qui a une localisation ou une zone de chalandise en profite : un festival avec un lieu précis, un musée, le siège d'une fondation, une salle de concert. Dès qu'on peut répondre à la question « où » et « près de qui », le SEO local s'applique.</div>
+                        </details>
+                        <details class="faq-item group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden">
+                            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer">
+                                <span class="text-sm font-semibold">Combien de temps avant de voir des résultats ?</span>
+                                <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="px-5 pb-5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">La fiche Google peut bouger en quelques semaines (photos, avis, catégories). Le contenu du site et les liens entrants demandent généralement plusieurs mois avant de peser pleinement.</div>
+                        </details>
+                        <details class="faq-item group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden">
+                            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer">
+                                <span class="text-sm font-semibold">Faut-il payer Google pour apparaître dans le Local Pack ?</span>
+                                <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="px-5 pb-5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Non, le Local Pack est un résultat organique et gratuit — à ne pas confondre avec les Local Services Ads, qui sont des annonces payantes distinctes.</div>
+                        </details>
+                        <details class="faq-item group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 overflow-hidden">
+                            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer">
+                                <span class="text-sm font-semibold">Le GEO et le SEO local sont-ils liés ?</span>
+                                <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="px-5 pb-5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Oui : les moteurs génératifs s'appuient sur les mêmes signaux (fiche Google, avis, cohérence des informations) pour répondre à une question locale. Soigner l'un aide l'autre.</div>
+                        </details>
+                    </div>
+                </div>
+
+                <div id="glossaire" class="not-prose my-12 rounded-2xl bg-brand-50 dark:bg-brand-950/30 border border-brand-100 dark:border-brand-900/50 p-6 sm:p-8">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-brand-500 dark:text-brand-400 mb-5">Petit glossaire</p>
+                    <dl class="space-y-4">
+                        <div>
+                            <dt class="font-bold text-sm">Local Pack</dt>
+                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">L'encart de trois établissements avec carte et avis affiché en tête de résultats sur une recherche à intention locale.</dd>
+                        </div>
+                        <div>
+                            <dt class="font-bold text-sm">Fiche d'établissement Google (GBP)</dt>
+                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">Le profil gratuit (anciennement « Google My Business ») qui affiche horaires, photos, avis et coordonnées d'un lieu sur Google.</dd>
+                        </div>
+                        <div>
+                            <dt class="font-bold text-sm">NAP</dt>
+                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">Name, Address, Phone — le nom, l'adresse et le téléphone d'un établissement, qui doivent être identiques sur tous les sites où ils apparaissent.</dd>
+                        </div>
+                        <div>
+                            <dt class="font-bold text-sm">Recherche géolocalisée</dt>
+                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">Une recherche dont Google interprète l'intention comme liée à un lieu précis, que la requête contienne ou non un nom de ville.</dd>
+                        </div>
+                        <div>
+                            <dt class="font-bold text-sm">Review velocity</dt>
+                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">Le rythme auquel un établissement reçoit de nouveaux avis — un flux régulier pèse davantage qu'un pic isolé suivi de silence.</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <div class="not-prose my-12 bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800">
+                    <h3 class="text-xl mb-3 mt-0">Une fiche Google à auditer, un site local à optimiser ?</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">Je peux auditer votre présence locale actuelle et vous proposer un plan d'action concret.</p>
+                    <a href="../#contact" class="inline-flex items-center px-5 py-3 text-sm font-semibold text-white bg-brand-500 rounded-xl hover:bg-brand-600 transition">
+                        Démarrer un projet
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
+                    </a>
+                </div>
+
+                <div id="sources" class="not-prose mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
+                    <h3 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-4 mt-0">Sources</h3>
+                    <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                        <li>SeoProfy — <a href="https://seoprofy.com/blog/local-seo-statistics/" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">« 75 Local SEO Statistics for 2026 »</a>.</li>
+                        <li>SOCi — <a href="https://www.soci.ai/blog/local-seo-statistics/" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">« The Top Local SEO Statistics »</a>.</li>
+                        <li>Whitespark — <a href="https://whitespark.ca/local-search-ranking-factors/" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">« 2026 Local Search Ranking Factors »</a>.</li>
+                        <li>SearchEndurance — <a href="https://searchendurance.com/google-business-profile-statistics/" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">« Google Business Profile Statistics »</a>.</li>
+                    </ul>
+                </div>
+
+                <div class="not-prose mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
+                    <h3 class="text-xl mb-6 mt-0">À lire aussi</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <a href="seo-geo-institutions-culturelles.html" class="group block bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 hover:border-brand-500/40 hover:-translate-y-0.5 transition">
+                            <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider block mb-2">SEO &amp; GEO</span>
+                            <h4 class="text-base font-semibold group-hover:text-brand-500 transition">SEO &amp; GEO : comment être trouvé par Google ET par l'IA</h4>
+                        </a>
+                        <a href="newsletters-methode-aida.html" class="group block bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 hover:border-brand-500/40 hover:-translate-y-0.5 transition">
+                            <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider block mb-2">Contenu &amp; Copy</span>
+                            <h4 class="text-base font-semibold group-hover:text-brand-500 transition">Newsletters qui convertissent : la méthode AIDA</h4>
+                        </a>
+                        <a href="ux-tunnel-don-friction.html" class="group block bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 hover:border-brand-500/40 hover:-translate-y-0.5 transition">
+                            <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider block mb-2">UX &amp; Design</span>
+                            <h4 class="text-base font-semibold group-hover:text-brand-500 transition">UX et tunnels de don : réduire la friction</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-10 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <a href="../" class="shrink-0" aria-label="Mikaël Andraos — accueil">
+                <img src="../images/logo-aencre.png" alt="Mikaël Andraos" title="Mikaël Andraos" class="h-8 w-auto dark:hidden">
+                <img src="../images/logo-aencre-dark.png" alt="Mikaël Andraos" title="Mikaël Andraos" class="h-8 w-auto hidden dark:block">
+            </a>
+            <nav aria-label="Navigation du pied de page" class="flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+                <a href="../#propos" class="text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">À propos</a>
+                <a href="../#projets" class="text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">Projets</a>
+                <a href="../blog.html" class="text-xs font-semibold uppercase tracking-widest text-brand-500 transition">Blog</a>
+                <a href="https://linkedin.com/in/mikael-andraos" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">
+                    LinkedIn
+                    <svg class="w-3 h-3 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
+                </a>
+            </nav>
+            <p class="text-sm text-slate-500">&copy; 2026 Mikaël Andraos. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        if (localStorage.getItem('color-theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            darkIcon.classList.remove('hidden');
+        }
+        themeToggleBtn.addEventListener('click', () => {
+            lightIcon.classList.toggle('hidden');
+            darkIcon.classList.toggle('hidden');
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('hidden') === false;
+            mobileBtn.setAttribute('aria-expanded', String(isOpen));
+        });
+        document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+        }));
+
+        const progressBar = document.getElementById('reading-progress');
+        function updateProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0;
+            progressBar.style.width = pct + '%';
+        }
+        document.addEventListener('scroll', updateProgress, { passive: true });
+        updateProgress();
+
+        const tocLinks = document.querySelectorAll('.toc-link');
+        const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute('href')));
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = '#' + entry.target.id;
+                const link = document.querySelector(`.toc-link[href="${id}"]`);
+                if (!link) return;
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(section => { if (section) observer.observe(section); });
+
+        // MINI-AUDIT INTERACTIF — progression enregistrée en local
+        (function() {
+            const AUDIT_KEY = 'seo-local-audit-progress';
+            const checklist = document.getElementById('audit-checklist');
+            if (!checklist) return;
+            const checkboxes = checklist.querySelectorAll('input[type="checkbox"]');
+            const progressBarEl = document.getElementById('audit-progress-bar');
+            const progressLabel = document.getElementById('audit-progress-label');
+
+            function loadState() {
+                try { return JSON.parse(localStorage.getItem(AUDIT_KEY)) || {}; } catch (e) { return {}; }
+            }
+            function saveState(state) {
+                try { localStorage.setItem(AUDIT_KEY, JSON.stringify(state)); } catch (e) { /* stockage indisponible */ }
+            }
+            function updateAuditProgress() {
+                const checked = Array.from(checkboxes).filter(cb => cb.checked).length;
+                progressBarEl.style.width = (checked / checkboxes.length * 100) + '%';
+                progressLabel.textContent = checked + ' / ' + checkboxes.length;
+            }
+            const state = loadState();
+            checkboxes.forEach(cb => {
+                const key = cb.getAttribute('data-audit-item');
+                if (state[key]) cb.checked = true;
+                cb.addEventListener('change', () => {
+                    const s = loadState();
+                    s[key] = cb.checked;
+                    saveState(s);
+                    updateAuditProgress();
+                });
+            });
+            updateAuditProgress();
+        })();
+    </script>
+</body>
+</html>
