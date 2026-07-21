@@ -5,7 +5,7 @@ Guidance pour Claude Code (claude.ai/code) sur ce dépôt.
 ## Vue d'ensemble
 
 Portfolio personnel de Mikaël Andraos — **« Stratégie créative & content marketing — SEO/GEO, Contenu, UX »** — entièrement en français.
-Site statique **multi-pages sans build ni framework** : `index.html` (accueil, une seule page), `blog/index.html` (liste des articles, accessible via l'URL `/blog/`) et `blog-articles/*.html` (articles individuels). Pas de dépendances.
+Site statique **multi-pages sans build ni framework** : `index.html` (accueil, une seule page), `blog/index.html` (liste des articles, accessible via l'URL `/blog/`), `blog-articles/*.html` (articles individuels) et `404.html` (page d'erreur personnalisée, servie automatiquement par GitHub Pages). Pas de dépendances.
 Hébergé sur GitHub Pages : https://mikaelandraos-dot.github.io/portfolio/ — pousser sur `main` déploie.
 
 ## Développement
@@ -55,11 +55,15 @@ Tableau `projectsData` dans le script en bas d'`index.html` :
 
 Images dans `images/`, noms en kebab-case sans accent. Le projet L'Èze Harmonies (id 5) utilise une photo réelle du festival (`concert-leze-harmonies.jpg`).
 
+**Règle standing — optimisation des images** : avant de committer toute nouvelle image, la redimensionner (Pillow/`convert`, rééchantillonnage LANCZOS) aux dimensions réelles d'affichage sur le site (jamais plus grande que son plus grand usage — hero, carte, favicon...), garder le PNG seulement si la transparence est nécessaire (sinon JPG pour les photos), et ajouter `loading="lazy"` sur les `<img>` hors above-the-fold. Viser < 50 Ko pour les illustrations, < 15 Ko pour les marks/logos.
+
 ## SEO
 
 - `<head>` : meta description, canonical, Open Graph/Twitter, JSON-LD `Person` (`sameAs` : LinkedIn + Malt). Tenir aligné avec le positionnement.
 - `robots.txt` et `sitemap.xml` à la racine — mettre à jour `<lastmod>` lors de changements de contenu.
 - URLs absolues basées sur GitHub Pages ; à remplacer si un domaine perso est acheté.
+- **Favicon** : mark de l'ancre sur fond bleu encre, décliné en `images/favicon-{16,32,48}.png`, `images/apple-touch-icon.png` (180×180) et `images/favicon.ico`. Posé via 4 `<link rel="icon"/apple-touch-icon">` juste après `<title>` sur **toutes** les pages (chemins relatifs à adapter selon la profondeur du dossier).
+- **Image Open Graph** : `images/og-image.png` (1200×630) — fond bleu encre, mark de l'ancre en filigrane, nom + positionnement en Gloock/Space Grotesk, et le mot-symbole « Æncre Consulting » (ligature AE du glyphe `Æ` de Gloock) glissé discrètement en coin, teaser du futur nom de marque. Référencée par tous les `og:image`/`twitter:image`/JSON-LD `image`.
 
 ## Conventions & workflow
 
