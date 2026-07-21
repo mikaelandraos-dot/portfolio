@@ -2,12 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mikaelandraos-dot.github.io/portfolio/</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://mikaelandraos-dot.github.io/portfolio/blog.html</loc>
+    <loc>https://mikaelandraos-dot.github.io/portfolio/blog/</loc>
     <lastmod>2026-07-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -20,19 +20,19 @@
   </url>
   <url>
     <loc>https://mikaelandraos-dot.github.io/portfolio/blog-articles/seo-geo-institutions-culturelles.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mikaelandraos-dot.github.io/portfolio/blog-articles/newsletters-methode-aida.html</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mikaelandraos-dot.github.io/portfolio/blog-articles/ux-tunnel-don-friction.html</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-07-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

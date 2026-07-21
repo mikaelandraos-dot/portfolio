@@ -7,12 +7,12 @@
 
     <meta name="description" content="Réflexions et méthodes sur le SEO/GEO, la stratégie de contenu et l'UX, à destination des institutions culturelles et des marques exigeantes.">
     <meta name="author" content="Mikaël Andraos">
-    <link rel="canonical" href="https://mikaelandraos-dot.github.io/portfolio/blog.html">
+    <link rel="canonical" href="https://mikaelandraos-dot.github.io/portfolio/blog/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Blog | Mikaël Andraos — SEO/GEO, Contenu, UX">
     <meta property="og:description" content="Réflexions et méthodes sur le SEO/GEO, la stratégie de contenu et l'UX, à destination des institutions culturelles et des marques exigeantes.">
     <meta property="og:image" content="https://mikaelandraos-dot.github.io/portfolio/images/mikael-andraos.png">
-    <meta property="og:url" content="https://mikaelandraos-dot.github.io/portfolio/blog.html">
+    <meta property="og:url" content="https://mikaelandraos-dot.github.io/portfolio/blog/">
     <meta property="og:locale" content="fr_FR">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Blog | Mikaël Andraos — SEO/GEO, Contenu, UX">
@@ -23,7 +23,7 @@
       "@context": "https://schema.org",
       "@type": "Blog",
       "name": "Blog de Mikaël Andraos",
-      "url": "https://mikaelandraos-dot.github.io/portfolio/blog.html",
+      "url": "https://mikaelandraos-dot.github.io/portfolio/blog/",
       "description": "Réflexions et méthodes sur le SEO/GEO, la stratégie de contenu et l'UX.",
       "author": { "@type": "Person", "name": "Mikaël Andraos" }
     }
@@ -33,7 +33,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -73,7 +72,6 @@
             background-color: #1e3a8a;
             transition: width .3s ease;
         }
-        .dark .nav-link::after { background-color: #41538f; }
         .nav-link:hover::after { width: 100%; }
         .nav-link.active::after { width: 100%; }
 
@@ -94,54 +92,50 @@
         .article-card.is-visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
+<body class="bg-slate-50 text-slate-900 transition-colors duration-300 min-h-screen flex flex-col">
 
     <!-- HEADER / NAVIGATION -->
-    <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+    <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="./" class="text-xl font-bold tracking-wider text-brand-500 hover:text-brand-600 transition" style="font-family:'Gloock',serif;letter-spacing:0">
+            <a href="../" class="text-xl font-bold tracking-wider text-brand-500 hover:text-brand-600 transition" style="font-family:'Gloock',serif;letter-spacing:0">
                 Mikaël Andraos
             </a>
 
             <nav class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="./#propos" class="nav-link hover:text-brand-500 transition">À propos</a>
-                <a href="./#projets" class="nav-link hover:text-brand-500 transition">Projets</a>
-                <a href="./#competences" class="nav-link hover:text-brand-500 transition">Compétences</a>
-                <a href="blog.html" class="nav-link active text-brand-500 transition">Blog</a>
-                <a href="./#contact" class="nav-link hover:text-brand-500 transition">Contact</a>
+                <a href="../#propos" class="nav-link hover:text-brand-500 transition">À propos</a>
+                <a href="../#projets" class="nav-link hover:text-brand-500 transition">Projets</a>
+                <a href="../#competences" class="nav-link hover:text-brand-500 transition">Compétences</a>
+                <a href="./" class="nav-link active text-brand-500 transition">Blog</a>
+                <a href="../#contact" class="nav-link hover:text-brand-500 transition">Contact</a>
             </nav>
 
             <div class="flex items-center space-x-4">
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-900 transition" aria-label="Basculer le thème clair/sombre">
-                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-slate-500 dark:text-slate-400" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                </button>
-                <a href="./#contact" class="hidden sm:inline-flex items-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition">
+                <a href="../#contact" class="hidden sm:inline-flex items-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition">
                     Démarrer un projet
                 </a>
-                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 transition" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 px-4 py-4 space-y-3">
-            <a href="./#propos" class="block text-base font-medium hover:text-brand-500 transition mobile-link">À propos</a>
-            <a href="./#projets" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Projets</a>
-            <a href="./#competences" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Compétences</a>
-            <a href="blog.html" class="block text-base font-medium text-brand-500 transition mobile-link">Blog</a>
-            <a href="./#contact" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Contact</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 py-4 space-y-3">
+            <a href="../#propos" class="block text-base font-medium hover:text-brand-500 transition mobile-link">À propos</a>
+            <a href="../#projets" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Projets</a>
+            <a href="../#competences" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Compétences</a>
+            <a href="./" class="block text-base font-medium text-brand-500 transition mobile-link">Blog</a>
+            <a href="../#contact" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Contact</a>
         </div>
     </header>
 
     <!-- MAIN CONTENT -->
     <main class="flex-grow pt-16">
         <!-- HERO -->
-        <section class="relative py-20 lg:py-24 overflow-hidden border-b border-slate-200 dark:border-slate-800">
-            <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.brand.100),transparent)] dark:bg-[radial-gradient(45rem_50rem_at_top,theme(colors.slate.900),transparent)] opacity-40"></div>
+        <section class="relative py-20 lg:py-24 overflow-hidden border-b border-slate-200">
+            <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.brand.100),transparent)] opacity-40"></div>
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <p class="hero-anim hero-anim-1 text-xs font-bold uppercase tracking-widest text-brand-500 dark:text-brand-400 mb-5">Le blog</p>
+                <p class="hero-anim hero-anim-1 text-xs font-bold uppercase tracking-widest text-brand-500 mb-5">Le blog</p>
                 <h1 class="hero-anim hero-anim-2 text-4xl sm:text-6xl tracking-tight mb-6">Idées, méthodes &amp; coulisses</h1>
-                <p class="hero-anim hero-anim-3 max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                <p class="hero-anim hero-anim-3 max-w-2xl mx-auto text-lg text-slate-600 leading-relaxed">
                     Des réflexions sourcées sur le SEO/GEO, la stratégie de contenu et l'UX — pour être <strong>trouvé</strong>, <strong>lu</strong> et <strong>choisi</strong>.
                 </p>
             </div>
@@ -152,9 +146,9 @@
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-wrap items-center justify-center gap-2 mb-14" id="blog-filters">
                     <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 bg-brand-500 text-white shadow-md shadow-brand-500/10" data-filter="all">Tous</button>
-                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-900" data-filter="seo-geo">SEO &amp; GEO</button>
-                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-900" data-filter="contenu">Contenu &amp; Copy</button>
-                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-900" data-filter="ux">UX &amp; Design</button>
+                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 hover:bg-slate-200/50" data-filter="seo-geo">SEO &amp; GEO</button>
+                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 hover:bg-slate-200/50" data-filter="contenu">Contenu &amp; Copy</button>
+                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 hover:bg-slate-200/50" data-filter="ux">UX &amp; Design</button>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="articles-grid">
@@ -164,11 +158,11 @@
         </section>
 
         <!-- CTA -->
-        <section class="py-16 sm:py-20 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950/40">
+        <section class="py-16 sm:py-20 border-t border-slate-200 bg-white">
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <h2 class="text-2xl sm:text-3xl mb-4">Une idée d'article que vous aimeriez lire ?</h2>
-                <p class="text-slate-600 dark:text-slate-400 mb-8">Ou un projet à discuter — SEO/GEO, contenu, UX ? Écrivez-moi.</p>
-                <a href="./#contact" class="inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold text-white bg-brand-500 rounded-xl hover:bg-brand-600 shadow-lg shadow-brand-500/20 hover:-translate-y-0.5 transition duration-200">
+                <p class="text-slate-600 mb-8">Ou un projet à discuter — SEO/GEO, contenu, UX ? Écrivez-moi.</p>
+                <a href="../#contact" class="inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold text-white bg-brand-500 rounded-xl hover:bg-brand-600 shadow-lg shadow-brand-500/20 hover:-translate-y-0.5 transition duration-200">
                     Me contacter
                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 </a>
@@ -176,21 +170,20 @@
         </section>
     </main>
 
-    <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-10 transition-colors">
+    <footer class="bg-white border-t border-slate-200 py-10 transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-            <a href="./" class="shrink-0" aria-label="Mikaël Andraos — accueil">
-                <img src="images/logo-aencre.png" alt="Mikaël Andraos" title="Mikaël Andraos" class="h-8 w-auto dark:hidden">
-                <img src="images/logo-aencre-dark.png" alt="Mikaël Andraos" title="Mikaël Andraos" class="h-8 w-auto hidden dark:block">
+            <a href="../" class="shrink-0" aria-label="Mikaël Andraos — accueil">
+                <img src="../images/logo-aencre.png" alt="Mikaël Andraos" title="Mikaël Andraos" class="h-8 w-auto" loading="lazy">
             </a>
             <nav aria-label="Navigation du pied de page" class="flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
-                <a href="./#propos" class="text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">À propos</a>
-                <a href="./#projets" class="text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">Projets</a>
-                <a href="blog.html" class="text-xs font-semibold uppercase tracking-widest text-brand-500 transition">Blog</a>
-                <a href="https://linkedin.com/in/mikael-andraos" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">
+                <a href="../#propos" class="text-xs font-semibold uppercase tracking-widest text-slate-600 hover:text-brand-500 transition">À propos</a>
+                <a href="../#projets" class="text-xs font-semibold uppercase tracking-widest text-slate-600 hover:text-brand-500 transition">Projets</a>
+                <a href="./" class="text-xs font-semibold uppercase tracking-widest text-brand-500 transition">Blog</a>
+                <a href="https://linkedin.com/in/mikael-andraos" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-slate-600 hover:text-brand-500 transition">
                     LinkedIn
                     <svg class="w-3 h-3 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
                 </a>
-                <a href="https://www.malt.fr/profile/mikaelandraos" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">
+                <a href="https://www.malt.fr/profile/mikaelandraos" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-slate-600 hover:text-brand-500 transition">
                     Malt
                     <svg class="w-3 h-3 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
                 </a>
@@ -203,7 +196,7 @@
         const articlesData = [
             {
                 id: 4,
-                slug: "blog-articles/seo-local-institutions-culturelles.html",
+                slug: "../blog-articles/seo-local-institutions-culturelles.html",
                 category: "seo-geo",
                 categoryLabel: "SEO & GEO",
                 title: "Le SEO local : dominer les résultats de recherche près de chez soi",
@@ -214,7 +207,7 @@
             },
             {
                 id: 1,
-                slug: "blog-articles/seo-geo-institutions-culturelles.html",
+                slug: "../blog-articles/seo-geo-institutions-culturelles.html",
                 category: "seo-geo",
                 categoryLabel: "SEO & GEO",
                 title: "SEO & GEO : comment être trouvé par Google ET par l'intelligence artificielle",
@@ -225,7 +218,7 @@
             },
             {
                 id: 2,
-                slug: "blog-articles/newsletters-methode-aida.html",
+                slug: "../blog-articles/newsletters-methode-aida.html",
                 category: "contenu",
                 categoryLabel: "Contenu & Copy",
                 title: "Newsletters qui convertissent : la méthode AIDA appliquée à la culture",
@@ -236,7 +229,7 @@
             },
             {
                 id: 3,
-                slug: "blog-articles/ux-tunnel-don-friction.html",
+                slug: "../blog-articles/ux-tunnel-don-friction.html",
                 category: "ux",
                 categoryLabel: "UX & Design",
                 title: "UX et tunnels de don : réduire la friction sans perdre l'émotion",
@@ -254,17 +247,17 @@
             filtered.forEach((article, index) => {
                 const card = document.createElement('a');
                 card.href = article.slug;
-                card.className = "article-card group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-brand-500/40 transition duration-300 flex flex-col";
+                card.className = "article-card group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-brand-500/40 transition duration-300 flex flex-col";
                 card.style.transitionDelay = (index * 60) + 'ms';
                 card.innerHTML = `
                     <div class="p-6 flex-grow flex flex-col">
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">${article.categoryLabel}</span>
+                            <span class="bg-brand-50 text-brand-600 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">${article.categoryLabel}</span>
                             <span class="text-[11px] text-slate-400 font-mono">${article.readingTime} de lecture</span>
                         </div>
                         <h3 class="text-xl leading-snug mb-3 group-hover:text-brand-500 transition">${article.title}</h3>
-                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6">${article.excerpt}</p>
-                        <div class="mt-auto pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                        <p class="text-sm text-slate-500 leading-relaxed mb-6">${article.excerpt}</p>
+                        <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between">
                             <time class="text-[11px] text-slate-400 font-mono">${article.dateLabel}</time>
                             <span class="text-xs font-bold text-brand-500 group-hover:text-brand-600 inline-flex items-center gap-1">Lire <svg class="w-3 h-3 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></span>
                         </div>
@@ -280,28 +273,12 @@
 
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                document.querySelectorAll('.filter-btn').forEach(b => b.className = "filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 dark:text-slate-400 hover:bg-slate-200/50 dark:hover:bg-slate-900");
+                document.querySelectorAll('.filter-btn').forEach(b => b.className = "filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 hover:bg-slate-200/50");
                 e.target.className = "filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 bg-brand-500 text-white shadow-md";
                 renderArticles(e.target.getAttribute('data-filter'));
             });
         });
 
-        // THEMES
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const lightIcon = document.getElementById('theme-toggle-light-icon');
-        const darkIcon = document.getElementById('theme-toggle-dark-icon');
-        if (localStorage.getItem('color-theme') === 'dark') {
-            document.documentElement.classList.add('dark');
-            lightIcon.classList.remove('hidden');
-        } else {
-            darkIcon.classList.remove('hidden');
-        }
-        themeToggleBtn.addEventListener('click', () => {
-            lightIcon.classList.toggle('hidden');
-            darkIcon.classList.toggle('hidden');
-            document.documentElement.classList.toggle('dark');
-            localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-        });
 
         // MENU MOBILE
         const mobileBtn = document.getElementById('mobile-menu-btn');

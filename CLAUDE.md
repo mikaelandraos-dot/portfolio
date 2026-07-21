@@ -5,7 +5,7 @@ Guidance pour Claude Code (claude.ai/code) sur ce dépôt.
 ## Vue d'ensemble
 
 Portfolio personnel de Mikaël Andraos — **« Stratégie créative & content marketing — SEO/GEO, Contenu, UX »** — entièrement en français.
-Site statique **multi-pages sans build ni framework** : `index.html` (accueil, une seule page), `blog.html` (liste des articles) et `blog-articles/*.html` (articles individuels). Pas de dépendances.
+Site statique **multi-pages sans build ni framework** : `index.html` (accueil, une seule page), `blog/index.html` (liste des articles, accessible via l'URL `/blog/`) et `blog-articles/*.html` (articles individuels). Pas de dépendances.
 Hébergé sur GitHub Pages : https://mikaelandraos-dot.github.io/portfolio/ — pousser sur `main` déploie.
 
 ## Développement
@@ -14,7 +14,7 @@ Hébergé sur GitHub Pages : https://mikaelandraos-dot.github.io/portfolio/ — 
 python3 -m http.server 8000
 # puis ouvrir http://localhost:8000
 ```
-Ou ouvrir `index.html` directement. Pas de linter ni de tests — vérifier dans le navigateur : filtres, modale, dark mode, mobile.
+Ou ouvrir `index.html` directement. Pas de linter ni de tests — vérifier dans le navigateur : filtres, modale, mobile.
 
 ## Design system « Grâce Institutionnelle »
 
@@ -24,7 +24,7 @@ Défini dans la config Tailwind inline et le `<style>` du `<head>` :
 - **Palette chaude** : l'échelle `slate` est **remappée** vers des tons ivoire/anthracite (`slate-50` = `#faf7f1`, etc.) — utiliser les classes `slate-*` habituelles, elles rendent chaud. `.bg-white` est forcé en blanc cassé `#fffdf8`.
 - **Typographie** : `Gloock` (serif display — appliqué automatiquement à h1/h2/h3 en graisse 400, ne pas mettre de `font-bold` sur les titres), `Instrument Sans` (texte), `Space Grotesk` (micro-labels — appliqué automatiquement via `.tracking-widest`/`.tracking-wider`/`.font-mono`). `Geist Mono` reste utilisé, mais **seulement** dans le pied de page (sélecteur `footer`), l'encart Méthode de la section À propos (`.method-card`) et les libellés de contact/formulaire (`.label-geist`) — ne pas l'étendre ailleurs sans en discuter avec Mikaël.
 - **Détails éditoriaux** : filets fins (`h-px`), numéros display, ornement ✳, micro-labels en capitales espacées.
-- **Dark mode** : classe `dark` sur `<html>`, persistée en localStorage (`color-theme`), démarre en clair par défaut.
+- **Pas de dark mode** : retiré du site (juillet 2026) pour fiabiliser l'affichage — ne pas réintroduire de classes `dark:` ni de bouton de bascule sans en discuter avec Mikaël.
 
 Pas de couleurs vives hors palette, pas d'esthétique « tech/terminal ».
 
