@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storytelling de marque : raconter sans jamais sonner pompeux | Blog Mikaël Andraos</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" href="../images/favicon.ico">
+
+    <meta name="description" content="Une histoire est retenue par 63 % des gens, une statistique par 5 %. Pourquoi le cerveau préfère les récits, et comment en raconter un sans tomber dans le pompeux.">
+    <meta name="author" content="Mikaël Andraos">
+    <link rel="canonical" href="https://mikaelandraos-dot.github.io/portfolio/blog-articles/storytelling-marque-sans-pompeux.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Storytelling de marque : raconter une histoire sans jamais sonner pompeux">
+    <meta property="og:description" content="Une histoire est retenue par 63 % des gens, une statistique par 5 %. Pourquoi le cerveau préfère les récits, et comment en raconter un qui sonne juste.">
+    <meta property="og:image" content="https://mikaelandraos-dot.github.io/portfolio/images/og-image.png">
+    <meta property="og:url" content="https://mikaelandraos-dot.github.io/portfolio/blog-articles/storytelling-marque-sans-pompeux.html">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Storytelling de marque : raconter sans sonner pompeux">
+    <meta name="twitter:image" content="https://mikaelandraos-dot.github.io/portfolio/images/og-image.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Storytelling de marque : raconter une histoire sans jamais sonner pompeux",
+      "image": "https://mikaelandraos-dot.github.io/portfolio/images/og-image.png",
+      "datePublished": "2026-07-21T09:00:00+02:00",
+      "dateModified": "2026-07-21T09:00:00+02:00",
+      "author": { "@type": "Person", "name": "Mikaël Andraos", "url": "https://mikaelandraos-dot.github.io/portfolio/" },
+      "publisher": { "@type": "Person", "name": "Mikaël Andraos" },
+      "description": "Une histoire est retenue par 63 % des gens, une statistique par 5 %. Pourquoi le cerveau préfère les récits, et comment en raconter un sans tomber dans le pompeux.",
+      "mainEntityOfPage": "https://mikaelandraos-dot.github.io/portfolio/blog-articles/storytelling-marque-sans-pompeux.html"
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { 50:'#eef1f8', 100:'#e0e6f3', 400:'#41538f', 500:'#1e3a8a', 600:'#15295f', 900:'#0f1f49' },
+                        indigo: { 500:'#1e3a8a' },
+                        slate: { 50:'#faf7f1', 100:'#f1ead9', 200:'#e6dfce', 300:'#d3c9b2', 400:'#9b9486', 500:'#7c7567', 600:'#574f40', 700:'#3e3729', 800:'#2a2820', 900:'#1c2b3a', 950:'#141b24' }
+                    },
+                    fontFamily: {
+                        display: ['Gloock', 'serif'],
+                        sans: ['Instrument Sans', 'sans-serif'],
+                        mono: ['Geist Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Instrument Sans', sans-serif; background:#faf7f1; }
+        h1, h2, h3 { font-family: 'Gloock', serif; font-weight: 400 !important; letter-spacing: .2px; }
+        h1 { letter-spacing: -.5px; line-height: 1.08; }
+        /* Micro-labels : Space Grotesk par défaut. Geist Mono reste réservé au pied de page. */
+        .tracking-widest, .tracking-wider, .font-mono { font-family: 'Space Grotesk', sans-serif; }
+        footer .tracking-widest, footer .tracking-wider, footer .font-mono { font-family: 'Geist Mono', monospace; }
+        .bg-white { background-color:#fffdf8 !important; }
+
+        .nav-link { position: relative; padding-bottom: 2px; }
+        .nav-link::after { content:''; position:absolute; left:0; bottom:-2px; width:0; height:1px; background-color:#1e3a8a; transition:width .3s ease; }
+        .nav-link:hover::after { width:100%; }
+
+        #reading-progress { position: fixed; top: 64px; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg,#1e3a8a,#41538f); z-index: 40; transition: width .1s linear; }
+
+        .article-prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+        .article-prose h2 { font-size: 1.75rem; margin-top: 3rem; margin-bottom: 1rem; scroll-margin-top: 6rem; }
+        .article-prose h3 { font-size: 1.25rem; margin-top: 2rem; margin-bottom: .75rem; scroll-margin-top: 6rem; }
+        .article-prose a { color: #1e3a8a; text-decoration: underline; text-underline-offset: 2px; }
+        .article-prose a.cta-btn { color: #fff !important; text-decoration: none; }
+        .article-prose strong { font-weight: 600; }
+        .article-prose ul, .article-prose ol { margin: 1rem 0 1.5rem 1.25rem; }
+        .article-prose li { margin-bottom: .5rem; line-height: 1.7; }
+        .article-prose ul { list-style-type: disc; }
+        .article-prose ol { list-style-type: decimal; }
+
+        .toc-link.active { color: #1e3a8a; font-weight: 600; }
+
+        .chart-bar { transition: filter .25s ease, transform .25s ease; transform-origin: bottom; }
+        .chart-bar:hover, .chart-bar:focus-visible { filter: brightness(1.12); transform: scaleY(1.02); }
+
+        .stat-tile { transition: transform .3s ease, border-color .3s ease; }
+        .stat-tile:hover { transform: translateY(-3px); }
+
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary { list-style: none; }
+        .faq-item[open] summary svg { transform: rotate(180deg); }
+        .faq-item summary svg { transition: transform .2s ease; }
+
+        @keyframes heroFadeUp { from { opacity:0; transform: translateY(14px); } to { opacity:1; transform: translateY(0); } }
+        .hero-anim { opacity:0; animation: heroFadeUp .7s cubic-bezier(.16,1,.3,1) forwards; }
+        .hero-anim-1{animation-delay:.05s} .hero-anim-2{animation-delay:.15s} .hero-anim-3{animation-delay:.25s} .hero-anim-4{animation-delay:.35s}
+
+        @media (prefers-reduced-motion: reduce) { .hero-anim { animation:none; opacity:1; } }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 transition-colors duration-300 min-h-screen flex flex-col">
+
+    <div id="reading-progress"></div>
+
+    <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 grid grid-cols-[auto_1fr_auto] items-center gap-4">
+            <a href="../" class="text-xl font-bold tracking-wider text-brand-500 hover:text-brand-600 transition" style="font-family:'Gloock',serif;letter-spacing:0">Mikaël Andraos</a>
+            <nav class="hidden md:flex justify-center space-x-8 text-sm font-medium">
+                <a href="../#propos" class="nav-link hover:text-brand-500 transition">À propos</a>
+                <a href="../#projets" class="nav-link hover:text-brand-500 transition">Projets</a>
+                <a href="../#competences" class="nav-link hover:text-brand-500 transition">Compétences</a>
+                <a href="../blog/" class="nav-link text-brand-500 transition">Blog</a>
+            </nav>
+            <div class="flex items-center justify-end gap-6">
+                <a href="../#contact" class="group/contact hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-brand-500 border border-brand-100 rounded-lg hover:border-brand-500 hover:bg-brand-50 transition">
+                    <span>Contact</span>
+                    <img src="../images/pen-nib-blue.png" alt="" aria-hidden="true" class="h-3.5 w-0 opacity-0 transition-all duration-300 group-hover/contact:w-[10px] group-hover/contact:opacity-100 object-contain shrink-0">
+                </a>
+                <a href="https://www.malt.fr/profile/mikaelandraos" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition">Démarrer un projet<svg class="w-3 h-3 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg></a>
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 py-4 space-y-3">
+            <a href="../#propos" class="block text-base font-medium hover:text-brand-500 transition mobile-link">À propos</a>
+            <a href="../#projets" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Projets</a>
+            <a href="../#competences" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Compétences</a>
+            <a href="../blog/" class="block text-base font-medium text-brand-500 transition mobile-link">Blog</a>
+            <a href="../#contact" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Contact</a>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-16">
+        <section class="relative py-16 sm:py-20 overflow-hidden border-b border-slate-200">
+            <div class="absolute inset-0 -z-10 bg-[radial-gradient(50rem_40rem_at_top,theme(colors.brand.100),transparent)] opacity-50"></div>
+            <div aria-hidden="true" class="absolute -right-16 top-10 -z-10 opacity-[0.06] hidden lg:block">
+                <svg width="400" height="400" viewBox="0 0 400 400" fill="none">
+                    <path d="M60 340 Q140 200 200 260 Q260 320 340 100" stroke="#1e3a8a" stroke-width="1.5" fill="none"/>
+                    <circle cx="60" cy="340" r="6" fill="#1e3a8a"/>
+                    <circle cx="340" cy="100" r="6" fill="#1e3a8a"/>
+                </svg>
+            </div>
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <a href="../blog/" class="hero-anim hero-anim-1 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-brand-500 transition mb-6">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    Tous les articles
+                </a>
+                <span class="hero-anim hero-anim-2 inline-block bg-brand-50 text-brand-600 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full mb-5">Contenu &amp; Copy</span>
+                <h1 class="hero-anim hero-anim-3 text-3xl sm:text-5xl tracking-tight mb-6">Storytelling de marque : raconter une histoire sans jamais sonner pompeux</h1>
+                <p class="hero-anim hero-anim-4 text-sm text-slate-500 font-mono">
+                    <time datetime="2026-07-21">21 juillet 2026</time> · 7 min de lecture · Par Mikaël Andraos
+                </p>
+            </div>
+        </section>
+
+        <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+            <nav class="not-prose bg-white p-6 rounded-2xl mb-12 border border-slate-200" aria-label="Sommaire de l'article">
+                <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">Sommaire</p>
+                <ul class="space-y-2.5 text-sm">
+                    <li><a href="#memoire" class="toc-link text-slate-600 hover:text-brand-500 transition">1. Pourquoi le cerveau retient une histoire, pas une statistique</a></li>
+                    <li><a href="#sonner-juste" class="toc-link text-slate-600 hover:text-brand-500 transition">2. Ce qui fait qu'une histoire sonne juste (et pas pompeuse)</a></li>
+                    <li><a href="#confiance" class="toc-link text-slate-600 hover:text-brand-500 transition">3. La chimie de la confiance</a></li>
+                    <li><a href="#pratique" class="toc-link text-slate-600 hover:text-brand-500 transition">4. Ce que ça change dans la pratique</a></li>
+                    <li><a href="#glossaire" class="toc-link text-slate-600 hover:text-brand-500 transition">Petit glossaire</a></li>
+                    <li><a href="#faq" class="toc-link text-slate-600 hover:text-brand-500 transition">Questions fréquentes</a></li>
+                    <li><a href="#sources" class="toc-link text-slate-600 hover:text-brand-500 transition">Sources</a></li>
+                </ul>
+            </nav>
+
+            <div class="article-prose text-base text-slate-700">
+                <p>« Nous sommes fiers de vous présenter notre nouvelle programmation, fruit d'un travail exigeant mené avec passion. » Ce genre de phrase ne dit rien à personne — elle sonne comme mille autres avant elle. Pourtant, juste à côté, la même information racontée autrement (« Le chef d'orchestre a changé trois fois la partition la veille du concert ») s'accroche immédiatement à la mémoire. Ce n'est pas une question de talent littéraire : c'est une question de mécanique cérébrale, mesurée par la recherche depuis des décennies.</p>
+
+                <h2 id="memoire">1. Pourquoi le cerveau retient une histoire, pas une statistique</h2>
+                <p>L'expérience est devenue un classique de la recherche en communication. Le professeur Chip Heath, de Stanford, a demandé à des étudiants de préparer un court discours ; en moyenne, chacun utilisait 2,5 statistiques, et seul un étudiant sur dix racontait une histoire. Une fois les discours terminés, les auditeurs ont été interrogés sur ce dont ils se souvenaient.</p>
+
+                <div class="not-prose my-10 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-brand-500 mb-1">Étude Stanford</p>
+                    <h4 class="text-lg mb-6">Ce dont les auditeurs se souviennent, une semaine après</h4>
+                    <div class="flex items-end gap-6 sm:gap-10 h-48" role="img" aria-label="Graphique en barres : 5% des auditeurs se souviennent d'une statistique isolée, contre 63% qui se souviennent d'une histoire.">
+                        <div class="flex-1 flex flex-col items-center justify-end h-full max-w-[8rem]">
+                            <span class="text-sm font-bold mb-2 text-slate-500">5 %</span>
+                            <div class="chart-bar w-full rounded-t-lg bg-slate-300" style="height:5%" tabindex="0"></div>
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-3 text-center">Se souviennent<br>d'une statistique</span>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center justify-end h-full max-w-[8rem]">
+                            <span class="text-sm font-bold mb-2 text-brand-500">63 %</span>
+                            <div class="chart-bar w-full rounded-t-lg bg-brand-500" style="height:63%" tabindex="0"></div>
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-3 text-center">Se souviennent<br>d'une histoire</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-6">Source : Chip Heath &amp; Dan Heath, <a href="https://www.gsb.stanford.edu/insights/power-your-stories" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">« Made to Stick » (2007), étude Stanford</a></p>
+                </div>
+
+                <p>Douze points de statistiques par discours, et c'est pourtant l'unique histoire racontée qui reste gravée. Le mécanisme n'a rien de mystique : une statistique est abstraite, une histoire est concrète — elle a un décor, un personnage, une tension. Le cerveau retient ce qu'il peut visualiser, pas ce qu'il doit calculer.</p>
+
+                <h2 id="sonner-juste">2. Ce qui fait qu'une histoire sonne juste (et pas pompeuse)</h2>
+                <p>Le piège, une fois convaincu qu'il faut « raconter une histoire », c'est de tomber dans l'excès inverse : la grandiloquence. « Une aventure humaine extraordinaire », « une passion qui nous anime depuis toujours » — ce vocabulaire ne raconte rien, il proclame. Une histoire qui sonne juste repose sur trois réflexes simples :</p>
+
+                <ul>
+                    <li><strong>Un détail concret plutôt qu'un adjectif</strong> — « la salle a applaudi pendant quatre minutes » convainc davantage que « un succès retentissant ».</li>
+                    <li><strong>Une personne nommée plutôt qu'une entité abstraite</strong> — un visiteur, un artiste, un bénévole précis, plutôt que « nos publics » ou « notre équipe ».</li>
+                    <li><strong>Un instant plutôt qu'un résumé</strong> — un moment précis (une répétition, un appel, une hésitation) transporte mieux qu'un panorama de trois ans d'activité.</li>
+                </ul>
+
+                <p>Une étude menée par l'agence Headstream auprès de plus de <strong>2 000 adultes britanniques</strong> confirme l'effet, à condition de respecter cette règle : <strong>79 %</strong> des personnes interrogées préfèrent les histoires de marque mettant en scène des gens ordinaires plutôt que des célébrités ou des porte-paroles institutionnels. C'est le détail humain, pas la grandeur, qui convainc.</p>
+
+                <div class="not-prose my-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="stat-tile rounded-2xl border border-slate-200 bg-white p-6 text-center hover:border-brand-500/50">
+                        <span class="block font-display text-3xl text-brand-500 mb-1">55 %</span>
+                        <span class="text-xs text-slate-500">plus enclins à acheter à nouveau après une bonne histoire de marque</span>
+                    </div>
+                    <div class="stat-tile rounded-2xl border border-slate-200 bg-white p-6 text-center hover:border-brand-500/50">
+                        <span class="block font-display text-3xl text-brand-500 mb-1">44 %</span>
+                        <span class="text-xs text-slate-500">partageront cette histoire à leur entourage</span>
+                    </div>
+                    <div class="stat-tile rounded-2xl border border-slate-200 bg-white p-6 text-center hover:border-brand-500/50">
+                        <span class="block font-display text-3xl text-brand-500 mb-1">15 %</span>
+                        <span class="text-xs text-slate-500">achèteront le produit immédiatement après l'avoir lue</span>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-500 -mt-6 mb-8">Source : <a href="https://www.thedrum.com/news/2015/06/22/infographic-80-people-want-brands-tell-stories" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">Headstream, « The Power of Storytelling » (2015)</a></p>
+
+                <h2 id="confiance">3. La chimie de la confiance</h2>
+                <p>Le neuroscientifique Paul Zak, de la Claremont Graduate University, a montré dans des travaux publiés par la <em>Harvard Business Review</em> que les histoires centrées sur un personnage déclenchent la production d'<strong>ocytocine</strong> — l'hormone associée à l'empathie et à la confiance envers autrui. Son laboratoire a mesuré que le niveau d'ocytocine libéré pendant l'écoute d'un récit prédit directement la probabilité d'un geste généreux ensuite, comme un don à une cause associée à l'histoire.</p>
+
+                <p>Autrement dit : une histoire bien racontée ne se contente pas d'être « plus mémorable » au sens abstrait. Elle active, mesurablement, le mécanisme biologique de la confiance. Une liste de réalisations ne le fait pas — un moment vécu par quelqu'un, si.</p>
+
+                <h2 id="pratique">4. Ce que ça change dans la pratique</h2>
+                <p>C'est la logique que j'ai appliquée aux newsletters du <a href="../#projets">Printemps des Arts de Monte-Carlo</a> : plutôt que d'annoncer une programmation, en raconter les coulisses — une anecdote de répétition, le choix d'un chef d'orchestre, une hésitation de dernière minute. Le contenu informe toujours autant, mais il se souvient de lui-même : le lecteur n'a pas besoin de retenir un programme, juste une scène.</p>
+
+                <div id="glossaire" class="not-prose my-12 rounded-2xl bg-brand-50 border border-brand-100 p-6 sm:p-8">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-brand-500 mb-5">Petit glossaire</p>
+                    <dl class="space-y-4">
+                        <div>
+                            <dt class="font-bold text-sm">Storytelling</dt>
+                            <dd class="text-sm text-slate-600 mt-1">L'art de transmettre une information à travers un récit structuré (personnage, tension, résolution) plutôt qu'une liste de faits.</dd>
+                        </div>
+                        <div>
+                            <dt class="font-bold text-sm">Show, don't tell</dt>
+                            <dd class="text-sm text-slate-600 mt-1">Principe d'écriture qui consiste à montrer une scène concrète plutôt qu'à affirmer une qualité abstraite (« la salle a applaudi 4 minutes » plutôt que « un beau succès »).</dd>
+                        </div>
+                        <div>
+                            <dt class="font-bold text-sm">Arc narratif</dt>
+                            <dd class="text-sm text-slate-600 mt-1">La structure d'une histoire : une situation de départ, une tension ou un obstacle, puis une résolution.</dd>
+                        </div>
+                        <div>
+                            <dt class="font-bold text-sm">Ocytocine</dt>
+                            <dd class="text-sm text-slate-600 mt-1">Neurohormone associée à l'empathie et à la confiance, dont la production augmente mesurablement pendant l'écoute d'un récit centré sur un personnage.</dd>
+                        </div>
+                    </dl>
+                </div>
+
+                <div id="faq" class="not-prose my-12">
+                    <h3 class="text-xl mb-6 mt-0">Questions fréquentes</h3>
+                    <div class="space-y-3">
+                        <details class="faq-item group rounded-2xl border border-slate-200 bg-white overflow-hidden">
+                            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer">
+                                <span class="text-sm font-semibold">Faut-il inventer une histoire si on n'en a pas sous la main ?</span>
+                                <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed">Non — et c'est même contre-productif : une histoire inventée sonne creuse dès la deuxième phrase. La bonne approche est de creuser un moment réel, aussi modeste soit-il, plutôt que d'en inventer un grandiose.</div>
+                        </details>
+                        <details class="faq-item group rounded-2xl border border-slate-200 bg-white overflow-hidden">
+                            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer">
+                                <span class="text-sm font-semibold">Le storytelling s'applique à un simple post ou seulement à un contenu long ?</span>
+                                <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed">Les deux : une légende de deux lignes qui montre un instant précis fonctionne aussi bien qu'un article long. C'est la logique du détail concret qui compte, pas la longueur.</div>
+                        </details>
+                        <details class="faq-item group rounded-2xl border border-slate-200 bg-white overflow-hidden">
+                            <summary class="flex items-center justify-between gap-4 p-5 cursor-pointer">
+                                <span class="text-sm font-semibold">Comment éviter le ton pompeux sans perdre en sérieux ?</span>
+                                <svg class="w-4 h-4 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </summary>
+                            <div class="px-5 pb-5 text-sm text-slate-600 leading-relaxed">En remplaçant les adjectifs par des faits observables. « Une soirée mémorable » ne prouve rien ; « la standing ovation a duré quatre minutes » prouve tout, sans jamais forcer le ton.</div>
+                        </details>
+                    </div>
+                </div>
+
+                <div class="not-prose my-12 bg-white rounded-2xl p-8 border border-slate-200">
+                    <h3 class="text-xl mb-3 mt-0">Une histoire à raconter, mais pas encore la bonne structure ?</h3>
+                    <p class="text-sm text-slate-600 mb-6">Ligne éditoriale, ton de marque, écriture — je peux vous aider à transformer un fait en récit qui se retient.</p>
+                    <a href="https://www.malt.fr/profile/mikaelandraos" target="_blank" rel="noopener" class="cta-btn inline-flex items-center px-5 py-3 text-sm font-semibold text-white bg-brand-500 rounded-xl hover:bg-brand-600 transition">
+                        Démarrer un projet
+                        <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
+                    </a>
+                </div>
+
+                <div id="sources" class="not-prose mt-12 pt-8 border-t border-slate-200">
+                    <h3 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-4 mt-0">Sources</h3>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li>Chip Heath &amp; Dan Heath — <a href="https://www.gsb.stanford.edu/insights/power-your-stories" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">« Made to Stick » (2007), étude Stanford sur la mémorisation</a>.</li>
+                        <li>Headstream — <a href="https://www.thedrum.com/news/2015/06/22/infographic-80-people-want-brands-tell-stories" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">« The Power of Storytelling » (2015), étude auprès de 2 000+ adultes britanniques</a>.</li>
+                        <li>Paul J. Zak — <a href="https://hbr.org/2014/10/why-your-brain-loves-good-storytelling" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">« Why Your Brain Loves Good Storytelling », Harvard Business Review (2014)</a>.</li>
+                    </ul>
+                </div>
+
+                <div class="not-prose mt-12 pt-8 border-t border-slate-200">
+                    <h3 class="text-xl mb-6 mt-0">À lire aussi</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <a href="newsletters-methode-aida.html" class="group block bg-white rounded-2xl p-5 border border-slate-200 hover:border-brand-500/40 hover:-translate-y-0.5 transition">
+                            <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider block mb-2">Contenu &amp; Copy</span>
+                            <h4 class="text-base font-semibold group-hover:text-brand-500 transition">Newsletters qui convertissent : la méthode AIDA</h4>
+                        </a>
+                        <a href="design-sobriete-confiance.html" class="group block bg-white rounded-2xl p-5 border border-slate-200 hover:border-brand-500/40 hover:-translate-y-0.5 transition">
+                            <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider block mb-2">UX &amp; Design</span>
+                            <h4 class="text-base font-semibold group-hover:text-brand-500 transition">Design d'interface et sobriété : pourquoi le minimalisme inspire confiance</h4>
+                        </a>
+                        <a href="seo-geo-institutions-culturelles.html" class="group block bg-white rounded-2xl p-5 border border-slate-200 hover:border-brand-500/40 hover:-translate-y-0.5 transition">
+                            <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider block mb-2">SEO &amp; GEO</span>
+                            <h4 class="text-base font-semibold group-hover:text-brand-500 transition">SEO &amp; GEO : comment être trouvé par Google ET par l'IA</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-10 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <a href="../" class="shrink-0" aria-label="Mikaël Andraos — accueil">
+                <img src="../images/logo-aencre.png" alt="Mikaël Andraos" title="Mikaël Andraos" class="h-8 w-auto" loading="lazy">
+            </a>
+            <nav aria-label="Navigation du pied de page" class="flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+                <a href="../#propos" class="text-xs font-semibold uppercase tracking-widest text-slate-600 hover:text-brand-500 transition">À propos</a>
+                <a href="../#projets" class="text-xs font-semibold uppercase tracking-widest text-slate-600 hover:text-brand-500 transition">Projets</a>
+                <a href="../blog/" class="text-xs font-semibold uppercase tracking-widest text-brand-500 transition">Blog</a>
+                <a href="https://linkedin.com/in/mikael-andraos" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-slate-600 hover:text-brand-500 transition">
+                    LinkedIn
+                    <svg class="w-3 h-3 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
+                </a>
+            </nav>
+            <p class="text-sm text-slate-500">&copy; 2026 Mikaël Andraos. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('hidden') === false;
+            mobileBtn.setAttribute('aria-expanded', String(isOpen));
+        });
+        document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+        }));
+
+        const progressBar = document.getElementById('reading-progress');
+        function updateProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? Math.min(100, (scrollTop / docHeight) * 100) : 0;
+            progressBar.style.width = pct + '%';
+        }
+        document.addEventListener('scroll', updateProgress, { passive: true });
+        updateProgress();
+
+        const tocLinks = document.querySelectorAll('.toc-link');
+        const sections = Array.from(tocLinks).map(link => document.querySelector(link.getAttribute('href')));
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = '#' + entry.target.id;
+                const link = document.querySelector(`.toc-link[href="${id}"]`);
+                if (!link) return;
+                if (entry.isIntersecting) {
+                    tocLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+        sections.forEach(section => { if (section) observer.observe(section); });
+    </script>
+</body>
+</html>
