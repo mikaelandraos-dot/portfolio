@@ -12,6 +12,8 @@
 - [x] **Image Open Graph dédiée** : `images/og-image.png` (1200×630, couleurs « Grâce Institutionnelle », positionnement + « AEncre » en ligature AE) posée sur toutes les pages.
 - [ ] **Nom de domaine personnalisé** (ex. mikaelandraos.com) : mettre à jour canonical, og:url, JSON-LD, sitemap, et configurer GitHub Pages.
 - [x] **Optimiser les images** : redimensionner les PNG/JPG à l'affichage réel avant de les committer (voir règle ci-dessous) — appliqué au logo et à la photo L'Èze Harmonies.
+- [ ] **Ajouter bandeau avec logos prestataires/projets** : Ils m'ont fait confiance - ajouter les logos avec les liens pour améliorer le netlinking et le EEAT ? Bandeau déoulant si nécessaire (cinq logos : PDA, FPCM, EH, Musée océanographique, Explore Nice Côte d'Azur ?) + plus tard (Audiovista, March on Mars ?).
+- [ ] **Ajouter page FAQ** : Trouver 5-6 questions récurrentes sur mon rôle en tant que 'stratège créatif' : qu'est-ce qu'une stratégie de contenu, qu'est-ce que le SEO, que est le tarif journalier standard d'un freelance créatif et ce que cela signifie concrètement, que signifie 'content marketing' et 'creative strategist', quelle est la distinction entre UX et UI, etc. Web design, copywriting, etc. + Stratégie digitale + des questions sur mon positionnement / valeur ajoutée / parcours ? Peut-être avoir un FAQ + une page 'Ma vision' ou 'About me', plus complète que ce que l'on retrouvera déjà dans le body de la page d'accueil.
 
 ### Règle standing : optimisation des images
 
