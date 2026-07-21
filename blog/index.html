@@ -111,12 +111,16 @@
                 <a href="../#projets" class="nav-link hover:text-brand-500 transition">Projets</a>
                 <a href="../#competences" class="nav-link hover:text-brand-500 transition">Compétences</a>
                 <a href="./" class="nav-link active text-brand-500 transition">Blog</a>
-                <a href="../#contact" class="nav-link hover:text-brand-500 transition">Contact</a>
             </nav>
 
-            <div class="flex items-center space-x-4">
-                <a href="../#contact" class="hidden sm:inline-flex items-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition">
+            <div class="flex items-center space-x-3">
+                <a href="../#contact" class="group/contact nav-link hidden sm:inline-flex items-center hover:text-brand-500 transition text-sm font-medium">
+                    <img src="../images/pen-nib-blue.png" alt="" aria-hidden="true" class="h-4 w-0 opacity-0 mr-0 group-hover/contact:w-[11px] group-hover/contact:opacity-100 group-hover/contact:mr-1.5 transition-all duration-300 object-contain shrink-0">
+                    <span>Contact</span>
+                </a>
+                <a href="https://www.malt.fr/profile/mikaelandraos" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition">
                     Démarrer un projet
+                    <svg class="w-3 h-3 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
                 </a>
                 <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -276,13 +280,26 @@
             });
         }
 
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                document.querySelectorAll('.filter-btn').forEach(b => b.className = "filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 hover:bg-slate-200/50");
-                e.target.className = "filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 bg-brand-500 text-white shadow-md";
-                renderArticles(e.target.getAttribute('data-filter'));
+        function setActiveFilter(filter) {
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.className = b.getAttribute('data-filter') === filter
+                    ? "filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 bg-brand-500 text-white shadow-md shadow-brand-500/10"
+                    : "filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 hover:bg-slate-200/50";
             });
+            renderArticles(filter);
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => setActiveFilter(e.target.getAttribute('data-filter')));
         });
+
+        // Permet un lien direct depuis l'encart Méthode de l'accueil (blog/#seo-geo, #contenu, #ux).
+        function applyFilterFromHash() {
+            const hash = location.hash.slice(1);
+            const validFilters = ['seo-geo', 'contenu', 'ux'];
+            setActiveFilter(validFilters.includes(hash) ? hash : 'all');
+        }
+        window.addEventListener('hashchange', applyFilterFromHash);
 
 
         // MENU MOBILE
@@ -297,7 +314,7 @@
             mobileBtn.setAttribute('aria-expanded', 'false');
         }));
 
-        window.onload = () => renderArticles();
+        window.onload = applyFilterFromHash;
     </script>
 </body>
 </html>

@@ -80,6 +80,7 @@
         .article-prose h2 { font-size: 1.75rem; margin-top: 3rem; margin-bottom: 1rem; scroll-margin-top: 6rem; }
         .article-prose h3 { font-size: 1.25rem; margin-top: 2rem; margin-bottom: .75rem; scroll-margin-top: 6rem; }
         .article-prose a { color: #1e3a8a; text-decoration: underline; text-underline-offset: 2px; }
+        .article-prose a.cta-btn { color: #fff !important; text-decoration: none; }
         .article-prose strong { font-weight: 600; }
         .article-prose ul, .article-prose ol { margin: 1rem 0 1.5rem 1.25rem; }
         .article-prose li { margin-bottom: .5rem; line-height: 1.7; }
@@ -126,10 +127,13 @@
                 <a href="../#projets" class="nav-link hover:text-brand-500 transition">Projets</a>
                 <a href="../#competences" class="nav-link hover:text-brand-500 transition">Compétences</a>
                 <a href="../blog/" class="nav-link text-brand-500 transition">Blog</a>
-                <a href="../#contact" class="nav-link hover:text-brand-500 transition">Contact</a>
             </nav>
-            <div class="flex items-center space-x-4">
-                <a href="../#contact" class="hidden sm:inline-flex items-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition">Démarrer un projet</a>
+            <div class="flex items-center space-x-3">
+                <a href="../#contact" class="group/contact nav-link hidden sm:inline-flex items-center hover:text-brand-500 transition text-sm font-medium">
+                    <img src="../images/pen-nib-blue.png" alt="" aria-hidden="true" class="h-4 w-0 opacity-0 mr-0 group-hover/contact:w-[11px] group-hover/contact:opacity-100 group-hover/contact:mr-1.5 transition-all duration-300 object-contain shrink-0">
+                    <span>Contact</span>
+                </a>
+                <a href="https://www.malt.fr/profile/mikaelandraos" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition">Démarrer un projet<svg class="w-3 h-3 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg></a>
                 <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
@@ -389,7 +393,7 @@
                 <div class="not-prose my-12 bg-white rounded-2xl p-8 border border-slate-200">
                     <h3 class="text-xl mb-3 mt-0">Une fiche Google à auditer, un site local à optimiser ?</h3>
                     <p class="text-sm text-slate-600 mb-6">Je peux auditer votre présence locale actuelle et vous proposer un plan d'action concret.</p>
-                    <a href="../#contact" class="inline-flex items-center px-5 py-3 text-sm font-semibold text-white bg-brand-500 rounded-xl hover:bg-brand-600 transition">
+                    <a href="https://www.malt.fr/profile/mikaelandraos" target="_blank" rel="noopener" class="cta-btn inline-flex items-center px-5 py-3 text-sm font-semibold text-white bg-brand-500 rounded-xl hover:bg-brand-600 transition">
                         Démarrer un projet
                         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
                     </a>
