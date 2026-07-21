@@ -276,13 +276,26 @@
             });
         }
 
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                document.querySelectorAll('.filter-btn').forEach(b => b.className = "filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 hover:bg-slate-200/50");
-                e.target.className = "filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 bg-brand-500 text-white shadow-md";
-                renderArticles(e.target.getAttribute('data-filter'));
+        function setActiveFilter(filter) {
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.className = b.getAttribute('data-filter') === filter
+                    ? "filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 bg-brand-500 text-white shadow-md shadow-brand-500/10"
+                    : "filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 hover:bg-slate-200/50";
             });
+            renderArticles(filter);
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => setActiveFilter(e.target.getAttribute('data-filter')));
         });
+
+        // Permet un lien direct depuis l'encart Méthode de l'accueil (blog/#seo-geo, #contenu, #ux).
+        function applyFilterFromHash() {
+            const hash = location.hash.slice(1);
+            const validFilters = ['seo-geo', 'contenu', 'ux'];
+            setActiveFilter(validFilters.includes(hash) ? hash : 'all');
+        }
+        window.addEventListener('hashchange', applyFilterFromHash);
 
 
         // MENU MOBILE
@@ -297,7 +310,7 @@
             mobileBtn.setAttribute('aria-expanded', 'false');
         }));
 
-        window.onload = () => renderArticles();
+        window.onload = applyFilterFromHash;
     </script>
 </body>
 </html>
