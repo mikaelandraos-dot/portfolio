@@ -53,7 +53,7 @@ Tableau `projectsData` dans le script en bas d'`index.html` :
 }
 ```
 
-Images dans `images/`, noms en kebab-case sans accent. Le projet L'Èze Harmonies (id 5) utilise un placeholder SVG en attendant les vrais livrables (voir TODO.md).
+Images dans `images/`, noms en kebab-case sans accent. Le projet L'Èze Harmonies (id 5) utilise une photo réelle du festival (`concert-leze-harmonies.jpg`).
 
 ## SEO
 
