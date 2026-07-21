@@ -36,7 +36,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -67,7 +66,6 @@
 
         .nav-link { position: relative; padding-bottom: 2px; }
         .nav-link::after { content:''; position:absolute; left:0; bottom:-2px; width:0; height:1px; background-color:#1e3a8a; transition:width .3s ease; }
-        .dark .nav-link::after { background-color:#41538f; }
         .nav-link:hover::after { width:100%; }
 
         #reading-progress { position: fixed; top: 64px; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg,#1e3a8a,#41538f); z-index: 40; transition: width .1s linear; }
@@ -76,7 +74,6 @@
         .article-prose h2 { font-size: 1.75rem; margin-top: 3rem; margin-bottom: 1rem; scroll-margin-top: 6rem; }
         .article-prose h3 { font-size: 1.25rem; margin-top: 2rem; margin-bottom: .75rem; scroll-margin-top: 6rem; }
         .article-prose a { color: #1e3a8a; text-decoration: underline; text-underline-offset: 2px; }
-        .dark .article-prose a { color: #41538f; }
         .article-prose strong { font-weight: 600; }
         .article-prose ul, .article-prose ol { margin: 1rem 0 1.5rem 1.25rem; }
         .article-prose li { margin-bottom: .5rem; line-height: 1.7; }
@@ -84,7 +81,6 @@
         .article-prose ol { list-style-type: decimal; }
 
         .toc-link.active { color: #1e3a8a; font-weight: 600; }
-        .dark .toc-link.active { color: #41538f; }
 
         .chart-bar { transition: filter .25s ease, transform .25s ease; transform-origin: bottom; }
         .chart-bar:hover, .chart-bar:focus-visible { filter: brightness(1.12); transform: scaleY(1.02); }
@@ -104,12 +100,12 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col">
+<body class="bg-slate-50 text-slate-900 transition-colors duration-300 min-h-screen flex flex-col">
 
     <div id="reading-progress"></div>
 
     <!-- HEADER / NAVIGATION -->
-    <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+    <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <a href="../" class="text-xl font-bold tracking-wider text-brand-500 hover:text-brand-600 transition" style="font-family:'Gloock',serif;letter-spacing:0">
                 Mikaël Andraos
@@ -118,34 +114,30 @@
                 <a href="../#propos" class="nav-link hover:text-brand-500 transition">À propos</a>
                 <a href="../#projets" class="nav-link hover:text-brand-500 transition">Projets</a>
                 <a href="../#competences" class="nav-link hover:text-brand-500 transition">Compétences</a>
-                <a href="../blog.html" class="nav-link text-brand-500 transition">Blog</a>
+                <a href="../blog/" class="nav-link text-brand-500 transition">Blog</a>
                 <a href="../#contact" class="nav-link hover:text-brand-500 transition">Contact</a>
             </nav>
             <div class="flex items-center space-x-4">
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-900 transition" aria-label="Basculer le thème clair/sombre">
-                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-slate-500 dark:text-slate-400" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                </button>
                 <a href="../#contact" class="hidden sm:inline-flex items-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition">Démarrer un projet</a>
-                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-900 transition" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 px-4 py-4 space-y-3">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 py-4 space-y-3">
             <a href="../#propos" class="block text-base font-medium hover:text-brand-500 transition mobile-link">À propos</a>
             <a href="../#projets" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Projets</a>
             <a href="../#competences" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Compétences</a>
-            <a href="../blog.html" class="block text-base font-medium text-brand-500 transition mobile-link">Blog</a>
+            <a href="../blog/" class="block text-base font-medium text-brand-500 transition mobile-link">Blog</a>
             <a href="../#contact" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Contact</a>
         </div>
     </header>
 
     <main class="flex-grow pt-16">
         <!-- HERO ARTICLE -->
-        <section class="relative py-16 sm:py-20 overflow-hidden border-b border-slate-200 dark:border-slate-800">
-            <div class="absolute inset-0 -z-10 bg-[radial-gradient(50rem_40rem_at_top,theme(colors.brand.100),transparent)] dark:bg-[radial-gradient(50rem_40rem_at_top,theme(colors.slate.900),transparent)] opacity-50"></div>
-            <div aria-hidden="true" class="absolute -right-24 top-8 -z-10 opacity-[0.06] dark:opacity-[0.08] hidden lg:block">
+        <section class="relative py-16 sm:py-20 overflow-hidden border-b border-slate-200">
+            <div class="absolute inset-0 -z-10 bg-[radial-gradient(50rem_40rem_at_top,theme(colors.brand.100),transparent)] opacity-50"></div>
+            <div aria-hidden="true" class="absolute -right-24 top-8 -z-10 opacity-[0.06] hidden lg:block">
                 <svg width="420" height="420" viewBox="0 0 420 420" fill="none">
                     <circle cx="210" cy="210" r="140" stroke="#1e3a8a" stroke-width="1.5"/>
                     <circle cx="210" cy="210" r="90" stroke="#1e3a8a" stroke-width="1.5"/>
@@ -154,13 +146,13 @@
                 </svg>
             </div>
             <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <a href="../blog.html" class="hero-anim hero-anim-1 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-brand-500 transition mb-6">
+                <a href="../blog/" class="hero-anim hero-anim-1 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-brand-500 transition mb-6">
                     <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                     Tous les articles
                 </a>
-                <span class="hero-anim hero-anim-2 inline-block bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full mb-5">SEO &amp; GEO</span>
+                <span class="hero-anim hero-anim-2 inline-block bg-brand-50 text-brand-600 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full mb-5">SEO &amp; GEO</span>
                 <h1 class="hero-anim hero-anim-3 text-3xl sm:text-5xl tracking-tight mb-6">SEO &amp; GEO : comment être trouvé par Google ET par l'intelligence artificielle</h1>
-                <p class="hero-anim hero-anim-4 text-sm text-slate-500 dark:text-slate-400 font-mono">
+                <p class="hero-anim hero-anim-4 text-sm text-slate-500 font-mono">
                     <time datetime="2026-07-12">12 juillet 2026</time> · 8 min de lecture · Par Mikaël Andraos
                 </p>
             </div>
@@ -168,19 +160,19 @@
 
         <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
             <!-- SOMMAIRE -->
-            <nav class="not-prose bg-white dark:bg-slate-900 p-6 rounded-2xl mb-12 border border-slate-200 dark:border-slate-800" aria-label="Sommaire de l'article">
+            <nav class="not-prose bg-white p-6 rounded-2xl mb-12 border border-slate-200" aria-label="Sommaire de l'article">
                 <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">Sommaire</p>
                 <ul class="space-y-2.5 text-sm">
-                    <li><a href="#zero-click" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">1. Le zero-click a changé la donne</a></li>
-                    <li><a href="#conversion" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">2. Les visiteurs venus de l'IA convertissent mieux</a></li>
-                    <li><a href="#techniques" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">3. Ce qui fait qu'on est cité par l'IA</a></li>
-                    <li><a href="#culture" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">4. Ce que ça change pour une institution culturelle</a></li>
-                    <li><a href="#glossaire" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">Petit glossaire</a></li>
-                    <li><a href="#sources" class="toc-link text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">Sources</a></li>
+                    <li><a href="#zero-click" class="toc-link text-slate-600 hover:text-brand-500 transition">1. Le zero-click a changé la donne</a></li>
+                    <li><a href="#conversion" class="toc-link text-slate-600 hover:text-brand-500 transition">2. Les visiteurs venus de l'IA convertissent mieux</a></li>
+                    <li><a href="#techniques" class="toc-link text-slate-600 hover:text-brand-500 transition">3. Ce qui fait qu'on est cité par l'IA</a></li>
+                    <li><a href="#culture" class="toc-link text-slate-600 hover:text-brand-500 transition">4. Ce que ça change pour une institution culturelle</a></li>
+                    <li><a href="#glossaire" class="toc-link text-slate-600 hover:text-brand-500 transition">Petit glossaire</a></li>
+                    <li><a href="#sources" class="toc-link text-slate-600 hover:text-brand-500 transition">Sources</a></li>
                 </ul>
             </nav>
 
-            <div class="article-prose text-base text-slate-700 dark:text-slate-300">
+            <div class="article-prose text-base text-slate-700">
                 <p>Pendant vingt ans, être visible en ligne a voulu dire une seule chose : apparaître dans les dix premiers résultats de Google. Ce n'est plus tout à fait vrai. Une partie grandissante des recherches ne mène plus vers une liste de liens bleus, mais vers une réponse générée — un résumé d'IA en haut de la page Google, ou directement une conversation dans ChatGPT, Perplexity ou Claude. Pour une institution culturelle ou une marque de prestige, cela veut dire qu'il existe désormais deux jeux à jouer en même temps : le <strong>SEO</strong> classique, et le <strong>GEO</strong> — l'optimisation pour les moteurs génératifs.</p>
 
                 <p>Le sujet n'est pas anecdotique. Voici ce que disent les chiffres, et ce qu'on peut concrètement en faire.</p>
@@ -188,22 +180,22 @@
                 <h2 id="zero-click">1. Le zero-click a changé la donne</h2>
                 <p>Depuis l'arrivée des <em>AI Overviews</em> de Google — ces résumés générés par IA qui s'affichent au-dessus des résultats classiques — le comportement de recherche a basculé. Les recherches « zero-click », c'est-à-dire celles qui n'aboutissent à aucun clic vers un site, sont passées de <strong>56 % à 69 % en un an</strong>. Sur les requêtes où un AI Overview apparaît, le taux de clic organique s'est effondré de <strong>61 %</strong>. Les AI Overviews s'affichent désormais sur environ <strong>25 % des recherches Google</strong>.</p>
 
-                <div class="not-prose my-10 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8">
-                    <p class="text-[10px] font-bold uppercase tracking-widest text-brand-500 dark:text-brand-400 mb-1">Évolution</p>
+                <div class="not-prose my-10 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-brand-500 mb-1">Évolution</p>
                     <h4 class="text-lg mb-6">Part des recherches Google qui ne génèrent aucun clic</h4>
                     <div class="flex items-end gap-6 sm:gap-10 h-48" role="img" aria-label="Graphique en barres : les recherches sans clic (zero-click) sont passées de 56% à 69% en un an, après l'arrivée des résumés générés par IA.">
                         <div class="flex-1 flex flex-col items-center justify-end h-full max-w-[8rem]">
-                            <span class="text-sm font-bold mb-2 text-slate-500 dark:text-slate-400">56 %</span>
-                            <div class="chart-bar w-full rounded-t-lg bg-slate-300 dark:bg-slate-700" style="height:56%" tabindex="0"></div>
+                            <span class="text-sm font-bold mb-2 text-slate-500">56 %</span>
+                            <div class="chart-bar w-full rounded-t-lg bg-slate-300" style="height:56%" tabindex="0"></div>
                             <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-3 text-center">Avant les AI<br>Overviews</span>
                         </div>
                         <div class="flex-1 flex flex-col items-center justify-end h-full max-w-[8rem]">
-                            <span class="text-sm font-bold mb-2 text-brand-500 dark:text-brand-400">69 %</span>
+                            <span class="text-sm font-bold mb-2 text-brand-500">69 %</span>
                             <div class="chart-bar w-full rounded-t-lg bg-brand-500" style="height:69%" tabindex="0"></div>
                             <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-3 text-center">Avec les AI<br>Overviews</span>
                         </div>
                     </div>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-6">Source : <a href="https://www.omnibound.ai/blog/generative-engine-optimization-statistics" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">Omnibound, Generative Engine Optimization Statistics 2026</a></p>
+                    <p class="text-xs text-slate-500 mt-6">Source : <a href="https://www.omnibound.ai/blog/generative-engine-optimization-statistics" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">Omnibound, Generative Engine Optimization Statistics 2026</a></p>
                 </div>
 
                 <p>Concrètement : une part croissante de votre public potentiel ne visitera jamais votre site pour trouver sa réponse — l'IA répond à sa place. La question n'est plus seulement « suis-je bien classé ? » mais « suis-je la source que l'IA choisit de citer ou de résumer ? ».</p>
@@ -211,13 +203,13 @@
                 <h2 id="conversion">2. Les visiteurs venus de l'IA convertissent mieux</h2>
                 <p>Bonne nouvelle : ceux qui cliquent quand même, malgré la réponse déjà donnée par l'IA, sont des visiteurs particulièrement qualifiés. Ahrefs a analysé son propre trafic et trouvé que les visiteurs issus de la recherche IA (ChatGPT, Perplexity, Copilot...) ne représentaient que <strong>0,5 % du trafic total</strong>, mais généraient <strong>12,1 % des inscriptions</strong> — un ratio de conversion environ <strong>24 fois supérieur</strong> à celui de la recherche organique classique.</p>
 
-                <div class="not-prose my-10 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8">
-                    <p class="text-[10px] font-bold uppercase tracking-widest text-brand-500 dark:text-brand-400 mb-1">Taux de conversion par source de trafic</p>
+                <div class="not-prose my-10 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-brand-500 mb-1">Taux de conversion par source de trafic</p>
                     <h4 class="text-lg mb-6">Les visiteurs qui arrivent via une IA convertissent nettement mieux</h4>
                     <div class="flex items-end gap-3 sm:gap-6 h-48" role="img" aria-label="Graphique en barres : taux de conversion de 1,76% pour la recherche organique classique, 5% depuis Claude, 10,5% depuis Perplexity, et 15,9% depuis ChatGPT.">
                         <div class="flex-1 flex flex-col items-center justify-end h-full">
-                            <span class="text-xs sm:text-sm font-bold mb-2 text-slate-500 dark:text-slate-400">1,76 %</span>
-                            <div class="chart-bar w-full max-w-[3.5rem] mx-auto rounded-t-lg bg-slate-300 dark:bg-slate-700" style="height:11%" tabindex="0"></div>
+                            <span class="text-xs sm:text-sm font-bold mb-2 text-slate-500">1,76 %</span>
+                            <div class="chart-bar w-full max-w-[3.5rem] mx-auto rounded-t-lg bg-slate-300" style="height:11%" tabindex="0"></div>
                             <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 mt-3 text-center">Recherche<br>organique</span>
                         </div>
                         <div class="flex-1 flex flex-col items-center justify-end h-full">
@@ -226,17 +218,17 @@
                             <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 mt-3 text-center">Claude</span>
                         </div>
                         <div class="flex-1 flex flex-col items-center justify-end h-full">
-                            <span class="text-xs sm:text-sm font-bold mb-2 text-brand-500 dark:text-brand-400">10,5 %</span>
+                            <span class="text-xs sm:text-sm font-bold mb-2 text-brand-500">10,5 %</span>
                             <div class="chart-bar w-full max-w-[3.5rem] mx-auto rounded-t-lg bg-brand-500" style="height:66%" tabindex="0"></div>
                             <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 mt-3 text-center">Perplexity</span>
                         </div>
                         <div class="flex-1 flex flex-col items-center justify-end h-full">
-                            <span class="text-xs sm:text-sm font-bold mb-2 text-brand-600 dark:text-brand-400">15,9 %</span>
+                            <span class="text-xs sm:text-sm font-bold mb-2 text-brand-600">15,9 %</span>
                             <div class="chart-bar w-full max-w-[3.5rem] mx-auto rounded-t-lg bg-brand-600" style="height:100%" tabindex="0"></div>
                             <span class="text-[10px] font-bold uppercase tracking-wider text-slate-500 mt-3 text-center">ChatGPT</span>
                         </div>
                     </div>
-                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-6">Source : <a href="https://ahrefs.com/blog/ai-search-traffic-conversions-ahrefs/" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">Ahrefs, « Does AI Search Traffic Convert Better Than Traditional Search? », 2025</a></p>
+                    <p class="text-xs text-slate-500 mt-6">Source : <a href="https://ahrefs.com/blog/ai-search-traffic-conversions-ahrefs/" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">Ahrefs, « Does AI Search Traffic Convert Better Than Traditional Search? », 2025</a></p>
                 </div>
 
                 <p>Autrement dit : moins de volume, mais une intention plus forte. Les gens qui arrivent via une IA ont souvent déjà posé leurs questions, comparé leurs options, et cliquent en connaissance de cause. Pour une fondation ou un festival, ce sont potentiellement des donateurs ou des festivaliers déjà convaincus.</p>
@@ -264,44 +256,44 @@
 
                 <p>C'est exactement l'angle avec lequel j'ai abordé la refonte du site du festival <a href="../#projets">L'Èze Harmonies</a> : penser l'architecture de l'information et le contenu pour deux publics à la fois — les visiteurs humains, et les moteurs (classiques et génératifs) qui les orientent vers vous.</p>
 
-                <div id="glossaire" class="not-prose my-12 rounded-2xl bg-brand-50 dark:bg-brand-950/30 border border-brand-100 dark:border-brand-900/50 p-6 sm:p-8">
-                    <p class="text-[10px] font-bold uppercase tracking-widest text-brand-500 dark:text-brand-400 mb-5">Petit glossaire</p>
+                <div id="glossaire" class="not-prose my-12 rounded-2xl bg-brand-50 border border-brand-100 p-6 sm:p-8">
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-brand-500 mb-5">Petit glossaire</p>
                     <dl class="space-y-4">
                         <div>
                             <dt class="font-bold text-sm">SEO — Search Engine Optimization</dt>
-                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">L'optimisation d'un site pour qu'il soit bien positionné dans les résultats classiques des moteurs de recherche (Google, Bing...).</dd>
+                            <dd class="text-sm text-slate-600 mt-1">L'optimisation d'un site pour qu'il soit bien positionné dans les résultats classiques des moteurs de recherche (Google, Bing...).</dd>
                         </div>
                         <div>
                             <dt class="font-bold text-sm">GEO — Generative Engine Optimization</dt>
-                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">L'optimisation d'un contenu pour qu'il soit repris, cité ou résumé par les moteurs génératifs (ChatGPT, Perplexity, AI Overviews de Google).</dd>
+                            <dd class="text-sm text-slate-600 mt-1">L'optimisation d'un contenu pour qu'il soit repris, cité ou résumé par les moteurs génératifs (ChatGPT, Perplexity, AI Overviews de Google).</dd>
                         </div>
                         <div>
                             <dt class="font-bold text-sm">Zero-click</dt>
-                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">Une recherche qui se termine sans qu'aucun clic ne soit fait vers un site — la réponse est trouvée directement sur la page de résultats.</dd>
+                            <dd class="text-sm text-slate-600 mt-1">Une recherche qui se termine sans qu'aucun clic ne soit fait vers un site — la réponse est trouvée directement sur la page de résultats.</dd>
                         </div>
                         <div>
                             <dt class="font-bold text-sm">AI Overviews</dt>
-                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">Les résumés générés par l'IA de Google, affichés au-dessus des résultats de recherche classiques.</dd>
+                            <dd class="text-sm text-slate-600 mt-1">Les résumés générés par l'IA de Google, affichés au-dessus des résultats de recherche classiques.</dd>
                         </div>
                         <div>
                             <dt class="font-bold text-sm">Données structurées (schema.org)</dt>
-                            <dd class="text-sm text-slate-600 dark:text-slate-400 mt-1">Un balisage ajouté au code d'une page pour décrire son contenu dans un format que les machines comprennent directement (qui, quoi, quand, où).</dd>
+                            <dd class="text-sm text-slate-600 mt-1">Un balisage ajouté au code d'une page pour décrire son contenu dans un format que les machines comprennent directement (qui, quoi, quand, où).</dd>
                         </div>
                     </dl>
                 </div>
 
-                <div class="not-prose my-12 bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800">
+                <div class="not-prose my-12 bg-white rounded-2xl p-8 border border-slate-200">
                     <h3 class="text-xl mb-3 mt-0">Un site à repenser pour les deux publics ?</h3>
-                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">SEO, GEO, architecture de l'information — je peux auditer votre présence actuelle et vous proposer un plan concret.</p>
+                    <p class="text-sm text-slate-600 mb-6">SEO, GEO, architecture de l'information — je peux auditer votre présence actuelle et vous proposer un plan concret.</p>
                     <a href="../#contact" class="inline-flex items-center px-5 py-3 text-sm font-semibold text-white bg-brand-500 rounded-xl hover:bg-brand-600 transition">
                         Démarrer un projet
                         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
                     </a>
                 </div>
 
-                <div id="sources" class="not-prose mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
+                <div id="sources" class="not-prose mt-12 pt-8 border-t border-slate-200">
                     <h3 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-4 mt-0">Sources</h3>
-                    <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                    <ul class="space-y-2 text-sm text-slate-600">
                         <li>Aggarwal, Murahari, Rajpurohit, Kalyan, Narasimhan, Deshpande — <a href="https://arxiv.org/abs/2311.09735" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">« GEO: Generative Engine Optimization »</a>, Princeton University / Georgia Tech / Allen Institute for AI, présenté à KDD 2024.</li>
                         <li>Ahrefs — <a href="https://ahrefs.com/blog/ai-search-traffic-conversions-ahrefs/" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">« Does AI Search Traffic Convert Better Than Traditional Search? »</a>, 2025.</li>
                         <li>Omnibound — <a href="https://www.omnibound.ai/blog/generative-engine-optimization-statistics" target="_blank" rel="noopener nofollow" class="underline hover:text-brand-500">« Generative Engine Optimization Statistics (2026) »</a>.</li>
@@ -309,18 +301,18 @@
                     </ul>
                 </div>
 
-                <div class="not-prose mt-12 pt-8 border-t border-slate-200 dark:border-slate-800">
+                <div class="not-prose mt-12 pt-8 border-t border-slate-200">
                     <h3 class="text-xl mb-6 mt-0">À lire aussi</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                        <a href="seo-local-institutions-culturelles.html" class="group block bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 hover:border-brand-500/40 hover:-translate-y-0.5 transition">
+                        <a href="seo-local-institutions-culturelles.html" class="group block bg-white rounded-2xl p-5 border border-slate-200 hover:border-brand-500/40 hover:-translate-y-0.5 transition">
                             <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider block mb-2">SEO &amp; GEO</span>
                             <h4 class="text-base font-semibold group-hover:text-brand-500 transition">Le SEO local : dominer les recherches près de chez soi</h4>
                         </a>
-                        <a href="newsletters-methode-aida.html" class="group block bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 hover:border-brand-500/40 hover:-translate-y-0.5 transition">
+                        <a href="newsletters-methode-aida.html" class="group block bg-white rounded-2xl p-5 border border-slate-200 hover:border-brand-500/40 hover:-translate-y-0.5 transition">
                             <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider block mb-2">Contenu &amp; Copy</span>
                             <h4 class="text-base font-semibold group-hover:text-brand-500 transition">Newsletters qui convertissent : la méthode AIDA appliquée à la culture</h4>
                         </a>
-                        <a href="ux-tunnel-don-friction.html" class="group block bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 hover:border-brand-500/40 hover:-translate-y-0.5 transition">
+                        <a href="ux-tunnel-don-friction.html" class="group block bg-white rounded-2xl p-5 border border-slate-200 hover:border-brand-500/40 hover:-translate-y-0.5 transition">
                             <span class="text-[10px] font-bold text-brand-500 uppercase tracking-wider block mb-2">UX &amp; Design</span>
                             <h4 class="text-base font-semibold group-hover:text-brand-500 transition">UX et tunnels de don : réduire la friction sans perdre l'émotion</h4>
                         </a>
@@ -330,17 +322,16 @@
         </article>
     </main>
 
-    <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-10 transition-colors">
+    <footer class="bg-white border-t border-slate-200 py-10 transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
             <a href="../" class="shrink-0" aria-label="Mikaël Andraos — accueil">
-                <img src="../images/logo-aencre.png" alt="Mikaël Andraos" title="Mikaël Andraos" class="h-8 w-auto dark:hidden">
-                <img src="../images/logo-aencre-dark.png" alt="Mikaël Andraos" title="Mikaël Andraos" class="h-8 w-auto hidden dark:block">
+                <img src="../images/logo-aencre.png" alt="Mikaël Andraos" title="Mikaël Andraos" class="h-8 w-auto" loading="lazy">
             </a>
             <nav aria-label="Navigation du pied de page" class="flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
-                <a href="../#propos" class="text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">À propos</a>
-                <a href="../#projets" class="text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">Projets</a>
-                <a href="../blog.html" class="text-xs font-semibold uppercase tracking-widest text-brand-500 transition">Blog</a>
-                <a href="https://linkedin.com/in/mikael-andraos" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 hover:text-brand-500 transition">
+                <a href="../#propos" class="text-xs font-semibold uppercase tracking-widest text-slate-600 hover:text-brand-500 transition">À propos</a>
+                <a href="../#projets" class="text-xs font-semibold uppercase tracking-widest text-slate-600 hover:text-brand-500 transition">Projets</a>
+                <a href="../blog/" class="text-xs font-semibold uppercase tracking-widest text-brand-500 transition">Blog</a>
+                <a href="https://linkedin.com/in/mikael-andraos" target="_blank" rel="noopener" class="group inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-slate-600 hover:text-brand-500 transition">
                     LinkedIn
                     <svg class="w-3 h-3 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M7 7h10v10"></path></svg>
                 </a>
@@ -350,22 +341,6 @@
     </footer>
 
     <script>
-        // THEMES
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const lightIcon = document.getElementById('theme-toggle-light-icon');
-        const darkIcon = document.getElementById('theme-toggle-dark-icon');
-        if (localStorage.getItem('color-theme') === 'dark') {
-            document.documentElement.classList.add('dark');
-            lightIcon.classList.remove('hidden');
-        } else {
-            darkIcon.classList.remove('hidden');
-        }
-        themeToggleBtn.addEventListener('click', () => {
-            lightIcon.classList.toggle('hidden');
-            darkIcon.classList.toggle('hidden');
-            document.documentElement.classList.toggle('dark');
-            localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-        });
 
         // MENU MOBILE
         const mobileBtn = document.getElementById('mobile-menu-btn');
