@@ -616,12 +616,14 @@
         ];
 
         // BASE DE DONNÉES DU BANDEAU « ILS M'ONT FAIT CONFIANCE »
-        // url: null → logo affiché sans lien (URL externe pas encore fournie par Mikaël).
+        // Tous les liens pointent vers le site officiel de l'organisation (nouvel onglet).
         const trustedByData = [
-            { name: "Printemps des Arts de Monte-Carlo", file: "images/logo-printemps-des-arts.png", url: "#projets", height: "h-9 sm:h-11" },
-            { name: "Fondation Princesse Charlène de Monaco", file: "images/logo-fpcm.png", url: "#projets", height: "h-8 sm:h-10" },
-            { name: "Musée Océanographique de Monaco", file: "images/logo-musee-oceanographique.png", url: null, height: "h-10 sm:h-12" }
-            // À venir : L'Èze Harmonies, Explore Nice Côte d'Azur — ajouter ici une fois logos + liens reçus.
+            { name: "Printemps des Arts de Monte-Carlo", file: "images/logo-printemps-des-arts.png", url: "https://www.printempsdesarts.mc", height: "h-9 sm:h-11" },
+            { name: "Fondation Princesse Charlène de Monaco", file: "images/logo-fpcm.png", url: "https://www.fpcm.mc", height: "h-8 sm:h-10" },
+            { name: "Festival L'Èze Harmonies", file: "images/logo-eze-harmonies.png", url: "https://www.leze-harmonies.fr", height: "h-9 sm:h-11" },
+            { name: "Musée Océanographique de Monaco", file: "images/logo-musee-oceanographique.png", url: "https://www.oceano.org", height: "h-10 sm:h-12" },
+            { name: "Office de Tourisme Métropolitain — Explore Nice Côte d'Azur", file: "images/logo-explore-nice-cote-dazur.png", url: "https://www.explorenicecotedazur.com", height: "h-9 sm:h-11" }
+            // Plus tard : Audiovista, March on Mars — ajouter ici une fois logos + liens reçus.
         ];
 
         function renderTrustedBy() {
@@ -633,8 +635,10 @@
                 if (logo.url) {
                     const el = document.createElement('a');
                     el.href = logo.url;
+                    el.target = "_blank";
+                    el.rel = "noopener";
                     el.className = "logo-item shrink-0";
-                    el.setAttribute('aria-label', `Voir le projet ${logo.name}`);
+                    el.setAttribute('aria-label', `Visiter le site de ${logo.name} (nouvel onglet)`);
                     if (hidden) { el.setAttribute('aria-hidden', 'true'); el.tabIndex = -1; }
                     el.innerHTML = content;
                     return el;
