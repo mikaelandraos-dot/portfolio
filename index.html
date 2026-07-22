@@ -159,10 +159,34 @@
         /* Bouton copier l'e-mail */
         #copy-email-btn svg { transition: opacity .2s ease; }
 
+        /* Bandeau « Ils m'ont fait confiance » : défilement en boucle, dégradé sur les bords */
+        .logo-marquee {
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+            mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+        }
+        .logo-track { animation: logo-scroll 26s linear infinite; }
+        .logo-marquee:hover .logo-track,
+        .logo-marquee:focus-within .logo-track { animation-play-state: paused; }
+        @keyframes logo-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+        .logo-item img {
+            filter: grayscale(1);
+            opacity: .5;
+            transition: filter .3s ease, opacity .3s ease;
+        }
+        .logo-item:hover img,
+        .logo-item:focus-visible img { filter: grayscale(0); opacity: 1; }
+
         @media (prefers-reduced-motion: reduce) {
             .hero-anim { animation: none; opacity: 1; }
             .hero-gradient-text, #hero-glow { transition: none; }
             .reveal-up, .project-card-reveal { opacity: 1; transform: none; transition: none; }
+            .logo-track { animation: none; }
+            .logo-marquee { overflow-x: auto; }
+            .logo-marquee [aria-hidden="true"].logo-item { display: none; }
         }
     </style>
 </head>
@@ -246,14 +270,12 @@
                 </div>
                 <!-- Références -->
                 <div class="hero-anim hero-anim-7 border-t border-slate-200 pt-8">
-                    <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">Ils m'ont fait confiance</p>
-                    <ul class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-8 font-display text-lg sm:text-xl text-slate-700">
-                        <li>Printemps des Arts de Monte-Carlo</li>
-                        <li aria-hidden="true" class="hidden sm:block text-brand-500 text-sm">✳</li>
-                        <li>Fondation Princesse Charlène de Monaco</li>
-                        <li aria-hidden="true" class="hidden sm:block text-brand-500 text-sm">✳</li>
-                        <li>Festival L'Èze Harmonies</li>
-                    </ul>
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-5">Ils m'ont fait confiance</p>
+                    <div class="logo-marquee relative mx-auto max-w-3xl" role="group" aria-label="Organisations qui m'ont fait confiance">
+                        <div class="logo-track flex items-center gap-12 sm:gap-16 w-max" id="logo-track">
+                            <!-- Logos injectés en JS depuis trustedByData (voir plus bas) -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -593,6 +615,47 @@
             }
         ];
 
+        // BASE DE DONNÉES DU BANDEAU « ILS M'ONT FAIT CONFIANCE »
+        // Tous les liens pointent vers le site officiel de l'organisation (nouvel onglet).
+        const trustedByData = [
+            { name: "Printemps des Arts de Monte-Carlo", file: "images/logo-printemps-des-arts.png", url: "https://www.printempsdesarts.mc", height: "h-9 sm:h-11" },
+            { name: "Fondation Princesse Charlène de Monaco", file: "images/logo-fpcm.png", url: "https://www.fpcm.mc", height: "h-8 sm:h-10" },
+            { name: "Festival L'Èze Harmonies", file: "images/logo-eze-harmonies.png", url: "https://www.leze-harmonies.fr", height: "h-9 sm:h-11" },
+            { name: "Musée Océanographique de Monaco", file: "images/logo-musee-oceanographique.png", url: "https://www.oceano.org", height: "h-10 sm:h-12" },
+            { name: "Office de Tourisme Métropolitain — Explore Nice Côte d'Azur", file: "images/logo-explore-nice-cote-dazur.png", url: "https://www.explorenicecotedazur.com", height: "h-9 sm:h-11" }
+            // Plus tard : Audiovista, March on Mars — ajouter ici une fois logos + liens reçus.
+        ];
+
+        function renderTrustedBy() {
+            const track = document.getElementById('logo-track');
+            if (!track) return;
+
+            function buildItem(logo, hidden) {
+                const content = `<img src="${logo.file}" alt="${hidden ? '' : logo.name}" class="${logo.height} w-auto object-contain" ${hidden ? 'aria-hidden="true"' : ''}>`;
+                if (logo.url) {
+                    const el = document.createElement('a');
+                    el.href = logo.url;
+                    el.target = "_blank";
+                    el.rel = "noopener";
+                    el.className = "logo-item shrink-0";
+                    el.setAttribute('aria-label', `Visiter le site de ${logo.name} (nouvel onglet)`);
+                    if (hidden) { el.setAttribute('aria-hidden', 'true'); el.tabIndex = -1; }
+                    el.innerHTML = content;
+                    return el;
+                }
+                const el = document.createElement('span');
+                el.className = "logo-item shrink-0";
+                if (!hidden) el.setAttribute('aria-label', logo.name);
+                if (hidden) el.setAttribute('aria-hidden', 'true');
+                el.innerHTML = content;
+                return el;
+            }
+
+            // Set réel (accessible) puis set dupliqué (aria-hidden) pour la boucle CSS -50% sans à-coup.
+            trustedByData.forEach(logo => track.appendChild(buildItem(logo, false)));
+            trustedByData.forEach(logo => track.appendChild(buildItem(logo, true)));
+        }
+        renderTrustedBy();
 
         // HALO INTERACTIF DU HERO — suit le curseur au survol
         const heroSection = document.getElementById('hero-section');

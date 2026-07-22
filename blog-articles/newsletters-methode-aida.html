@@ -64,8 +64,10 @@
         body { font-family: 'Instrument Sans', sans-serif; background:#faf7f1; }
         h1, h2, h3 { font-family: 'Gloock', serif; font-weight: 400 !important; letter-spacing: .2px; }
         h1 { letter-spacing: -.5px; line-height: 1.08; }
-        /* Micro-labels : Space Grotesk par défaut. Geist Mono reste réservé au pied de page. */
-        .tracking-widest, .tracking-wider, .font-mono { font-family: 'Space Grotesk', sans-serif; }
+        /* Micro-labels (majuscules espacées) : Space Grotesk. Dates, temps de lecture, signature d'auteur :
+           Instrument Sans, comme le reste du texte — pas de police distincte pour ces métadonnées. */
+        .tracking-widest, .tracking-wider { font-family: 'Space Grotesk', sans-serif; }
+        .font-mono { font-family: 'Instrument Sans', sans-serif; }
         footer .tracking-widest, footer .tracking-wider, footer .font-mono { font-family: 'Geist Mono', monospace; }
         .bg-white { background-color:#fffdf8 !important; }
 
