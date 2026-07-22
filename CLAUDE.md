@@ -34,6 +34,7 @@ Pas de couleurs vives hors palette, pas d'esthétique « tech/terminal ».
 - **Narratif de méthode** : être **trouvé** (SEO/GEO) → être **lu** (contenu/copy) → être **choisi** (UX/design).
 - **Références clients (3)** : Printemps des Arts de Monte-Carlo, Fondation Princesse Charlène de Monaco, Festival L'Èze Harmonies — noms complets, partout.
 - **Ne jamais inventer** de mission, client ou résultat : demander les faits à Mikaël avant d'ajouter une référence.
+- **Voix de marque / style rédactionnel** : `docs/brand-voice.md` détaille les règles d'écriture (éviter les propositions entassées entre tirets façon anglais, éviter le schéma « ce n'est pas X, c'est Y », éviter de construire un argument en pointant d'abord une mauvaise pratique). À appliquer à tout nouveau texte long (articles de blog, pages, textes clients) et à relire avant publication.
 
 ## Projets
 
