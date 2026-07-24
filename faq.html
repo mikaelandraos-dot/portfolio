@@ -213,9 +213,12 @@
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
                     <div class="hero-anim hero-anim-1 lg:col-span-4 flex flex-col items-center lg:items-start gap-8">
-                        <div class="relative">
+                        <div id="portrait-wrap" class="relative w-48 h-48 sm:w-60 sm:h-60 cursor-pointer">
                             <div aria-hidden="true" class="absolute -inset-4 rounded-full bg-brand-500/10 blur-2xl"></div>
-                            <img src="images/mikael-andraos-portrait.jpg" alt="Portrait de Mikaël Andraos, stratège créatif en SEO/GEO, contenu et UX" class="relative w-48 h-48 sm:w-60 sm:h-60 rounded-full object-cover border-4 border-white shadow-xl shadow-slate-900/10">
+                            <img src="images/mikael-andraos-portrait.jpg" alt="Portrait de Mikaël Andraos, stratège créatif en SEO/GEO, contenu et UX" class="absolute inset-0 w-full h-full rounded-full object-cover border-4 border-white shadow-xl shadow-slate-900/10">
+                            <video id="portrait-video" muted playsinline preload="none" aria-hidden="true" class="absolute inset-0 w-full h-full rounded-full object-cover border-4 border-white shadow-xl shadow-slate-900/10 opacity-0 transition-opacity duration-500 pointer-events-none">
+                                <source src="videos/mikael-andraos-portrait-transformation.mp4" type="video/mp4">
+                            </video>
                         </div>
                         <div class="w-48 sm:w-60 flex justify-center">
                             <div class="flex items-center gap-3">
@@ -417,6 +420,22 @@
             revealEls.forEach(el => revealObserver.observe(el));
         } else {
             revealEls.forEach(el => el.classList.add('is-visible'));
+        }
+
+        // PORTRAIT ANIMÉ — la photo statique laisse place à la vidéo au premier survol/tap, et garde son état ensuite
+        const portraitWrap = document.getElementById('portrait-wrap');
+        const portraitVideo = document.getElementById('portrait-video');
+        if (portraitWrap && portraitVideo && !prefersReducedMotion) {
+            let revealed = false;
+            const revealPortrait = () => {
+                if (revealed) return;
+                revealed = true;
+                portraitVideo.play().catch(() => {});
+                portraitVideo.classList.remove('opacity-0');
+            };
+            portraitWrap.addEventListener('mouseenter', revealPortrait);
+            portraitWrap.addEventListener('touchstart', revealPortrait, { passive: true });
+            portraitWrap.addEventListener('click', revealPortrait);
         }
     </script>
 </body>
