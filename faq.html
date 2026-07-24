@@ -216,7 +216,7 @@
                         <div id="portrait-wrap" class="relative w-48 h-48 sm:w-60 sm:h-60 cursor-pointer">
                             <div aria-hidden="true" class="absolute -inset-4 rounded-full bg-brand-500/10 blur-2xl"></div>
                             <img src="images/mikael-andraos-portrait.jpg" alt="Portrait de Mikaël Andraos, stratège créatif en SEO/GEO, contenu et UX" class="absolute inset-0 w-full h-full rounded-full object-cover border-4 border-white shadow-xl shadow-slate-900/10">
-                            <video id="portrait-video" muted playsinline preload="none" aria-hidden="true" class="absolute inset-0 w-full h-full rounded-full object-cover border-4 border-white shadow-xl shadow-slate-900/10 opacity-0 transition-opacity duration-500 pointer-events-none">
+                            <video id="portrait-video" muted playsinline preload="none" aria-hidden="true" class="absolute inset-0 w-full h-full rounded-full object-cover border-4 border-white shadow-xl shadow-slate-900/10 opacity-0 scale-105 blur pointer-events-none transition-all duration-[900ms] ease-out">
                                 <source src="videos/mikael-andraos-portrait-transformation.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -427,11 +427,20 @@
         const portraitVideo = document.getElementById('portrait-video');
         if (portraitWrap && portraitVideo && !prefersReducedMotion) {
             let revealed = false;
+            const fadeInVideo = () => {
+                portraitVideo.classList.remove('opacity-0', 'scale-105', 'blur');
+            };
             const revealPortrait = () => {
                 if (revealed) return;
                 revealed = true;
+                // On attend qu'une image soit réellement prête à s'afficher avant de démarrer
+                // le fondu, pour éviter un flash noir/figé pendant le chargement de la vidéo.
+                if (portraitVideo.readyState >= 3) {
+                    fadeInVideo();
+                } else {
+                    portraitVideo.addEventListener('canplay', fadeInVideo, { once: true });
+                }
                 portraitVideo.play().catch(() => {});
-                portraitVideo.classList.remove('opacity-0');
             };
             portraitWrap.addEventListener('mouseenter', revealPortrait);
             portraitWrap.addEventListener('touchstart', revealPortrait, { passive: true });
