@@ -401,6 +401,13 @@
                         <h4 class="text-base font-bold mb-2">IA &amp; Intégration Code</h4>
                         <p class="text-xs text-slate-600 leading-relaxed">Sensibilité technique et logique d'intégration HTML/CSS, JSON, JS. Optimisation des workflows créatifs et logistiques grâce au context engineering.</p>
                     </div>
+                    <div id="workspace-card" class="group relative h-56 rounded-2xl border border-slate-200 hover:border-brand-500 transition duration-300 overflow-hidden cursor-pointer">
+                        <div id="workspace-neutral" class="absolute inset-0 bg-brand-500 flex flex-col items-center justify-center gap-4 p-6 text-center transition-opacity duration-500">
+                            <h4 class="text-white text-base font-bold">Mon poste de travail</h4>
+                            <img src="images/logo-aencre-blue.png" alt="" loading="lazy" class="h-7 w-auto brightness-0 invert opacity-90">
+                        </div>
+                        <img id="workspace-photo" src="" alt="Aperçu de mon poste de travail" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500">
+                    </div>
                 </div>
             </div>
         </section>
@@ -681,6 +688,31 @@
             mobileMenu.classList.add('hidden');
             mobileBtn.setAttribute('aria-expanded', 'false');
         }));
+
+        // CARTE « MON POSTE DE TRAVAIL » — révèle une photo au hasard au survol / tap
+        const workspaceCard = document.getElementById('workspace-card');
+        const workspaceNeutral = document.getElementById('workspace-neutral');
+        const workspacePhoto = document.getElementById('workspace-photo');
+        const workspaceImages = ["images/workspace-tablet-art.jpg", "images/workspace-macbook-dashboard.jpg", "images/workspace-flowcharts.jpg"];
+        if (workspaceCard && workspaceNeutral && workspacePhoto) {
+            let workspaceRevealed = false;
+            const revealWorkspace = () => {
+                workspacePhoto.src = workspaceImages[Math.floor(Math.random() * workspaceImages.length)];
+                workspaceNeutral.classList.add('opacity-0');
+                workspacePhoto.classList.remove('opacity-0');
+                workspaceRevealed = true;
+            };
+            const hideWorkspace = () => {
+                workspaceNeutral.classList.remove('opacity-0');
+                workspacePhoto.classList.add('opacity-0');
+                workspaceRevealed = false;
+            };
+            workspaceCard.addEventListener('mouseenter', revealWorkspace);
+            workspaceCard.addEventListener('mouseleave', hideWorkspace);
+            workspaceCard.addEventListener('click', () => {
+                workspaceRevealed ? hideWorkspace() : revealWorkspace();
+            });
+        }
 
         // AFFICHAGE DES PROJETS
         const grid = document.getElementById('projects-grid');
