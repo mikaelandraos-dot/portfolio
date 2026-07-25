@@ -137,7 +137,7 @@ seraient à la fois utiles et démonstratifs pour quelqu'un qui vend du SEO/GEO 
 
 Argument de vente accessoire : le site devient sa propre démonstration.
 
-### 9. 🚧 Une section « Prestations » explicite — en attente de Mikaël
+### 9. ✅ Une section « Prestations » explicite — fait le 25/07/2026
 
 La FAQ répond au « comment je travaille » et les Compétences listent les savoir-faire,
 mais un visiteur pressé ne trouve nulle part une réponse frontale à « qu'est-ce que je
@@ -145,9 +145,11 @@ peux vous acheter ? ». Trois formats nommés (par exemple : audit ponctuel /
 accompagnement éditorial / refonte UX) clarifieraient l'entrée en relation, sans avoir à
 afficher de tarifs.
 
-Bloquant : les questions posées le 25/07/2026 (nombre de formats, intitulés, contenu de
-chaque format, emplacement sur la page) attendent une réponse. La traduction anglaise de
-cette section suivra la validation du texte français.
+Arbitrages de Mikaël le 25/07/2026 : quatre formats (audit ponctuel, accompagnement
+éditorial, refonte UX / site, stratégie complète), section placée entre Compétences et
+Contact, **aucune indication de prix**, et chaque carte décrit les livrables puis le
+déroulé. Lien « Prestations » ajouté à la navigation des 11 pages. Traduction anglaise
+dans `docs/traduction-en.md`.
 
 ### 10. Bloc auteur en fin d'article
 
@@ -162,8 +164,7 @@ Périmètre arrêté le 25/07/2026 : accueil + FAQ seulement, le blog reste en f
 incertain tant qu'aucune demande internationale ne s'est manifestée).
 
 Les textes traduits sont dans `docs/traduction-en.md`, en attente de relecture par
-Mikaël. La section Prestations y est laissée en attente tant que sa version française
-n'est pas écrite. L'intégration (pages `en/`, `hreflang`, canonical, sitemap, sélecteur
+Mikaël, section Prestations comprise. L'intégration (pages `en/`, `hreflang`, canonical, sitemap, sélecteur
 de langue) ne démarre qu'une fois les textes validés.
 
 ### 12. Bouton « haut de page » sur les pages longues

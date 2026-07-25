@@ -300,9 +300,85 @@ Call me or write to me directly.
 
 ---
 
-## 3. Section « Prestations » — en attente
+## 3. Section « Prestations »
 
-La section Prestations n'est pas encore rédigée en français : elle dépend des réponses de Mikaël (voir les questions posées en fin de discussion). Sa traduction anglaise sera ajoutée ici une fois la version française validée.
+Arbitrages retenus le 25/07/2026 : quatre formats, placés entre Compétences et Contact, sans aucune indication de prix, chaque carte décrivant les livrables puis le déroulé.
+
+> PRESTATIONS — Comment travailler ensemble
+
+SERVICES — How we can work together
+
+> Quatre formats, du diagnostic ciblé à l'accompagnement au long cours. Chaque mission fait l'objet d'une proposition qui lui est propre, établie après un premier échange.
+
+Four formats, from a focused diagnosis to a long-term engagement. Every assignment gets its own proposal, drawn up after an initial conversation.
+
+**Intitulés des deux rubriques de chaque carte :** Ce que vous recevez → What you get · Comment ça se passe → How it works
+
+### 01 — Audit ponctuel / One-off audit
+
+> Un diagnostic livré en une fois, sur le pilier qui freine vos résultats : visibilité, contenu ou parcours utilisateur.
+
+A single, self-contained diagnosis of whichever pillar is holding your results back: visibility, content, or the user journey.
+
+> Un rapport écrit, sans jargon inutile · Les correctifs classés par impact et par effort · Un relevé de vos positions et de votre trafic actuels
+
+A written report, free of needless jargon · Fixes ranked by impact and by effort · A record of your current rankings and traffic
+
+> Un échange de cadrage pour cerner la question, l'analyse de votre site et de vos données, puis une restitution commentée où l'on décide ensemble par quoi commencer.
+
+A scoping conversation to pin down the question, an analysis of your site and your data, then a guided walkthrough of the findings where we decide together where to start.
+
+### 02 — Accompagnement éditorial / Editorial retainer
+
+> Une production régulière sur plusieurs mois, pour tenir une présence qui ne retombe pas au bout de trois semaines.
+
+Steady output over several months, to sustain a presence that does not fade after three weeks.
+
+> Une ligne éditoriale et un calendrier de publication · Articles, newsletters et publications rédigés · La mise en ligne et le suivi des retombées
+
+Editorial guidelines and a publishing calendar · Articles, newsletters and posts, written · Publication and follow-up on results
+
+> Un cadrage initial fixe le ton, les formats et le rythme. La production s'installe ensuite au fil des semaines, avec des points d'étape réguliers pour ajuster ce qui fonctionne.
+
+An initial scoping sets the tone, the formats and the cadence. Production then settles into a weekly rhythm, with regular checkpoints to adjust what works.
+
+### 03 — Refonte UX / site — UX & website redesign
+
+> La reprise d'un site ou d'un parcours existant, de l'architecture des contenus jusqu'à la mise en ligne.
+
+Reworking an existing site or journey, from content architecture through to launch.
+
+> Arborescence et architecture de l'information · Wireframes puis maquettes des écrans clés · Intégration, ou accompagnement de vos développeurs
+
+Site structure and information architecture · Wireframes, then mockups of the key screens · Front-end integration, or support for your own developers
+
+> L'audit de l'existant précède toute maquette. Vient ensuite l'arborescence, puis les écrans, repris par itérations jusqu'à la mise en ligne et au contrôle des premiers résultats.
+
+An audit of what exists comes before any mockup. Then the site structure, then the screens, revised iteratively through to launch and a first check on the results.
+
+### 04 — Stratégie complète / Full strategy
+
+> Les trois piliers menés ensemble, quand plusieurs canaux et plusieurs équipes doivent avancer dans le même sens.
+
+All three pillars handled together, when several channels and several teams need to move in the same direction.
+
+> Un diagnostic des trois piliers, chiffres à l'appui · Une feuille de route ordonnée par priorité · L'exécution, pilier par pilier
+
+A diagnosis of all three pillars, backed by figures · A roadmap ordered by priority · Delivery, one pillar at a time
+
+> Le diagnostic établit lequel des trois piliers limite aujourd'hui vos résultats. Les chantiers s'ouvrent ensuite dans cet ordre, un à la fois, chacun mesuré avant de passer au suivant.
+
+The diagnosis establishes which of the three pillars is currently limiting your results. Work then proceeds in that order, one strand at a time, each one measured before the next begins.
+
+### Bas de section
+
+> Votre besoin ne rentre dans aucune de ces cases ? C'est fréquent, et ce n'est pas un problème.
+
+Your need does not fit any of these boxes? That happens often, and it is not a problem.
+
+> En parler de vive voix
+
+Let's talk it through
 
 ## 4. Éléments à ne pas oublier lors de l'intégration
 
