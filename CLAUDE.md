@@ -60,6 +60,8 @@ Images dans `images/`, noms en kebab-case sans accent. Le projet L'Èze Harmonie
 
 ## Blog & maillage interne
 
+`blog/calendrier-editorial.md` suit les articles publiés, les idées à venir et la checklist de publication.
+
 Articles dans `blog-articles/*.html`, listés par le tableau `articlesData` en bas de `blog/index.html` (l'ajout d'un article demande une entrée dans ce tableau **et** une `<url>` dans `sitemap.xml`). Catégories : `methode`, `seo-geo`, `contenu`, `ux` — chacune a son bouton de filtre en haut du listing.
 
 `trois-piliers-visibilite-conversion.html` est l'**article pilier** : il raconte le narratif trouvé → lu → choisi et sert de plaque tournante du maillage. Tous les autres articles s'y rattachent.

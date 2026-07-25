@@ -34,11 +34,12 @@ Pour toute nouvelle image ajoutée au site :
 
 ## 🟢 Améliorations futures
 
+- [x] **Core Web Vitals — `width`/`height` sur les images** (25/07/2026) : les 50 `<img>` locales du site portent désormais leurs dimensions intrinsèques, ce qui laisse le navigateur réserver la place avant le chargement et supprime le décalage de mise en page (CLS).
 - [ ] Analytics respectueux de la vie privée (Plausible, GoatCounter ou Umami).
 - [x] Micro-animations au scroll (IntersectionObserver, apparitions douces) — implémenté (`.reveal-up`, compteur animé sur les statistiques).
 - [x] Page 404 personnalisée pour GitHub Pages — `404.html`, ancre échouée sur le rivage.
 - [ ] Témoignages clients (citations) si accord des clients.
-- [ ] Passer de Tailwind CDN à un build Tailwind CLI (perfs + purge CSS) — seulement si le site grossit.
+- [ ] **Passer de Tailwind CDN à un build Tailwind CLI** (perfs + purge CSS). C'est aujourd'hui le principal frein aux Core Web Vitals : `cdn.tailwindcss.com` compile les classes dans le navigateur au chargement, ce qui retarde le premier rendu sur toutes les pages. Tailwind déconseille lui-même ce mode en production. À traiter avant toute autre optimisation de performance.
 
 ---
 
@@ -124,7 +125,7 @@ lecteurs fidèles, et les agrégateurs qui alimentent les moteurs génératifs.
 
 ## 🟢 P3 — À considérer plus tard
 
-### 8. Pousser plus loin les données structurées (cohérence avec le positionnement GEO)
+### 8. ✅ Pousser plus loin les données structurées — fait le 25/07/2026
 
 Le site fait déjà bien le travail (`Person`, `FAQPage`, `BlogPosting`). Trois ajouts qui
 seraient à la fois utiles et démonstratifs pour quelqu'un qui vend du SEO/GEO :
@@ -135,7 +136,17 @@ seraient à la fois utiles et démonstratifs pour quelqu'un qui vend du SEO/GEO 
 - `author` enrichi sur les `BlogPosting` (lien vers la page FAQ comme page d'auteur), ce
   qui renforce le signal E-E-A-T.
 
-Argument de vente accessoire : le site devient sa propre démonstration.
+Les trois sont en place :
+
+- `BreadcrumbList` sur les 7 articles, avec un fil d'Ariane **visible** (Accueil / Blog /
+  catégorie) qui remplace l'ancien lien « Tous les articles ».
+- `OfferCatalog` sur la page d'accueil, greffé au `Person` : les 4 prestations décrites en
+  langage machine, sans prix, avec `areaServed` Monaco + France.
+- `author` enrichi sur les `BlogPosting` : `url` pointe vers la FAQ comme page d'auteur,
+  avec `jobTitle` et `sameAs` (LinkedIn, Malt) — signal E-E-A-T.
+
+S'y ajoutent 2 questions sur les prestations dans le `FAQPage`. Argument de vente
+accessoire : le site devient sa propre démonstration.
 
 ### 9. ✅ Une section « Prestations » explicite — fait le 25/07/2026
 
