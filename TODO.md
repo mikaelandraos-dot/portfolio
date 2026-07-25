@@ -40,6 +40,13 @@ Pour toute nouvelle image ajoutée au site :
 - [x] Page 404 personnalisée pour GitHub Pages — `404.html`, ancre échouée sur le rivage.
 - [ ] Témoignages clients (citations) si accord des clients.
 - [ ] **Passer de Tailwind CDN à un build Tailwind CLI** (perfs + purge CSS). C'est aujourd'hui le principal frein aux Core Web Vitals : `cdn.tailwindcss.com` compile les classes dans le navigateur au chargement, ce qui retarde le premier rendu sur toutes les pages. Tailwind déconseille lui-même ce mode en production. À traiter avant toute autre optimisation de performance.
+  **Chantier planifié et chiffré dans `docs/tailwind-build.md`** (25/07/2026) : 5 étapes, une PR par étape. Compilation testée sur le site réel, la feuille complète pèse **6,6 Ko en gzip**. Point à trancher avant de commencer : commiter le CSS compilé (option A, simple mais oubli possible) ou compiler dans GitHub Actions (option B, recommandée, change la façon dont Pages publie le site).
+  - [ ] Étape 1 — outillage (`package.json`, `tailwind.config.js`, `src/tailwind.css`), sans toucher aux pages
+  - [ ] Étape 2 — mutualiser le `<style>` recopié sur les 11 pages
+  - [ ] Étape 3 — basculer les 11 pages du `<script>` CDN vers `<link rel="stylesheet">`
+  - [ ] Étape 4 — publication (option A ou B)
+  - [ ] Étape 5 — mesure PageSpeed avant/après
+- [ ] **Auto-héberger les Google Fonts** — second poste de latence après le CDN Tailwind : quatre familles chargées depuis un domaine tiers en tête de page. À envisager une fois le build Tailwind en place, pas avant.
 
 ---
 

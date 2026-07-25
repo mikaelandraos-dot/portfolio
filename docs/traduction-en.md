@@ -274,6 +274,20 @@ Yes. I am based in Monaco and the South of France, and I work on site or remotel
 
 Engagements & rates
 
+**Q. Quelles prestations proposez-vous ?**
+**Q. What services do you offer?**
+
+> Quatre formats, du diagnostic ciblé à l'accompagnement au long cours. L'audit ponctuel : un diagnostic livré en une fois sur le pilier qui freine vos résultats, avec les correctifs classés par impact et par effort. L'accompagnement éditorial : ligne éditoriale, calendrier, et production régulière d'articles, de newsletters et de publications. La refonte UX / site : de l'architecture des contenus aux maquettes, jusqu'à la mise en ligne. La stratégie complète : les trois piliers menés ensemble, quand plusieurs canaux et plusieurs équipes doivent avancer dans le même sens.
+
+Four formats, from a focused diagnosis to a long-term engagement. The one-off audit: a single, self-contained diagnosis of whichever pillar is holding your results back, with the fixes ranked by impact and by effort. The editorial retainer: editorial guidelines, a calendar, and steady production of articles, newsletters and posts. The UX and website redesign: from content architecture through to mockups and launch. The full strategy: all three pillars handled together, when several channels and several teams need to move in the same direction.
+
+**Q. Comment savoir quel format correspond à mon besoin ?**
+**Q. How do I know which format fits my situation?**
+
+> Trois chiffres suffisent à situer le problème : combien de personnes voient vos pages dans les résultats de recherche, combien restent au-delà de quelques secondes, et combien terminent l'action commencée. Celui qui décroche désigne le pilier à travailler, et donc le format. Si vous n'avez pas ces chiffres sous la main, l'audit ponctuel sert précisément à les établir.
+
+Three figures are enough to locate the problem: how many people see your pages in search results, how many stay beyond a few seconds, and how many complete the action they started. Whichever one drops off points to the pillar that needs work, and therefore to the format. If you do not have those figures to hand, the one-off audit exists precisely to establish them.
+
 **Q. Comment se déroule une mission, et vos tarifs sont-ils fixes ?**
 **Q. How does an engagement work, and are your rates fixed?**
 
@@ -372,13 +386,7 @@ The diagnosis establishes which of the three pillars is currently limiting your 
 
 ### Bas de section
 
-> Votre besoin ne rentre dans aucune de ces cases ? C'est fréquent, et ce n'est pas un problème.
-
-Your need does not fit any of these boxes? That happens often, and it is not a problem.
-
-> En parler de vive voix
-
-Let's talk it through
+Le sous-titre et le bouton qui fermaient cette section ont été retirés du site le 25/07/2026 : le bouton renvoyait vers la section Contact, placée juste en dessous. Rien à traduire ici.
 
 ## 4. Éléments à ne pas oublier lors de l'intégration
 

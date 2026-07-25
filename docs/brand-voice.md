@@ -69,6 +69,7 @@ Format déjà en place, à reproduire pour tout nouvel article :
 - Un petit glossaire des termes techniques introduits.
 - Une FAQ en accordéons pour les questions récurrentes sur le sujet.
 - Un court paragraphe de rattachement juste après l'introduction, qui relie l'article au pilier `trois-piliers-visibilite-conversion.html` et à un article voisin de la même famille.
+- **Aucune légende sous les images.** Les visuels illustrent le propos de façon abstraite ; ils ne se commentent pas. Pas de `<figcaption>`, et `alt=""` sur les illustrations d'article (règle complète dans `CLAUDE.md`, section « Blog & maillage interne »). Ce qui mérite d'être dit se dit dans le texte.
 - Un bloc « À lire aussi » de trois cartes en fin d'article.
 - Une seule mission concrète citée par article (lien vers un projet du portfolio), pour le maillage interne — pas à chaque paragraphe.
 - Une répartition équilibrée des liens internes entre les trois projets sur la durée (voir `blog/calendrier-editorial.md`).
