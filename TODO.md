@@ -45,26 +45,24 @@ ne respecte pas une règle déjà posée), le reste sont des propositions.
 
 ## 🔴 P1 — À traiter en priorité
 
-### 1. ⚠️ Alléger les médias (correctif, effort faible, gain immédiat)
+### 1. ✅ Alléger les médias — fait le 25/07/2026
 
-Le dossier `images/` pèse 3,5 Mo et `videos/` 3,8 Mo. Trois problèmes concrets :
+Le dossier `images/` est passé de **3,5 Mo à 1,7 Mo (−51 %)** :
 
-- **`images/mikael-andraos.png` (1,2 Mo) n'est plus utilisé nulle part** dans le site — le
-  portrait réellement affiché est `mikael-andraos-portrait.jpg` (26 Ko). Le fichier n'est
-  plus référencé que par `docs/behance-kit.md`. À supprimer (et corriger la référence dans
-  le kit Behance) : **−34 % sur le poids du dossier images** pour une ligne de commande.
-- **`images/favicon-48.png` est orphelin** : seuls les 16 et 32 px sont posés dans les
-  `<link rel="icon">`. Soit l'ajouter, soit le supprimer.
-- **5 images dépassent largement la règle des 50 Ko** : `landing-printemps-des-arts.png`
-  (376 Ko), `page-dons-fpcm.png` (284 Ko), `arborescence-site-fpcm.png` (160 Ko),
-  `pda-instagram-2026.jpg` (112 Ko), `newsletter-printemps-3.png` (92 Ko). Ce sont des
-  captures d'écran en PNG : les repasser en JPG (ou WebP) les ramènerait sous les 60 Ko
-  sans perte visible.
+- Supprimé `images/mikael-andraos.png` (1,2 Mo), qui n'était plus utilisé nulle part — le
+  portrait réellement affiché est `mikael-andraos-portrait.jpg` (26 Ko). La référence
+  périmée de `docs/behance-kit.md` a été corrigée.
+- Supprimé `images/favicon-48.png`, orphelin (seuls les 16 et 32 px sont posés en
+  `<link rel="icon">`).
+- Converti 8 captures d'écran de PNG en JPG et redimensionnées à 900 px (la modale
+  projet plafonne à 768 px) : `landing-printemps-des-arts` 372→80 Ko,
+  `page-dons-fpcm` 280→75 Ko, `arborescence-site-fpcm` 157→62 Ko, les 3 newsletters
+  et les 2 pages du rapport FPCM dans la même passe.
 
-**Sur la vidéo (3,8 Mo)** : elle est en `preload="none"`, donc elle ne pénalise pas le
-chargement initial de la FAQ — mais elle reste lourde pour un effet de survol. Deux
-options : la ré-encoder plus court/plus compressé (viser < 1,5 Mo), ou la servir en WebM
-en plus du MP4. À arbitrer selon l'importance qu'on donne à l'effet.
+**Reste à arbitrer — la vidéo du portrait (3,8 Mo)** : elle est en `preload="none"`, donc
+elle ne pénalise pas le chargement initial de la FAQ, mais elle reste lourde pour un effet
+de survol. Deux options : la ré-encoder plus court/plus compressé (viser < 1,5 Mo), ou la
+servir en WebM en plus du MP4.
 
 ### 2. Ajouter des témoignages clients
 

@@ -124,6 +124,11 @@
         .hero-anim-6 { animation-delay: .55s; }
         .hero-anim-7 { animation-delay: .65s; }
 
+        /* Badge du hero : l'ornement ✳ tourne très lentement — remplace le point qui
+           clignotait, hors palette et trop « SaaS », par le vocabulaire éditorial du site. */
+        @keyframes starTurn { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .badge-star { display: inline-block; animation: starTurn 18s linear infinite; }
+
         /* Dégradé du titre : léger déplacement au survol du hero */
         .hero-gradient-text {
             background-size: 200% auto;
@@ -187,10 +192,12 @@
             .logo-track { animation: none; }
             .logo-marquee { overflow-x: auto; }
             .logo-marquee [aria-hidden="true"].logo-item { display: none; }
+            .badge-star { animation: none; }
         }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 transition-colors duration-300 min-h-screen flex flex-col">
+    <a href="#contenu" class="sr-only focus:not-sr-only focus:absolute focus:z-[60] focus:top-3 focus:left-3 focus:px-4 focus:py-2 focus:rounded-lg focus:bg-brand-500 focus:text-white focus:text-sm focus:font-semibold focus:shadow-lg">Aller au contenu principal</a>
 
     <!-- HEADER / NAVIGATION -->
     <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-colors">
@@ -232,17 +239,21 @@
     </header>
 
     <!-- MAIN CONTENT -->
-    <main class="flex-grow pt-16">
+    <main id="contenu" class="flex-grow pt-16">
         <!-- HERO SECTION -->
-        <section id="hero-section" class="relative pt-20 lg:pt-28 pb-10 lg:pb-14 overflow-hidden">
+        <section id="hero-section" class="relative pt-20 lg:pt-28 pb-8 lg:pb-10 overflow-hidden">
             <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.brand.100),transparent)] opacity-40"></div>
             <div aria-hidden="true" class="absolute -top-20 right-[4%] -z-10 font-display text-[22rem] leading-none text-brand-500 opacity-[0.05] select-none pointer-events-none hidden lg:block">&amp;</div>
             <img src="images/logo-aencre-hero.png" alt="" aria-hidden="true" class="absolute -top-6 left-[4%] -z-10 w-56 opacity-[0.07] select-none pointer-events-none hidden lg:block">
             <div id="hero-glow" aria-hidden="true" class="absolute inset-0 -z-10 pointer-events-none"></div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-                <span class="hero-anim hero-anim-1 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-brand-50 text-brand-600 mb-8 border border-brand-100">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    Freelance disponible — Monaco &amp; Grand Sud / Remote
+                <span class="hero-anim hero-anim-1 inline-flex items-center justify-center gap-3 mb-8">
+                    <span aria-hidden="true" class="hidden sm:block h-px w-10 bg-slate-300"></span>
+                    <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-100 bg-white/70 text-[11px] font-semibold uppercase tracking-widest text-brand-600">
+                        <span aria-hidden="true" class="badge-star text-brand-500 text-sm leading-none">&#10035;</span>
+                        Freelance — Monaco &amp; Grand Sud / Remote
+                    </span>
+                    <span aria-hidden="true" class="hidden sm:block h-px w-10 bg-slate-300"></span>
                 </span>
                 <p class="hero-anim hero-anim-2 text-xs font-bold uppercase tracking-widest text-brand-500 mb-5">Mikaël Andraos — Stratège créatif</p>
                 <h1 class="hero-anim hero-anim-3 text-5xl sm:text-7xl tracking-tight mb-7">
@@ -259,7 +270,7 @@
                 <p class="hero-anim hero-anim-5 max-w-2xl mx-auto text-lg sm:text-xl text-slate-600 mb-10 leading-relaxed">
                     Je vous aide à être <strong>trouvé</strong>, <strong>lu</strong> et <strong>choisi</strong> — de la visibilité en ligne jusqu'au dernier détail de l'expérience.
                 </p>
-                <div class="hero-anim hero-anim-6 flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                <div class="hero-anim hero-anim-6 flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
                     <a href="#projets" class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 text-sm font-semibold text-white bg-brand-500 rounded-xl hover:bg-brand-600 shadow-lg shadow-brand-500/20 hover:-translate-y-0.5 transition duration-200">
                         Consulter mon travail
                         <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
@@ -281,7 +292,7 @@
         </section>
 
         <!-- A PROPOS -->
-        <section id="propos" class="relative isolate py-16 sm:py-24 border-t border-slate-200 bg-white transition-colors overflow-hidden">
+        <section id="propos" class="relative isolate py-12 sm:py-16 border-t border-slate-200 bg-white transition-colors overflow-hidden">
             <img src="images/blog-brushstroke-ornament.png" alt="" aria-hidden="true" class="absolute -bottom-10 right-[2%] -z-10 w-64 sm:w-80 lg:w-[26rem] opacity-[0.09] rotate-2 pointer-events-none select-none hidden sm:block">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -332,7 +343,7 @@
         </section>
 
         <!-- PORTFOLIO / PROJETS -->
-        <section id="projets" class="py-16 sm:py-24 border-t border-slate-200 bg-slate-50/50 transition-colors">
+        <section id="projets" class="py-12 sm:py-16 border-t border-slate-200 bg-slate-50/50 transition-colors">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12 reveal-up">
                     <h2 class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2">PORTFOLIO</h2>
@@ -354,7 +365,7 @@
         </section>
 
         <!-- COMPETENCES -->
-        <section id="competences" class="py-16 sm:py-24 border-t border-slate-200 bg-white transition-colors">
+        <section id="competences" class="py-12 sm:py-16 border-t border-slate-200 bg-white transition-colors">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16 reveal-up">
                     <h2 class="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2">COMPÉTENCES</h2>
@@ -402,19 +413,25 @@
                         <h4 class="text-base font-bold mb-2">IA &amp; Intégration Code</h4>
                         <p class="text-xs text-slate-600 leading-relaxed">Sensibilité technique et logique d'intégration HTML/CSS, JSON, JS. Optimisation des workflows créatifs et logistiques grâce au context engineering.</p>
                     </div>
-                    <div id="workspace-card" class="group relative h-56 rounded-2xl border border-slate-200 hover:border-brand-500 transition duration-300 overflow-hidden cursor-pointer">
-                        <div id="workspace-neutral" class="absolute inset-0 bg-brand-500 flex flex-col items-center justify-center gap-4 p-6 text-center transition-opacity duration-500">
-                            <h4 class="text-white text-base font-bold">Mon poste de travail</h4>
-                            <img src="images/logo-aencre-blue.png" alt="" loading="lazy" class="h-7 w-auto brightness-0 invert opacity-90">
+                    <div id="workspace-card" class="group relative h-56 rounded-2xl border border-slate-200 hover:border-brand-500 transition duration-300 bg-white p-3 cursor-pointer">
+                        <div class="relative w-full h-full rounded-xl overflow-hidden">
+                            <div id="workspace-neutral" class="absolute inset-0 bg-brand-500 flex flex-col items-center justify-center gap-4 p-6 text-center transition-opacity duration-500">
+                                <h4 class="text-white text-base font-bold">Mon poste de travail</h4>
+                                <img src="images/logo-aencre-blue.png" alt="" loading="lazy" class="h-7 w-auto brightness-0 invert opacity-90">
+                                <span aria-hidden="true" class="sm:hidden inline-flex items-center gap-1.5 mt-1 px-2.5 py-1 rounded-full border border-white/30 text-[9px] font-semibold uppercase tracking-widest text-white/75">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59"/></svg>
+                                    Touchez pour voir
+                                </span>
+                            </div>
+                            <img id="workspace-photo" src="" alt="Aperçu de mon poste de travail" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500">
                         </div>
-                        <img id="workspace-photo" src="" alt="Aperçu de mon poste de travail" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CONTACT -->
-        <section id="contact" class="py-16 sm:py-24 border-t border-slate-200 bg-slate-50/50 transition-colors">
+        <section id="contact" class="py-12 sm:py-16 border-t border-slate-200 bg-slate-50/50 transition-colors">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
                     <div class="lg:col-span-5 space-y-8 reveal-up">
@@ -567,7 +584,7 @@
                 deliverable: "Calendrier éditorial & Visuels de Campagne",
                 imageUrl: "images/pda-instagram-2026.jpg",
                 fallbackUrl: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&q=80&w=800",
-                gallery: ["images/pda-instagram-2026.jpg", "images/landing-printemps-des-arts.png"]
+                gallery: ["images/pda-instagram-2026.jpg", "images/landing-printemps-des-arts.jpg"]
             },
             {
                 id: 2,
@@ -578,9 +595,9 @@
                 shortDescription: "Conception et rédaction de newsletters thématiques pour les festivaliers et les abonnés fidèles.",
                 longDescription: "Des newsletters pensées pour raconter la programmation musicale du festival : décoder les œuvres, raconter l'histoire des artistes et créer un lien avant l'événement. Une mise en page claire, avec des appels à l'action qui inspirent à réserver sa place.",
                 deliverable: "Gabarits de Newsletters (Modèles 1, 2 et 3)",
-                imageUrl: "images/newsletter-printemps-2.png",
+                imageUrl: "images/newsletter-printemps-2.jpg",
                 fallbackUrl: "https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&q=80&w=800",
-                gallery: ["images/newsletter-printemps-2.png", "images/newsletter-printemps-1.png", "images/newsletter-printemps-3.png"]
+                gallery: ["images/newsletter-printemps-2.jpg", "images/newsletter-printemps-1.jpg", "images/newsletter-printemps-3.jpg"]
             },
             {
                 id: 3,
@@ -591,9 +608,9 @@
                 shortDescription: "Mise en page de brochures institutionnelles et de rapports annuels.",
                 longDescription: "Une mise en page claire et rigoureuse pour valoriser les chiffres clés et les projets menés à l'international. Les fichiers sont préparés avec tout le soin nécessaire pour une impression haut de gamme irréprochable.",
                 deliverable: "Plaquettes Prêtes pour Imprimeur (PDF)",
-                imageUrl: "images/rapport-activites-fpcm.png",
+                imageUrl: "images/rapport-activites-fpcm.jpg",
                 fallbackUrl: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=800",
-                gallery: ["images/rapport-activites-fpcm.png", "images/sommaire-rapport-fpcm.png"]
+                gallery: ["images/rapport-activites-fpcm.jpg", "images/sommaire-rapport-fpcm.jpg"]
             },
             {
                 id: 4,
@@ -604,9 +621,9 @@
                 shortDescription: "Restructuration du parcours de don en étapes claires, et refonte du site web.",
                 longDescription: "Deux volets pour fluidifier l'expérience digitale : un parcours de don repensé en trois étapes claires pour réduire les points de friction au moment de payer, et une refonte totale du site web (WordPress) pour mettre en avant les programmes phares, les évènements et les actualités de manière plus moderne et élégante.",
                 deliverable: "Maquettes UX Interactives & Gabarits Web",
-                imageUrl: "images/page-dons-fpcm.png",
+                imageUrl: "images/page-dons-fpcm.jpg",
                 fallbackUrl: "https://images.unsplash.com/photo-1581291518655-9523c932dedf?auto=format&fit=crop&q=80&w=800",
-                gallery: ["images/page-dons-fpcm.png", "images/arborescence-site-fpcm.png"]
+                gallery: ["images/page-dons-fpcm.jpg", "images/arborescence-site-fpcm.jpg"]
             },
             {
                 id: 5,
@@ -780,8 +797,9 @@
                 galleryContainer.classList.remove('hidden');
                 p.gallery.forEach((imgName, index) => {
                     const thumb = document.createElement('button');
-                    thumb.className = "w-14 h-14 rounded-lg overflow-hidden border-2 transition" + (index === 0 ? "border-brand-500" : "border-transparent opacity-70 hover:opacity-100");
-                    thumb.innerHTML = `<img src="${imgName}" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='${p.fallbackUrl}';">`;
+                    thumb.className = "w-14 h-14 rounded-lg overflow-hidden border-2 transition " + (index === 0 ? "border-brand-500" : "border-transparent opacity-70 hover:opacity-100");
+                    thumb.setAttribute('aria-label', `Voir le visuel ${index + 1} sur ${p.gallery.length} — ${p.title}`);
+                    thumb.innerHTML = `<img src="${imgName}" alt="" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='${p.fallbackUrl}';">`;
                     thumb.onclick = () => {
                         modalImg.src = imgName;
                         modalImg.onerror = function() { this.onerror=null; this.src = p.fallbackUrl; };

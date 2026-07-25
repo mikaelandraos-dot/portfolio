@@ -109,6 +109,7 @@
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 transition-colors duration-300 min-h-screen flex flex-col">
+    <a href="#contenu" class="sr-only focus:not-sr-only focus:absolute focus:z-[60] focus:top-3 focus:left-3 focus:px-4 focus:py-2 focus:rounded-lg focus:bg-brand-500 focus:text-white focus:text-sm focus:font-semibold focus:shadow-lg">Aller au contenu principal</a>
 
     <div id="reading-progress"></div>
 
@@ -122,6 +123,7 @@
                 <a href="../blog/" class="nav-link text-brand-500 transition">Blog</a>
                 <a href="../faq.html" class="nav-link hover:text-brand-500 transition">FAQ</a>
             </nav>
+
             <div class="flex items-center justify-end gap-6">
                 <a href="../#contact" class="group/contact hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-brand-500 border border-brand-100 rounded-lg hover:border-brand-500 hover:bg-brand-50 transition">
                     <span>Contact</span>
@@ -143,7 +145,7 @@
         </div>
     </header>
 
-    <main class="flex-grow pt-16">
+    <main id="contenu" class="flex-grow pt-16">
         <section class="relative py-16 sm:py-20 overflow-hidden border-b border-slate-200">
             <div class="absolute inset-0 -z-10 bg-[radial-gradient(50rem_40rem_at_top,theme(colors.brand.100),transparent)] opacity-50"></div>
             <div aria-hidden="true" class="absolute -right-16 top-10 -z-10 opacity-[0.06] hidden lg:block">
@@ -161,13 +163,12 @@
                 <span class="hero-anim hero-anim-2 inline-block bg-brand-50 text-brand-600 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full mb-5">UX &amp; Design</span>
                 <h1 class="hero-anim hero-anim-3 text-3xl sm:text-5xl tracking-tight mb-6">Design d'interface et sobriété : pourquoi le minimalisme inspire confiance</h1>
                 <p class="hero-anim hero-anim-4 text-sm text-slate-500 font-mono">
-                    <time datetime="2026-07-21">21 juillet 2026</time> · 7 min de lecture · Par Mikaël Andraos
+                    <time datetime="2026-07-21">21 juillet 2026</time> · 7 min de lecture
                 </p>
             </div>
         </section>
 
         <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-                <img src="../images/blog-cover-design-sobriete.jpg" alt="Une sphère de pierre polie posée sur un sable ratissé avec soin, image de la sobriété et de la confiance en design." class="w-full h-56 sm:h-72 object-cover rounded-2xl border border-slate-200 shadow-sm mb-12">
 
             <nav class="not-prose bg-white p-6 rounded-2xl mb-12 border border-slate-200" aria-label="Sommaire de l'article">
                 <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">Sommaire</p>
@@ -181,6 +182,10 @@
                     <li><a href="#sources" class="toc-link text-slate-600 hover:text-brand-500 transition">Sources</a></li>
                 </ul>
             </nav>
+
+            <figure class="not-prose mb-12">
+                <img src="../images/blog-cover-design-sobriete.jpg" alt="Une sphère de pierre polie posée sur un sable ratissé avec soin, image de la sobriété et de la confiance en design." class="w-full h-60 sm:h-80 object-cover rounded-2xl border border-slate-200">
+            </figure>
 
             <div class="article-prose text-base text-slate-700">
                 <p>Un visiteur n'a besoin ni d'un texte de présentation, ni d'un menu déroulant, ni même d'une image nette pour se faire un premier avis sur un site. Il lui suffit d'un cinquantième de seconde, moins de temps qu'un clignement d'œil. Et ce premier avis, presque toujours, se joue sur une seule variable : la quantité d'éléments visuels à traiter d'un coup.</p>
@@ -327,6 +332,11 @@
         </div>
     </footer>
 
+    <button id="back-to-top" type="button" aria-label="Revenir en haut de la page"
+        class="fixed bottom-6 right-6 z-40 grid place-items-center w-11 h-11 rounded-full bg-white border border-slate-200 text-brand-500 shadow-lg opacity-0 translate-y-2 pointer-events-none transition-all duration-300 hover:bg-brand-50 hover:border-brand-500">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+    </button>
+
     <script>
 
         const mobileBtn = document.getElementById('mobile-menu-btn');
@@ -364,6 +374,24 @@
             });
         }, { rootMargin: '-20% 0px -70% 0px' });
         sections.forEach(section => { if (section) observer.observe(section); });
+
+        // BOUTON « HAUT DE PAGE » — apparaît une fois la première hauteur d'écran dépassée
+        const backToTop = document.getElementById('back-to-top');
+        if (backToTop) {
+            const toggleBackToTop = () => {
+                const shown = window.scrollY > window.innerHeight * 0.6;
+                backToTop.classList.toggle('opacity-0', !shown);
+                backToTop.classList.toggle('translate-y-2', !shown);
+                backToTop.classList.toggle('pointer-events-none', !shown);
+            };
+            document.addEventListener('scroll', toggleBackToTop, { passive: true });
+            toggleBackToTop();
+            backToTop.addEventListener('click', () => {
+                const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+            });
+        }
     </script>
+
 </body>
 </html>
