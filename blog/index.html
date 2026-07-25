@@ -101,6 +101,7 @@
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 transition-colors duration-300 min-h-screen flex flex-col">
+    <a href="#contenu" class="sr-only focus:not-sr-only focus:absolute focus:z-[60] focus:top-3 focus:left-3 focus:px-4 focus:py-2 focus:rounded-lg focus:bg-brand-500 focus:text-white focus:text-sm focus:font-semibold focus:shadow-lg">Aller au contenu principal</a>
 
     <!-- HEADER / NAVIGATION -->
     <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-colors">
@@ -142,7 +143,7 @@
     </header>
 
     <!-- MAIN CONTENT -->
-    <main class="flex-grow pt-16">
+    <main id="contenu" class="flex-grow pt-16">
         <!-- HERO -->
         <section class="relative py-20 lg:py-24 overflow-hidden border-b border-slate-200">
             <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.brand.100),transparent)] opacity-40"></div>

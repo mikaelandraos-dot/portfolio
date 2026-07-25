@@ -164,6 +164,7 @@
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 transition-colors duration-300 min-h-screen flex flex-col">
+    <a href="#contenu" class="sr-only focus:not-sr-only focus:absolute focus:z-[60] focus:top-3 focus:left-3 focus:px-4 focus:py-2 focus:rounded-lg focus:bg-brand-500 focus:text-white focus:text-sm focus:font-semibold focus:shadow-lg">Aller au contenu principal</a>
 
     <!-- HEADER / NAVIGATION -->
     <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 transition-colors">
@@ -205,7 +206,7 @@
     </header>
 
     <!-- MAIN CONTENT -->
-    <main class="flex-grow pt-16">
+    <main id="contenu" class="flex-grow pt-16">
         <!-- HERO : BIO + PHOTO -->
         <section class="relative py-16 sm:py-20 lg:py-24 overflow-hidden border-b border-slate-200">
             <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.brand.100),transparent)] opacity-40"></div>
@@ -393,6 +394,11 @@
         </div>
     </footer>
 
+    <button id="back-to-top" type="button" aria-label="Revenir en haut de la page"
+        class="fixed bottom-6 right-6 z-40 grid place-items-center w-11 h-11 rounded-full bg-white border border-slate-200 text-brand-500 shadow-lg opacity-0 translate-y-2 pointer-events-none transition-all duration-300 hover:bg-brand-50 hover:border-brand-500">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+    </button>
+
     <script>
         // MENU MOBILE
         const mobileBtn = document.getElementById('mobile-menu-btn');
@@ -447,6 +453,24 @@
             portraitWrap.addEventListener('touchstart', revealPortrait, { passive: true });
             portraitWrap.addEventListener('click', revealPortrait);
         }
+
+        // BOUTON « HAUT DE PAGE » — apparaît une fois la première hauteur d'écran dépassée
+        const backToTop = document.getElementById('back-to-top');
+        if (backToTop) {
+            const toggleBackToTop = () => {
+                const shown = window.scrollY > window.innerHeight * 0.6;
+                backToTop.classList.toggle('opacity-0', !shown);
+                backToTop.classList.toggle('translate-y-2', !shown);
+                backToTop.classList.toggle('pointer-events-none', !shown);
+            };
+            document.addEventListener('scroll', toggleBackToTop, { passive: true });
+            toggleBackToTop();
+            backToTop.addEventListener('click', () => {
+                const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+            });
+        }
     </script>
+
 </body>
 </html>
