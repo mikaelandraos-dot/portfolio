@@ -14,9 +14,14 @@
 - [x] **Optimiser les images** : redimensionner les PNG/JPG à l'affichage réel avant de les committer (voir règle ci-dessous) — appliqué au logo, à la photo L'Èze Harmonies, aux visuels de projets, aux photos du poste de travail et aux images du blog.
 - [x] **Bandeau logos « Ils m'ont fait confiance »** : bandeau défilant implémenté dans `index.html` (composant piloté par `trustedByData`, comme `projectsData`), avec les 5 logos prévus — Printemps des Arts de Monte-Carlo, Fondation Princesse Charlène de Monaco, festival L'Èze Harmonies, Musée Océanographique de Monaco, Office de Tourisme Métropolitain (Explore Nice Côte d'Azur) — chacun pointant vers son site officiel (nouvel onglet). Prêt à recevoir Audiovista et March on Mars le moment venu.
 - [x] **Ajouter page FAQ** : `faq.html` — bio courte + photo en encart rond en hero, puis FAQ en accordéons (même format que les articles du blog) organisée en 3 groupes : le métier en clair (stratégie de contenu, SEO/GEO, content marketing, stratège créatif, UX/UI), positionnement (institutions culturelles, remote), missions & tarifs (TJM freelance, démarrage). Schéma FAQPage en JSON-LD, lien ajouté à la nav de toutes les pages + sitemap.
+- [ ] **Trouver un emploi à `images/blog-social-media-strategy.jpg`** : visuel fourni en juillet, aucun article ne traite aujourd'hui de stratégie social media.
 - [ ] **Enrichir les visuels des projets** : ajouter aux galeries de `projectsData` des visuels réseaux sociaux et des photos de coulisses (travail en cours, making-of) pour les projets existants.
 - [x] **Illustrer la méthodologie** : carte « Mon poste de travail » ajoutée à la section Compétences (fond bleu neutre, une photo du poste de travail de Mikaël apparaît au survol/tap parmi 3, au hasard) ; illustration bleu/or (`blog-brushstroke-ornament.png`) posée en fond discret dans la FAQ et la section À propos du site principal.
 - [x] **Illustrer le blog** : photo de couverture sous le titre pour les 6 articles, seconde image après le glossaire pour 3 d'entre eux (newsletters/AIDA, SEO & GEO, tunnel de don UX), et photo de couverture (stylo plume) sur la page de listing `blog/index.html`.
+- [x] **Article pilier « trois piliers »** : `blog-articles/trois-piliers-visibilite-conversion.html` publié le 25/07/2026 — il raconte le narratif trouvé → lu → choisi, sert de plaque tournante du maillage interne et introduit la catégorie « Méthode » dans le filtre du listing.
+- [x] **Maillage interne refondu** (25/07/2026) : chaque article reçoit exactement 3 cartes entrantes (motif en anneau documenté dans `CLAUDE.md`), et chaque article porte un paragraphe de rattachement contextuel vers le pilier et vers un article voisin. Avant refonte, `design-sobriete` et `storytelling` n'avaient qu'un seul lien entrant chacun.
+- [x] **Note de collecte études de cas** : `docs/etudes-de-cas.md` — métriques à relever par client, trame de l'étude de cas FPCM, informations manquantes et voies pour obtenir des témoignages.
+- [x] **Textes anglais accueil + FAQ** : `docs/traduction-en.md`, en relecture. Le blog reste en français.
 - [x] **Portrait animé de la FAQ** : la photo statique laisse place à une vidéo au survol (ou au tap sur mobile), avec fondu long + flou/zoom qui se dissipent pour adoucir la coupure de pose, et démarrage du fondu conditionné à `readyState`/`canplay` pour éviter tout flash au chargement.
 
 ### Règle standing : optimisation des images
@@ -75,7 +80,7 @@ Bloque sur un préalable : il faut l'accord écrit des clients. En attendant, un
 plus facile à obtenir : une **recommandation LinkedIn** existante, citée et liée vers le
 profil (avec accord).
 
-### 3. ⚠️ Rafraîchir le `<lastmod>` du sitemap
+### 3. ✅ Rafraîchir le `<lastmod>` du sitemap — fait le 25/07/2026
 
 Les dates sont figées aux 21–22 juillet alors que le contenu a bougé les 24 et 25. La
 routine de synchronisation le prévoit déjà, mais ça n'a pas été fait sur les derniers lots.
@@ -111,7 +116,7 @@ voir » (ou une icône) dans l'état neutre réglerait le problème sans alourdi
   modale projet). Les autres images du site sont correctement décrites — c'est un oubli
   isolé, corrigeable en une ligne.
 
-### 7. Un flux RSS pour le blog
+### 7. ❌ Un flux RSS pour le blog — écarté le 25/07/2026
 
 Six articles publiés, un rythme régulier : le blog est assez mûr pour être suivi. Un
 `feed.xml` statique (généré à la main ou par script) coûte peu et sert deux publics — les
@@ -132,7 +137,7 @@ seraient à la fois utiles et démonstratifs pour quelqu'un qui vend du SEO/GEO 
 
 Argument de vente accessoire : le site devient sa propre démonstration.
 
-### 9. Une section « Prestations » explicite
+### 9. 🚧 Une section « Prestations » explicite — en attente de Mikaël
 
 La FAQ répond au « comment je travaille » et les Compétences listent les savoir-faire,
 mais un visiteur pressé ne trouve nulle part une réponse frontale à « qu'est-ce que je
@@ -140,17 +145,26 @@ peux vous acheter ? ». Trois formats nommés (par exemple : audit ponctuel /
 accompagnement éditorial / refonte UX) clarifieraient l'entrée en relation, sans avoir à
 afficher de tarifs.
 
+Bloquant : les questions posées le 25/07/2026 (nombre de formats, intitulés, contenu de
+chaque format, emplacement sur la page) attendent une réponse. La traduction anglaise de
+cette section suivra la validation du texte français.
+
 ### 10. Bloc auteur en fin d'article
 
 Les articles se terminent sur les sources et « À lire aussi ». Un court bloc auteur
 (portrait, une phrase, lien FAQ + Malt) capitaliserait sur la lecture pour ramener vers
 le cœur du site — et renforce le signal d'expertise côté SEO/GEO.
 
-### 11. Version anglaise
+### 11. 🚧 Version anglaise — en cours
 
-À envisager seulement si Mikaël vise des marques de prestige hors francophonie. C'est un
-chantier lourd (duplication de toutes les pages + `hreflang`) : à ne lancer que si une
-demande réelle apparaît, pas par anticipation.
+Périmètre arrêté le 25/07/2026 : accueil + FAQ seulement, le blog reste en français
+(traduire 7 articles doublerait la maintenance à chaque mise à jour, pour un gain
+incertain tant qu'aucune demande internationale ne s'est manifestée).
+
+Les textes traduits sont dans `docs/traduction-en.md`, en attente de relecture par
+Mikaël. La section Prestations y est laissée en attente tant que sa version française
+n'est pas écrite. L'intégration (pages `en/`, `hreflang`, canonical, sitemap, sélecteur
+de langue) ne démarre qu'une fois les textes validés.
 
 ### 12. Bouton « haut de page » sur les pages longues
 
