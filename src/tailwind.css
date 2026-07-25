@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   Grâce Institutionnelle — feuille de style du site
+   --------------------------------------------------------------------------
+   Ce fichier remplace le bloc <style> qui était recopié dans chacune des
+   11 pages. Il est compilé vers assets/site.css par `npm run build`.
+   Ne pas modifier assets/site.css directement : il est régénéré.
+   Les règles ci-dessous viennent après @tailwind utilities, comme le faisait
+   le <style> inline : elles peuvent donc surcharger les classes utilitaires.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Base
+   -------------------------------------------------------------------------- */
+
+body { font-family: 'Instrument Sans', sans-serif; background: #faf7f1; }
+
+/* Gloock n'a qu'une seule graisse (400). On neutralise les font-extrabold sur
+   les titres pour éviter une fausse graisse et garder un rendu net sur les
+   très gros titres. */
+h1, h2, h3 { font-family: 'Gloock', serif; font-weight: 400 !important; letter-spacing: .2px; }
+h1 { letter-spacing: -.5px; line-height: 1.08; }
+
+/* Cartes en blanc cassé plutôt qu'en blanc pur. */
+.bg-white { background-color: #fffdf8 !important; }
+
+/* --------------------------------------------------------------------------
+   2. Typographie des micro-labels
+   --------------------------------------------------------------------------
+   Space Grotesk par défaut. Geist Mono reste réservé au pied de page de
+   toutes les pages, plus l'encart Méthode (.method-card) et les libellés de
+   contact/formulaire (.label-geist) du site principal.
+   Dans le blog, .font-mono (dates, temps de lecture, signature) passe en
+   Instrument Sans depuis juillet 2026 : le ciblage se fait par l'attribut
+   data-site="blog" porté par le <body> des pages de blog.
+   -------------------------------------------------------------------------- */
+
+.tracking-widest, .tracking-wider, .font-mono { font-family: 'Space Grotesk', sans-serif; }
+
+footer .tracking-widest, footer .tracking-wider, footer .font-mono,
+.method-card .tracking-widest, .method-card .tracking-wider, .method-card .font-mono,
+.label-geist { font-family: 'Geist Mono', monospace; }
+
+body[data-site="blog"] .font-mono { font-family: 'Instrument Sans', sans-serif; }
+/* Le pied de page du blog reste en Geist Mono : sélecteur plus spécifique
+   que la règle ci-dessus, sinon elle l'emporterait. */
+body[data-site="blog"] footer .font-mono { font-family: 'Geist Mono', monospace; }
+
+/* --------------------------------------------------------------------------
+   3. Navigation
+   -------------------------------------------------------------------------- */
+
+.nav-link { position: relative; padding-bottom: 2px; }
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 1px;
+    background-color: #1e3a8a;
+    transition: width .3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after { width: 100%; }
+
+/* --------------------------------------------------------------------------
+   4. Animations d'entrée
+   -------------------------------------------------------------------------- */
+
+@keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.hero-anim { opacity: 0; animation: heroFadeUp .8s cubic-bezier(.16,1,.3,1) forwards; }
+.hero-anim-1 { animation-delay: .05s; }
+.hero-anim-2 { animation-delay: .15s; }
+.hero-anim-3 { animation-delay: .25s; }
+.hero-anim-4 { animation-delay: .35s; }
+.hero-anim-5 { animation-delay: .45s; }
+.hero-anim-6 { animation-delay: .55s; }
+.hero-anim-7 { animation-delay: .65s; }
+
+.reveal-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1);
+}
+.reveal-up.is-visible { opacity: 1; transform: translateY(0); }
+
+.project-card-reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
+.project-card-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+.article-card {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .6s ease, transform .6s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.article-card.is-visible { opacity: 1; transform: translateY(0); }
+
+.logo-reveal { transition: width .3s ease-out; }
+
+/* --------------------------------------------------------------------------
+   5. Accueil
+   -------------------------------------------------------------------------- */
+
+/* Chaque étape de la méthode mène au blog : le curseur se transforme en ancre
+   pour le suggérer. Chemin relatif à assets/, d'où le ../ */
+.method-row { cursor: url('../images/logo-aencre-cursor.png') 13 6, pointer; }
+
+.custom-scrollbar::-webkit-scrollbar { width: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 3px; }
+
+/* Plume qui « écrit » pendant l'envoi du formulaire de contact */
+@keyframes penWrite {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(1px, -1px) rotate(-10deg); }
+    75% { transform: translate(-1px, 1px) rotate(10deg); }
+}
+.is-sending .submit-btn-pen { opacity: 1 !important; transform: none !important; animation: penWrite .5s ease-in-out infinite; }
+
+@keyframes starTurn { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.badge-star { display: inline-block; animation: starTurn 18s linear infinite; }
+
+.hero-gradient-text { background-size: 200% auto; background-position: 0% center; transition: background-position .8s ease; }
+#hero-section:hover .hero-gradient-text { background-position: 100% center; }
+
+#hero-glow {
+    background: radial-gradient(600px circle at var(--x, 50%) var(--y, 50%), rgba(30,58,138,0.14), transparent 45%);
+    opacity: 0;
+    transition: opacity .4s ease;
+}
+#hero-section:hover #hero-glow { opacity: 1; }
+
+#copy-email-btn svg { transition: opacity .2s ease; }
+
+/* Bandeau défilant des logos clients */
+.logo-marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+.logo-track { animation: logo-scroll 26s linear infinite; }
+.logo-marquee:hover .logo-track,
+.logo-marquee:focus-within .logo-track { animation-play-state: paused; }
+@keyframes logo-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.logo-item img { filter: grayscale(1); opacity: .5; transition: filter .3s ease, opacity .3s ease; }
+.logo-item:hover img, .logo-item:focus-visible img { filter: grayscale(0); opacity: 1; }
+
+/* --------------------------------------------------------------------------
+   6. Blog — articles et listing
+   -------------------------------------------------------------------------- */
+
+#reading-progress {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg,#1e3a8a,#41538f);
+    z-index: 40;
+    transition: width .1s linear;
+}
+
+.article-prose p { margin-bottom: 1.25rem; line-height: 1.8; }
+.article-prose h2 { font-size: 1.75rem; margin-top: 3rem; margin-bottom: 1rem; scroll-margin-top: 6rem; }
+.article-prose h3 { font-size: 1.25rem; margin-top: 2rem; margin-bottom: .75rem; scroll-margin-top: 6rem; }
+.article-prose a { color: #1e3a8a; text-decoration: underline; text-underline-offset: 2px; }
+.article-prose a.cta-btn { color: #fff !important; text-decoration: none; }
+.article-prose strong { font-weight: 600; }
+.article-prose ul, .article-prose ol { margin: 1rem 0 1.5rem 1.25rem; }
+.article-prose li { margin-bottom: .5rem; line-height: 1.7; }
+.article-prose ul { list-style-type: disc; }
+.article-prose ol { list-style-type: decimal; }
+
+.toc-link.active { color: #1e3a8a; font-weight: 600; }
+
+.stat-tile { transition: transform .3s ease, border-color .3s ease; }
+.stat-tile:hover { transform: translateY(-3px); }
+
+.chart-bar { transition: filter .25s ease, transform .25s ease; transform-origin: bottom; }
+.chart-bar:hover, .chart-bar:focus-visible { filter: brightness(1.12); transform: scaleY(1.02); }
+.chart-bar-h { transition: filter .25s ease; }
+.chart-bar-h:hover, .chart-bar-h:focus-visible { filter: brightness(1.12); }
+
+.funnel-step { transition: filter .25s ease, transform .25s ease; }
+.funnel-step:hover { filter: brightness(1.1); }
+
+.pillar-card { transition: transform .3s ease, border-color .3s ease; }
+.pillar-card:hover { transform: translateY(-4px); border-color: rgba(30,58,138,.4); }
+
+.audit-item { transition: border-color .2s ease, background-color .2s ease; }
+.audit-item:has(input:checked) { border-color: #1e3a8a; background-color: rgba(30,58,138,0.05); }
+.audit-item input { accent-color: #1e3a8a; }
+
+.glossary-term summary { cursor: pointer; list-style: none; }
+.glossary-term summary::-webkit-details-marker { display: none; }
+
+/* --------------------------------------------------------------------------
+   7. Accordéons de FAQ (page FAQ et articles)
+   -------------------------------------------------------------------------- */
+
+.faq-item summary { list-style: none; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary svg { transition: transform .2s ease; }
+.faq-item[open] summary svg { transform: rotate(180deg); }
+
+/* --------------------------------------------------------------------------
+   8. Page 404
+   -------------------------------------------------------------------------- */
+
+.shore {
+    position: relative;
+    min-height: calc(100vh - 64px - 137px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #faf7f1;
+}
+.shore-content { flex: 1; display: flex; align-items: center; }
+.shore-tide { position: relative; flex-shrink: 0; height: 170px; }
+.shore-tide::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, #f1ead9 0%, #e6dfce 100%); }
+.sea-band {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 60%;
+    background: linear-gradient(180deg, rgba(30,58,138,0.07) 0%, rgba(30,58,138,0.14) 100%);
+}
+.wave-line { position: absolute; left: 0; right: 0; top: 52%; width: 100%; height: auto; display: block; }
+.wave-line--back { top: 46%; opacity: .5; }
+.wave-line--front { top: 52%; }
+.anchor-washed {
+    width: 108px;
+    height: auto;
+    transform: rotate(112deg);
+    filter: drop-shadow(0 8px 14px rgba(30,58,138,0.18));
+    animation: bob 5s ease-in-out infinite;
+}
+@media (min-width: 640px) { .anchor-washed { width: 136px; } }
+.anchor-404-num { font-size: clamp(5.5rem, 16vw, 9.5rem); line-height: 1; color: #1e3a8a; }
+@keyframes bob {
+    0%, 100% { transform: translateY(0) rotate(112deg); }
+    50% { transform: translateY(-6px) rotate(114deg); }
+}
+
+/* --------------------------------------------------------------------------
+   9. Mouvement réduit
+   --------------------------------------------------------------------------
+   Les blocs @media qui existaient page par page sont réunis ici.
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-anim { animation: none; opacity: 1; }
+    .reveal-up, .project-card-reveal, .article-card { opacity: 1; transform: none; transition: none; }
+    .hero-gradient-text, #hero-glow { transition: none; }
+    .logo-reveal { transition: none; }
+    .logo-track { animation: none; }
+    .logo-marquee { overflow-x: auto; }
+    .logo-marquee [aria-hidden="true"].logo-item { display: none; }
+    .badge-star { animation: none; }
+    .anchor-washed { animation: none; }
+    .pillar-card:hover { transform: none; }
+}

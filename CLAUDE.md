@@ -5,20 +5,45 @@ Guidance pour Claude Code (claude.ai/code) sur ce dépôt.
 ## Vue d'ensemble
 
 Portfolio personnel de Mikaël Andraos — **« Stratégie créative & content marketing — SEO/GEO, Contenu, UX »** — entièrement en français.
-Site statique **multi-pages sans build ni framework** : `index.html` (accueil, une seule page), `blog/index.html` (liste des articles, accessible via l'URL `/blog/`), `blog-articles/*.html` (articles individuels) et `404.html` (page d'erreur personnalisée, servie automatiquement par GitHub Pages). Pas de dépendances.
-Hébergé sur GitHub Pages : https://mikaelandraos-dot.github.io/portfolio/ — pousser sur `main` déploie.
+Site statique **multi-pages sans framework** : `index.html` (accueil, une seule page), `blog/index.html` (liste des articles, accessible via l'URL `/blog/`), `blog-articles/*.html` (articles individuels) et `404.html` (page d'erreur personnalisée, servie automatiquement par GitHub Pages). Aucune dépendance à l'exécution : la seule dépendance de développement est Tailwind.
+Hébergé sur GitHub Pages : pousser sur `main` déclenche le workflow qui compile et publie — https://mikaelandraos-dot.github.io/portfolio/
 
 ## Développement
 
+Le CSS est **compilé** depuis juillet 2026 (voir « Build Tailwind » plus bas). Il faut donc lancer la compilation en parallèle du serveur :
+
 ```bash
-python3 -m http.server 8000
+npm install          # une seule fois
+npm run dev          # recompile assets/site.css à chaque modification
+python3 -m http.server 8000   # dans un second terminal
 # puis ouvrir http://localhost:8000
 ```
-Ou ouvrir `index.html` directement. Pas de linter ni de tests — vérifier dans le navigateur : filtres, modale, mobile.
+
+Ouvrir `index.html` directement au lieu de passer par le serveur fonctionne aussi, à condition qu'`assets/site.css` ait déjà été compilé au moins une fois.
+
+Avant de committer :
+
+```bash
+npm run build                     # feuille minifiée
+python3 scripts/verifier-pages.py # HTML, JSON-LD, liens, images, règles du blog
+```
+
+Ces deux commandes tournent aussi dans le workflow GitHub Actions, qui échoue si l'une des deux échoue. En complément, vérifier dans le navigateur ce qu'aucun script ne couvre : filtres, modale, rendu mobile.
+
+## Build Tailwind
+
+- **Sources** : `src/tailwind.css` (directives `@tailwind` + toutes les règles maison) et `tailwind.config.js` (palette et polices). C'est **là** qu'on modifie le style, jamais dans une page.
+- **Sortie** : `assets/site.css`, régénéré par `npm run build`.
+  ⚠️ **Mesure transitoire** : ce fichier est versionné pour l'instant, le temps que la source GitHub Pages passe de « branche » à « GitHub Actions ». Tant que ce réglage n'est pas fait, le site en ligne lit le fichier tel qu'il est dans la branche : il faut donc lancer `npm run build` **et committer le résultat** à chaque changement de style, sinon le site affiche l'ancien CSS. Une fois la bascule faite (Settings → Pages → Source → GitHub Actions), ajouter `assets/site.css` au `.gitignore` : le workflow le recompilera à chaque publication.
+- **Les pages ne portent plus ni `<script src="cdn.tailwindcss.com">`, ni `tailwind.config` inline, ni bloc `<style>`.** Elles ont un seul `<link rel="stylesheet" href="assets/site.css">` (chemin relatif à adapter selon la profondeur du dossier). Ne pas réintroduire de CSS inline : une règle qui n'existe que sur une page a quand même sa place dans `src/tailwind.css`, les sélecteurs étant tous propres à leur contexte.
+- **Pages de blog** : leur `<body>` porte `data-site="blog"`, ce qui déclenche la règle qui bascule `.font-mono` en Instrument Sans hors pied de page. Un nouvel article sans cet attribut aura la mauvaise police.
+- **Classes construites en JavaScript** : elles doivent apparaître en toutes lettres dans la source (`height: "h-9 sm:h-11"` dans `trustedByData`). Ne jamais concaténer un nom de classe (`` `h-${n}` ``) : Tailwind ne le détecterait pas et la classe disparaîtrait à la compilation.
+- **Publication** : `.github/workflows/deploy.yml` compile, vérifie, puis publie sur GitHub Pages. Seuls les fichiers servis sont copiés — les sources, l'outillage npm et les notes internes (`docs/`, `TODO.md`, `CLAUDE.md`, calendrier éditorial) ne sont plus mis en ligne. Une PR est compilée et vérifiée mais jamais publiée.
+- Le contexte complet de cette migration est dans `docs/tailwind-build.md`.
 
 ## Design system « Grâce Institutionnelle »
 
-Défini dans la config Tailwind inline et le `<style>` du `<head>` :
+Défini dans `tailwind.config.js` (palette, polices) et `src/tailwind.css` (règles maison) :
 
 - **Bleu encre signature** : `brand-500` = `#1e3a8a` (actions primaires, accents ; hover `brand-600`).
 - **Palette chaude** : l'échelle `slate` est **remappée** vers des tons ivoire/anthracite (`slate-50` = `#faf7f1`, etc.) — utiliser les classes `slate-*` habituelles, elles rendent chaud. `.bg-white` est forcé en blanc cassé `#fffdf8`.

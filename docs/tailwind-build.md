@@ -1,5 +1,10 @@
 # Passer du CDN Tailwind à un vrai build (CLI + purge)
 
+> **Migration réalisée le 25 juillet 2026.** Le site est compilé et publié par
+> `.github/workflows/deploy.yml`. Ce document garde la trace du raisonnement,
+> des mesures et des arbitrages ; le mode d'emploi au quotidien est dans
+> `CLAUDE.md`, section « Build Tailwind ».
+
 État au 25 juillet 2026. Ce document décrit **pourquoi** le site charge aujourd'hui Tailwind par CDN, **ce que ça coûte**, et **comment** basculer sur une feuille de style compilée. Les chiffres cités ont été mesurés sur le dépôt, pas estimés.
 
 ## D'où vient le CDN
@@ -104,81 +109,73 @@ Le JavaScript du site est écrit **à l'intérieur** des fichiers HTML : les glo
 /* Le <style> aujourd'hui dupliqué dans chaque page vient ici. */
 ```
 
-## Le point à trancher : GitHub Pages ne compile rien
+## Publication : GitHub Pages ne compile rien
 
-GitHub Pages sert les fichiers du dépôt tels quels. Une commande `npm run build` locale ne s'exécutera jamais côté serveur. Deux options :
+GitHub Pages sert les fichiers du dépôt tels quels. Une commande `npm run build` locale ne s'exécutera jamais côté serveur. Deux options se présentaient :
 
-**Option A — commiter la feuille compilée.** `assets/site.css` est versionné, `npm run build` est lancé à la main avant chaque commit qui touche des classes. Simple, aucun outillage. Défaut réel : un oubli de rebuild produit un site aux styles périmés, sans erreur visible ni au commit ni au déploiement.
+**Option A — commiter la feuille compilée.** `assets/site.css` versionné, `npm run build` lancé à la main avant chaque commit qui touche des classes. Simple, aucun outillage. Défaut réel : un oubli de rebuild produit un site aux styles périmés, **sans erreur visible** ni au commit ni au déploiement. La page s'affiche presque correctement, seul l'élément concerné est cassé.
 
-**Option B — compiler dans GitHub Actions (recommandé).** Le dépôt ne contient que les sources ; le workflow compile et publie. L'oubli devient impossible.
+**Option B — compiler dans GitHub Actions.** Retenue le 25/07/2026. Le dépôt ne contient que les sources ; le workflow compile, vérifie et publie. L'oubli devient impossible par construction.
 
-```yaml
-# .github/workflows/deploy.yml
-name: Build & deploy
-on:
-  push:
-    branches: [main]
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - run: npm ci
-      - run: npm run build
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-    steps:
-      - uses: actions/deploy-pages@v4
-```
+Bascule à faire **une fois** dans l'interface, sans quoi le workflow publiera dans le vide : **Settings → Pages → Source → GitHub Actions**.
 
-Bascule à faire une fois dans l'interface : **Settings → Pages → Source → GitHub Actions**.
+### Précaution pendant la transition
 
-L'option B change la façon dont le site est publié. C'est la seule partie du chantier qui touche à l'infrastructure, et la seule qui puisse rendre le site inaccessible si elle est mal faite : à traiter seule, dans sa propre PR, et à vérifier immédiatement en ligne.
+Tant que la source Pages reste « Deploy from a branch », le site en ligne lit les fichiers de la branche. Si `assets/site.css` n'y était pas, le site s'afficherait **sans aucun style** entre la fusion et la bascule du réglage.
 
-## Le chantier, par étapes
+`assets/site.css` est donc **versionné à titre transitoire**. Conséquence tant que le réglage n'est pas fait : lancer `npm run build` et committer le résultat à chaque changement de style. Une fois la bascule effectuée, ajouter le fichier au `.gitignore` — c'est à ce moment seulement que l'oubli de compilation devient réellement impossible.
 
-Chaque étape est une PR distincte, vérifiable indépendamment.
+Le dépôt étant public, les minutes Actions sont gratuites et illimitées.
 
-**Étape 1 — Outillage, sans rien changer au site.**
-Ajouter `package.json`, `tailwind.config.js`, `src/tailwind.css`, `.gitignore` (`node_modules/`). Compiler, comparer la feuille obtenue au rendu actuel. Les 11 pages continuent d'utiliser le CDN : aucun risque, rien n'est publié.
+### Ce que le workflow fait en plus
 
-**Étape 2 — Mutualiser le `<style>` inline.**
-Le bloc `<style>` est aujourd'hui recopié dans chaque page, avec des variantes selon la profondeur du dossier (`.method-row` pointe vers `images/`, `../images/` selon la page). Rassembler le tronc commun dans `src/tailwind.css`, ne laisser en page que ce qui est réellement spécifique. Étape purement mécanique, mais celle où une différence entre deux copies peut se perdre : comparer les 11 blocs avant de fusionner.
+- **Il vérifie avant de publier.** `scripts/verifier-pages.py` contrôle le HTML, les blocs JSON-LD, les liens internes, les images référencées, et les règles standing du blog (pas de légende, `alt=""`, `data-site="blog"`). Ces contrôles n'existaient que sous forme de commandes tapées à la main ; ils tournent désormais à chaque push et bloquent la publication en cas d'échec.
+- **Il ne publie que ce qui doit l'être.** Le site est assemblé par `rsync` dans `_site`, en excluant les sources (`src/`, `tailwind.config.js`), l'outillage npm et **les notes internes**. Auparavant, `TODO.md`, `CLAUDE.md`, `docs/brand-voice.md` et surtout `docs/etudes-de-cas.md` — qui contient des relevés de missions clientes — étaient servis publiquement, GitHub Pages publiant tout le contenu de la branche.
+- **Il compile les Pull Requests sans les publier.** Une PR qui casse le CSS ou une règle échoue avant d'atteindre `main`.
 
-**Étape 3 — Basculer les pages.**
-Sur chaque page, remplacer les trois éléments (`<script src="cdn...">`, `<script>tailwind.config = {...}</script>`, bloc `<style>` mutualisé) par un unique `<link rel="stylesheet" href="assets/site.css">`, chemin relatif adapté selon le dossier. C'est l'étape à vérifier page par page.
+## Ce qui a été trouvé en cours de route
 
-**Étape 4 — Publication.**
-Mettre en place l'option A ou B ci-dessus.
+La mutualisation des 11 blocs `<style>` a mis au jour une **dérive entre les copies**, invisible tant que chaque page portait la sienne :
 
-**Étape 5 — Mesure.**
-PageSpeed Insights sur l'accueil, un article et la FAQ, avant/après, pour objectiver le gain.
+| Divergence | Constat | Décision |
+| --- | --- | --- |
+| `.hero-anim` | `.7s` sur les 7 articles, `.8s` sur l'accueil, la FAQ et le listing | Unifié à `.8s` |
+| `@keyframes heroFadeUp` | `translateY(14px)` sur les articles, `16px` ailleurs | Unifié à `16px` |
+| `h1, h2, h3` | `404.html` ne stylait que `h1, h2` | Unifié sur les trois |
+| `@media (prefers-reduced-motion)` | 6 variantes, chacune couvrant un sous-ensemble différent | Fusionnées en un bloc unique, plus complet que chaque original |
+| `.font-mono` dans le blog | Instrument Sans dans le blog, Space Grotesk sur le site principal | **Divergence voulue** (voir `CLAUDE.md`), conservée via `body[data-site="blog"]` |
+
+Les quatre premières lignes sont des dérives accidentelles, nées de copier-coller successifs. Les écarts sont imperceptibles à l'œil (une animation d'entrée à 100 ms près), mais ils illustrent le vrai coût du CSS dupliqué : rien ne signale que deux pages ont divergé.
+
+Un piège évité au passage : `.method-row` référence le curseur par `url('images/logo-aencre-cursor.png')`. Une fois la règle déplacée dans `assets/site.css`, ce chemin se résout depuis `assets/` et non depuis la racine — il a fallu le passer en `../images/`.
 
 ## Vérification : comparaison visuelle automatisée
 
-Le risque du chantier n'est pas de casser le site franchement, c'est de décaler un détail sans que personne le remarque. La compilation locale rend une comparaison automatique possible, et elle a déjà été utilisée sur ce dépôt :
+Le risque du chantier n'était pas de casser le site franchement, c'était de décaler un détail sans que personne le remarque. La méthode employée :
 
-1. Servir le site (`python3 -m http.server 8000`).
-2. Capturer chaque page avec Playwright, en 1440 px et en 390 px.
+1. Servir le site (`python3 -m http.server`).
+2. Capturer les 11 pages avec Playwright, en pleine hauteur, à 1440 px et 390 px, animations neutralisées et images `lazy` forcées en `eager` pour que la capture soit déterministe.
 3. Rejouer les mêmes captures après bascule, comparer pixel à pixel.
 
-Une différence attendue subsiste : le CDN génère les styles après le chargement, la feuille compilée les applique immédiatement. Attendre la stabilisation de la page avant capture, sinon la comparaison remonte des écarts qui n'en sont pas.
+Cette méthode valide la migration elle-même (mutualisation du CSS, bascule des pages). Elle ne valide pas l'équivalence CDN → CSS compilé, les deux étant générés par le même moteur à partir de la même configuration.
+
+## Résultat
+
+| | Avant | Après |
+| --- | --- | --- |
+| Feuille de style | générée en JS à chaque chargement | `assets/site.css`, **8,4 Ko en gzip** |
+| CSS dupliqué dans le HTML | ~3,5 Ko par page × 11 | 0 |
+| Config Tailwind | recopiée sur 11 pages | `tailwind.config.js` |
+| Vérifications | commandes tapées à la main | bloquantes dans le workflow |
+| Notes internes en ligne | oui | non |
 
 ## Ce que le chantier ne règle pas
 
-- **Les Google Fonts** restent quatre familles chargées depuis un domaine tiers, en tête de page. C'est le second poste de latence après le CDN Tailwind. Les auto-héberger est un chantier séparé, à envisager après celui-ci.
+- **Les Google Fonts** restent quatre familles chargées depuis un domaine tiers, en tête de page. C'est désormais le premier poste de latence. Les auto-héberger est le chantier suivant.
 - **Le poids des images** est déjà traité par la règle d'optimisation en place (`CLAUDE.md`).
 - **Les décalages de mise en page** ont été réglés en juillet 2026 par l'ajout de `width`/`height` sur les 50 images locales.
+- **Le passage en Tailwind v4** reste ouvert, et reste un chantier distinct.
+
+## Étape restante
+
+**Mesurer.** PageSpeed Insights sur l'accueil, un article et la FAQ, pour objectiver le gain. À faire une fois le premier déploiement Actions passé.

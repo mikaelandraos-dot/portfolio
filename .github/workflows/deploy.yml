@@ -1,0 +1,82 @@
+name: Compilation et déploiement
+
+# Compile la feuille Tailwind puis publie le site sur GitHub Pages.
+# À faire une fois côté GitHub : Settings > Pages > Source > GitHub Actions.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Une seule publication à la fois ; on ne coupe pas un déploiement en cours.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Compiler et vérifier
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Compiler la feuille de style
+        run: npm run build
+
+      - name: Vérifier les pages
+        run: python3 scripts/verifier-pages.py
+
+      - name: Assembler le site à publier
+        # Seuls les fichiers réellement servis sont copiés. Les sources
+        # (src/, tailwind.config.js), l'outillage npm et les notes internes
+        # (TODO.md, docs/, CLAUDE.md, calendrier éditorial) restent hors ligne.
+        run: |
+          mkdir -p _site
+          rsync -a \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.gitignore' \
+            --exclude='node_modules' \
+            --exclude='_site' \
+            --exclude='src' \
+            --exclude='docs' \
+            --exclude='scripts' \
+            --exclude='package.json' \
+            --exclude='package-lock.json' \
+            --exclude='tailwind.config.js' \
+            --exclude='*.md' \
+            ./ _site/
+          echo "Fichiers publiés :"
+          find _site -type f | wc -l
+
+      - name: Préparer l'artefact Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    name: Publier sur GitHub Pages
+    # Les Pull Requests sont compilées et vérifiées, mais jamais publiées.
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

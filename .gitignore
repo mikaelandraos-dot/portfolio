@@ -2,3 +2,6 @@
 *.pdf
 .DS_Store
 Thumbs.db
+
+# Dépendances npm (Tailwind) — réinstallées par `npm ci`
+node_modules/
