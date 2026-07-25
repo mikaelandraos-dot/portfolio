@@ -49,6 +49,7 @@ jobs:
           rsync -a \
             --exclude='.git' \
             --exclude='.github' \
+            --exclude='.gitignore' \
             --exclude='node_modules' \
             --exclude='_site' \
             --exclude='src' \
