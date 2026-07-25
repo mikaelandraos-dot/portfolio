@@ -114,6 +114,7 @@
                 <a href="../#propos" class="nav-link hover:text-brand-500 transition">À propos</a>
                 <a href="../#projets" class="nav-link hover:text-brand-500 transition">Projets</a>
                 <a href="../#competences" class="nav-link hover:text-brand-500 transition">Compétences</a>
+                <a href="../#prestations" class="nav-link hover:text-brand-500 transition">Prestations</a>
                 <a href="./" class="nav-link active text-brand-500 transition">Blog</a>
                 <a href="../faq.html" class="nav-link hover:text-brand-500 transition">FAQ</a>
             </nav>
@@ -121,7 +122,7 @@
             <div class="flex items-center justify-end gap-6">
                 <a href="../#contact" class="group/contact hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-brand-500 border border-brand-100 rounded-lg hover:border-brand-500 hover:bg-brand-50 transition">
                     <span>Contact</span>
-                    <img src="../images/pen-nib-blue.png" alt="" aria-hidden="true" class="h-3.5 w-0 opacity-0 transition-all duration-300 group-hover/contact:w-[10px] group-hover/contact:opacity-100 object-contain shrink-0">
+                    <img src="../images/pen-nib-blue.png" alt="" aria-hidden="true" class="h-3.5 w-0 opacity-0 transition-all duration-300 group-hover/contact:w-[10px] group-hover/contact:opacity-100 object-contain shrink-0" width="25" height="72">
                 </a>
                 <a href="https://www.malt.fr/profile/mikaelandraos" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-brand-500 rounded-lg hover:bg-brand-600 transition">
                     Démarrer un projet
@@ -136,6 +137,7 @@
             <a href="../#propos" class="block text-base font-medium hover:text-brand-500 transition mobile-link">À propos</a>
             <a href="../#projets" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Projets</a>
             <a href="../#competences" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Compétences</a>
+            <a href="../#prestations" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Prestations</a>
             <a href="./" class="block text-base font-medium text-brand-500 transition mobile-link">Blog</a>
             <a href="../faq.html" class="block text-base font-medium hover:text-brand-500 transition mobile-link">FAQ</a>
             <a href="../#contact" class="block text-base font-medium hover:text-brand-500 transition mobile-link">Contact</a>
@@ -154,7 +156,7 @@
                     Des réflexions sourcées sur le SEO/GEO, la stratégie de contenu et l'UX — pour être <strong>trouvé</strong>, <strong>lu</strong> et <strong>choisi</strong>.
                 </p>
                 <div class="hero-anim hero-anim-4 max-w-3xl mx-auto mt-10">
-                    <img src="../images/blog-cover-index.jpg" alt="Stylo plume posé sur un bureau, dans une lumière chaleureuse, symbole de l'écriture." class="w-full h-56 sm:h-80 object-cover rounded-2xl border border-slate-200 shadow-sm">
+                    <img src="../images/blog-cover-index.jpg" alt="Stylo plume posé sur un bureau, dans une lumière chaleureuse, symbole de l'écriture." class="w-full h-56 sm:h-80 object-cover rounded-2xl border border-slate-200 shadow-sm" width="1000" height="558">
                 </div>
             </div>
         </section>
@@ -164,6 +166,7 @@
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-wrap items-center justify-center gap-2 mb-14" id="blog-filters">
                     <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 bg-brand-500 text-white shadow-md shadow-brand-500/10" data-filter="all">Tous</button>
+                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 hover:bg-slate-200/50" data-filter="methode">Méthode</button>
                     <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 hover:bg-slate-200/50" data-filter="seo-geo">SEO &amp; GEO</button>
                     <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 hover:bg-slate-200/50" data-filter="contenu">Contenu &amp; Copy</button>
                     <button class="filter-btn px-4 py-2 text-sm font-medium rounded-xl transition duration-150 text-slate-600 hover:bg-slate-200/50" data-filter="ux">UX &amp; Design</button>
@@ -191,7 +194,7 @@
     <footer class="bg-white border-t border-slate-200 py-10 transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
             <a href="../" class="shrink-0" aria-label="Mikaël Andraos — accueil">
-                <img src="../images/logo-aencre.png" alt="Mikaël Andraos" title="Mikaël Andraos" class="h-8 w-auto" loading="lazy">
+                <img src="../images/logo-aencre.png" alt="Mikaël Andraos" title="Mikaël Andraos" class="h-8 w-auto" loading="lazy" width="126" height="180">
             </a>
             <nav aria-label="Navigation du pied de page" class="flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
                 <a href="../#propos" class="text-xs font-semibold uppercase tracking-widest text-slate-600 hover:text-brand-500 transition">À propos</a>
@@ -213,6 +216,17 @@
 
     <script>
         const articlesData = [
+            {
+                id: 7,
+                slug: "../blog-articles/trois-piliers-visibilite-conversion.html",
+                category: "methode",
+                categoryLabel: "Méthode",
+                title: "De la visibilité à la conversion : les trois piliers d'une présence en ligne",
+                excerpt: "Être trouvé, être lu, être choisi : trois moments du parcours d'un visiteur, trois métiers différents. Comment ils s'articulent, et pourquoi le plus faible des trois fixe le résultat.",
+                date: "2026-07-25",
+                dateLabel: "25 juillet 2026",
+                readingTime: "9 min"
+            },
             {
                 id: 6,
                 slug: "../blog-articles/design-sobriete-confiance.html",

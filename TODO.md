@@ -14,9 +14,14 @@
 - [x] **Optimiser les images** : redimensionner les PNG/JPG à l'affichage réel avant de les committer (voir règle ci-dessous) — appliqué au logo, à la photo L'Èze Harmonies, aux visuels de projets, aux photos du poste de travail et aux images du blog.
 - [x] **Bandeau logos « Ils m'ont fait confiance »** : bandeau défilant implémenté dans `index.html` (composant piloté par `trustedByData`, comme `projectsData`), avec les 5 logos prévus — Printemps des Arts de Monte-Carlo, Fondation Princesse Charlène de Monaco, festival L'Èze Harmonies, Musée Océanographique de Monaco, Office de Tourisme Métropolitain (Explore Nice Côte d'Azur) — chacun pointant vers son site officiel (nouvel onglet). Prêt à recevoir Audiovista et March on Mars le moment venu.
 - [x] **Ajouter page FAQ** : `faq.html` — bio courte + photo en encart rond en hero, puis FAQ en accordéons (même format que les articles du blog) organisée en 3 groupes : le métier en clair (stratégie de contenu, SEO/GEO, content marketing, stratège créatif, UX/UI), positionnement (institutions culturelles, remote), missions & tarifs (TJM freelance, démarrage). Schéma FAQPage en JSON-LD, lien ajouté à la nav de toutes les pages + sitemap.
+- [ ] **Trouver un emploi à `images/blog-social-media-strategy.jpg`** : visuel fourni en juillet, aucun article ne traite aujourd'hui de stratégie social media.
 - [ ] **Enrichir les visuels des projets** : ajouter aux galeries de `projectsData` des visuels réseaux sociaux et des photos de coulisses (travail en cours, making-of) pour les projets existants.
 - [x] **Illustrer la méthodologie** : carte « Mon poste de travail » ajoutée à la section Compétences (fond bleu neutre, une photo du poste de travail de Mikaël apparaît au survol/tap parmi 3, au hasard) ; illustration bleu/or (`blog-brushstroke-ornament.png`) posée en fond discret dans la FAQ et la section À propos du site principal.
 - [x] **Illustrer le blog** : photo de couverture sous le titre pour les 6 articles, seconde image après le glossaire pour 3 d'entre eux (newsletters/AIDA, SEO & GEO, tunnel de don UX), et photo de couverture (stylo plume) sur la page de listing `blog/index.html`.
+- [x] **Article pilier « trois piliers »** : `blog-articles/trois-piliers-visibilite-conversion.html` publié le 25/07/2026 — il raconte le narratif trouvé → lu → choisi, sert de plaque tournante du maillage interne et introduit la catégorie « Méthode » dans le filtre du listing.
+- [x] **Maillage interne refondu** (25/07/2026) : chaque article reçoit exactement 3 cartes entrantes (motif en anneau documenté dans `CLAUDE.md`), et chaque article porte un paragraphe de rattachement contextuel vers le pilier et vers un article voisin. Avant refonte, `design-sobriete` et `storytelling` n'avaient qu'un seul lien entrant chacun.
+- [x] **Note de collecte études de cas** : `docs/etudes-de-cas.md` — métriques à relever par client, trame de l'étude de cas FPCM, informations manquantes et voies pour obtenir des témoignages.
+- [x] **Textes anglais accueil + FAQ** : `docs/traduction-en.md`, en relecture. Le blog reste en français.
 - [x] **Portrait animé de la FAQ** : la photo statique laisse place à une vidéo au survol (ou au tap sur mobile), avec fondu long + flou/zoom qui se dissipent pour adoucir la coupure de pose, et démarrage du fondu conditionné à `readyState`/`canplay` pour éviter tout flash au chargement.
 
 ### Règle standing : optimisation des images
@@ -29,11 +34,12 @@ Pour toute nouvelle image ajoutée au site :
 
 ## 🟢 Améliorations futures
 
+- [x] **Core Web Vitals — `width`/`height` sur les images** (25/07/2026) : les 50 `<img>` locales du site portent désormais leurs dimensions intrinsèques, ce qui laisse le navigateur réserver la place avant le chargement et supprime le décalage de mise en page (CLS).
 - [ ] Analytics respectueux de la vie privée (Plausible, GoatCounter ou Umami).
 - [x] Micro-animations au scroll (IntersectionObserver, apparitions douces) — implémenté (`.reveal-up`, compteur animé sur les statistiques).
 - [x] Page 404 personnalisée pour GitHub Pages — `404.html`, ancre échouée sur le rivage.
 - [ ] Témoignages clients (citations) si accord des clients.
-- [ ] Passer de Tailwind CDN à un build Tailwind CLI (perfs + purge CSS) — seulement si le site grossit.
+- [ ] **Passer de Tailwind CDN à un build Tailwind CLI** (perfs + purge CSS). C'est aujourd'hui le principal frein aux Core Web Vitals : `cdn.tailwindcss.com` compile les classes dans le navigateur au chargement, ce qui retarde le premier rendu sur toutes les pages. Tailwind déconseille lui-même ce mode en production. À traiter avant toute autre optimisation de performance.
 
 ---
 
@@ -75,7 +81,7 @@ Bloque sur un préalable : il faut l'accord écrit des clients. En attendant, un
 plus facile à obtenir : une **recommandation LinkedIn** existante, citée et liée vers le
 profil (avec accord).
 
-### 3. ⚠️ Rafraîchir le `<lastmod>` du sitemap
+### 3. ✅ Rafraîchir le `<lastmod>` du sitemap — fait le 25/07/2026
 
 Les dates sont figées aux 21–22 juillet alors que le contenu a bougé les 24 et 25. La
 routine de synchronisation le prévoit déjà, mais ça n'a pas été fait sur les derniers lots.
@@ -111,7 +117,7 @@ voir » (ou une icône) dans l'état neutre réglerait le problème sans alourdi
   modale projet). Les autres images du site sont correctement décrites — c'est un oubli
   isolé, corrigeable en une ligne.
 
-### 7. Un flux RSS pour le blog
+### 7. ❌ Un flux RSS pour le blog — écarté le 25/07/2026
 
 Six articles publiés, un rythme régulier : le blog est assez mûr pour être suivi. Un
 `feed.xml` statique (généré à la main ou par script) coûte peu et sert deux publics — les
@@ -119,7 +125,7 @@ lecteurs fidèles, et les agrégateurs qui alimentent les moteurs génératifs.
 
 ## 🟢 P3 — À considérer plus tard
 
-### 8. Pousser plus loin les données structurées (cohérence avec le positionnement GEO)
+### 8. ✅ Pousser plus loin les données structurées — fait le 25/07/2026
 
 Le site fait déjà bien le travail (`Person`, `FAQPage`, `BlogPosting`). Trois ajouts qui
 seraient à la fois utiles et démonstratifs pour quelqu'un qui vend du SEO/GEO :
@@ -130,9 +136,19 @@ seraient à la fois utiles et démonstratifs pour quelqu'un qui vend du SEO/GEO 
 - `author` enrichi sur les `BlogPosting` (lien vers la page FAQ comme page d'auteur), ce
   qui renforce le signal E-E-A-T.
 
-Argument de vente accessoire : le site devient sa propre démonstration.
+Les trois sont en place :
 
-### 9. Une section « Prestations » explicite
+- `BreadcrumbList` sur les 7 articles, avec un fil d'Ariane **visible** (Accueil / Blog /
+  catégorie) qui remplace l'ancien lien « Tous les articles ».
+- `OfferCatalog` sur la page d'accueil, greffé au `Person` : les 4 prestations décrites en
+  langage machine, sans prix, avec `areaServed` Monaco + France.
+- `author` enrichi sur les `BlogPosting` : `url` pointe vers la FAQ comme page d'auteur,
+  avec `jobTitle` et `sameAs` (LinkedIn, Malt) — signal E-E-A-T.
+
+S'y ajoutent 2 questions sur les prestations dans le `FAQPage`. Argument de vente
+accessoire : le site devient sa propre démonstration.
+
+### 9. ✅ Une section « Prestations » explicite — fait le 25/07/2026
 
 La FAQ répond au « comment je travaille » et les Compétences listent les savoir-faire,
 mais un visiteur pressé ne trouve nulle part une réponse frontale à « qu'est-ce que je
@@ -140,17 +156,27 @@ peux vous acheter ? ». Trois formats nommés (par exemple : audit ponctuel /
 accompagnement éditorial / refonte UX) clarifieraient l'entrée en relation, sans avoir à
 afficher de tarifs.
 
+Arbitrages de Mikaël le 25/07/2026 : quatre formats (audit ponctuel, accompagnement
+éditorial, refonte UX / site, stratégie complète), section placée entre Compétences et
+Contact, **aucune indication de prix**, et chaque carte décrit les livrables puis le
+déroulé. Lien « Prestations » ajouté à la navigation des 11 pages. Traduction anglaise
+dans `docs/traduction-en.md`.
+
 ### 10. Bloc auteur en fin d'article
 
 Les articles se terminent sur les sources et « À lire aussi ». Un court bloc auteur
 (portrait, une phrase, lien FAQ + Malt) capitaliserait sur la lecture pour ramener vers
 le cœur du site — et renforce le signal d'expertise côté SEO/GEO.
 
-### 11. Version anglaise
+### 11. 🚧 Version anglaise — en cours
 
-À envisager seulement si Mikaël vise des marques de prestige hors francophonie. C'est un
-chantier lourd (duplication de toutes les pages + `hreflang`) : à ne lancer que si une
-demande réelle apparaît, pas par anticipation.
+Périmètre arrêté le 25/07/2026 : accueil + FAQ seulement, le blog reste en français
+(traduire 7 articles doublerait la maintenance à chaque mise à jour, pour un gain
+incertain tant qu'aucune demande internationale ne s'est manifestée).
+
+Les textes traduits sont dans `docs/traduction-en.md`, en attente de relecture par
+Mikaël, section Prestations comprise. L'intégration (pages `en/`, `hreflang`, canonical, sitemap, sélecteur
+de langue) ne démarre qu'une fois les textes validés.
 
 ### 12. Bouton « haut de page » sur les pages longues
 

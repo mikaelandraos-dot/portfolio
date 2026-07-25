@@ -68,8 +68,12 @@ Format déjà en place, à reproduire pour tout nouvel article :
 - Des statistiques sourcées (lien direct vers l'étude ou l'organisme), présentées en chiffres visuels quand c'est pertinent.
 - Un petit glossaire des termes techniques introduits.
 - Une FAQ en accordéons pour les questions récurrentes sur le sujet.
+- Un court paragraphe de rattachement juste après l'introduction, qui relie l'article au pilier `trois-piliers-visibilite-conversion.html` et à un article voisin de la même famille.
+- Un bloc « À lire aussi » de trois cartes en fin d'article.
 - Une seule mission concrète citée par article (lien vers un projet du portfolio), pour le maillage interne — pas à chaque paragraphe.
 - Une répartition équilibrée des liens internes entre les trois projets sur la durée (voir `blog/calendrier-editorial.md`).
+
+Les règles de répartition du maillage (motif en anneau, comptage des liens entrants, ancres descriptives) sont détaillées dans `CLAUDE.md`, section « Blog & maillage interne ». Les relire à chaque ajout ou suppression d'article.
 
 ## Check-list avant publication
 

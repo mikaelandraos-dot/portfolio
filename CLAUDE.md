@@ -58,6 +58,25 @@ Images dans `images/`, noms en kebab-case sans accent. Le projet L'Èze Harmonie
 
 **Règle standing — optimisation des images** : avant de committer toute nouvelle image, la redimensionner (Pillow/`convert`, rééchantillonnage LANCZOS) aux dimensions réelles d'affichage sur le site (jamais plus grande que son plus grand usage — hero, carte, favicon...), garder le PNG seulement si la transparence est nécessaire (sinon JPG pour les photos), et ajouter `loading="lazy"` sur les `<img>` hors above-the-fold. Viser < 50 Ko pour les illustrations, < 15 Ko pour les marks/logos.
 
+## Blog & maillage interne
+
+`blog/calendrier-editorial.md` suit les articles publiés, les idées à venir et la checklist de publication.
+
+Articles dans `blog-articles/*.html`, listés par le tableau `articlesData` en bas de `blog/index.html` (l'ajout d'un article demande une entrée dans ce tableau **et** une `<url>` dans `sitemap.xml`). Catégories : `methode`, `seo-geo`, `contenu`, `ux` — chacune a son bouton de filtre en haut du listing.
+
+`trois-piliers-visibilite-conversion.html` est l'**article pilier** : il raconte le narratif trouvé → lu → choisi et sert de plaque tournante du maillage. Tous les autres articles s'y rattachent.
+
+**Règle standing — maillage interne** : à chaque ajout ou suppression d'article, refaire la répartition des liens au lieu de se contenter d'ajouter des liens au nouvel article.
+
+1. **Bloc « À lire aussi »** (fin d'article, 3 cartes) : la répartition doit rester équilibrée, chaque article recevant **le même nombre de cartes entrantes** (3 aujourd'hui). Le motif en place est un anneau `pilier → seo-geo → seo-local → newsletters → storytelling → design → ux-tunnel` avec des décalages de +1, +3 et +5, ce qui garantit mathématiquement 3 entrants par article. En cas d'ajout, recalculer plutôt que rattacher au hasard.
+2. **Liens contextuels en corps de texte** : chaque article porte, juste après son paragraphe d'introduction, un court paragraphe de rattachement qui pointe vers l'article pilier **et** vers un article voisin de la même famille. Ces liens comptent davantage que les cartes pour le référencement, parce qu'ils sont entourés de texte qui les qualifie.
+3. **Ancres descriptives** : le texte du lien décrit le contenu visé (« les tunnels de don et leur friction »), jamais « cliquez ici » ni l'URL brute.
+4. **Vérification** : après modification, contrôler qu'aucun article n'a moins de 3 liens entrants et qu'aucun lien ne pointe vers un fichier absent. Un comptage rapide :
+   ```bash
+   grep -o 'href="[a-z0-9-]*\.html"' blog-articles/*.html | sort | uniq -c | sort -rn
+   ```
+5. Ne pas empiler les liens : une seule mission du portfolio citée par article (voir `docs/brand-voice.md`), et pas plus de deux liens internes par section de texte.
+
 ## SEO
 
 - `<head>` : meta description, canonical, Open Graph/Twitter, JSON-LD `Person` (`sameAs` : LinkedIn + Malt). Tenir aligné avec le positionnement.
