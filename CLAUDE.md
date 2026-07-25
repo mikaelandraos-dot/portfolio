@@ -23,7 +23,8 @@ Défini dans la config Tailwind inline et le `<style>` du `<head>` :
 - **Bleu encre signature** : `brand-500` = `#1e3a8a` (actions primaires, accents ; hover `brand-600`).
 - **Palette chaude** : l'échelle `slate` est **remappée** vers des tons ivoire/anthracite (`slate-50` = `#faf7f1`, etc.) — utiliser les classes `slate-*` habituelles, elles rendent chaud. `.bg-white` est forcé en blanc cassé `#fffdf8`.
 - **Typographie** : `Gloock` (serif display — appliqué automatiquement à h1/h2/h3 en graisse 400, ne pas mettre de `font-bold` sur les titres), `Instrument Sans` (texte), `Space Grotesk` (micro-labels — appliqué automatiquement via `.tracking-widest`/`.tracking-wider`/`.font-mono`). `Geist Mono` reste utilisé dans le pied de page (sélecteur `footer`) de **toutes** les pages, y compris le blog. Sur le site principal (`index.html`, `404.html`), il est aussi réservé à l'encart Méthode de la section À propos (`.method-card`) et aux libellés de contact/formulaire (`.label-geist`) — ne pas l'étendre ailleurs sans en discuter avec Mikaël. **Dans le blog (`blog/index.html` et `blog-articles/*.html`), en dehors du pied de page, Geist Mono n'est plus utilisé** (depuis juillet 2026) : les micro-labels en majuscules (catégories, sommaire) restent en Space Grotesk, mais les dates, temps de lecture et signature d'auteur (`.font-mono` hors `tracking-wider`/`tracking-widest`) sont en Instrument Sans, comme le reste du texte.
-- **Détails éditoriaux** : filets fins (`h-px`), numéros display, ornement ✳, micro-labels en capitales espacées.
+- **Détails éditoriaux** : filets fins (`h-px`), numéros display, ornement ✳, micro-labels en capitales espacées. Les **numéros display** sont réservés aux suites ordonnées (les trois temps de la méthode dans l'encart À propos, les statistiques) : ne pas les utiliser pour numéroter une liste dont l'ordre n'a pas de sens.
+- **Icônes** : le site n'utilise presque pas d'iconographie. Seule exception, les quatre cartes de la section Prestations (`.prestation-icon`), qui portent chacune un pictogramme au trait (SVG inline, `stroke-width="1.5"`, 20 px dans un carré de 44 px `rounded-xl bg-brand-50`, inversé en bleu plein au survol de la carte). Ne pas étendre ce vocabulaire d'icônes à d'autres sections sans en discuter avec Mikaël : ailleurs, la hiérarchie passe par la typographie et les filets.
 - **Pas de dark mode** : retiré du site (juillet 2026) pour fiabiliser l'affichage — ne pas réintroduire de classes `dark:` ni de bouton de bascule sans en discuter avec Mikaël.
 
 Pas de couleurs vives hors palette, pas d'esthétique « tech/terminal ».
@@ -64,6 +65,12 @@ Images dans `images/`, noms en kebab-case sans accent. Le projet L'Èze Harmonie
 
 Articles dans `blog-articles/*.html`, listés par le tableau `articlesData` en bas de `blog/index.html` (l'ajout d'un article demande une entrée dans ce tableau **et** une `<url>` dans `sitemap.xml`). Catégories : `methode`, `seo-geo`, `contenu`, `ux` — chacune a son bouton de filtre en haut du listing.
 
+**Règle standing — images du blog : ne pas les décrire.** Les visuels d'article (couverture et figures secondaires) sont des illustrations abstraites, présentes pour accompagner le propos, pas pour l'expliquer. Elles ne portent donc aucune description :
+
+- **Pas de `<figcaption>`.** Ne pas ajouter de légende du type « Trois galets, et rien d'autre : chaque élément gardé doit justifier sa place ». Une image qui a besoin d'être commentée n'a pas sa place dans l'article.
+- **`alt=""` sur toutes les illustrations d'article** (`images/blog-*`). C'est aussi le traitement correct côté accessibilité : un lecteur d'écran ne gagne rien à entendre « trois plaques de verre superposées », et l'image est alors ignorée proprement.
+- **Exceptions**, qui gardent un `alt` réel : les logos (`logo-aencre.png`, logos clients), les captures d'écran de projet et tout schéma qui porte une information absente du texte. Si une image doit vraiment être expliquée, l'expliquer dans le corps du texte, pas en légende.
+
 `trois-piliers-visibilite-conversion.html` est l'**article pilier** : il raconte le narratif trouvé → lu → choisi et sert de plaque tournante du maillage. Tous les autres articles s'y rattachent.
 
 **Règle standing — maillage interne** : à chaque ajout ou suppression d'article, refaire la répartition des liens au lieu de se contenter d'ajouter des liens au nouvel article.
@@ -88,6 +95,6 @@ Articles dans `blog-articles/*.html`, listés par le tableau `articlesData` en b
 ## Conventions & workflow
 
 - Formulaire de contact : FormSubmit AJAX (`formsubmit.co/ajax/...`), champ `_honey` anti-bot — pas de backend.
-- Accessibilité : modale `role="dialog"`/`aria-modal`, `aria-label` sur les boutons d'icônes, `aria-expanded` sur le menu mobile, alt descriptifs.
+- Accessibilité : modale `role="dialog"`/`aria-modal`, `aria-label` sur les boutons d'icônes, `aria-expanded` sur le menu mobile, alt descriptifs sur les images qui portent une information (logos, captures de projet). Les illustrations décoratives du blog font exception : voir la règle ci-dessous.
 - `main` est protégée : développer sur une branche, ouvrir une PR. Commits en français, à l'impératif.
 - Tenir `TODO.md` à jour ; la routine de synchronisation site/PDF Canva/CV/Behance y est décrite. `docs/behance-kit.md` contient la déclinaison Behance.

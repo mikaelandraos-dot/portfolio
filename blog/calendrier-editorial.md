@@ -79,6 +79,7 @@ Chaque nouvel article doit :
 - inclure un petit glossaire des termes techniques introduits ;
 - proposer une FAQ en accordéons ;
 - citer **une seule** mission concrète du portfolio, pour le maillage interne ;
+- porter des visuels **sans légende ni description** : pas de `<figcaption>`, `alt=""` sur les illustrations (elles accompagnent le propos, elles ne l'expliquent pas) ;
 - être ajouté au tableau `articlesData` dans `blog/index.html` **et** au `sitemap.xml` ;
 - porter un `BlogPosting` en JSON-LD et un `BreadcrumbList`.
 
