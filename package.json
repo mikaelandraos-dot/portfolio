@@ -1,0 +1,13 @@
+{
+  "name": "portfolio-mikael-andraos",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio de Mikaël Andraos — site statique, sans framework.",
+  "scripts": {
+    "dev": "tailwindcss -i src/tailwind.css -o assets/site.css --watch",
+    "build": "tailwindcss -i src/tailwind.css -o assets/site.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

@@ -39,13 +39,10 @@ Pour toute nouvelle image ajoutée au site :
 - [x] Micro-animations au scroll (IntersectionObserver, apparitions douces) — implémenté (`.reveal-up`, compteur animé sur les statistiques).
 - [x] Page 404 personnalisée pour GitHub Pages — `404.html`, ancre échouée sur le rivage.
 - [ ] Témoignages clients (citations) si accord des clients.
-- [ ] **Passer de Tailwind CDN à un build Tailwind CLI** (perfs + purge CSS). C'est aujourd'hui le principal frein aux Core Web Vitals : `cdn.tailwindcss.com` compile les classes dans le navigateur au chargement, ce qui retarde le premier rendu sur toutes les pages. Tailwind déconseille lui-même ce mode en production. À traiter avant toute autre optimisation de performance.
-  **Chantier planifié et chiffré dans `docs/tailwind-build.md`** (25/07/2026) : 5 étapes, une PR par étape. Compilation testée sur le site réel, la feuille complète pèse **6,6 Ko en gzip**. Point à trancher avant de commencer : commiter le CSS compilé (option A, simple mais oubli possible) ou compiler dans GitHub Actions (option B, recommandée, change la façon dont Pages publie le site).
-  - [ ] Étape 1 — outillage (`package.json`, `tailwind.config.js`, `src/tailwind.css`), sans toucher aux pages
-  - [ ] Étape 2 — mutualiser le `<style>` recopié sur les 11 pages
-  - [ ] Étape 3 — basculer les 11 pages du `<script>` CDN vers `<link rel="stylesheet">`
-  - [ ] Étape 4 — publication (option A ou B)
-  - [ ] Étape 5 — mesure PageSpeed avant/après
+- [x] **Passer de Tailwind CDN à un build Tailwind CLI** (25/07/2026) : les 11 pages chargent désormais `assets/site.css`, compilée depuis `src/tailwind.css` et `tailwind.config.js`. Plus de `<script>` CDN, plus de config inline, plus de bloc `<style>` recopié. Publication par GitHub Actions (`.github/workflows/deploy.yml`), qui compile, vérifie puis déploie ; les notes internes (`docs/`, `TODO.md`, `CLAUDE.md`) ne sont plus servies publiquement. Contexte complet et mesures dans `docs/tailwind-build.md`.
+  - [ ] **Action requise côté GitHub, une seule fois** : Settings → Pages → Source → **GitHub Actions**. Sans ce réglage, le workflow s'exécute mais le site continue d'être servi depuis la branche.
+  - [ ] Une fois la bascule faite, ajouter `assets/site.css` au `.gitignore` : il est versionné à titre transitoire pour que le site garde son style tant que Pages sert la branche.
+  - [ ] Mesurer le gain sur PageSpeed Insights (accueil, un article, FAQ) après le premier déploiement.
 - [ ] **Auto-héberger les Google Fonts** — second poste de latence après le CDN Tailwind : quatre familles chargées depuis un domaine tiers en tête de page. À envisager une fois le build Tailwind en place, pas avant.
 
 ---
