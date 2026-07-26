@@ -67,6 +67,49 @@ body[data-site="blog"] footer .font-mono { font-family: 'Geist Mono', monospace;
 .nav-link:hover::after,
 .nav-link.active::after { width: 100%; }
 
+/* Menu mobile — panneau plein écran sous l'en-tête.
+   Le basculement se fait sur .is-open plutôt que sur la classe utilitaire
+   .hidden : le panneau a besoin de display:flex à l'ouverture, que .hidden
+   ne saurait pas restituer. */
+.mobile-panel { display: none; }
+.mobile-panel.is-open { display: flex; }
+/* Au-delà du point de bascule, la navigation complète reprend la main : le
+   panneau ne doit jamais rester ouvert derrière elle. */
+@media (min-width: 1024px) { .mobile-panel { display: none !important; } }
+
+body.menu-open { overflow: hidden; }
+
+/* Chaque entrée est une ligne pleine largeur séparée d'un filet fin, dans
+   l'esprit éditorial du reste du site. La hauteur minimale de 52 px tient la
+   règle des cibles tactiles confortables. */
+.mobile-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 52px;
+    padding: .5rem 0;
+    font-size: 1.125rem;
+    border-bottom: 1px solid #ece5d8;
+    transition: color .2s ease, padding-left .2s ease;
+}
+.mobile-link:last-of-type { border-bottom: 0; }
+.mobile-link:hover, .mobile-link:focus-visible { color: #1e3a8a; padding-left: .375rem; }
+.mobile-link[aria-current="page"] { color: #1e3a8a; }
+/* L'ornement ✳ marque la page courante ; il reste décoratif, le lecteur
+   d'écran s'appuyant sur aria-current. */
+.mobile-link[aria-current="page"]::after {
+    content: '✳';
+    font-size: .75rem;
+    line-height: 1;
+    opacity: .8;
+}
+
+/* Bascule des deux pictogrammes du bouton (trois filets / croix). */
+#mobile-menu-btn .icon-close { display: none; }
+#mobile-menu-btn[aria-expanded="true"] .icon-open { display: none; }
+#mobile-menu-btn[aria-expanded="true"] .icon-close { display: block; }
+
 /* --------------------------------------------------------------------------
    4. Animations d'entrée
    -------------------------------------------------------------------------- */
@@ -139,10 +182,12 @@ body[data-site="blog"] footer .font-mono { font-family: 'Geist Mono', monospace;
 #copy-email-btn svg { transition: opacity .2s ease; }
 
 /* Bandeau défilant des logos clients */
+/* Le fondu des bords est exprimé en pixels et non en pourcentage : à 10 %,
+   il mangeait 39 px sur un écran de 390 px, soit la moitié du premier logo. */
 .logo-marquee {
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
-    mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 28px, black calc(100% - 28px), transparent);
+    mask-image: linear-gradient(90deg, transparent, black 28px, black calc(100% - 28px), transparent);
 }
 .logo-track { animation: logo-scroll 26s linear infinite; }
 .logo-marquee:hover .logo-track,
@@ -250,7 +295,23 @@ body[data-site="blog"] footer .font-mono { font-family: 'Geist Mono', monospace;
 }
 
 /* --------------------------------------------------------------------------
-   9. Mouvement réduit
+   9. Cibles tactiles
+   --------------------------------------------------------------------------
+   Au doigt, une cible de 32 à 36 px se rate. Les éléments concernés gardent
+   leurs dimensions à la souris et s'élargissent sur les pointeurs grossiers,
+   sans décaler la mise en page (l'agrandissement se fait par la hauteur de
+   ligne, jamais par une marge).
+   -------------------------------------------------------------------------- */
+
+@media (pointer: coarse) {
+    .filter-btn { min-height: 44px; }
+    footer nav a { min-height: 44px; display: inline-flex; align-items: center; }
+    #copy-email-btn { min-width: 44px; min-height: 44px; }
+    .contact-inline-link { min-height: 44px; display: inline-flex; align-items: center; }
+}
+
+/* --------------------------------------------------------------------------
+   10. Mouvement réduit
    --------------------------------------------------------------------------
    Les blocs @media qui existaient page par page sont réunis ici.
    -------------------------------------------------------------------------- */
