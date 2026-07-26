@@ -49,7 +49,12 @@ Défini dans `tailwind.config.js` (palette, polices) et `src/tailwind.css` (règ
 - **Palette chaude** : l'échelle `slate` est **remappée** vers des tons ivoire/anthracite (`slate-50` = `#faf7f1`, etc.) — utiliser les classes `slate-*` habituelles, elles rendent chaud. `.bg-white` est forcé en blanc cassé `#fffdf8`.
 - **Typographie** : `Gloock` (serif display — appliqué automatiquement à h1/h2/h3 en graisse 400, ne pas mettre de `font-bold` sur les titres), `Instrument Sans` (texte), `Space Grotesk` (micro-labels — appliqué automatiquement via `.tracking-widest`/`.tracking-wider`/`.font-mono`). `Geist Mono` reste utilisé dans le pied de page (sélecteur `footer`) de **toutes** les pages, y compris le blog. Sur le site principal (`index.html`, `404.html`), il est aussi réservé à l'encart Méthode de la section À propos (`.method-card`) et aux libellés de contact/formulaire (`.label-geist`) — ne pas l'étendre ailleurs sans en discuter avec Mikaël. **Dans le blog (`blog/index.html` et `blog-articles/*.html`), en dehors du pied de page, Geist Mono n'est plus utilisé** (depuis juillet 2026) : les micro-labels en majuscules (catégories, sommaire) restent en Space Grotesk, mais les dates, temps de lecture et signature d'auteur (`.font-mono` hors `tracking-wider`/`tracking-widest`) sont en Instrument Sans, comme le reste du texte.
 - **Détails éditoriaux** : filets fins (`h-px`), numéros display, ornement ✳, micro-labels en capitales espacées. Les **numéros display** sont réservés aux suites ordonnées (les trois temps de la méthode dans l'encart À propos, les statistiques) : ne pas les utiliser pour numéroter une liste dont l'ordre n'a pas de sens.
-- **Icônes** : le site n'utilise presque pas d'iconographie. Seule exception, les quatre cartes de la section Prestations (`.prestation-icon`), qui portent chacune un pictogramme au trait (SVG inline, `stroke-width="1.5"`, 20 px dans un carré de 44 px `rounded-xl bg-brand-50`, inversé en bleu plein au survol de la carte). Ne pas étendre ce vocabulaire d'icônes à d'autres sections sans en discuter avec Mikaël : ailleurs, la hiérarchie passe par la typographie et les filets.
+- **Icônes** : l'iconographie reste rare et cantonnée à l'accueil, dans **trois** endroits — inventaire relevé lors du QA mobile du 26/07/2026 :
+  - les cinq cartes de la section Compétences (`.skill-icon`) : SVG au trait `stroke-width="2"`, 24 px dans un carré de 48 px, qui pivote et s'inverse au survol ;
+  - les quatre cartes de la section Prestations (`.prestation-icon`) : SVG au trait `stroke-width="1.5"`, 20 px dans un carré de 44 px `rounded-xl bg-brand-50`, inversé en bleu plein au survol ;
+  - les trois cartes de contact (enveloppe, téléphone, LinkedIn) : 20 px dans un carré de 40 px.
+
+  Les deux premières familles ne partagent ni la graisse de trait ni la taille du cadre : c'est une incohérence connue, à trancher avec Mikaël plutôt qu'à corriger au passage. Ne pas étendre ce vocabulaire à d'autres sections : ailleurs, la hiérarchie passe par la typographie et les filets.
 - **Pas de dark mode** : retiré du site (juillet 2026) pour fiabiliser l'affichage — ne pas réintroduire de classes `dark:` ni de bouton de bascule sans en discuter avec Mikaël.
 
 Pas de couleurs vives hors palette, pas d'esthétique « tech/terminal ».
@@ -116,6 +121,16 @@ Articles dans `blog-articles/*.html`, listés par le tableau `articlesData` en b
 - URLs absolues basées sur GitHub Pages ; à remplacer si un domaine perso est acheté.
 - **Favicon** : mark de l'ancre sur fond bleu encre, décliné en `images/favicon-{16,32,48}.png`, `images/apple-touch-icon.png` (180×180) et `images/favicon.ico`. Posé via 4 `<link rel="icon"/apple-touch-icon">` juste après `<title>` sur **toutes** les pages (chemins relatifs à adapter selon la profondeur du dossier).
 - **Image Open Graph** : `images/og-image.png` (1200×630) — fond bleu encre, mark de l'ancre en filigrane, nom + positionnement en Gloock/Space Grotesk, et le mot-symbole « Æncre Consulting » (ligature AE du glyphe `Æ` de Gloock) glissé discrètement en coin, teaser du futur nom de marque. Référencée par tous les `og:image`/`twitter:image`/JSON-LD `image`.
+
+## Responsive & menu mobile
+
+Relevé et corrigé lors du QA du 26/07/2026 (mesures Playwright de 320 à 1440 px, 11 pages) :
+
+- **Point de bascule de la navigation : `lg` (1024 px), pas `md`.** L'en-tête complet réclame 834 px ; en basculant à 768 px, il débordait de 66 px pendant que le bouton du menu avait déjà disparu — soit un iPad en portrait sans aucune navigation atteignable. Ne pas ramener ce seuil à `md` sans remesurer. Seul `404.html` reste en `md` : son en-tête ne porte pas les deux appels à l'action et tient dans 744 px.
+- **Le panneau du menu vit hors de `<header>`.** L'en-tête porte `backdrop-blur-md`, ce qui en fait le bloc conteneur de ses descendants `fixed` : replacé à l'intérieur, le panneau verrait `top-16 bottom-0` se résoudre dans une bande de 64 px et n'aurait aucune hauteur. Même piège pour tout futur élément `fixed` placé dans l'en-tête.
+- **Cibles tactiles** : les règles `@media (pointer: coarse)` de `src/tailwind.css` portent les filtres, le bouton de copie et les liens de contact et de pied de page à 44 px. Elles ne changent rien au rendu à la souris.
+- **Bandeau de logos** : le fondu des bords est en pixels (28 px) et non en pourcentage. À 10 %, il mangeait 39 px sur un écran de 390 px, soit la moitié du premier logo.
+- Toute nouvelle page reprend le bloc `#mobile-menu` d'`index.html` en adaptant les chemins relatifs, et la logique `setMenu` qui l'accompagne en bas de page.
 
 ## Conventions & workflow
 

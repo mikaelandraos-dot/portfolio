@@ -34,13 +34,16 @@ Pour toute nouvelle image ajoutée au site :
 
 ## 🟢 Améliorations futures
 
-- [x] **Core Web Vitals — `width`/`height` sur les images** (25/07/2026) : les 50 `<img>` locales du site portent désormais leurs dimensions intrinsèques, ce qui laisse le navigateur réserver la place avant le chargement et supprime le décalage de mise en page (CLS).
+- [x] **Core Web Vitals — `width`/`height` sur les images** (25/07/2026) : les 50 `<img>` locales du site portent désormais leurs dimensions intrinsèques, ce qui laisse le navigateur réserver la place avant le chargement et supprime le décalage de mise en page (CLS). Complété le 26/07/2026 pour les logos du bandeau, injectés en JS et donc invisibles au premier passage : leurs dimensions vivent dans `trustedByData`.
+- [x] **QA responsive & refonte du menu mobile** (26/07/2026) : audit Playwright de 320 à 1440 px sur les 11 pages. Trois défauts corrigés — l'en-tête débordait de 66 px entre 768 et 832 px sans bouton de menu accessible, le fondu du bandeau de logos mangeait la moitié du premier logo sous 400 px, et une quinzaine de cibles tactiles tenaient sous 40 px. Le menu mobile passe d'une liste de liens à un panneau plein écran avec appels à l'action et coordonnées. Détail des règles dans `CLAUDE.md`, section « Responsive & menu mobile ».
+  - [ ] **À arbitrer avec Mikaël** : les icônes de Compétences (`stroke-width="2"`, cadre 48 px) et de Prestations (`stroke-width="1.5"`, cadre 44 px) ne partagent pas le même traitement. Harmoniser sur l'une des deux, ou assumer la différence.
+  - [ ] **À arbitrer avec Mikaël** : `404.html` n'offre aucune navigation sous 768 px, faute de bouton de menu. Lui donner le même panneau que les autres pages, ou considérer que le nom en haut à gauche suffit à revenir à l'accueil.
 - [ ] Analytics respectueux de la vie privée (Plausible, GoatCounter ou Umami).
 - [x] Micro-animations au scroll (IntersectionObserver, apparitions douces) — implémenté (`.reveal-up`, compteur animé sur les statistiques).
 - [x] Page 404 personnalisée pour GitHub Pages — `404.html`, ancre échouée sur le rivage.
 - [ ] Témoignages clients (citations) si accord des clients.
 - [x] **Passer de Tailwind CDN à un build Tailwind CLI** (25/07/2026) : les 11 pages chargent désormais `assets/site.css`, compilée depuis `src/tailwind.css` et `tailwind.config.js`. Plus de `<script>` CDN, plus de config inline, plus de bloc `<style>` recopié. Publication par GitHub Actions (`.github/workflows/deploy.yml`), qui compile, vérifie puis déploie ; les notes internes (`docs/`, `TODO.md`, `CLAUDE.md`) ne sont plus servies publiquement. Contexte complet et mesures dans `docs/tailwind-build.md`.
-  - [ ] **Action requise côté GitHub, une seule fois** : Settings → Pages → Source → **GitHub Actions**. Sans ce réglage, le workflow s'exécute mais le site continue d'être servi depuis la branche.
+  - [x] **Action requise côté GitHub, une seule fois** : Settings → Pages → Source → **GitHub Actions**. Fait — le déploiement du 25/07/2026 sur `main` confirme que Pages sert désormais depuis le workflow.
   - [ ] Une fois la bascule faite, ajouter `assets/site.css` au `.gitignore` : il est versionné à titre transitoire pour que le site garde son style tant que Pages sert la branche.
   - [ ] Mesurer le gain sur PageSpeed Insights (accueil, un article, FAQ) après le premier déploiement.
 - [ ] **Auto-héberger les Google Fonts** — second poste de latence après le CDN Tailwind : quatre familles chargées depuis un domaine tiers en tête de page. À envisager une fois le build Tailwind en place, pas avant.
