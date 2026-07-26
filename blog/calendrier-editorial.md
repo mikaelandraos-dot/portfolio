@@ -4,7 +4,13 @@ Suivi de la publication des articles du blog (`/blog/`). Cadence visée : 1 à 2
 
 ---
 
-## ✅ Publiés (7)
+## ✅ Publiés (8)
+
+- [x] **AI Overviews en France : ce qui change vraiment pour le SEO**
+  Catégorie : SEO & GEO · Publié le 26/07/2026 · [En ligne](https://mikaelandraos-dot.github.io/portfolio/blog-articles/ai-overviews-france.html)
+  - [ ] Idée post LinkedIn n°1 :
+  - [ ] Idée post LinkedIn n°2 :
+  - ⚠️ **À vérifier avant diffusion** : les chiffres Ahrefs (58 %, 38 %) et Semrush (43,5 % UE/UK) ont été relevés via des résumés de recherche, les deux domaines étant inaccessibles depuis l'environnement de rédaction. Ouvrir les cinq liens de la section Sources et confirmer chaque valeur.
 
 - [x] **De la visibilité à la conversion : les trois piliers d'une présence en ligne** — 🏛️ **article pilier**
   Catégorie : Méthode · Publié le 25/07/2026 · [En ligne](https://mikaelandraos-dot.github.io/portfolio/blog-articles/trois-piliers-visibilite-conversion.html)
