@@ -2,7 +2,7 @@
 
 **Stratégie créative & content marketing — SEO/GEO, Contenu et UX**, pour institutions culturelles et marques de prestige.
 
-🔗 **Site en ligne :** https://mikaelandraos-dot.github.io/portfolio/
+🔗 **Site en ligne :** https://www.mikaelandraos.fr/
 
 ## Références présentées
 

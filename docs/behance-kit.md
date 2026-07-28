@@ -8,7 +8,7 @@ Contenu prêt à l'emploi pour créer le portfolio Behance (`behance.net/mikaela
 - **Intitulé** : `Stratégie créative & content marketing — SEO/GEO, Contenu, UX`
 - **Bio** :
   > J'aide les institutions culturelles et les marques de prestige à être trouvées, lues et choisies — du référencement (moteurs de recherche et IA) à la stratégie de contenu, jusqu'au dernier pixel de l'expérience. Basé entre Monaco et le Grand Sud, disponible en remote.
-- **Liens** : site (https://mikaelandraos-dot.github.io/portfolio/) + LinkedIn (https://linkedin.com/in/mikael-andraos).
+- **Liens** : site (https://www.mikaelandraos.fr/) + LinkedIn (https://linkedin.com/in/mikael-andraos).
 - **Cohérence visuelle** : bannières et slides de contexte en bleu encre `#1e3a8a` sur ivoire `#faf7f1`, titres serif (Gloock — dispo sur Google Fonts — ou serif élégante équivalente), filets fins, ornement ✳.
 
 ## Structure type d'un projet Behance

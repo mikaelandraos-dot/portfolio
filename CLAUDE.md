@@ -6,7 +6,7 @@ Guidance pour Claude Code (claude.ai/code) sur ce dépôt.
 
 Portfolio personnel de Mikaël Andraos — **« Stratégie créative & content marketing — SEO/GEO, Contenu, UX »** — entièrement en français.
 Site statique **multi-pages sans framework** : `index.html` (accueil, une seule page), `blog/index.html` (liste des articles, accessible via l'URL `/blog/`), `blog-articles/*.html` (articles individuels) et `404.html` (page d'erreur personnalisée, servie automatiquement par GitHub Pages). Aucune dépendance à l'exécution : la seule dépendance de développement est Tailwind.
-Hébergé sur GitHub Pages : pousser sur `main` déclenche le workflow qui compile et publie — https://mikaelandraos-dot.github.io/portfolio/
+Hébergé sur GitHub Pages : pousser sur `main` déclenche le workflow qui compile et publie — https://www.mikaelandraos.fr/
 
 ## Développement
 
