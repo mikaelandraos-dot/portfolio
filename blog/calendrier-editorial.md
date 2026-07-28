@@ -7,43 +7,43 @@ Suivi de la publication des articles du blog (`/blog/`). Cadence visée : 1 à 2
 ## ✅ Publiés (8)
 
 - [x] **AI Overviews en France : ce qui change vraiment pour le SEO**
-  Catégorie : SEO & GEO · Publié le 26/07/2026 · [En ligne](https://mikaelandraos-dot.github.io/portfolio/blog-articles/ai-overviews-france.html)
+  Catégorie : SEO & GEO · Publié le 26/07/2026 · [En ligne](https://www.mikaelandraos.fr/blog-articles/ai-overviews-france.html)
   - [ ] Idée post LinkedIn n°1 :
   - [ ] Idée post LinkedIn n°2 :
   - ⚠️ **À vérifier avant diffusion** : les chiffres Ahrefs (58 %, 38 %) et Semrush (43,5 % UE/UK) ont été relevés via des résumés de recherche, les deux domaines étant inaccessibles depuis l'environnement de rédaction. Ouvrir les cinq liens de la section Sources et confirmer chaque valeur.
 
 - [x] **De la visibilité à la conversion : les trois piliers d'une présence en ligne** — 🏛️ **article pilier**
-  Catégorie : Méthode · Publié le 25/07/2026 · [En ligne](https://mikaelandraos-dot.github.io/portfolio/blog-articles/trois-piliers-visibilite-conversion.html)
+  Catégorie : Méthode · Publié le 25/07/2026 · [En ligne](https://www.mikaelandraos.fr/blog-articles/trois-piliers-visibilite-conversion.html)
   - [ ] Idée post LinkedIn n°1 :
   - [ ] Idée post LinkedIn n°2 :
 
 - [x] **Design d'interface et sobriété : pourquoi le minimalisme inspire confiance**
-  Catégorie : UX & Design · Publié le 21/07/2026 · [En ligne](https://mikaelandraos-dot.github.io/portfolio/blog-articles/design-sobriete-confiance.html)
+  Catégorie : UX & Design · Publié le 21/07/2026 · [En ligne](https://www.mikaelandraos.fr/blog-articles/design-sobriete-confiance.html)
   - [ ] Idée post LinkedIn n°1 :
   - [ ] Idée post LinkedIn n°2 :
 
 - [x] **Storytelling de marque : raconter une histoire sans jamais sonner pompeux**
-  Catégorie : Contenu & Copy · Publié le 21/07/2026 · [En ligne](https://mikaelandraos-dot.github.io/portfolio/blog-articles/storytelling-marque-sans-pompeux.html)
+  Catégorie : Contenu & Copy · Publié le 21/07/2026 · [En ligne](https://www.mikaelandraos.fr/blog-articles/storytelling-marque-sans-pompeux.html)
   - [ ] Idée post LinkedIn n°1 :
   - [ ] Idée post LinkedIn n°2 :
 
 - [x] **Le SEO local : dominer les résultats de recherche près de chez soi**
-  Catégorie : SEO & GEO · Publié le 21/07/2026 · [En ligne](https://mikaelandraos-dot.github.io/portfolio/blog-articles/seo-local-institutions-culturelles.html)
+  Catégorie : SEO & GEO · Publié le 21/07/2026 · [En ligne](https://www.mikaelandraos.fr/blog-articles/seo-local-institutions-culturelles.html)
   - [ ] Idée post LinkedIn n°1 :
   - [ ] Idée post LinkedIn n°2 :
 
 - [x] **SEO & GEO : comment être trouvé par Google ET par l'intelligence artificielle**
-  Catégorie : SEO & GEO · Publié le 12/07/2026 · [En ligne](https://mikaelandraos-dot.github.io/portfolio/blog-articles/seo-geo-institutions-culturelles.html)
+  Catégorie : SEO & GEO · Publié le 12/07/2026 · [En ligne](https://www.mikaelandraos.fr/blog-articles/seo-geo-institutions-culturelles.html)
   - [ ] Idée post LinkedIn n°1 :
   - [ ] Idée post LinkedIn n°2 :
 
 - [x] **Newsletters qui convertissent : la méthode AIDA appliquée à la culture**
-  Catégorie : Contenu & Copy · Publié le 05/07/2026 · [En ligne](https://mikaelandraos-dot.github.io/portfolio/blog-articles/newsletters-methode-aida.html)
+  Catégorie : Contenu & Copy · Publié le 05/07/2026 · [En ligne](https://www.mikaelandraos.fr/blog-articles/newsletters-methode-aida.html)
   - [ ] Idée post LinkedIn n°1 :
   - [ ] Idée post LinkedIn n°2 :
 
 - [x] **UX et tunnels de don : réduire la friction sans perdre l'émotion**
-  Catégorie : UX & Design · Publié le 28/06/2026 · [En ligne](https://mikaelandraos-dot.github.io/portfolio/blog-articles/ux-tunnel-don-friction.html)
+  Catégorie : UX & Design · Publié le 28/06/2026 · [En ligne](https://www.mikaelandraos.fr/blog-articles/ux-tunnel-don-friction.html)
   - [ ] Idée post LinkedIn n°1 :
   - [ ] Idée post LinkedIn n°2 :
 
