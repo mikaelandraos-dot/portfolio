@@ -10,13 +10,13 @@ Suivi de la publication des articles du blog (`/blog/`). Cadence visée : 1 à 2
   Catégorie : SEO & GEO · Publié le 05/09/2026 · [En ligne](https://www.mikaelandraos.fr/blog-articles/transparence-ia-loi-europeenne.html)
   - [ ] Idée post LinkedIn n°1 :
   - [ ] Idée post LinkedIn n°2 :
-  - ⚠️ **Pas de visuel de couverture** : aucune image inutilisée du dépôt ne convenait au sujet (les deux seules non employées sont des variantes du logo). Prompt fourni à Mikaël pour Google Flow — voir `TODO.md`. Aucune mission du portfolio citée non plus : aucun des trois clients n'a de volet documenté sur la conformité IA/RGPD, choix cohérent avec le précédent de l'article pilier qui n'en cite aucune.
+  - [x] **Visuel de couverture ajouté** (05/09/2026) : animation générée par Mikaël via Google Flow (papier levé vers la lumière, filigrane qui apparaît), convertie en WebP animé (360×202, 145 Ko) — détail dans `TODO.md`. Aucune mission du portfolio citée : aucun des trois clients n'a de volet documenté sur la conformité IA/RGPD, choix cohérent avec le précédent de l'article pilier qui n'en cite aucune.
 
 - [x] **Stratégie social media : ce que les réseaux apportent vraiment à la visibilité**
   Catégorie : SEO & GEO · Publié le 05/09/2026 · [En ligne](https://www.mikaelandraos.fr/blog-articles/reseaux-sociaux-visibilite.html)
   - [ ] Idée post LinkedIn n°1 :
   - [ ] Idée post LinkedIn n°2 :
-  - ⚠️ **Visuel de couverture à remplacer avant fusion** : `images/blog-social-media-strategy.jpg` (fourni en juillet) est un rendu 3D « réseau de nœuds » avec le texte anglais « SOCIAL MEDIA STRATEGY » incrusté — hors charte. Prompt de remplacement fourni à Mikaël pour Google AI Studio, voir `TODO.md`.
+  - [x] **Visuel de couverture remplacé** (05/09/2026) : photo macro générée par Mikaël via Google AI Studio (pierre jetée dans l'eau, ondes concentriques), à la place du rendu 3D hors charte — détail dans `TODO.md`.
 
 - [x] **AI Overviews en France : ce qui change vraiment pour le SEO**
   Catégorie : SEO & GEO · Publié le 26/07/2026 · [En ligne](https://www.mikaelandraos.fr/blog-articles/ai-overviews-france.html)
