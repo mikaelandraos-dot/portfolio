@@ -4,7 +4,19 @@ Suivi de la publication des articles du blog (`/blog/`). Cadence visée : 1 à 2
 
 ---
 
-## ✅ Publiés (8)
+## ✅ Publiés (10)
+
+- [x] **Transparence de l'IA : ce que la loi européenne impose à vos contenus depuis août 2026**
+  Catégorie : SEO & GEO · Publié le 05/09/2026 · [En ligne](https://www.mikaelandraos.fr/blog-articles/transparence-ia-loi-europeenne.html)
+  - [ ] Idée post LinkedIn n°1 :
+  - [ ] Idée post LinkedIn n°2 :
+  - [x] **Visuel de couverture ajouté** (05/09/2026) : animation générée par Mikaël via Google Flow (papier levé vers la lumière, filigrane qui apparaît), convertie en WebP animé (360×202, 145 Ko) — détail dans `TODO.md`. Aucune mission du portfolio citée : aucun des trois clients n'a de volet documenté sur la conformité IA/RGPD, choix cohérent avec le précédent de l'article pilier qui n'en cite aucune.
+
+- [x] **Stratégie social media : ce que les réseaux apportent vraiment à la visibilité**
+  Catégorie : SEO & GEO · Publié le 05/09/2026 · [En ligne](https://www.mikaelandraos.fr/blog-articles/reseaux-sociaux-visibilite.html)
+  - [ ] Idée post LinkedIn n°1 :
+  - [ ] Idée post LinkedIn n°2 :
+  - [x] **Visuel de couverture remplacé** (05/09/2026) : photo macro générée par Mikaël via Google AI Studio (pierre jetée dans l'eau, ondes concentriques), à la place du rendu 3D hors charte — détail dans `TODO.md`.
 
 - [x] **AI Overviews en France : ce qui change vraiment pour le SEO**
   Catégorie : SEO & GEO · Publié le 26/07/2026 · [En ligne](https://www.mikaelandraos.fr/blog-articles/ai-overviews-france.html)
@@ -63,12 +75,6 @@ Suivi de la publication des articles du blog (`/blog/`). Cadence visée : 1 à 2
   Angle : comment structurer ses prompts/contextes IA pour accélérer l'idéation et la rédaction sans sacrifier la justesse.
   Date proposée : 22/09/2026
 
-### SEO & GEO
-
-- [ ] **Stratégie social media : ce que les réseaux apportent vraiment à la visibilité**
-  Angle : la place des réseaux sociaux dans le pilier « être trouvé », et ce qu'ils ne remplacent pas. Le visuel `images/blog-social-media-strategy.jpg` attend cet article depuis juillet 2026.
-  Date proposée : à caler
-
 ---
 
 ## Notes
@@ -93,7 +99,7 @@ Chaque nouvel article doit :
 
 **La répartition des liens se recalcule à chaque ajout ou suppression d'article**, elle ne s'improvise pas. Les règles complètes (motif en anneau, comptage des liens entrants, ancres descriptives) sont dans `CLAUDE.md`, section « Blog & maillage interne ».
 
-État au 25/07/2026 : chaque article reçoit exactement **3 cartes entrantes** et **2 liens contextuels entrants**. L'article pilier en totalise 9. Vérification rapide :
+État au 05/09/2026 (10 articles, anneau recalculé une seconde fois le même jour après l'ajout de « Transparence de l'IA ») : chaque article reçoit exactement **3 cartes entrantes** et **2 liens contextuels entrants**. L'article pilier en totalise 10. Vérification rapide :
 
 ```bash
 grep -o 'href="[a-z0-9-]*\.html"' blog-articles/*.html | sort | uniq -c | sort -rn
@@ -105,7 +111,9 @@ grep -o 'href="[a-z0-9-]*\.html"' blog-articles/*.html | sort | uniq -c | sort -
 
 ### Répartition des liens vers les projets
 
-À équilibrer sur la durée : L'Èze Harmonies (SEO & GEO, SEO local), Printemps des Arts de Monte-Carlo (Newsletters AIDA, Storytelling), Fondation Princesse Charlène de Monaco (UX tunnels de don, Design & sobriété) — 2 articles chacun à ce jour. L'article pilier ne cite aucune mission en particulier, ce qui est cohérent avec son rôle de plaque tournante.
+État au 05/09/2026 : Printemps des Arts de Monte-Carlo (Newsletters AIDA, Storytelling, AI Overviews, Réseaux sociaux — **4**), L'Èze Harmonies (SEO & GEO, SEO local — 2), Fondation Princesse Charlène de Monaco (UX tunnels de don, Design & sobriété — 2). L'article pilier ne cite aucune mission en particulier, ce qui est cohérent avec son rôle de plaque tournante.
+
+⚠️ **Déséquilibre toujours à corriger sur les deux prochains articles qui citent une mission** : Printemps des Arts reste cité deux fois plus que les deux autres clients (4 contre 2 et 2). « Transparence de l'IA » ne change rien à ce compte : sujet réglementaire général, sans lien direct avec un projet du portfolio, elle ne cite aucune mission — comme l'article pilier. Prochaine occasion réelle de rééquilibrer : privilégier L'Èze Harmonies ou la Fondation Princesse Charlène pour la mission citée dans « Éditorial : moins, mais mieux » et dans l'article qui suit. Voir aussi la piste « enrichir les visuels des projets » dans `TODO.md`, qui documenterait un volet social media pour ces deux clients et lèverait la contrainte.
 
 ### Divers
 
