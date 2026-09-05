@@ -4,7 +4,13 @@ Suivi de la publication des articles du blog (`/blog/`). Cadence visée : 1 à 2
 
 ---
 
-## ✅ Publiés (9)
+## ✅ Publiés (10)
+
+- [x] **Transparence de l'IA : ce que la loi européenne impose à vos contenus depuis août 2026**
+  Catégorie : SEO & GEO · Publié le 05/09/2026 · [En ligne](https://www.mikaelandraos.fr/blog-articles/transparence-ia-loi-europeenne.html)
+  - [ ] Idée post LinkedIn n°1 :
+  - [ ] Idée post LinkedIn n°2 :
+  - ⚠️ **Pas de visuel de couverture** : aucune image inutilisée du dépôt ne convenait au sujet (les deux seules non employées sont des variantes du logo). Prompt fourni à Mikaël pour Google Flow — voir `TODO.md`. Aucune mission du portfolio citée non plus : aucun des trois clients n'a de volet documenté sur la conformité IA/RGPD, choix cohérent avec le précédent de l'article pilier qui n'en cite aucune.
 
 - [x] **Stratégie social media : ce que les réseaux apportent vraiment à la visibilité**
   Catégorie : SEO & GEO · Publié le 05/09/2026 · [En ligne](https://www.mikaelandraos.fr/blog-articles/reseaux-sociaux-visibilite.html)
@@ -93,7 +99,7 @@ Chaque nouvel article doit :
 
 **La répartition des liens se recalcule à chaque ajout ou suppression d'article**, elle ne s'improvise pas. Les règles complètes (motif en anneau, comptage des liens entrants, ancres descriptives) sont dans `CLAUDE.md`, section « Blog & maillage interne ».
 
-État au 05/09/2026 (9 articles, anneau recalculé après l'ajout de « Stratégie social media ») : chaque article reçoit exactement **3 cartes entrantes** et **2 liens contextuels entrants**. L'article pilier en totalise 9. Vérification rapide :
+État au 05/09/2026 (10 articles, anneau recalculé une seconde fois le même jour après l'ajout de « Transparence de l'IA ») : chaque article reçoit exactement **3 cartes entrantes** et **2 liens contextuels entrants**. L'article pilier en totalise 10. Vérification rapide :
 
 ```bash
 grep -o 'href="[a-z0-9-]*\.html"' blog-articles/*.html | sort | uniq -c | sort -rn
@@ -107,7 +113,7 @@ grep -o 'href="[a-z0-9-]*\.html"' blog-articles/*.html | sort | uniq -c | sort -
 
 État au 05/09/2026 : Printemps des Arts de Monte-Carlo (Newsletters AIDA, Storytelling, AI Overviews, Réseaux sociaux — **4**), L'Èze Harmonies (SEO & GEO, SEO local — 2), Fondation Princesse Charlène de Monaco (UX tunnels de don, Design & sobriété — 2). L'article pilier ne cite aucune mission en particulier, ce qui est cohérent avec son rôle de plaque tournante.
 
-⚠️ **Déséquilibre à corriger sur les deux prochains articles** : Printemps des Arts est cité deux fois plus que les deux autres clients. La raison est factuelle plutôt qu'un oubli — l'article sur les réseaux sociaux ne pouvait citer sincèrement que le projet « Réseaux Sociaux & Engagement Événementiel » (id 1), le seul des cinq projets du portfolio à documenter un volet social media — mais ça ne dispense pas de rééquilibrer. Prochaine occasion : privilégier L'Èze Harmonies ou la Fondation Princesse Charlène pour la mission citée dans « Éditorial : moins, mais mieux » et dans l'article suivant. Voir aussi la piste « enrichir les visuels des projets » dans `TODO.md`, qui documenterait un volet social media pour ces deux clients et lèverait la contrainte.
+⚠️ **Déséquilibre toujours à corriger sur les deux prochains articles qui citent une mission** : Printemps des Arts reste cité deux fois plus que les deux autres clients (4 contre 2 et 2). « Transparence de l'IA » ne change rien à ce compte : sujet réglementaire général, sans lien direct avec un projet du portfolio, elle ne cite aucune mission — comme l'article pilier. Prochaine occasion réelle de rééquilibrer : privilégier L'Èze Harmonies ou la Fondation Princesse Charlène pour la mission citée dans « Éditorial : moins, mais mieux » et dans l'article qui suit. Voir aussi la piste « enrichir les visuels des projets » dans `TODO.md`, qui documenterait un volet social media pour ces deux clients et lèverait la contrainte.
 
 ### Divers
 
